@@ -1,16 +1,17 @@
 {
-  "name": "examples",
-  "version": "0.0.1",
-  "description": "---",
-  "keywords": [],
-  "homepage": "",
-  "author": "jaywcjlove <wowohoo@qq.com>",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "licenses": "MIT",
-  "dependencies": {},
-  "devDependencies": {},
-  "license": "ISC"
+    "name": "examples",
+    "version": "0.0.1",
+    "description": "---",
+    "keywords": [],
+    "homepage": "http://JSLite.io",
+    "author": "JSLite.io <wowohoo@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "licenses": "MIT",
+    "dependencies": {},
+    "devDependencies": {},
+    "license": "ISC"
+
 }
