@@ -7,10 +7,15 @@ require('colorful').toxic()
 
 
 commander
-  .version(appInfo.version)
-  .option('init','init a documentation')
-  .option('publish','publish documentation for public')
-  .parse(process.argv);
+    .version(appInfo.version)
+    .option('init','init a documentation.')
+    .option("-C, --Create <file>", "Select Directory Makefile.")
+    .parse(process.argv);
+
+commander
+    .option('build','init a documentation.')
+    .option("-C, --Create <file>", "Select Directory Makefile.")
+    .parse(process.argv);
 
 if (!process.argv[2]) {
     commander.help();
