@@ -2,26 +2,36 @@
 
 var commander = require('commander');
 var appInfo = require('../package');
-var idoc  = require('..')
-require('colorful').toxic()
+var idoc  = require('..');
+var log =console.log;
+// require('colorful').toxic()
+
+commander
+    .usage('[options]')
+    .version(appInfo.version);
 
 
 commander
-    .version(appInfo.version)
+    .option("-C, --Create <file>", "Select Directory Makefile.")
     .option('init','init a documentation.')
-    .option("-C, --Create <file>", "Select Directory Makefile.")
-    .parse(process.argv);
+    .option('build','Markdown produces static pages document.')
 
 commander
-    .option('build','init a documentation.')
-    .option("-C, --Create <file>", "Select Directory Makefile.")
-    .parse(process.argv);
+    .on('--help',function(){
+        // 图片文字 http://ascii.mastervb.net/text_to_ascii.php
+        
+        log('    █░░░█ █▀▀ ░░▀');
+        log('    █▄█▄█ █░░ ░░█');
+        log('    ░▀░▀░ ▀▀▀ █▄█');
+        log('')
+
+    })
+
+commander.parse(process.argv);
 
 if (!process.argv[2]) {
     commander.help();
     console.log();
 }
-
-commander.parse(process.argv);
 
 idoc(commander)
