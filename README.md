@@ -17,11 +17,15 @@ $ npm install idoc -g
 初始化文档文件
 
 ```sh
-# 默认将当前文件夹的所有md文件生成静态文件到当前目录
+# 默认生成模板和配置文件，将当前文件夹根目录的所有md文件参数生成到配置文件package.json中
 $ idoc init
+# 将指定的 md 文件拷贝到当前目录下，生成模板和配置文件
+$ idoc init ~/md/JSLite.md
 
-# 将“JSLite.md hotkeys.md”两个markdown文件生成静态文件到指定目录 `~/idoc/` 下面
-# 第一个md文件是首页
+# 生成模板和配置文件
+# 将“JSLite.md hotkeys.md”两个 md 文件拷贝到指定目录 `~/idoc/` 下面
+# 生成模板需要的文件
+# 第一个 md 文件是首页
 $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 ```
 
@@ -47,4 +51,5 @@ $ idoc build
 - [ ] 添加 clean 命令
 - [ ] 添加 watch 命令
 - [ ] 第二个模板制作
+- [ ] 模板切换命令
 - [ ] 兼容windows路径
