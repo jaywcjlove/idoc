@@ -1,8 +1,12 @@
-var init = require('./lib/init')
+var init = require('./lib/init');
+var build = require('./lib/build');
 
 module.exports = function(commander){
 
     if (commander.init) {
-        init.init(commander);
+        init(commander);
+    }
+    if(commander.build){
+        build(commander);
     }
 }
