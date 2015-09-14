@@ -37,6 +37,14 @@ $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 $ idoc build
 ```
 
+## watch
+
+监控 md 文件发生变化自动 build
+
+```sh
+$ idoc watch
+```
+
 # 模板目录
 
 `idoc/lib/idoc-theme/default/`  
@@ -45,11 +53,9 @@ $ idoc build
 
 - [x] idoc 基本命令定义
 - [ ] 默认模板制作
-- [ ] 生成静态文件
-- [ ] markdown生成静态页面
-- [ ] 监控markdown文件自动生成HMTL页面
 - [ ] 添加 clean 命令
-- [ ] 添加 watch 命令
+- [ ] 添加 build 命令，markdown生成静态页面
+- [x] 添加 watch 命令，监控markdown文件自动生成HMTL页面
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
 - [ ] 兼容windows路径

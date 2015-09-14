@@ -15,6 +15,7 @@ commander
     .option("-C, --Create <file>", "Select Directory Makefile.")
     .option('init','init a documentation.')
     .option('build','Markdown produces static pages document.')
+    .option('watch','Monitoring "Markdown" file is changed, change the automatically generated static pages.')
 
 commander
     .on('--help',function(){
@@ -23,6 +24,7 @@ commander
         log('    $ idoc init');
         log('    $ idoc init [path] ');
         log('    $ idoc init [path] -C ~/idoc/');
+        log('    $ idoc watch');
 
         
         // 图片文字 http://patorjk.com/software/taag/#p=testall&f=Graffiti&t=idoc
