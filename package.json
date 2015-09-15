@@ -25,12 +25,13 @@
   "dependencies": {
     "colorful": "^2.1.0",
     "commander": "^2.8.1",
-    "copy-dir": "0.0.7",
     "ejs": "^2.3.4",
     "inquirer": "^0.9.0",
     "marked": "^0.3.5",
+    "ncp": "^2.0.0",
     "node-watch": "^0.3.4",
     "semver": "^5.0.1",
+    "stylus": "^0.52.4",
     "underscore": "^1.8.3",
     "whoami": "0.0.3"
   }
