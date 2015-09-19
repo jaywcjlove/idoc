@@ -7,6 +7,7 @@
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
     font-size: 16px
     line-height: 1.4em
+    color:#333
     &>*:first-child
         margin-top: 0 !important
     strong
@@ -55,27 +56,29 @@
         padding: 16px
         overflow: auto
         font-size: 85%
-        line-height: 1.45
         background-color: #EEEEEE
         border-radius: 3px
         code
+            letter-spacing: 1px
             background-color:transparent
-            color: inherit;
+            color: inherit
+            font-size: 85%
+            line-height: 16px
+            display: block
 
         code:before,code:after,tt:before,tt:after
             letter-spacing: 0;
             content: "";
     code,tt
         padding: 0
-        padding-top: 0.2em
-        padding-bottom: 0.2em
+        padding-top: 0.1em
+        padding-bottom: 0.1em
         margin: 0
         font-size: 85%
         background-color: rgba(0,0,0,0.04)
         border-radius: 3px
-        color: #c7254e;
+        color: #6A6A6A;
     code:before,code:after,tt:before,tt:after
-        letter-spacing: -0.2em
         content: "\00a0"
     table
         width: 100%
@@ -91,4 +94,11 @@
             font-weight: bold
             background: #F3F3F3
         tr:nth-child(2n) 
-            background-color: #f8f8f8;
+            background-color: #f8f8f8
+
+// markdown 增强样式
+.markdown-body
+    .task-list-item
+        padding: 0;
+        li 
+            list-style-type: none
