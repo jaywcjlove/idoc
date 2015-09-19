@@ -51,7 +51,7 @@ $ idoc watch
 
 # 模板目录
 
-`idoc/lib/idoc-theme/default/`  
+`idoc/lib/theme/default/`  
 
 # TODO
 
