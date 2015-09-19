@@ -58,8 +58,10 @@ $ idoc watch
 - [x] idoc 基本命令定义
 - [x] 添加 build 命令，markdown生成静态页面
 - [x] 添加 watch 命令，监控markdown文件自动生成HMTL页面
-- [ ] 默认模板制作
+- [x] 默认模板制作
+- [ ] 树形菜单生成
 - [ ] 添加 clean 命令
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
+- [ ] api 检索功能
 - [ ] 兼容windows路径
