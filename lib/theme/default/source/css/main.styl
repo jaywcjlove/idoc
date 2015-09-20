@@ -33,9 +33,8 @@ body,html
         overflow-x: hidden
         font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
         ul
-            list-style-type: square
-            padding: 0 0 0 6px
-            margin: 0 0 0 14px 
+            list-style-type: none
+            margin: 0
             a 
                 display: block
                 padding: 3px 0
@@ -47,9 +46,25 @@ body,html
                 &:hover
                     color:red
                     text-decoration: underline
+            li:first-child
+                border-bottom: 1px solid #EDEDED
+                text-align: center
+                line-height: 23px
+                padding: 0 0 8px 0
+                margin-bottom: 7px
+            li 
+                padding-left:3px
             ul
                 margin:0 0 0 10px
+                list-style-type: square
+                padding: 0 0 0 9px
                 a 
                     font-size:90%
                     font-weight:normal
+                li:first-child
+                    border-bottom: 0
+                    text-align: left
+                    line-height: 23px
+                    padding: 0 0 0 0
+                    margin-bottom: 0
             
