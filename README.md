@@ -1,7 +1,7 @@
 
 # AIP文档生成工具
 
-通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](jaywcjlove.github.io/idoc)
+通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](http://jaywcjlove.github.io/idoc)
 
 # 常用命令
 
