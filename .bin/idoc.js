@@ -15,7 +15,7 @@ commander
     .option("-C, --Create <file>", "Select Directory Makefile.")
     .option('init','init a documentation.')
     .option('build','Markdown produces static pages document.')
-    .option('watch','Monitoring "Markdown" file is changed, change the automatically generated static pages.')
+    .option('watch','Listener "md" file is automatically generated pages.')
 
 commander
     .on('--help',function(){
