@@ -3,6 +3,8 @@
 
 通过markdown生成静态页面的AIP文档生成工具。
 
+# 常用命令
+
 ## install
 
 通过 npm 全局安装 idoc
@@ -26,7 +28,7 @@ $ idoc init ~/git/_idc/package.md  ~/git/_idc/dir/directory.md
 # 将指定的 _idc 目录下的所有 md 文件拷贝到当前目录下
 $ idoc init ~/git/_idc/
 
-# 生成模板和配置文件
+# 指定生成模板和配置文件
 # 将“JSLite.md hotkeys.md”两个 md 文件拷贝到指定目录 `~/idoc/` 下面
 # 生成模板需要的文件
 # 第一个 md 文件是首页
@@ -51,7 +53,40 @@ $ idoc watch
 
 # 模板目录
 
-`idoc/lib/theme/default/`  
+```bash
+# idoc/lib/theme/default/
+./default
+  ├── footer.ejs
+  ├── gitignore
+  ├── head.ejs
+  ├── header.ejs
+  ├── layout.ejs
+  └── source
+      ├── css
+      │   ├── highlight.styl
+      │   ├── main.styl
+      │   ├── markdown.styl
+      │   ├── reset.styl
+      │   └── vendor.styl
+      ├── img
+      └── js
+```
+
+## css
+
+样式使用 [stylus](http://learnboost.github.io/stylus/) 来写默认 `main.styl` 会自动生成 `main.css` ，供页面引用。
+
+## source
+
+默认会将此目录的中除 `.styl` 以外的文件复制到根目录中。
+
+## layout
+
+布局文件默认放到主题目录的根目录，例如：主题`default`的布局文件默认是更目录的所有ejs
+
+## ejs 
+
+选择 `ejs` 作为模板引擎，模板引擎选择ejs，我只想要一个简单的帮我填充数据的模板。[github](https://github.com/tj/ejs) [文档](http://www.embeddedjs.com/) [ejs.co](http://ejs.co/)
 
 # TODO
 
