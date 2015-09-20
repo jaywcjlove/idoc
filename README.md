@@ -1,7 +1,7 @@
 
 # AIP文档生成工具
 
-通过markdown生成静态页面的AIP文档生成工具。
+通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](jaywcjlove.github.io/idoc)
 
 # 常用命令
 
@@ -74,7 +74,7 @@ $ idoc watch
 
 ## css
 
-样式使用 [stylus](http://learnboost.github.io/stylus/) 来写默认 `main.styl` 会自动生成 `main.css` ，供页面引用。
+样式使用 [stylus](http://learnboost.github.io/stylus/) 来写默认 `main.styl` 会自动生成 `main.css` ，供页面引用。你也可以写纯css 在页面中引用。
 
 ## source
 
@@ -82,11 +82,19 @@ $ idoc watch
 
 ## layout
 
-布局文件默认放到主题目录的根目录，例如：主题`default`的布局文件默认是更目录的所有ejs
+布局文件默认放到主题目录的根目录，例如：主题`default`的布局文件默认是更目录的所有ejs，默认 `layout.ejs` 为入口模板
 
-## ejs 
+## 主题工具
+
+主题里面使用的工具说明
+
+### ejs 
 
 选择 `ejs` 作为模板引擎，模板引擎选择ejs，我只想要一个简单的帮我填充数据的模板。[github](https://github.com/tj/ejs) [文档](http://www.embeddedjs.com/) [ejs.co](http://ejs.co/)
+
+### stylus 
+
+Stylus功能上更为强壮，和js联系更加紧密。[官方文档](http://learnboost.github.io/stylus/) [张鑫旭老师的中文翻译](http://www.zhangxinxu.com/jq/stylus/) [Try Stylus!](http://learnboost.github.io/stylus/try.html)
 
 # TODO
 
@@ -94,7 +102,7 @@ $ idoc watch
 - [x] 添加 build 命令，markdown生成静态页面
 - [x] 添加 watch 命令，监控markdown文件自动生成HMTL页面
 - [x] 默认模板制作
-- [ ] 树形菜单生成
+- [x] 树形菜单生成
 - [ ] 添加 clean 命令
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
