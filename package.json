@@ -1,0 +1,25 @@
+{
+    "name": "test",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        ""
+    ],
+    "homepage": "http://JSLite.io",
+    "author": "jaywcjlove <398188662@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "licenses": "MIT",
+    "dependencies": {},
+    "devDependencies": {},
+    "license": "ISC",
+    "idoc": {
+        "todir": "/Users/kacperwang/git/temp/test/",
+        "theme": "default",
+        "md": [
+            "index.md"
+        ]
+    }
+}
