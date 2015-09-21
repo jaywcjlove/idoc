@@ -2,7 +2,6 @@
 .markdown-body
     padding: 30px
     word-wrap: break-word
-    overflow: hidden
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
     font-size: 16px
     line-height: 1.4em
@@ -11,6 +10,9 @@
         margin-top: 0 !important
     strong
         font-weight: bold
+    hr 
+        border-top: 1px solid #CACACA
+        border-width: 1px 0 0 0
     em 
         font-style:italic
     h1,h2,h3,h4,h5,h6
@@ -77,12 +79,15 @@
             content: "";
     code,tt
         padding: 0
-        padding-top: 0.1em
-        padding-bottom: 0.1em
-        margin: 0
-        background-color: rgba(0,0,0,0.04)
-        border-radius: 3px
-        color: #6A6A6A;
+        padding-bottom: 2px
+        margin: 0 0 0 0
+        vertical-align: top
+        background-color: rgba(0,0,0,0.09)
+        border-radius: 4px
+        padding-left: 3px
+        padding-right: 3px
+        font-size: 14px
+        color: #7a7a7a
     code:before,code:after,tt:before,tt:after
         content: "\00a0"
     table
