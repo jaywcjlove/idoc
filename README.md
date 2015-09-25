@@ -3,7 +3,42 @@
 
 通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](http://jaywcjlove.github.io/idoc)
 
-# 常用命令
+# 命令使用
+
+命令使用帮助。
+
+```
+  Usage: idoc [options]
+
+  Options:
+
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -C, --Create <file>  Select Directory Makefile.
+    init                 init a documentation.
+    build                Markdown produces static pages document.
+    watch                Listener "md" file is automatically generated pages.
+    server               Open local static html server.
+
+  Examples:
+
+    $ idoc init
+    $ idoc init [path]
+    $ idoc init [path] -C ~/idoc/
+    $ idoc watch
+
+
+
+
+    ,,        ,,
+    db      `7MM
+              MM
+  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
+    MM ,AP    MM 6W'   `Wb 6M'  OO
+    MM 8MI    MM 8M     M8 8M
+    MM `Mb    MM YA.   ,A9 YM.    ,
+  .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
+```
 
 ## install
 
@@ -46,6 +81,15 @@ $ idoc build
 ## watch
 
 监控 md 文件发生变化自动 build
+
+```sh
+$ idoc watch
+```
+
+
+## server
+
+打开本地静态 html 服务器，预览你生成的页面。
 
 ```sh
 $ idoc watch
@@ -103,7 +147,8 @@ Stylus功能上更为强壮，和js联系更加紧密。[官方文档](http://le
 - [x] 添加 watch 命令，监控markdown文件自动生成HMTL页面
 - [x] 默认模板制作
 - [x] 树形菜单生成
-- [ ] 添加多页面导航菜单
+- [x] 添加 server 命令，预览生成的静态页面
+- [x] 添加多页面导航菜单
 - [ ] 添加 clean 命令
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
