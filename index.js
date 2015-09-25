@@ -1,6 +1,7 @@
 var init = require('./lib/init');
 var build = require('./lib/build');
 var watch = require('./lib/watch');
+var server = require('./lib/server');
 
 module.exports = function(commander){
 
@@ -12,5 +13,8 @@ module.exports = function(commander){
     }
     if(commander.watch){
         watch(commander,build);
+    }
+    if(commander.server){
+        server(commander);
     }
 }
