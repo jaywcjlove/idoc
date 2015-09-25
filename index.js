@@ -16,5 +16,6 @@ module.exports = function(commander){
     }
     if(commander.server){
         server(commander);
+        watch(commander,build);
     }
 }
