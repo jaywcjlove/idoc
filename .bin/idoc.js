@@ -17,6 +17,7 @@ commander
     .option('build','Markdown produces static pages document.')
     .option('watch','Listener "md" file is automatically generated pages.')
     .option('server','Open local static html server.')
+    .option('clean','Clear the generate static files.')
 
 commander
     .on('--help',function(){
