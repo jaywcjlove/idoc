@@ -3,6 +3,18 @@
 
 通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](http://jaywcjlove.github.io/idoc)
 
+```
+    ,,        ,,
+    db      `7MM
+              MM
+  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
+    MM ,AP    MM 6W'   `Wb 6M'  OO
+    MM 8MI    MM 8M     M8 8M
+    MM `Mb    MM YA.   ,A9 YM.    ,
+  .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
+```
+
+
 # 命令使用
 
 命令使用帮助。
@@ -27,17 +39,6 @@
     $ idoc init [path] -C ~/idoc/
     $ idoc watch
 
-
-
-
-    ,,        ,,
-    db      `7MM
-              MM
-  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
-    MM ,AP    MM 6W'   `Wb 6M'  OO
-    MM 8MI    MM 8M     M8 8M
-    MM `Mb    MM YA.   ,A9 YM.    ,
-  .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
 ```
 
 ## install
@@ -72,7 +73,7 @@ $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 
 ## build
 
-生成静态 HTML 页面到指定目录中
+生成静态 HTML 页面到指定目录中。
 
 ```sh
 $ idoc build
@@ -80,7 +81,7 @@ $ idoc build
 
 ## watch
 
-监控 md 文件发生变化自动 build
+监控 md 文件发生变化自动 build。
 
 ```sh
 $ idoc watch
@@ -92,7 +93,15 @@ $ idoc watch
 打开本地静态 html 服务器，预览你生成的页面。
 
 ```sh
-$ idoc watch
+$ idoc server
+```
+
+## clean
+
+清除生成的静态文件。
+
+```sh
+$ idoc clean
 ```
 
 # 模板目录
