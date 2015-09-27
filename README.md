@@ -31,6 +31,7 @@
     build                Markdown produces static pages document.
     watch                Listener "md" file is automatically generated pages.
     server               Open local static html server.
+    clean                Clear the generate static files.
 
   Examples:
 
@@ -38,7 +39,8 @@
     $ idoc init [path]
     $ idoc init [path] -C ~/idoc/
     $ idoc watch
-
+    $ idoc server
+    $ idoc clean
 ```
 
 ## install
@@ -158,7 +160,9 @@ Stylus功能上更为强壮，和js联系更加紧密。[官方文档](http://le
 - [x] 树形菜单生成
 - [x] 添加 server 命令，预览生成的静态页面
 - [x] 添加多页面导航菜单
-- [ ] 添加 clean 命令
+- [x] 添加 clean 命令
+- [ ] 静态资源相对路径引用
+- [ ] 判断是否存在树形导航菜单
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
 - [ ] api 检索功能
