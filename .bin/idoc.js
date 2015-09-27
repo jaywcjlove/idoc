@@ -28,6 +28,7 @@ commander
         log('    $ idoc init [path] -C ~/idoc/');
         log('    $ idoc watch');
         log('    $ idoc server');
+        log('    $ idoc clean');
 
         
         // 图片文字 http://patorjk.com/software/taag/#p=testall&f=Graffiti&t=idoc
