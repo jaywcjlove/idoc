@@ -6,77 +6,41 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-
-
+<div class="nav">
+<div class="logo">idoc</div>
+<ul><li class="active"><a href="index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="html/使用方法/主题文件.html">主题文件</a></li><li><a href="html/使用方法/初始化.html">初始化</a></li><li><a href="html/使用方法/配置文件.html">配置文件</a></li></ul></li><li><a href="html/关于.html">关于</a></li></ul></div>
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#AIP文档生成工具">AIP文档生成工具</a></li><li><a href="#常用命令">常用命令</a><ul><li><a href="#install">install</a></li><li><a href="#init">init</a></li><li><a href="#build">build</a></li><li><a href="#watch">watch</a></li></ul></li><li><a href="#模板目录">模板目录</a><ul><li><a href="#css">css</a></li><li><a href="#source">source</a></li><li><a href="#layout">layout</a></li><li><a href="#主题工具">主题工具</a><ul><li><a href="#ejs">ejs</a></li><li><a href="#stylus">stylus</a></li></ul></li></ul></li><li><a href="#TODO">TODO</a></li></ul>
+        <ul><li><a href="#全局安装">全局安装</a></li><li><a href="#收录使用者">收录使用者</a><ul><li><a href="#提交收录">提交收录</a></li><li><a href="#收录使用的仓库">收录使用的仓库</a></li></ul></li><li><a href="#源码仓库">源码仓库</a></li><li><a href="#TODO">TODO</a></li></ul>
     </div>
     
-        <div class="content markdown-body">
-        <h1 id="AIP&#x6587;&#x6863;&#x751F;&#x6210;&#x5DE5;&#x5177;">AIP&#x6587;&#x6863;&#x751F;&#x6210;&#x5DE5;&#x5177; <a href="#AIP&#x6587;&#x6863;&#x751F;&#x6210;&#x5DE5;&#x5177;"> # </a></h1>
-<p>&#x901A;&#x8FC7;markdown&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;AIP&#x6587;&#x6863;&#x751F;&#x6210;&#x5DE5;&#x5177;&#x3002;</p>
-<h1 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x5E38;&#x7528;&#x547D;&#x4EE4; <a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;"> # </a></h1>
-<h2 id="install">install <a href="#install"> # </a></h2>
-<p>&#x901A;&#x8FC7; npm &#x5168;&#x5C40;&#x5B89;&#x88C5; idoc</p>
-<pre><code class="lang-sh">$ npm <span class="hljs-operator"><span class="hljs-keyword">install</span> idoc -<span class="hljs-keyword">g</span>
-</span></code></pre>
-<h2 id="init">init <a href="#init"> # </a></h2>
-<p>&#x521D;&#x59CB;&#x5316;&#x6587;&#x6863;&#x6587;&#x4EF6;</p>
-<pre><code class="lang-sh"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;md&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x751F;&#x6210;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;package.json&#x4E2D;</span>
-<span class="hljs-variable">$ </span>idoc init
-<span class="hljs-comment"># &#x5C06;&#x6307;&#x5B9A;&#x7684; md &#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
-<span class="hljs-variable">$ </span>idoc init ~<span class="hljs-regexp">/md/</span><span class="hljs-constant">JSLite</span>.md
-<span class="hljs-comment"># &#x5C06;&#x6307;&#x5B9A;&#x7684;&#x4E24;&#x4E2A; md &#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;</span>
-<span class="hljs-variable">$ </span>idoc init ~<span class="hljs-regexp">/git/</span>_idc/package.md  ~<span class="hljs-regexp">/git/</span>_idc/dir/directory.md
-<span class="hljs-comment"># &#x5C06;&#x6307;&#x5B9A;&#x7684; _idc &#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709; md &#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;</span>
-<span class="hljs-variable">$ </span>idoc init ~<span class="hljs-regexp">/git/</span>_idc/
-
-<span class="hljs-comment"># &#x6307;&#x5B9A;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
-<span class="hljs-comment"># &#x5C06;&#x201C;JSLite.md hotkeys.md&#x201D;&#x4E24;&#x4E2A; md &#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55; `~/idoc/` &#x4E0B;&#x9762;</span>
-<span class="hljs-comment"># &#x751F;&#x6210;&#x6A21;&#x677F;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;</span>
-<span class="hljs-comment"># &#x7B2C;&#x4E00;&#x4E2A; md &#x6587;&#x4EF6;&#x662F;&#x9996;&#x9875;</span>
-<span class="hljs-variable">$ </span>idoc init <span class="hljs-constant">JSLite</span>.md hotkeys.md -<span class="hljs-constant">C</span> ~<span class="hljs-regexp">/idoc/</span>
+    <div class="content markdown-body">
+        <p>&#x901A;&#x8FC7;markdown&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x7ECF;&#x5E38;&#x7528; markdown &#x5199;&#x4E00;&#x4E9B;&#x63A5;&#x53E3;&#x6587;&#x6863;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x7279;&#x5199;&#x6B64;&#x5DE5;&#x5177;&#x73A9;&#x800D;&#x3002;<a href="http://jaywcjlove.github.io/idoc">&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x9884;&#x89C8;&#x6548;&#x679C;</a> </p>
+<pre><code>    ,,        ,,
+    db      `7MM
+              MM
+  `7MM   ,M&quot;&quot;bMM  ,pW&quot;Wq.   ,p6&quot;bo
+    MM ,AP    MM 6W&apos;   `Wb 6M&apos;  OO
+    MM 8MI    MM 8M     M8 8M
+    MM `Mb    MM YA.   ,A9 YM.    ,
+  .JMML.`Wbmd&quot;MML.`Ybmd9&apos;   YMbmd&apos;
+</code></pre><h1 id="&#x5168;&#x5C40;&#x5B89;&#x88C5;">&#x5168;&#x5C40;&#x5B89;&#x88C5; <a href="#&#x5168;&#x5C40;&#x5B89;&#x88C5;"> # </a></h1>
+<pre><code class="lang-bash">$ npm install idoc -g
 </code></pre>
-<h2 id="build">build <a href="#build"> # </a></h2>
-<p>&#x751F;&#x6210;&#x9759;&#x6001; HTML &#x9875;&#x9762;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E2D;</p>
-<pre><code class="lang-sh">$ idoc <span class="hljs-keyword">build
-</span></code></pre>
-<h2 id="watch">watch <a href="#watch"> # </a></h2>
-<p>&#x76D1;&#x63A7; md &#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x81EA;&#x52A8; build</p>
-<pre><code class="lang-sh"><span class="hljs-variable">$ </span>idoc watch
+<h1 id="&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x8005;">&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x8005; <a href="#&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x8005;"> # </a></h1>
+<h2 id="&#x63D0;&#x4EA4;&#x6536;&#x5F55;">&#x63D0;&#x4EA4;&#x6536;&#x5F55; <a href="#&#x63D0;&#x4EA4;&#x6536;&#x5F55;"> # </a></h2>
+<p>&#x5728; <a href="https://github.com/jaywcjlove/idoc/issues">issues</a> &#x4E2D;&#x63D0;&#x4EA4;&#x4F60;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x6211;&#x8BB2;&#x6536;&#x5F55;&#x5728;&#x6B64;&#x3002;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x6211;&#x7684; xxx &#x4F7F;&#x7528; idoc &#x751F;&#x6210;&#x6587;&#x6863;</span>
+[&#x6587;&#x6863;&#x540D;&#x79F0;](&#x8FDE;&#x63A5;&#x5730;&#x5740;)
 </code></pre>
-<h1 id="&#x6A21;&#x677F;&#x76EE;&#x5F55;">&#x6A21;&#x677F;&#x76EE;&#x5F55; <a href="#&#x6A21;&#x677F;&#x76EE;&#x5F55;"> # </a></h1>
-<pre><code class="lang-bash"># idoc/lib/theme/<span class="hljs-keyword">default</span>/
-./<span class="hljs-keyword">default</span>
-  &#x251C;&#x2500;&#x2500; footer.ejs
-  &#x251C;&#x2500;&#x2500; gitignore
-  &#x251C;&#x2500;&#x2500; head.ejs
-  &#x251C;&#x2500;&#x2500; header.ejs
-  &#x251C;&#x2500;&#x2500; <span class="hljs-keyword">layout</span>.ejs
-  &#x2514;&#x2500;&#x2500; <span class="hljs-keyword">source</span>
-      &#x251C;&#x2500;&#x2500; css
-      &#x2502;   &#x251C;&#x2500;&#x2500; highlight.styl
-      &#x2502;   &#x251C;&#x2500;&#x2500; main.styl
-      &#x2502;   &#x251C;&#x2500;&#x2500; markdown.styl
-      &#x2502;   &#x251C;&#x2500;&#x2500; reset.styl
-      &#x2502;   &#x2514;&#x2500;&#x2500; vendor.styl
-      &#x251C;&#x2500;&#x2500; img
-      &#x2514;&#x2500;&#x2500; js
-</code></pre>
-<h2 id="css">css <a href="#css"> # </a></h2>
-<p>&#x6837;&#x5F0F;&#x4F7F;&#x7528; <a href="http://learnboost.github.io/stylus/">stylus</a> &#x6765;&#x5199;&#x9ED8;&#x8BA4; <code>main.styl</code> &#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210; <code>main.css</code> &#xFF0C;&#x4F9B;&#x9875;&#x9762;&#x5F15;&#x7528;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x7EAF;css &#x5728;&#x9875;&#x9762;&#x4E2D;&#x5F15;&#x7528;&#x3002;</p>
-<h2 id="source">source <a href="#source"> # </a></h2>
-<p>&#x9ED8;&#x8BA4;&#x4F1A;&#x5C06;&#x6B64;&#x76EE;&#x5F55;&#x7684;&#x4E2D;&#x9664; <code>.styl</code> &#x4EE5;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
-<h2 id="layout">layout <a href="#layout"> # </a></h2>
-<p>&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x653E;&#x5230;&#x4E3B;&#x9898;&#x76EE;&#x5F55;&#x7684;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x4E3B;&#x9898;<code>default</code>&#x7684;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x662F;&#x66F4;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;ejs&#xFF0C;&#x9ED8;&#x8BA4; <code>layout.ejs</code> &#x4E3A;&#x5165;&#x53E3;&#x6A21;&#x677F;</p>
-<h2 id="&#x4E3B;&#x9898;&#x5DE5;&#x5177;">&#x4E3B;&#x9898;&#x5DE5;&#x5177; <a href="#&#x4E3B;&#x9898;&#x5DE5;&#x5177;"> # </a></h2>
-<p>&#x4E3B;&#x9898;&#x91CC;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x8BF4;&#x660E;</p>
-<h3 id="ejs">ejs <a href="#ejs"> # </a></h3>
-<p>&#x9009;&#x62E9; <code>ejs</code> &#x4F5C;&#x4E3A;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x9009;&#x62E9;ejs&#xFF0C;&#x6211;&#x53EA;&#x60F3;&#x8981;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5E2E;&#x6211;&#x586B;&#x5145;&#x6570;&#x636E;&#x7684;&#x6A21;&#x677F;&#x3002;<a href="https://github.com/tj/ejs">github</a> <a href="http://www.embeddedjs.com/">&#x6587;&#x6863;</a> <a href="http://ejs.co/">ejs.co</a></p>
-<h3 id="stylus">stylus <a href="#stylus"> # </a></h3>
-<p>Stylus&#x529F;&#x80FD;&#x4E0A;&#x66F4;&#x4E3A;&#x5F3A;&#x58EE;&#xFF0C;&#x548C;js&#x8054;&#x7CFB;&#x66F4;&#x52A0;&#x7D27;&#x5BC6;&#x3002;<a href="http://learnboost.github.io/stylus/">&#x5B98;&#x65B9;&#x6587;&#x6863;</a> <a href="http://www.zhangxinxu.com/jq/stylus/">&#x5F20;&#x946B;&#x65ED;&#x8001;&#x5E08;&#x7684;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;</a> <a href="http://learnboost.github.io/stylus/try.html">Try Stylus!</a></p>
+<h2 id="&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x7684;&#x4ED3;&#x5E93;">&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x7684;&#x4ED3;&#x5E93; <a href="#&#x6536;&#x5F55;&#x4F7F;&#x7528;&#x7684;&#x4ED3;&#x5E93;"> # </a></h2>
+<ol>
+<li><a href="http://jslite.github.io/JSLite/">JSLite.io &#x6587;&#x6863;</a> </li>
+<li><a href="http://jaywcjlove.github.io/idoc">idoc &#x6587;&#x6863;</a></li>
+</ol>
+<h1 id="&#x6E90;&#x7801;&#x4ED3;&#x5E93;">&#x6E90;&#x7801;&#x4ED3;&#x5E93; <a href="#&#x6E90;&#x7801;&#x4ED3;&#x5E93;"> # </a></h1>
+<p>&#x4ED3;&#x5E93;&#x5730;&#x5740;&#x3010;<a href="https://github.com/jaywcjlove/idoc">https://github.com/jaywcjlove/idoc</a>&#x3011; &#x6B22;&#x8FCE;&#x63D0;&#x9700;&#x6C42;&#x548C;bug&#xFF0C;&#x63D0;&#x4EA4;&#x5730;&#x5740;<a href="https://github.com/jaywcjlove/idoc/issues">issues</a> &#x3002;</p>
 <h1 id="TODO">TODO <a href="#TODO"> # </a></h1>
 <ul class="task-list-item">
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> idoc &#x57FA;&#x672C;&#x547D;&#x4EE4;&#x5B9A;&#x4E49;</li>
@@ -84,14 +48,19 @@
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x6DFB;&#x52A0; watch &#x547D;&#x4EE4;&#xFF0C;&#x76D1;&#x63A7;markdown&#x6587;&#x4EF6;&#x81EA;&#x52A8;&#x751F;&#x6210;HMTL&#x9875;&#x9762;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x9ED8;&#x8BA4;&#x6A21;&#x677F;&#x5236;&#x4F5C;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x6811;&#x5F62;&#x83DC;&#x5355;&#x751F;&#x6210;</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> &#x6DFB;&#x52A0; clean &#x547D;&#x4EE4;</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x6DFB;&#x52A0; server &#x547D;&#x4EE4;&#xFF0C;&#x9884;&#x89C8;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x9875;&#x9762;</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x6DFB;&#x52A0;&#x591A;&#x9875;&#x9762;&#x5BFC;&#x822A;&#x83DC;&#x5355;</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x6DFB;&#x52A0; clean &#x547D;&#x4EE4;</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled"> &#x9759;&#x6001;&#x8D44;&#x6E90;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5F15;&#x7528;</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> &#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;markdown&#x6811;&#x5F62;&#x5BFC;&#x822A;&#x83DC;&#x5355;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> &#x7B2C;&#x4E8C;&#x4E2A;&#x6A21;&#x677F;&#x5236;&#x4F5C;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> &#x6A21;&#x677F;&#x5207;&#x6362;&#x547D;&#x4EE4;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> api &#x68C0;&#x7D22;&#x529F;&#x80FD;</li>
 <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled"> &#x517C;&#x5BB9;windows&#x8DEF;&#x5F84;</li>
 </ul>
 
-        </div>
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
     
 </div>
 

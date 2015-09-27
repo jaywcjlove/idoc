@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>idoc</title>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+</head>
+<body>
+<div class="nav">
+<div class="logo">idoc</div>
+<ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li class="active"><a href="../../html/使用方法/主题文件.html">主题文件</a></li><li><a href="../../html/使用方法/初始化.html">初始化</a></li><li><a href="../../html/使用方法/配置文件.html">配置文件</a></li></ul></li><li><a href="../../html/关于.html">关于</a></li></ul></div>
+<div class="warpper">
+
+    <div class="page-toc">
+        <ul><li><a href="#主题目录">主题目录</a><ul><li><a href="#css">css</a></li><li><a href="#source">source</a></li><li><a href="#layout">layout</a></li></ul></li><li><a href="#主题工具">主题工具</a><ul><li><a href="#ejs">ejs</a></li><li><a href="#stylus">stylus</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="&#x4E3B;&#x9898;&#x76EE;&#x5F55;">&#x4E3B;&#x9898;&#x76EE;&#x5F55; <a href="#&#x4E3B;&#x9898;&#x76EE;&#x5F55;"> # </a></h1>
+<pre><code class="lang-bash"><span class="hljs-comment"># idoc/lib/theme/default/</span>
+./default
+  &#x251C;&#x2500;&#x2500; footer.ejs
+  &#x251C;&#x2500;&#x2500; gitignore
+  &#x251C;&#x2500;&#x2500; head.ejs
+  &#x251C;&#x2500;&#x2500; header.ejs
+  &#x251C;&#x2500;&#x2500; layout.ejs
+  &#x2514;&#x2500;&#x2500; <span class="hljs-built_in">source</span>
+      &#x251C;&#x2500;&#x2500; css
+      &#x2502;   &#x251C;&#x2500;&#x2500; highlight.styl
+      &#x2502;   &#x251C;&#x2500;&#x2500; main.styl
+      &#x2502;   &#x251C;&#x2500;&#x2500; markdown.styl
+      &#x2502;   &#x251C;&#x2500;&#x2500; reset.styl
+      &#x2502;   &#x2514;&#x2500;&#x2500; vendor.styl
+      &#x251C;&#x2500;&#x2500; img
+      &#x2514;&#x2500;&#x2500; js
+</code></pre>
+<h2 id="css">css <a href="#css"> # </a></h2>
+<p>&#x6837;&#x5F0F;&#x4F7F;&#x7528; <a href="http://learnboost.github.io/stylus/">stylus</a> &#x6765;&#x5199;&#x9ED8;&#x8BA4; <code>main.styl</code> &#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210; <code>main.css</code> &#xFF0C;&#x4F9B;&#x9875;&#x9762;&#x5F15;&#x7528;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x7EAF;css &#x5728;&#x9875;&#x9762;&#x4E2D;&#x5F15;&#x7528;&#x3002;</p>
+<h2 id="source">source <a href="#source"> # </a></h2>
+<p>&#x9ED8;&#x8BA4;&#x4F1A;&#x5C06;&#x6B64;&#x76EE;&#x5F55;&#x7684;&#x4E2D;&#x9664; <code>.styl</code> &#x4EE5;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;&#x6839;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
+<h2 id="layout">layout <a href="#layout"> # </a></h2>
+<p>&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x653E;&#x5230;&#x4E3B;&#x9898;&#x76EE;&#x5F55;&#x7684;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x4E3B;&#x9898;<code>default</code>&#x7684;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x662F;&#x66F4;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;ejs&#xFF0C;&#x9ED8;&#x8BA4; <code>layout.ejs</code> &#x4E3A;&#x5165;&#x53E3;&#x6A21;&#x677F;</p>
+<h1 id="&#x4E3B;&#x9898;&#x5DE5;&#x5177;">&#x4E3B;&#x9898;&#x5DE5;&#x5177; <a href="#&#x4E3B;&#x9898;&#x5DE5;&#x5177;"> # </a></h1>
+<p>&#x4E3B;&#x9898;&#x91CC;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x8BF4;&#x660E;</p>
+<h2 id="ejs">ejs <a href="#ejs"> # </a></h2>
+<p>&#x9009;&#x62E9; <code>ejs</code> &#x4F5C;&#x4E3A;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x9009;&#x62E9;ejs&#xFF0C;&#x6211;&#x53EA;&#x60F3;&#x8981;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5E2E;&#x6211;&#x586B;&#x5145;&#x6570;&#x636E;&#x7684;&#x6A21;&#x677F;&#x3002;<a href="https://github.com/tj/ejs">github</a> <a href="http://www.embeddedjs.com/">&#x6587;&#x6863;</a> <a href="http://ejs.co/">ejs.co</a></p>
+<h2 id="stylus">stylus <a href="#stylus"> # </a></h2>
+<p>Stylus&#x529F;&#x80FD;&#x4E0A;&#x66F4;&#x4E3A;&#x5F3A;&#x58EE;&#xFF0C;&#x548C;js&#x8054;&#x7CFB;&#x66F4;&#x52A0;&#x7D27;&#x5BC6;&#x3002;<a href="http://learnboost.github.io/stylus/">&#x5B98;&#x65B9;&#x6587;&#x6863;</a> <a href="http://www.zhangxinxu.com/jq/stylus/">&#x5F20;&#x946B;&#x65ED;&#x8001;&#x5E08;&#x7684;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;</a> <a href="http://learnboost.github.io/stylus/try.html">Try Stylus!</a></p>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+    
+</div>
+
+
+</body>
+</html>
