@@ -17,7 +17,7 @@
 
 # 命令使用
 
-命令使用帮助。[document](http://jaywcjlove.github.io/idoc)
+命令使用帮助。[Details document](http://jaywcjlove.github.io/idoc)
 
 
 ```
@@ -56,7 +56,7 @@
 - [x] 添加多页面导航菜单
 - [x] 添加 clean 命令
 - [x] 静态资源相对路径引用
-- [ ] 判断是否存在树形导航菜单
+- [ ] 判断是否存在markdown树形导航菜单
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
 - [ ] api 检索功能
