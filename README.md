@@ -14,6 +14,12 @@
   .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
 ```
 
+# 全局安装
+
+```bash
+$ npm install idoc -g
+```
+
 
 # 命令使用
 
