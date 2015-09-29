@@ -12,9 +12,6 @@
         "url": "https://github.com/jaywcjlove/idoc"
     },
     "licenses": "MIT",
-    "dependencies": {},
-    "devDependencies": {},
-    "license": "ISC",
     "idoc": {
         "theme": "default",
         "md": [
