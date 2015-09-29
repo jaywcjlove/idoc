@@ -13,7 +13,7 @@ module.exports = function(commander){
     if (commander.init) init(commander);
 
     if(!commander.init && !file.exists(pkgurl)){
-        return console.log( color.red('\n In the project root directory to initialize, run the "IDoc init" command. \n') );
+        return console.log( color.red('\n In the project root directory to initialize, run the "idoc init" command. \n') );
     }
     if(commander.build){
         build(commander);
