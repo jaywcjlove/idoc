@@ -9,10 +9,14 @@
 <div class="nav">
 <div class="logo">idoc</div>
 <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/主题文件.html">主题文件</a></li><li class="active"><a href="../../html/使用方法/初始化.html">初始化</a></li><li><a href="../../html/使用方法/配置文件.html">配置文件</a></li></ul></li><li><a href="../../html/关于.html">关于</a></li></ul></div>
+
+
+<div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc"></a></div>
+
 <div class="warpper">
 
     <div class="page-toc">
-        <ul><li><a href="#全局安装">全局安装</a></li><li><a href="#使用方法">使用方法</a></li><li><a href="#命令文档">命令文档</a><ul><li><a href="#init">init</a></li><li><a href="#build">build</a></li><li><a href="#watch">watch</a></li><li><a href="#server">server</a></li><li><a href="#clean">clean</a></li></ul></li></ul>
+        <ul><li><a href="#全局安装">全局安装</a></li><li><a href="#使用方法">使用方法</a></li><li><a href="#命令文档">命令文档</a><ul><li><a href="#init">init</a></li><li><a href="#build">build</a></li><li><a href="#watch">watch</a></li><li><a href="#server">server</a></li><li><a href="#clean">clean</a></li><li><a href="#deploy">deploy</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -43,6 +47,7 @@ Options:
   watch                Listener &quot;md&quot; file is automatically generated pages.
   server               Open local static html server.
   clean                Clear the generate static files.
+  deploy               Publish to a gh-pages branch on GitHub.
 
 Examples:
 
@@ -52,6 +57,7 @@ Examples:
   $ idoc watch
   $ idoc server
   $ idoc clean
+  $ idoc deploy
 </code></pre><h2 id="init">init <a href="#init"> # </a></h2>
 <p>&#x521D;&#x59CB;&#x5316;&#x6587;&#x6863;&#x6587;&#x4EF6;</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;md&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x751F;&#x6210;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;package.json&#x4E2D;</span>
@@ -84,6 +90,10 @@ $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 <h2 id="clean">clean <a href="#clean"> # </a></h2>
 <p>&#x6E05;&#x9664;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-sh">$ idoc clean
+</code></pre>
+<h2 id="deploy">deploy <a href="#deploy"> # </a></h2>
+<p>&#x5C06;&#x6587;&#x6863;&#x90E8;&#x7F72;&#x5230; <code>git</code> &#x4ED3;&#x5E93;&#x7684; <code>gh-pages</code> &#x5206;&#x652F;&#x4E2D;&#x3002;<br>&#x76EE;&#x524D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x5206;&#x652F;&#x3002;  </p>
+<pre><code class="lang-sh">$ idoc deploy
 </code></pre>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>

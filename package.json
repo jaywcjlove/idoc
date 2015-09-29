@@ -9,14 +9,13 @@
     "author": "jaywcjlove <398188662@qq.com>",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/jaywcjlove/idoc"
     },
     "licenses": "MIT",
     "dependencies": {},
     "devDependencies": {},
     "license": "ISC",
     "idoc": {
-        "todir": "/Users/kacperwang/git/temp/test/idoc/",
         "theme": "default",
         "md": [
             "首页.md",
