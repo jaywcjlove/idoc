@@ -9,9 +9,5 @@
         "type": "git",
         "url": ""
     },
-    "licenses": "MIT",
-    "dependencies": {},
-    "devDependencies": {},
-    "license": "ISC"
-
+    "licenses": "ISC"
 }
