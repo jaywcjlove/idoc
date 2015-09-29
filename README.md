@@ -62,8 +62,8 @@ $ npm install idoc -g
 - [x] 添加多页面导航菜单
 - [x] 添加 clean 命令
 - [x] 静态资源相对路径引用
-- [ ] github 连接地址添加
-- [ ] `idoc deploy` === `git push -f origin gh-pages`
+- [x] github 连接地址添加
+- [x] `idoc deploy` === `git push -f origin gh-pages`
 - [ ] 判断是否存在markdown树形导航菜单
 - [ ] 第二个模板制作
 - [ ] 模板切换命令

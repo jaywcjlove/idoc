@@ -18,6 +18,7 @@ commander
     .option('watch','Listener "md" file is automatically generated pages.')
     .option('server','Open local static html server.')
     .option('clean','Clear the generate static files.')
+    .option('deploy','Publish to a gh-pages branch on GitHub.')
 
 commander
     .on('--help',function(){
