@@ -13,8 +13,6 @@ module.exports = function(commander){
 
     if(commander.V) return console.log('\n'+commander._version+'\n');
 
-    if (commander.init) init(commander);
-
     // 判断是否初始化
     if(!commander.init){
         if(!file.exists(pkgurl)) {
@@ -27,21 +25,24 @@ module.exports = function(commander){
         if(file.exists(pkgurl)&&!pkg.idoc){
             return console.log( color.red('\n This is not the "idoc" project. \n') );  
         }
+    }else{
+        return init(commander);
     }
     if(commander.build){
-        build(commander);
+        return build(commander);
     }
     if(commander.watch){
-        watch(commander,build);
+        return watch(commander,build);
     }
     if(commander.server){
         server(commander);
-        watch(commander,build);
+        return watch(commander,build);
     }
     if(commander.clean){
-        clean(commander);
+        return clean(commander);
     }
     if(commander.deploy){
-        deploy(commander);
+        return deploy(commander);
     }
+    commander.outputHelp();
 }
