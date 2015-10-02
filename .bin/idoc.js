@@ -8,18 +8,19 @@ require('colorful').toxic()
 
 commander
     .usage('[options]')
+    .description('  Simple document generation tool!')
     .version(appInfo.version);
 
 
 commander
     .option("-C, --Create <file>", "Select Directory Makefile.")
     .option("-v", "App version information.")
-    .option('init','init a documentation.')
-    .option('build','Markdown produces static pages document.')
-    .option('watch','Listener "md" file is automatically generated pages.')
-    .option('server','Open local static html server.')
-    .option('clean','Clear the generate static files.')
-    .option('deploy','Publish to a gh-pages branch on GitHub.')
+    .option('-i, init','init a documentation.')
+    .option('-b, build','Markdown produces static pages document.')
+    .option('-w, watch','Listener "md" file is automatically generated pages.')
+    .option('-s, server','Open local static html server.')
+    .option('-c, clean','Clear the generate static files.')
+    .option('-d, deploy','Publish to a gh-pages branch on GitHub.')
 
 commander
     .on('--help',function(){
@@ -31,6 +32,7 @@ commander
         log('    $ idoc watch');
         log('    $ idoc server');
         log('    $ idoc clean');
+        log('    $ idoc deploy');
 
         
         // 图片文字 http://patorjk.com/software/taag/#p=testall&f=Graffiti&t=idoc
