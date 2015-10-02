@@ -11,6 +11,8 @@ var path    = require('path');
 module.exports = function(commander){
     var pkgurl = path.resolve('package.json');
 
+    if(commander.V) return console.log('\n'+commander._version+'\n');
+
     if (commander.init) init(commander);
 
     // 判断是否初始化

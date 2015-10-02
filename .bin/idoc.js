@@ -13,6 +13,7 @@ commander
 
 commander
     .option("-C, --Create <file>", "Select Directory Makefile.")
+    .option("-v", "App version information.")
     .option('init','init a documentation.')
     .option('build','Markdown produces static pages document.')
     .option('watch','Listener "md" file is automatically generated pages.')
