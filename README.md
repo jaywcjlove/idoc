@@ -1,7 +1,7 @@
 
 # AIP文档生成工具
 
-通过markdown生成静态页面的AIP文档生成工具。[生成的页面预览效果](http://jaywcjlove.github.io/idoc)
+简单的文档生成工具! [生成的页面预览效果](http://jaywcjlove.github.io/idoc) [Details document](http://jaywcjlove.github.io/idoc)
 
 ```
     ,,        ,,
@@ -17,28 +17,32 @@
 # 全局安装
 
 ```bash
-$ npm install idoc -g
+$ sudo npm install idoc -g
 ```
 
 
 # 命令使用
 
-命令使用帮助。[Details document](http://jaywcjlove.github.io/idoc)
+命令使用帮助。
 
 
-```
+```sh
   Usage: idoc [options]
+
+    Simple document generation tool!
 
   Options:
 
     -h, --help           output usage information
     -V, --version        output the version number
     -C, --Create <file>  Select Directory Makefile.
-    init                 init a documentation.
-    build                Markdown produces static pages document.
-    watch                Listener "md" file is automatically generated pages.
-    server               Open local static html server.
-    clean                Clear the generate static files.
+    -v                   App version information.
+    -i, init             init a documentation.
+    -b, build            Markdown produces static pages document.
+    -w, watch            Listener "md" file is automatically generated pages.
+    -s, server           Open local static html server.
+    -c, clean            Clear the generate static files.
+    -d, deploy           Publish to a gh-pages branch on GitHub.
 
   Examples:
 
@@ -48,6 +52,7 @@ $ npm install idoc -g
     $ idoc watch
     $ idoc server
     $ idoc clean
+    $ idoc deploy
 ```
 
 
@@ -68,4 +73,4 @@ $ npm install idoc -g
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
 - [ ] api 检索功能
-- [ ] 兼容windows路径
+- [x] 兼容windows路径(cmd工具冒得问题嘞)
