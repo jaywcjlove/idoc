@@ -21,6 +21,29 @@ $ sudo npm install idoc -g
 ```
 
 
+# 收录使用者
+
+## 提交收录
+
+在 [issues](https://github.com/jaywcjlove/idoc/issues) 中提交你的连接，我讲收录在此。格式如下：
+
+```bash
+# 我的 xxx 使用 idoc 生成文档
+[文档名称](连接地址) 
+```
+
+
+## 收录文档
+
+这些文档是都是使用idoc生成的页面哦，可以提交用idoc生成的文档哦。这里[添加](https://github.com/jaywcjlove/idoc/issues) 
+
+1. [JSLite.io - 这个是现代浏览器类似jQuery的库，体积小。](http://jslite.github.io/JSLite/) 
+2. [idoc - 通过markdown生成静态页面的工具](http://jaywcjlove.github.io/idoc)
+3. [store.js - js本地存储操作](http://jaywcjlove.github.io/store.js)
+4. [cookie.js - js本地cookie操作](http://jslite.io/cookie.js/)
+5. [iNotify - 浏览器各种方法通知](http://jaywcjlove.github.io/iNotify)
+
+
 # 命令使用
 
 命令使用帮助。
