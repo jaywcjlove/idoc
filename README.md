@@ -92,6 +92,7 @@ $ sudo npm install idoc -g
 - [x] 静态资源相对路径引用
 - [x] github 连接地址添加
 - [x] `idoc deploy` === `git push -f origin gh-pages`
+- [ ] 配置文件配置下载 md 文件
 - [ ] 解决server 端口冲突
 - [ ] 判断是否存在markdown树形导航菜单
 - [ ] 第二个模板制作
