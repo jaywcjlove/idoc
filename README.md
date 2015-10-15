@@ -25,7 +25,9 @@ $ sudo npm install idoc -g
 
 ## 提交收录
 
-在 [issues](https://github.com/jaywcjlove/idoc/issues) 中提交你的连接，我讲收录在此。格式如下：
+1. 直接在 `README.md` 中添加然后 `Pull requests` 。
+
+2. 在 [issues](https://github.com/jaywcjlove/idoc/issues) 中提交你的连接，我讲收录在此。格式如下：
 
 ```bash
 # 我的 xxx 使用 idoc 生成文档
@@ -93,7 +95,7 @@ $ sudo npm install idoc -g
 - [x] github 连接地址添加
 - [x] `idoc deploy` === `git push -f origin gh-pages`
 - [ ] 配置文件配置下载 md 文件
-- [ ] 解决server 端口冲突
+- [x] 解决server 端口冲突
 - [ ] 判断是否存在markdown树形导航菜单
 - [ ] 第二个模板制作
 - [ ] 模板切换命令
