@@ -1,12 +1,12 @@
 var init    = require('./lib/init');
 var build   = require('./lib/build');
 var watch   = require('./lib/watch');
-var server  = require('./lib/server');
 var file    = require('./lib/file');
 var clean   = require('./lib/clean');
 var deploy  = require('./lib/deploy');
 var color   = require('colorful');
 var path    = require('path');
+var server  = require('ssr');
 
 module.exports = function(commander){
     var pkgurl = path.resolve('package.json');
@@ -35,7 +35,7 @@ module.exports = function(commander){
         return watch(commander,build);
     }
     if(commander.server){
-        server(commander);
+        server();
         return watch(commander,build);
     }
     if(commander.clean){
