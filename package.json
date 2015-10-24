@@ -1,9 +1,13 @@
 {
     "name": "idoc",
     "version": "0.0.1",
-    "description": "",
+    "description": "Simple document generation tool! Dependence Node.js run.",
     "keywords": [
-        ""
+        "tool",
+        "document",
+        "api",
+        "markdown",
+        "idoc"
     ],
     "homepage": "http://JSLite.io",
     "author": "jaywcjlove <398188662@qq.com>",
@@ -15,15 +19,15 @@
     "idoc": {
         "theme": "default",
         "md": [
-            "首页.md",
+            "关于.md",
             {
                 "使用方法": [
                     "主题文件.md",
                     "初始化.md",
-                    "配置文件.md"
+                    "使用说明.md"
                 ]
             },
-            "关于.md"
+            "首页.md"
         ]
     }
 }
