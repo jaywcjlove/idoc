@@ -1,5 +1,11 @@
 <div class="nav">
-<div class="logo"><%= title %></div>
+    <div class="logo">
+        <%if(pkg.idoc.logo){%>
+            <img src="<%=relative_path%><%=pkg.idoc.logo%>">
+        <%}else{%>
+            <%= title %>
+        <%}%>
+    </div>
 <%- menu_html -%>
 </div>
 
