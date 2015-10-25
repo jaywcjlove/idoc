@@ -1,0 +1,8 @@
+<div class="nav">
+<div class="logo"><%= title %></div>
+<%- menu_html -%>
+</div>
+
+<% if(pkg&&pkg.repository&&pkg.repository.url) {%>
+<div class="forkgithub"><a target="_blank" href="<%=pkg.repository.url%>"></a></div>
+<%}%>

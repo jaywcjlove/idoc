@@ -1,0 +1,497 @@
+// AutoPrefixCSS  
+// description Break free from CSS prefix hell!  
+// author kenny wang <398188662@qq.com> (http://JSLite.io)  
+// 
+// 1. https://github.com/tj/nib
+
+//Support for ie defaulting to true.
+support-for-ie ?= true
+
+
+//Default vendor prefixes.
+vendor-prefixes ?= webkit khtml moz o ms official
+
+// Vendor support for the given prop / arguments,
+// optionally specifying the only prefixes to utilize,
+// or those which should be ignored.
+vendor(prop, args, only = null, ignore = null,vendor-property = true)
+    for prefix in vendor-prefixes
+        unless (only and !(prefix in only)) or (ignore and prefix in ignore)
+            if official == prefix or vendor-property == false
+                {prop}: args
+            else
+                newargs = args
+                {'-' + prefix + '-' + prop}: newargs
+
+
+
+
+
+// vendor(prop, args, only = null, ignore = null, vendor-property = true)
+//     need_normalize = !vendor-property or prop in ('transition' 'transition-property' 'border-image' 'border-image-slice')
+//     for prefix in vendor-prefixes
+//         unless (only and !(prefix in only)) or (ignore and prefix in ignore)
+//             if official == prefix
+//                 if need_normalize
+//                     {prop}: normalize(prop,('%s' % args))
+//                 else
+//                     {prop}: args
+//             else
+//                 newprop = prop
+//                 newprop = '-' + prefix + '-' + prop if vendor-property
+
+//                 if need_normalize
+//                     {newprop}: normalize(prop,('%s' % args),prefix)
+//                 else
+//                     {newprop}: args
+
+
+
+// A
+// align-items()
+//     vendor("align-items",arguments)
+
+// align-content()
+//     vendor("align-content",arguments)
+    
+
+animation()
+    vendor('animation', arguments)
+    
+// B
+box-orient()
+    vendor('box-orient', arguments, only: webkit moz ms official)
+
+box-pack()
+    vendor('box-pack', arguments, only: webkit moz ms official)
+
+border-radius()
+    vendor('border-radius', arguments, only: webkit official)
+
+box-shadow()
+  vendor('box-shadow', arguments, only: webkit official)
+  
+border-image()
+    vendor('border-image', arguments, only: webkit moz o official)
+
+background-image()
+    if match('-gradient\(', ''+arguments)
+        vendor('background-image', arguments, vendor-property: false)
+    else
+        background-image arguments
+
+box-sizing()
+    vendor('box-sizing', arguments, only: webkit moz official)
+
+backface-visibility()
+    vendor('backface-visibility', arguments, only: webkit moz ms official)
+    
+background-size()
+    vendor('background-size', arguments, only: webkit moz official)
+
+/*
+ * Legacy syntax support for background-clip and background-origin
+ */
+
+legacy-bg-values(property, args)
+    legacy_args = ()
+    importance = unquote('')
+    for subargs in args
+        for arg in subargs
+            if arg in (border-box padding-box content-box)
+                arg = unquote('border')  if arg == border-box
+                arg = unquote('padding') if arg == padding-box
+                arg = unquote('content') if arg == content-box
+            if arg != '!important'
+                push(legacy_args,arg)
+            else
+                importance = !important
+    vendor(property, unquote(join(', ',legacy_args)) importance, only: moz webkit)
+
+background-clip()
+    if arguments[0] == text
+        vendor('background-clip', arguments, only: webkit)
+    else
+        legacy-bg-values('background-clip', arguments)
+        background-clip: arguments
+// C
+
+
+column-count()
+    vendor('column-count', arguments, only: webkit moz official)
+
+column-gap()
+    vendor('column-gap', arguments, only: webkit moz official)
+
+column-rule()
+    vendor('column-rule', arguments, only: webkit moz official)
+
+column-rule-color()
+    vendor('column-rule-color', arguments, only: webkit moz official)
+
+column-rule-width()
+    vendor('column-rule-width', arguments, only: webkit moz official)
+
+column-rule-style()
+    vendor('column-rule-style', arguments, only: webkit moz official)
+
+column-width()
+    vendor('column-width', arguments, only: webkit moz official)
+
+column-span()
+    vendor('column-span', arguments, only: webkit official)
+
+column-fill()
+    vendor('column-fill', arguments, only: moz)
+
+
+// D
+display(value)
+    // Initializing a flexbox container
+    display -webkit-box      /* OLD - iOS 6-, Safari 3.1-6 */
+    display -moz-box         /* OLD - Firefox 19- (buggy but mostly works) */
+    if value == inline-flex
+        display -ms-inline-flexbox      /* TWEENER - IE 10 */
+        display -webkit-inline-flex     /* NEW - Chrome */
+        display value                   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    else if value == flex
+        display -ms-flexbox       /* TWEENER - IE 10 */
+        display -webkit-flex      /* NEW - Chrome */
+        display flex              /* NEW, Spec - Opera 12.1, Firefox 20+ */
+       
+    if arguments != 'flex'
+        display: arguments;
+    else
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+
+// E
+
+// F
+flex-wrap(value)
+    // Implementation of the flex-wrap attribute.
+    vendor('flex-wrap',value)
+
+flex-flow()
+    vendor('flex-flow',arguments)
+
+flex-direction(value)
+    // Implementation of flex-direction attributes.
+    if value == row
+        -webkit-box-direction normal
+        -moz-box-direction normal
+        -webkit-box-orient horizontal
+        -moz-box-orient horizontal
+    else if value == row-reverse
+        -webkit-box-direction reverse
+        -moz-box-direction reverse
+        -webkit-box-orient horizontal
+        -moz-box-orient horizontal
+    else if value == column
+        -webkit-box-direction normal
+        -moz-box-direction normal
+        -webkit-box-orient vertical
+        -moz-box-orient vertical
+    else if value == column-reverse
+        -webkit-box-direction reverse
+        -moz-box-direction reverse
+        -webkit-box-orient vertical
+        -moz-box-orient vertical
+    -webkit-flex-direction value
+    -ms-flex-direction value
+    flex-direction value
+    
+flexbox(value)
+    // Initializing a flexbox container
+    display -webkit-box      /* OLD - iOS 6-, Safari 3.1-6 */
+    display -moz-box         /* OLD - Firefox 19- (buggy but mostly works) */
+    if value == inline-flex
+        display -ms-inline-flexbox      /* TWEENER - IE 10 */
+        display -webkit-inline-flex     /* NEW - Chrome */
+        display value                   /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    else if value == flex
+        display -ms-flexbox       /* TWEENER - IE 10 */
+        display -webkit-flex      /* NEW - Chrome */
+        display flex              /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+flex(size = null, grow = 0, shrink = 0, basis = auto)
+    // For configuring the flex elements
+    -webkit-box-flex grow
+    -moz-box-flex grow
+    if size != null
+        width size
+    -webkit-flex grow shrink basis
+    -ms-flex grow shrink basis
+    flex grow shrink basis
+
+flex-content(value)
+    // Implements the align-content settings
+    if value == space-around
+        -webkit-align-content value
+        -ms-flex-line-pack distribute
+        align-content value
+    else if value == space-between
+        -webkit-align-content value
+        -ms-flex-line-pack justify
+        align-content value
+    else if value == end or value == start
+        -webkit-align-content flex-+value
+        -ms-flex-line-pack value
+        align-content flex-+value
+    else
+        -webkit-align-content value
+        -ms-flex-line-pack value
+        align-content value
+
+flex-align(value)
+    // Function for align-items
+    if value == start or value == end
+        -webkit-box-align value
+        -moz-box-align value
+        -webkit-align-items flex-+value
+        -ms-flex-align value
+        align-items flex-+value
+    else
+        -webkit-box-align value
+        -moz-box-align value
+        -webkit-align-items value
+        -ms-flex-align value
+
+flex-firefox()
+    // Helper to manage inline bugs in legacy Firefox
+    width 100%
+    -moz-box-sizing border-box
+
+flex-group(value)
+    // Manages ordering of the flex elements within a container
+    -webkit-box-ordinal-group value
+    -moz-box-ordinal-group value
+    -ms-flex-order value
+    -webkit-order value
+    order value
+    
+flex-self(value)
+    // Function for aligning the flex elements (align-self)
+    if value == start or value == end
+        -webkit-align-self flex-+value
+        -ms-flex-item-align value
+        align-self flex-+value
+    else
+        -webkit-align-self value
+        -ms-flex-item-align value
+        align-self value
+
+flex-justify(value)
+    // Implements the justify-content settings.
+    if value == start || value == end
+        -webkit-box-pack value
+        -moz-box-pack value
+        -webkit-justify-content flex-+value
+        -ms-flex-pack value
+        justify-content flex-+value
+    else if value == center
+        -webkit-box-pack value
+        -moz-box-pack value
+        -webkit-justify-content value
+        -ms-flex-pack value
+        justify-content value
+    else if value == space-between
+        -webkit-box-pack justify
+        -moz-box-pack justify
+        -webkit-justify-content value
+        -ms-flex-pack justify
+        justify-content value
+    else if value == space-around
+        -webkit-box-pack justify
+        -moz-box-pack justify
+        -webkit-justify-content value
+        -ms-flex-pack distribute
+        justify-content value
+        
+    
+font-smoothing()
+    vendor('font-smoothing', arguments, only: webkit)
+// G
+
+// H
+
+// I
+
+// J
+justify-content()
+    vendor('justify-content',arguments)
+
+// K
+
+// L
+
+// M
+
+// N
+
+// O
+
+opacity(n, args...)
+    // opacity: n args
+    vendor('opacity', arguments, only: webkit moz official)
+    if support-for-ie
+        val = round(n * 100)
+        if val == 100
+            -ms-filter: none
+            filter: none
+        else
+            filter: 'alpha(opacity=%s)' % val args
+            -ms-filter: '"progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)"' % val args
+
+// P
+print-color-adjust()
+    vendor('print-color-adjust',arguments)
+
+// Q
+
+// R
+
+// S
+
+// T
+text-size-adjust()
+  vendor('text-size-adjust', arguments)
+  
+transition()
+    vendor('transition', arguments) 
+  
+transition-property()
+    vendor('transition-property', arguments)
+  
+transition-duration()
+    vendor('transition-duration', arguments)
+  
+transition-timing-function()
+    vendor('transition-timing-function', arguments)
+  
+transition-delay()
+    vendor('transition-delay', arguments)
+  
+transform()
+    vendor('transform', arguments)
+
+transform-origin()
+    vendor('transform-origin', arguments)
+
+transform-style()
+    vendor('transform-style', arguments)
+
+// U
+user-select()
+    vendor('user-select', arguments, only: webkit moz ms official)
+
+
+// V
+
+// W
+
+// X
+
+// Y
+
+// Z
+
+
+
+
+
+// -webkit-app-region: no-drag;
+// -webkit-appearance: none;
+// -webkit-background-composite: source-over;
+// -webkit-border-horizontal-spacing: 0px;
+// -webkit-border-vertical-spacing: 0px;
+// -webkit-box-align: stretch;
+// -webkit-box-decoration-break: slice;
+// -webkit-box-direction: normal;
+// -webkit-box-flex: 0;
+// -webkit-box-flex-group: 1;
+// -webkit-box-lines: single;
+// -webkit-box-ordinal-group: 1;
+// -webkit-box-orient: horizontal;
+// -webkit-box-pack: start;
+// -webkit-box-reflect: none;
+// -webkit-column-break-after: auto;
+// -webkit-column-break-before: auto;
+// -webkit-column-break-inside: auto;
+// -webkit-column-count: auto;
+// -webkit-column-gap: normal;
+// -webkit-column-rule-color: rgb(51, 51, 51);
+// -webkit-column-rule-style: none;
+// -webkit-column-rule-width: 0px;
+// -webkit-column-span: none;
+// -webkit-column-width: auto;
+// -webkit-font-smoothing: auto;
+// -webkit-highlight: none;
+// -webkit-hyphenate-character: auto;
+// -webkit-line-box-contain: block inline replaced;
+// -webkit-line-break: auto;
+// -webkit-line-clamp: none;
+// -webkit-locale: 'zh-CN';
+// -webkit-margin-after-collapse: collapse;
+// -webkit-margin-before-collapse: collapse;
+// -webkit-mask-box-image: none;
+// -webkit-mask-box-image-outset: 0px;
+// -webkit-mask-box-image-repeat: stretch;
+// -webkit-mask-box-image-slice: 0 fill;
+// -webkit-mask-box-image-source: none;
+// -webkit-mask-box-image-width: auto;
+// -webkit-mask-clip: border-box;
+// -webkit-mask-composite: source-over;
+// -webkit-mask-image: none;
+// -webkit-mask-origin: border-box;
+// -webkit-mask-position: 0% 0%;
+// -webkit-mask-repeat: repeat;
+// -webkit-mask-size: auto;
+// -webkit-print-color-adjust: economy;
+// -webkit-rtl-ordering: logical;
+// -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// -webkit-text-combine: none;
+// -webkit-text-decorations-in-effect: none;
+// -webkit-text-emphasis-color: rgb(51, 51, 51);
+// -webkit-text-emphasis-position: over;
+// -webkit-text-emphasis-style: none;
+// -webkit-text-fill-color: rgb(51, 51, 51);
+// -webkit-text-orientation: vertical-right;
+// -webkit-text-security: none;
+// -webkit-text-stroke-color: rgb(51, 51, 51);
+// -webkit-text-stroke-width: 0px;
+// -webkit-user-drag: auto;
+// -webkit-user-modify: read-only;
+// -webkit-user-select: text;
+
+
+/*
+ * Size utility.
+ *
+ * Synopsis:
+ *
+ *   size: <width> <height> | <width & height>
+ *
+ * Examples:
+ *
+ *     size: 100% 30px
+ *       yields:
+ *         width: 100%
+ *         height: 30px
+ *
+ *     size: 5px
+ *       yields:
+ *         width: 5px
+ *         height: 5px
+ *
+ */
+
+size()
+    if length(arguments) == 1
+        width: arguments[0]
+        height: arguments[0]
+    else
+        width: arguments[0]
+        height: arguments[1]
