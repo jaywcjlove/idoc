@@ -6,19 +6,34 @@
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
 </head>
 <body>
-<div class="nav">
-<div class="logo">idoc</div>
-<ul><li><a href="../../index.html">关于</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/主题文件.html">主题文件</a></li><li><a href="../../html/使用方法/初始化.html">初始化</a></li><li class="active"><a href="../../html/使用方法/配置文件.html">配置文件</a></li></ul></li><li><a href="../../html/首页.html">首页</a></li></ul></div>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                <img src="../../img/idoc-logo.svg">
+            
+        </div>
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li class="active"><a href="../../html/使用方法/配置说明.html">配置说明</a></li><li><a href="../../html/使用方法/markdown使用说明.html">markdown使用说明</a></li><li><a href="../../html/使用方法/命令文档.html">命令文档</a></li></ul></li><li><a href="../../html/文档收录.html">文档收录</a></li><li><a href="../../html/主题.html">主题</a></li><li><a href="../../html/关于.html">关于</a></li></ul>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc">fork on github</a></div>
+        
+    </div>
+    
+</div>
 
 
-<div class="warpper">
+
+
+<div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0package.json">package.json</a></li><li><a href="#t1配置说明">配置说明</a><ul><li><a href="#t2文档名字">文档名字</a></li><li><a href="#t3跳转仓库按钮">跳转仓库按钮</a></li><li><a href="#t4选择皮肤">选择皮肤</a></li><li><a href="#t5菜单序列化">菜单序列化</a></li></ul></li></ul>
+        <ul><li><a href="#t0配置文件说明">配置文件说明</a></li><li><a href="#t1参数说明">参数说明</a><ul><li><a href="#t2name">name</a></li><li><a href="#t3repository">repository</a></li><li><a href="#t4idoc.theme">idoc.theme</a></li><li><a href="#t5菜单序列化">菜单序列化</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
-        <h1 id="t0package.json">package.json <a href="#t0package.json"> # </a></h1>
+        <h1 id="t0&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BF4;&#x660E;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BF4;&#x660E; <a href="#t0&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8BF4;&#x660E;"> # </a></h1>
+<p>&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;<code>package.json</code>&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-json">{
     &quot;<span class="hljs-attribute">name</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;idoc&quot;</span></span>,
     &quot;<span class="hljs-attribute">version</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;0.0.1&quot;</span></span>,
@@ -35,13 +50,14 @@
     &quot;<span class="hljs-attribute">licenses</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;MIT&quot;</span></span>,
     &quot;<span class="hljs-attribute">idoc</span>&quot;: <span class="hljs-value">{
         &quot;<span class="hljs-attribute">theme</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;default&quot;</span></span>,
+        &quot;<span class="hljs-attribute">logo</span>&quot;: <span class="hljs-value"><span class="hljs-string">&quot;idoc-logo.svg&quot;</span></span>,
         &quot;<span class="hljs-attribute">md</span>&quot;: <span class="hljs-value">[
             <span class="hljs-string">&quot;&#x9996;&#x9875;.md&quot;</span>,
             {
                 &quot;<span class="hljs-attribute">&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</span>&quot;: <span class="hljs-value">[
+                    <span class="hljs-string">&quot;&#x4E3B;&#x9898;&#x6587;&#x4EF6;.md&quot;</span>,
                     <span class="hljs-string">&quot;&#x521D;&#x59CB;&#x5316;.md&quot;</span>,
-                    <span class="hljs-string">&quot;&#x914D;&#x7F6E;&#x6587;&#x4EF6;.md&quot;</span>,
-                    <span class="hljs-string">&quot;&#x4E3B;&#x9898;&#x6587;&#x4EF6;.md&quot;</span>
+                    <span class="hljs-string">&quot;&#x914D;&#x7F6E;&#x8BF4;&#x660E;.md&quot;</span>
                 ]
             </span>},
             <span class="hljs-string">&quot;&#x5173;&#x4E8E;.md&quot;</span>
@@ -49,33 +65,51 @@
     </span>}
 </span>}
 </code></pre>
-<h1 id="t1&#x914D;&#x7F6E;&#x8BF4;&#x660E;">&#x914D;&#x7F6E;&#x8BF4;&#x660E; <a href="#t1&#x914D;&#x7F6E;&#x8BF4;&#x660E;"> # </a></h1>
-<h2 id="t2&#x6587;&#x6863;&#x540D;&#x5B57;">&#x6587;&#x6863;&#x540D;&#x5B57; <a href="#t2&#x6587;&#x6863;&#x540D;&#x5B57;"> # </a></h2>
+<h1 id="t1&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E; <a href="#t1&#x53C2;&#x6570;&#x8BF4;&#x660E;"> # </a></h1>
+<p><code>package.json</code> &#x4E2D;&#x5185;&#x5BB9;&#x6709;&#x4E9B;&#x662F;&#x5FC5;&#x987B;&#x8981;&#x7684;</p>
+<h2 id="t2name">name <a href="#t2name"> # </a></h2>
+<p>&#x9ED8;&#x8BA4;&#x4E3A;&#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;</p>
 <pre><code>&quot;name&quot;: &quot;idoc&quot;
-</code></pre><h2 id="t3&#x8DF3;&#x8F6C;&#x4ED3;&#x5E93;&#x6309;&#x94AE;">&#x8DF3;&#x8F6C;&#x4ED3;&#x5E93;&#x6309;&#x94AE; <a href="#t3&#x8DF3;&#x8F6C;&#x4ED3;&#x5E93;&#x6309;&#x94AE;"> # </a></h2>
+</code></pre><h2 id="t3repository">repository <a href="#t3repository"> # </a></h2>
+<p>&#x8DF3;&#x8F6C;&#x4ED3;&#x5E93;&#x6309;&#x94AE;</p>
 <p>&#x5728;&#x914D;&#x7F6E;&#x4E2D; <code>repository.url</code> &#x53D6;&#x51B3;&#x4E8E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3B;&#x9898;&#x6587;&#x6863;&#x53F3;&#x8FB9;&#x662F;&#x5426;&#x663E;&#x793A; <code>Fork me on GitHub</code> &#x6309;&#x94AE;&#x3002;</p>
 <pre><code class="lang-json">&quot;repository&quot;: {
     &quot;type&quot;: &quot;git&quot;,
     &quot;url&quot;: &quot;https://github.com/jaywcjlove/idoc&quot;
 }
 </code></pre>
-<h2 id="t4&#x9009;&#x62E9;&#x76AE;&#x80A4;">&#x9009;&#x62E9;&#x76AE;&#x80A4; <a href="#t4&#x9009;&#x62E9;&#x76AE;&#x80A4;"> # </a></h2>
+<h2 id="t4idoc.theme">idoc.theme <a href="#t4idoc.theme"> # </a></h2>
 <p>&#x9ED8;&#x8BA4;&#x76AE;&#x80A4;&#x7684;&#x540D;&#x5B57;&#x4E3A; <code>default</code> &#x3002;</p>
+<pre><code class="lang-json">&quot;idoc&quot;: {
+    &quot;theme&quot;: &quot;default&quot;
+}
+</code></pre>
 <h2 id="t5&#x83DC;&#x5355;&#x5E8F;&#x5217;&#x5316;">&#x83DC;&#x5355;&#x5E8F;&#x5217;&#x5316; <a href="#t5&#x83DC;&#x5355;&#x5E8F;&#x5217;&#x5316;"> # </a></h2>
-<p>&#x5E8F;&#x5217;&#x5316; <code>markdown</code> &#x6587;&#x6863;&#x3002;</p>
+<p>&#x5E8F;&#x5217;&#x5316; <code>markdown</code> &#x6587;&#x6863;&#x3002;&#x8FD9;&#x4E2A;&#x662F;<code>&#x81EA;&#x52A8;&#x5E8F;&#x5217;&#x5316;</code>&#x7684;&#xFF0C;&#x60A8;&#x7684;&#x64CD;&#x4F5C;&#x53EA;&#x9700;&#x8981;&#x79FB;&#x52A8;&#x4F4D;&#x7F6E;&#x91CD;&#x65B0;<code>idoc build</code>&#x5373;&#x53EF;&#x3002;</p>
 <ol>
 <li>&#x9ED8;&#x8BA4;&#x5728;&#x6267;&#x884C; <code>idoc init</code> &#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5E8F;&#x5217;&#x5316;&#x597D;&#x83DC;&#x5355;&#xFF0C;&#x5982;&#x679C; <code>md</code> &#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;&#x66F4;&#x6539;&#xFF0C;&#x6216;&#x8005;&#x540D;&#x5B57;&#x66F4;&#x6539;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x80FD;&#x624B;&#x52A8;&#x66F4;&#x6539; <code>package.json</code> &#x5BF9;&#x5E94; <code>json</code> &#x6570;&#x636E;&#x3002;</li>
 <li><code>md</code>&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4E3A;&#x9996;&#x9875;&#x5185;&#x5BB9;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5747;&#x4E3A;&#x83DC;&#x5355;&#x7684;&#x540D;&#x5B57;&#x3002;</li>
 <li>&#x5982;&#x679C;&#x662F;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x653E;&#x5230;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;</li>
 </ol>
 <pre><code class="lang-json">{
-    &quot;<span class="hljs-attribute">&#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;</span>&quot;:<span class="hljs-value">[<span class="hljs-string">&quot;markdown&#x6587;&#x4EF6;&#x540D;&#x5B57;&quot;</span>,...]
+    &quot;<span class="hljs-attribute">&#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;</span>&quot;:<span class="hljs-value">[
+        <span class="hljs-string">&quot;markdown&#x6587;&#x4EF6;&#x540D;&#x5B57;1&quot;</span>,
+        <span class="hljs-string">&quot;markdown&#x6587;&#x4EF6;&#x540D;&#x5B57;2&quot;</span>,
+        {
+            &quot;<span class="hljs-attribute">&#x6587;&#x4EF6;&#x5939;&#x540D;&#x5B57;</span>&quot;:<span class="hljs-value">[
+                <span class="hljs-string">&quot;markdown&#x6587;&#x4EF6;&#x540D;&#x5B57;1&quot;</span>,
+                <span class="hljs-string">&quot;markdown&#x6587;&#x4EF6;&#x540D;&#x5B57;2&quot;</span>,
+                ...
+            ]
+        </span>}
+        ...
+    ]
 </span>}
 </code></pre>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
     </div>
-    
+
 </div>
 
 

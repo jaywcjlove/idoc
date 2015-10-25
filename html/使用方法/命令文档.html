@@ -10,10 +10,10 @@
     <div class="container">
         <div class="logo">
             
-                <img src="../../idoc-logo.svg">
+                <img src="../../img/idoc-logo.svg">
             
         </div>
-        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li class="active"><a href="../../html/使用方法/初始化.html">初始化</a></li><li><a href="../../html/使用方法/配置说明.html">配置说明</a></li><li><a href="../../html/使用方法/主题制作.html">主题制作</a></li><li><a href="../../html/使用方法/markdown使用说明.html">markdown使用说明</a></li></ul></li><li><a href="../../html/关于.html">关于</a></li></ul>
+        <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="../../html/使用方法/配置说明.html">配置说明</a></li><li><a href="../../html/使用方法/markdown使用说明.html">markdown使用说明</a></li><li class="active"><a href="../../html/使用方法/命令文档.html">命令文档</a></li></ul></li><li><a href="../../html/文档收录.html">文档收录</a></li><li><a href="../../html/主题.html">主题</a></li><li><a href="../../html/关于.html">关于</a></li></ul>
         
         
         <div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc">fork on github</a></div>
@@ -28,7 +28,7 @@
 <div class="container">
 
     <div class="page-toc">
-        <ul><li><a href="#t0全局安装">全局安装</a></li><li><a href="#t1使用方法">使用方法</a></li><li><a href="#t2命令文档">命令文档</a><ul><li><a href="#t3init">init</a></li><li><a href="#t4build">build</a></li><li><a href="#t5watch">watch</a></li><li><a href="#t6server">server</a></li><li><a href="#t7clean">clean</a></li><li><a href="#t8deploy">deploy</a></li></ul></li></ul>
+        <ul><li><a href="#t0全局安装">全局安装</a></li><li><a href="#t1使用方法">使用方法</a></li><li><a href="#t2命令文档">命令文档</a><ul><li><a href="#t3init">init</a></li><li><a href="#t4build">build</a></li><li><a href="#t5watch">watch</a></li><li><a href="#t6server">server</a></li><li><a href="#t7clean">clean</a></li><li><a href="#t8theme">theme</a></li><li><a href="#t9deploy">deploy</a></li></ul></li></ul>
     </div>
     
     <div class="content markdown-body">
@@ -47,29 +47,35 @@
 </ol>
 <h1 id="t2&#x547D;&#x4EE4;&#x6587;&#x6863;">&#x547D;&#x4EE4;&#x6587;&#x6863; <a href="#t2&#x547D;&#x4EE4;&#x6587;&#x6863;"> # </a></h1>
 <p>&#x547D;&#x4EE4;&#x4F7F;&#x7528;&#x5E2E;&#x52A9;&#x3002;</p>
-<pre><code>Usage: idoc [options]
+<pre><code>  Usage: idoc [options]
 
-Options:
+    Simple document generation tool!
 
-  -h, --help           output usage information
-  -V, --version        output the version number
-  -C, --Create &lt;file&gt;  Select Directory Makefile.
-  init                 init a documentation.
-  build                Markdown produces static pages document.
-  watch                Listener &quot;md&quot; file is automatically generated pages.
-  server               Open local static html server.
-  clean                Clear the generate static files.
-  deploy               Publish to a gh-pages branch on GitHub.
+  Options:
 
-Examples:
+    -h, --help           output usage information
+    -V, --version        output the version number
+    -C, --Create &lt;file&gt;  Select Directory Makefile.
+    -v                   App version information.
+    -i, init             Init a documentation.
+    -b, build            Markdown produces static pages document.
+    -w, watch            Listener &quot;md&quot; file is automatically generated pages.
+    -s, server           Open local static html server.
+    -c, clean            Clear the generate static files.
+    -t, theme            Choose a theme.
+    -d, deploy           Publish to a gh-pages branch on GitHub.
 
-  $ idoc init
-  $ idoc init [path]
-  $ idoc init [path] -C ~/idoc/
-  $ idoc watch
-  $ idoc server
-  $ idoc clean
-  $ idoc deploy
+  Examples:
+
+    $ idoc init
+    $ idoc init [path]
+    $ idoc init [path] -C ~/idoc/
+    $ idoc watch
+    $ idoc server
+    $ idoc clean
+    $ idoc deploy
+    $ idoc theme
+    $ idoc -t ~/git/idoc-theme-slate/
 </code></pre><h2 id="t3init">init <a href="#t3init"> # </a></h2>
 <p>&#x521D;&#x59CB;&#x5316;&#x6587;&#x6863;&#x6587;&#x4EF6;</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;md&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x751F;&#x6210;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;package.json&#x4E2D;</span>
@@ -103,7 +109,18 @@ $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 <p>&#x6E05;&#x9664;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-sh">$ idoc clean
 </code></pre>
-<h2 id="t8deploy">deploy <a href="#t8deploy"> # </a></h2>
+<h2 id="t8theme">theme <a href="#t8theme"> # </a></h2>
+<p><code>$ idoc theme</code> &#x4E0E; <code>$ idoc -t</code> &#x76F8;&#x540C;<br>&#x9009;&#x62E9;&#x9ED8;&#x8BA4;&#x4E3B;&#x9898;&#x6216;&#x8005;&#x7B2C;&#x4E09;&#x65B9;&#x4E3B;&#x9898;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E24;&#x4E2A;&#x4E3B;&#x9898; handbook &#x6216;&#x8005; default&#x3002;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># &#x9009;&#x62E9;&#x4E3B;&#x9898;</span>
+<span class="hljs-comment"># &#x7B2C;&#x4E09;&#x65B9;&#x4E3B;&#x9898;&#xFF0C;&#x514B;&#x9686;&#x5230;&#x5F53;&#x524D;&#x8DDF;&#x76EE;&#x5F55;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x9009;&#x62E9;&#x4E86;</span>
+$ idoc theme
+<span class="hljs-comment"># theme &#x7B80;&#x5199; &#xFF0D;t</span>
+$ idoc -t
+
+<span class="hljs-comment"># &#x5236;&#x4F5C;&#x4E3B;&#x9898; &#x9700;&#x8981;&#x6307;&#x5B9A;&#x5236;&#x4F5C;&#x7684;&#x4E3B;&#x9898;&#x76EE;&#x5F55;</span>
+$ idoc -t ~/git/idoc-theme-slate/
+</code></pre>
+<h2 id="t9deploy">deploy <a href="#t9deploy"> # </a></h2>
 <p>&#x5C06;&#x6587;&#x6863;&#x90E8;&#x7F72;&#x5230; <code>git</code> &#x4ED3;&#x5E93;&#x7684; <code>gh-pages</code> &#x5206;&#x652F;&#x4E2D;&#x3002;<br>&#x76EE;&#x524D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x5206;&#x652F;&#x3002;  </p>
 <pre><code class="lang-sh">$ idoc deploy
 </code></pre>
