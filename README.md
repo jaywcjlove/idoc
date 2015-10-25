@@ -97,7 +97,7 @@ $ sudo npm install idoc -g
 - [ ] 配置文件配置下载 md 文件
 - [x] 解决server 端口冲突
 - [ ] 判断是否存在markdown树形导航菜单
-- [ ] 第二个模板制作
-- [ ] 模板切换命令
+- [x] 第二个模板制作
+- [x] 模板切换命令
 - [ ] api 检索功能
 - [x] 兼容windows路径(cmd工具冒得问题嘞)
