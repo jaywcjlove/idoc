@@ -62,11 +62,12 @@ $ sudo npm install idoc -g
     -V, --version        output the version number
     -C, --Create <file>  Select Directory Makefile.
     -v                   App version information.
-    -i, init             init a documentation.
+    -i, init             Init a documentation.
     -b, build            Markdown produces static pages document.
     -w, watch            Listener "md" file is automatically generated pages.
     -s, server           Open local static html server.
     -c, clean            Clear the generate static files.
+    -t, theme            Choose a theme.
     -d, deploy           Publish to a gh-pages branch on GitHub.
 
   Examples:
@@ -78,6 +79,8 @@ $ sudo npm install idoc -g
     $ idoc server
     $ idoc clean
     $ idoc deploy
+    $ idoc theme
+    $ idoc -t ~/git/idoc-theme-slate/
 ```
 
 
