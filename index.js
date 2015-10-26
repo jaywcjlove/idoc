@@ -36,7 +36,7 @@ module.exports = function(commander){
         return watch(commander,build);
     }
     if(commander.server){
-        server(1987);
+        server();
         return watch(commander,build);
     }
     if(commander.clean){
