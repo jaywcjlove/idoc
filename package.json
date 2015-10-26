@@ -1,6 +1,6 @@
 {
   "name": "idoc",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple document generation tool. Dependence Node.js run.",
   "repository": {
     "type": "git",
