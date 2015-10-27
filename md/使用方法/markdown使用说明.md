@@ -7,7 +7,7 @@
 
 ## 例子一
 
-`[![图片title](图片路径)](跳转链接地址)`  
+> `[![图片title](图片路径)](跳转链接地址)`  
 
 ```
 [![](1.jpg)](https://img.shields.io/github/forks/jaywcjlove/idoc.svg)
@@ -24,3 +24,19 @@
 ```
 [![](https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4213405295,1372343056&fm=116&gp=0.jpg)](https://img.shields.io/github/forks/jaywcjlove/idoc.svg)
 ```
+
+# todo
+
+这个功能并非markdown原生写法，这个是Github的功能。😄
+
+**书写方法:**
+
+```
+- [x] 任务一
+- [ ] 任务一
+```
+
+**预览:**
+
+- [x] 任务一
+- [ ] 任务一
