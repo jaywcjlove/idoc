@@ -8,7 +8,7 @@ require('colorful').toxic()
 
 commander
     .usage('[options]')
-    .description('  Simple document generation tool!')
+    .description('  Simple document generation tool! \n    version: ' + appInfo.version)
     .version(appInfo.version);
 
 
@@ -40,9 +40,6 @@ commander
         
         // 图片文字 http://patorjk.com/software/taag/#p=testall&f=Graffiti&t=idoc
 
-        log('')
-        log('')
-        log('')
         log('')
         log("    ,,        ,,                    ".bold.grey)
         log("    db      `7MM                    ".bold.grey)
