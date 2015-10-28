@@ -4,10 +4,9 @@
 global-reset()
 reset-html()
 
+@import('variables.styl');
 @import('markdown.styl');
 @import('highlight.styl');
-
-tocwidth = 220px
 
 *
     box-sizing: border-box
@@ -33,10 +32,15 @@ body,html
     padding: 0 0 0 20px
     position: fixed
     width: 100%
+    @media mq-mobile
+        height initial
+        position: initial
     ul  
         list-style: none
         position: relative
         display: inline-table
+        @media mq-mobile
+            display inline-flex
         ul
             display: none
             background: #D1D1D1
@@ -44,6 +48,7 @@ body,html
             padding: 0
             position: absolute
             top: 100%
+            z-index 9
             li.active
                 a
                     background: #4b545f
@@ -95,11 +100,15 @@ body,html
     padding: 41px 0 0 0
     height: 100%
     overflow: auto
+    @media mq-mobile
+        padding-top 0
     .page-toc,.markdown-body
         height:100%
     .markdown-body
         margin-left:tocwidth
         overflow: auto
+        @media mq-mobile
+            margin-left:0
     .page-toc
         width:200px
         height:calc(100% - 41px)
@@ -112,6 +121,8 @@ body,html
         overflow-y: auto
         overflow-x: hidden
         font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+        @media mq-mobile
+            display none
         ul
             list-style-type: none
             margin: 0
@@ -156,6 +167,8 @@ body,html
     z-index: 2
     right: 0
     background:url("../img/forkgithub.png") 14px -15px no-repeat
+    @media mq-mobile
+        display none
     a 
         display:block
         width:149px

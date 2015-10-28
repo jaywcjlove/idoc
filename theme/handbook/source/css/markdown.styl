@@ -1,11 +1,12 @@
-
 .markdown-body
-    padding: 30px
+    padding: 30px 35px 30px 0
     word-wrap: break-word
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
     font-size: 16px
     line-height: 1.4em
     color:#333
+    @media mq-mobile
+        padding: 30px 10px 30px 10px
     &>*:first-child
         margin-top: 0 !important
     strong
@@ -15,6 +16,8 @@
         border-width: 1px 0 0 0
     em 
         font-style:italic
+    img 
+        max-width 100%
     h1,h2,h3,h4,h5,h6
         position: relative
         margin-top: 1em
@@ -62,7 +65,7 @@
     pre
         padding: 16px
         overflow: auto
-        background-color: #E7E7E7
+        background-color: #f7f7f9
         border-radius: 3px
         word-break: break-all
         word-wrap: break-word 
@@ -82,14 +85,15 @@
         padding-bottom: 2px
         margin: 0 3px
         vertical-align: top
-        background-color: rgba(0,0,0,0.09)
+        background-color: #EDEDF7
         border-radius: 4px
         padding-left: 3px
         padding-right: 3px
         font-size: 14px
-        color: #790000
+        color: #6F5990
     code:before,code:after,tt:before,tt:after
         content: "\00a0"
+        vertical-align: text-top
     table
         width: 100%
         border-collapse: collapse

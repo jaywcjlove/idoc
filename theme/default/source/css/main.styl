@@ -4,11 +4,9 @@
 global-reset()
 reset-html()
 
+@import('variables.styl')
 @import('markdown.styl')
 @import('highlight.styl')
-
-tocwidth = 220px
-nav-height = 49px
 
 *
     box-sizing: border-box
@@ -28,8 +26,12 @@ body,html
 .container
     padding-left: 15px;
     padding-right: 15px;
-    width: 1170px
+    width: 1124px
     margin 0 auto
+    @media mq-tablet
+        width auto
+    @media mq-mobile
+        width auto
     &:before
         display: table;
         content: " ";
@@ -54,8 +56,14 @@ body,html
     font-size: 24px;
     text-align: left;
     text-shadow: 0 1px 0 rgba(0,0,0,.1)
+    @media mq-mobile
+        padding: 28px 0
     h1,p 
         margin-right: 380px
+        @media mq-mobile
+            margin-right: 0
+        @media mq-tablet
+            margin-right 50px
     h1
         color: #fff
         font-family: inherit
@@ -66,6 +74,9 @@ body,html
         font-size: 60px;
         line-height: 1;
         text-align: left
+        @media mq-mobile
+            margin: .37em 0
+            text-align center
     p 
         margin-bottom: 0
         font-weight: 300
@@ -78,6 +89,8 @@ body,html
         position: relative
         display: inline-table
         float: left
+        @media mq-mobile
+            position: absolute
         ul
             display: none
             background: #FFFFFF
@@ -116,6 +129,8 @@ body,html
                 color: #757575
                 text-decoration: none
                 padding: 0 15px
+                @media mq-mobile
+                    padding: 0 5px
         li:hover
             background: #F3F3F3
             a
@@ -144,6 +159,10 @@ body,html
     margin-top: 35px
     border-left: 1px solid #EEE
     font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,sans-serif !important
+    @media mq-tablet
+        width auto
+    @media mq-mobile
+        display none
     ul
         list-style-type: none
         margin: 0
@@ -189,9 +208,17 @@ body,html
     z-index: 2
     right: 0
     background: url("../img/forkgithub.png") 14px -15px no-repeat
+    @media mq-mobile
+        display none
+    @media mq-tablet
+        background-image inherit
     a 
         display: block
         width: 149px
         height: 1px
         padding-top 149px
         overflow hidden
+        @media mq-tablet
+            padding-top 0
+            height: 149px
+            
