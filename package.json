@@ -1,36 +1,31 @@
 {
     "name": "idoc",
     "version": "0.0.1",
-    "description": "通过markdown生成静态页面的小巧工具。它依赖于node.js运行。",
+    "description": "",
     "keywords": [
-        "tool",
-        "document",
-        "api",
-        "markdown",
-        "idoc"
+        ""
     ],
     "homepage": "http://JSLite.io",
     "author": "jaywcjlove <398188662@qq.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/jaywcjlove/idoc"
+        "url": ""
     },
     "licenses": "MIT",
     "idoc": {
         "theme": "default",
-        "logo": "img/idoc-logo.svg",
         "md": [
-            "首页.md",
+            "主题.md",
             {
                 "使用方法": [
-                    "配置说明.md",
+                    "markdown使用说明.md",
                     "命令文档.md",
-                    "markdown使用说明.md"
+                    "配置说明.md"
                 ]
             },
+            "关于.md",
             "文档收录.md",
-            "主题.md",
-            "关于.md"
+            "首页.md"
         ]
     }
 }
