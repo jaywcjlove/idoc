@@ -34,9 +34,9 @@
     "marked": "^0.3.5",
     "nib": "^1.1.0",
     "semver": "^5.0.1",
+    "shelljs": "^0.5.3",
     "ssr": "^1.0.8",
     "stylus": "^0.52.4",
-    "underscore": "^1.8.3",
-    "whoami": "0.0.3"
+    "underscore": "^1.8.3"
   }
 }
