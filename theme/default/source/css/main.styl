@@ -1,8 +1,11 @@
-@import('reset.styl');
+@import 'nib'
+
+// CSS reset
 global-reset()
-@import('vendor.styl');
-@import('markdown.styl');
-@import('highlight.styl');
+reset-html()
+
+@import('markdown.styl')
+@import('highlight.styl')
 
 tocwidth = 220px
 nav-height = 49px
@@ -134,7 +137,7 @@ body,html
     overflow: auto
 .page-toc
     width: 200px
-    float: left
+    float: right
     width: 220px
     background: #fff
     padding: 9px 0 25px 20px 
