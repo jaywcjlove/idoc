@@ -1,15 +1,15 @@
 {
     "name": "idoc",
     "version": "0.0.1",
-    "description": "",
+    "description": "通过markdown生成静态页面的工具。经常用 markdown 写一些接口文档，为了方便特写此工具玩耍。",
     "keywords": [
         ""
     ],
-    "homepage": "http://JSLite.io",
+    "homepage": "http://jaywcjlove.github.io/idoc",
     "author": "jaywcjlove <398188662@qq.com>",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/jaywcjlove/idoc"
     },
     "licenses": "MIT",
     "idoc": {

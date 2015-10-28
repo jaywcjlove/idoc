@@ -16,6 +16,8 @@
         <ul><li class="active"><a href="index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="html/使用方法/命令文档.html">命令文档</a></li><li><a href="html/使用方法/配置说明.html">配置说明</a></li><li><a href="html/使用方法/markdown使用说明.html">markdown使用说明</a></li></ul></li><li><a href="html/主题.html">主题</a></li><li><a href="html/文档收录.html">文档收录</a></li><li><a href="html/关于.html">关于</a></li></ul>
         
         
+        <div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc">fork on github</a></div>
+        
     </div>
     
 </div>
@@ -25,7 +27,7 @@
 <div class="bs-docs-header">
     <div class="container">
         <h1>idoc</h1>
-        <p></p>
+        <p>通过markdown生成静态页面的工具。经常用 markdown 写一些接口文档，为了方便特写此工具玩耍。</p>
     </div>
 </div>
 
@@ -37,8 +39,7 @@
     </div>
     
     <div class="content markdown-body">
-        <p>&#x901A;&#x8FC7;markdown&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x7ECF;&#x5E38;&#x7528; markdown &#x5199;&#x4E00;&#x4E9B;&#x63A5;&#x53E3;&#x6587;&#x6863;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x7279;&#x5199;&#x6B64;&#x5DE5;&#x5177;&#x73A9;&#x800D;&#x3002;  <a href="http://jaywcjlove.github.io/idoc">&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x9884;&#x89C8;&#x6548;&#x679C;</a> </p>
-<pre><code>    ,,        ,,
+        <pre><code>    ,,        ,,
     db      `7MM
               MM
   `7MM   ,M&quot;&quot;bMM  ,pW&quot;Wq.   ,p6&quot;bo
@@ -52,17 +53,17 @@
 <h1 id="t1&#x6E90;&#x7801;&#x4ED3;&#x5E93;">&#x6E90;&#x7801;&#x4ED3;&#x5E93; <a href="#t1&#x6E90;&#x7801;&#x4ED3;&#x5E93;"> # </a></h1>
 <p>&#x4ED3;&#x5E93;&#x5730;&#x5740;&#x3010;<a href="https://github.com/jaywcjlove/idoc">https://github.com/jaywcjlove/idoc</a>&#x3011; &#x6B22;&#x8FCE;&#x63D0;&#x9700;&#x6C42;&#x548C;bug&#xFF0C;&#x63D0;&#x4EA4;&#x5730;&#x5740;<a href="https://github.com/jaywcjlove/idoc/issues">issues</a> &#x3002;</p>
 <h1 id="t2&#x65B0;&#x7248;&#x672C;&#x4F53;&#x9A8C;">&#x65B0;&#x7248;&#x672C;&#x4F53;&#x9A8C; <a href="#t2&#x65B0;&#x7248;&#x672C;&#x4F53;&#x9A8C;"> # </a></h1>
-<pre><code class="lang-shell">
-# 1. &#x5148;&#x514B;&#x9686;`idoc`&#x5230;&#x672C;&#x5730;
-$ git clone https://github.com/jaywcjlove/idoc.git
+<pre><code class="lang-bash">
+<span class="hljs-comment"># 1. &#x5148;&#x514B;&#x9686;`idoc`&#x5230;&#x672C;&#x5730;</span>
+$ git <span class="hljs-built_in">clone</span> https://github.com/jaywcjlove/idoc.git
 
-# 2. &#x5378;&#x8F7D;&#x5DF2;&#x5B89;&#x88C5;&#x7684;idoc
+<span class="hljs-comment"># 2. &#x5378;&#x8F7D;&#x5DF2;&#x5B89;&#x88C5;&#x7684;idoc</span>
 $ npm uninstall -g idoc
 
-# 3. &#x8FDB;&#x5165;&#x4E0B;&#x8F7D;&#x597D;&#x7684; idoc &#x76EE;&#x5F55;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x8F6F;&#x8FDE;
+<span class="hljs-comment"># 3. &#x8FDB;&#x5165;&#x4E0B;&#x8F7D;&#x597D;&#x7684; idoc &#x76EE;&#x5F55;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x8F6F;&#x8FDE;</span>
 $ npm link
 
-# 4. &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;(&#x53EF;&#x4EE5;&#x6539;&#x6539;&#x6E90;&#x7801;&#x8FDB;&#x884C;&#x73A9;&#x800D;)
+<span class="hljs-comment"># 4. &#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;(&#x53EF;&#x4EE5;&#x6539;&#x6539;&#x6E90;&#x7801;&#x8FDB;&#x884C;&#x73A9;&#x800D;)</span>
 $ idoc -h
 </code></pre>
 <h1 id="t3TODO">TODO <a href="#t3TODO"> # </a></h1>

@@ -16,6 +16,8 @@
         <ul><li><a href="../../index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li class="active"><a href="../../html/使用方法/命令文档.html">命令文档</a></li><li><a href="../../html/使用方法/配置说明.html">配置说明</a></li><li><a href="../../html/使用方法/markdown使用说明.html">markdown使用说明</a></li></ul></li><li><a href="../../html/主题.html">主题</a></li><li><a href="../../html/文档收录.html">文档收录</a></li><li><a href="../../html/关于.html">关于</a></li></ul>
         
         
+        <div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc">fork on github</a></div>
+        
     </div>
     
 </div>
@@ -45,7 +47,7 @@
 </ol>
 <h1 id="t2&#x547D;&#x4EE4;&#x6587;&#x6863;">&#x547D;&#x4EE4;&#x6587;&#x6863; <a href="#t2&#x547D;&#x4EE4;&#x6587;&#x6863;"> # </a></h1>
 <p>&#x547D;&#x4EE4;&#x4F7F;&#x7528;&#x5E2E;&#x52A9;&#x3002;</p>
-<pre><code>  Usage: idoc [options]
+<pre><code class="lang-bash">  Usage: idoc [options]
 
     Simple document generation tool!
 
@@ -57,11 +59,11 @@
     -v                   App version information.
     -i, init             Init a documentation.
     -b, build            Markdown produces static pages document.
-    -w, watch            Listener &quot;md&quot; file is automatically generated pages.
-    -s, server           Open local static html server.
+    -w, watch            Listener <span class="hljs-string">&quot;md&quot;</span> file is automatically generated pages.
+    <span class="hljs-operator">-s</span>, server           Open <span class="hljs-built_in">local</span> static html server.
     -c, clean            Clear the generate static files.
     -t, theme            Choose a theme.
-    -d, deploy           Publish to a gh-pages branch on GitHub.
+    <span class="hljs-operator">-d</span>, deploy           Publish to a gh-pages branch on GitHub.
 
   Examples:
 
@@ -74,9 +76,10 @@
     $ idoc deploy
     $ idoc theme
     $ idoc -t ~/git/idoc-theme-slate/
-</code></pre><h2 id="t3init">init <a href="#t3init"> # </a></h2>
+</code></pre>
+<h2 id="t3init">init <a href="#t3init"> # </a></h2>
 <p>&#x521D;&#x59CB;&#x5316;&#x6587;&#x6863;&#x6587;&#x4EF6;</p>
-<pre><code class="lang-sh"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;md&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x751F;&#x6210;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;package.json&#x4E2D;</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x5939;&#x6839;&#x76EE;&#x5F55;&#x7684;&#x6240;&#x6709;md&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x751F;&#x6210;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;package.json&#x4E2D;</span>
 $ idoc init
 <span class="hljs-comment"># &#x5C06;&#x6307;&#x5B9A;&#x7684; md &#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x751F;&#x6210;&#x6A21;&#x677F;&#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
 $ idoc init ~/md/JSLite.md
@@ -93,23 +96,23 @@ $ idoc init JSLite.md hotkeys.md -C ~/idoc/
 </code></pre>
 <h2 id="t4build">build <a href="#t4build"> # </a></h2>
 <p>&#x751F;&#x6210;&#x9759;&#x6001; HTML &#x9875;&#x9762;&#x5230;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x4E2D;&#x3002;</p>
-<pre><code class="lang-sh">$ idoc build
+<pre><code class="lang-bash">$ idoc build
 </code></pre>
 <h2 id="t5watch">watch <a href="#t5watch"> # </a></h2>
 <p>&#x76D1;&#x63A7; md &#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x81EA;&#x52A8; build&#x3002;</p>
-<pre><code class="lang-sh">$ idoc watch
+<pre><code class="lang-bash">$ idoc watch
 </code></pre>
 <h2 id="t6server">server <a href="#t6server"> # </a></h2>
 <p>&#x6253;&#x5F00;&#x672C;&#x5730;&#x9759;&#x6001; html &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9884;&#x89C8;&#x4F60;&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x3002;</p>
-<pre><code class="lang-sh">$ idoc server
+<pre><code class="lang-bash">$ idoc server
 </code></pre>
 <h2 id="t7clean">clean <a href="#t7clean"> # </a></h2>
 <p>&#x6E05;&#x9664;&#x751F;&#x6210;&#x7684;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x3002;</p>
-<pre><code class="lang-sh">$ idoc clean
+<pre><code class="lang-bash">$ idoc clean
 </code></pre>
 <h2 id="t8theme">theme <a href="#t8theme"> # </a></h2>
 <p><code>$ idoc theme</code> &#x4E0E; <code>$ idoc -t</code> &#x76F8;&#x540C;<br>&#x9009;&#x62E9;&#x9ED8;&#x8BA4;&#x4E3B;&#x9898;&#x6216;&#x8005;&#x7B2C;&#x4E09;&#x65B9;&#x4E3B;&#x9898;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E24;&#x4E2A;&#x4E3B;&#x9898; handbook &#x6216;&#x8005; default&#x3002;</p>
-<pre><code class="lang-sh"><span class="hljs-comment"># &#x9009;&#x62E9;&#x4E3B;&#x9898;</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x9009;&#x62E9;&#x4E3B;&#x9898;</span>
 <span class="hljs-comment"># &#x7B2C;&#x4E09;&#x65B9;&#x4E3B;&#x9898;&#xFF0C;&#x514B;&#x9686;&#x5230;&#x5F53;&#x524D;&#x8DDF;&#x76EE;&#x5F55;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x9009;&#x62E9;&#x4E86;</span>
 $ idoc theme
 <span class="hljs-comment"># theme &#x7B80;&#x5199; &#xFF0D;t</span>
@@ -120,7 +123,7 @@ $ idoc -t ~/git/idoc-theme-slate/
 </code></pre>
 <h2 id="t9deploy">deploy <a href="#t9deploy"> # </a></h2>
 <p>&#x5C06;&#x6587;&#x6863;&#x90E8;&#x7F72;&#x5230; <code>git</code> &#x4ED3;&#x5E93;&#x7684; <code>gh-pages</code> &#x5206;&#x652F;&#x4E2D;&#x3002;<br>&#x76EE;&#x524D;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x5206;&#x652F;&#x3002;  </p>
-<pre><code class="lang-sh">$ idoc deploy
+<pre><code class="lang-bash">$ idoc deploy
 </code></pre>
 
         <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
