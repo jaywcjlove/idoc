@@ -4,6 +4,7 @@ var watch   = require('./lib/watch');
 var file    = require('./lib/file');
 var clean   = require('./lib/clean');
 var deploy  = require('./lib/deploy');
+var theme  = require('./lib/theme');
 var color   = require('colorful');
 var path    = require('path');
 var server  = require('ssr');
@@ -43,6 +44,9 @@ module.exports = function(commander){
     }
     if(commander.deploy){
         return deploy(commander);
+    }
+    if(commander.theme){
+        return theme.runTask(commander);
     }
     commander.outputHelp();
 }

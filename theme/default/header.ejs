@@ -1,8 +1,27 @@
-<div class="nav">
-<div class="logo"><%= title %></div>
-<%- menu_html -%>
+<div class="navbar <%if(!index){%>navbar-line<%}%>">
+    <div class="container">
+        <div class="logo">
+            <%if(pkg.idoc.logo){%>
+                <img src="<%=relative_path%><%=pkg.idoc.logo%>">
+            <%}else{%>
+                <%= title %>
+            <%}%>
+        </div>
+        <%- menu_html %>
+        
+        <% if(pkg&&pkg.repository&&pkg.repository.url) {%>
+        <div class="forkgithub"><a target="_blank" href="<%=pkg.repository.url%>">fork on github</a></div>
+        <%}%>
+    </div>
+    
 </div>
 
-<% if(pkg&&pkg.repository&&pkg.repository.url) {%>
-<div class="forkgithub"><a target="_blank" href="<%=pkg.repository.url%>"></a></div>
-<%}%>
+
+<% if(index){ %>
+<div class="bs-docs-header">
+    <div class="container">
+        <h1><%= title %></h1>
+        <p><%= pkg.description %></p>
+    </div>
+</div>
+<% } %>

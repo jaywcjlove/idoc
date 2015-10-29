@@ -62,11 +62,12 @@ $ sudo npm install idoc -g
     -V, --version        output the version number
     -C, --Create <file>  Select Directory Makefile.
     -v                   App version information.
-    -i, init             init a documentation.
+    -i, init             Init a documentation.
     -b, build            Markdown produces static pages document.
     -w, watch            Listener "md" file is automatically generated pages.
     -s, server           Open local static html server.
     -c, clean            Clear the generate static files.
+    -t, theme            Choose a theme.
     -d, deploy           Publish to a gh-pages branch on GitHub.
 
   Examples:
@@ -78,6 +79,8 @@ $ sudo npm install idoc -g
     $ idoc server
     $ idoc clean
     $ idoc deploy
+    $ idoc theme
+    $ idoc -t ~/git/idoc-theme-slate/
 ```
 
 
@@ -97,7 +100,7 @@ $ sudo npm install idoc -g
 - [ ] 配置文件配置下载 md 文件
 - [x] 解决server 端口冲突
 - [ ] 判断是否存在markdown树形导航菜单
-- [ ] 第二个模板制作
-- [ ] 模板切换命令
+- [x] 第二个模板制作
+- [x] 模板切换命令
 - [ ] api 检索功能
 - [x] 兼容windows路径(cmd工具冒得问题嘞)

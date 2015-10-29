@@ -1,0 +1,176 @@
+@import 'nib'
+
+// CSS reset
+global-reset()
+reset-html()
+
+@import('variables.styl');
+@import('markdown.styl');
+@import('highlight.styl');
+
+*
+    box-sizing: border-box
+body 
+    background:#F6F6F6 url(../img/background.png)
+body,html
+    height:100%
+    font-family:Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
+.logo
+    float:left
+    padding: 0 20px 0 0
+    font-size: 24px
+    img 
+        vertical-align: middle
+        margin: -4px 0 0 0
+
+.nav
+    background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%)
+    z-index: 2
+    height: 41px
+    line-height: 42px
+    border-bottom: 1px solid #C4C4C4
+    padding: 0 0 0 20px
+    position: fixed
+    width: 100%
+    @media mq-mobile
+        height initial
+        position: initial
+    ul  
+        list-style: none
+        position: relative
+        display: inline-table
+        @media mq-mobile
+            display inline-flex
+        ul
+            display: none
+            background: #D1D1D1
+            border-radius: 0px
+            padding: 0
+            position: absolute
+            top: 100%
+            z-index 9
+            li.active
+                a
+                    background: #4b545f
+                    color:#fff
+                    line-height:29px
+                    height:29px
+            li 
+                float: none
+                border-bottom: 1px solid #C8C8C8
+                position: relative
+                a:hover 
+                    background: #4b545f
+                    color:#fff
+            a
+                color: #fff
+                line-height: 29px
+                white-space:nowrap
+                word-break:keep-all
+            ul
+                position: absolute
+                left: 100%
+                top:0
+        li
+            float: left
+            line-height: 40px
+            a
+                display: block
+                color: #757575
+                text-decoration: none
+                padding: 0 15px
+        li:hover
+            background: #E1E1E1
+            background-image: linear-gradient(top,#CCCCCC 0%,#E7E7E7 40%)
+            a
+                color: #333
+        li.active
+            a
+                background-image: linear-gradient(#E8E8E8 0%,#e7e7e7 100%)
+                color:#A00000
+                height: 40px
+    ul li:hover > ul
+        display: block
+    ul:after
+        content: ""
+        clear: both
+        display: block
+.warpper
+    width: 100%
+    padding: 41px 0 0 0
+    height: 100%
+    overflow: auto
+    @media mq-mobile
+        padding-top 0
+    .page-toc,.markdown-body
+        height:100%
+    .markdown-body
+        margin-left:tocwidth
+        overflow: auto
+        @media mq-mobile
+            margin-left:0
+    .page-toc
+        width:200px
+        height:calc(100% - 41px)
+        position: fixed
+        width:tocwidth
+        border-right: 1px solid #bbb
+        box-shadow: 0 0 20px #ccc
+        background:#fff
+        padding: 10px
+        overflow-y: auto
+        overflow-x: hidden
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, sans-serif !important;
+        @media mq-mobile
+            display none
+        ul
+            list-style-type: none
+            margin: 0
+            a 
+                display: block
+                padding: 3px 0
+                color: #151515
+                text-decoration: none
+                font-weight:bold
+                line-height: 16px
+                font-size: 14px
+                &:hover
+                    color:red
+                    text-decoration: underline
+            li 
+                padding-left:3px
+                text-align:left
+            ul
+                margin:0 0 0 10px
+                list-style-type: square
+                padding: 0 0 0 9px
+                li 
+                    a 
+                        font-size:90%
+                        font-weight:normal
+                        border-bottom:0
+    .copyright
+        border-top: 1px dashed #E9E9E9
+        padding: 6px 0 5px 2px
+        margin: 32px 0 0 0
+        line-height: 16px
+        font-size: 12px
+        color: #dfdfdf
+        a 
+            color: #D6DDF8
+            text-decoration: underline
+            &:hover
+                color:#333
+
+.forkgithub
+    position: absolute
+    z-index: 2
+    right: 0
+    background:url("../img/forkgithub.png") 14px -15px no-repeat
+    @media mq-mobile
+        display none
+    a 
+        display:block
+        width:149px
+        height:149px
+        
