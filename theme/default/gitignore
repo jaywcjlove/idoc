@@ -19,4 +19,4 @@ Thumbs.db
 .build
 node_modules
 .cache
-idoc-theme-*
+idoc-theme-*/
