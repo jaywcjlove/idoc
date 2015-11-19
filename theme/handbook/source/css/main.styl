@@ -1,7 +1,7 @@
 @import('_partial/reset.styl');
 // CSS reset
 global-reset()
-reset-html()
+reset-html5()
 
 @import('_partial/variables.styl');
 @import('_partial/markdown.styl');
@@ -15,7 +15,7 @@ body,html
     height:100%
     font-family:Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
 .logo
-    float:left
+    float left
     padding: 0 20px 0 0
     font-size: 24px
     img 
@@ -80,7 +80,7 @@ body,html
                 padding: 0 15px
         li:hover
             background: #E1E1E1
-            background-image: linear-gradient(top,#CCCCCC 0%,#E7E7E7 40%)
+            background-image: linear-gradient(#CCCCCC 0%,#E7E7E7 40%)
             a
                 color: #333
         li.active
