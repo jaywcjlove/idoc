@@ -1,4 +1,4 @@
-@import('_partial/reset.styl');
+@import('_partial/reset.styl')
 // CSS reset
 global-reset()
 reset-html()
@@ -6,6 +6,7 @@ reset-html()
 @import('_partial/variables.styl')
 @import('_partial/markdown.styl')
 @import('_partial/highlight.styl')
+@import('_partial/head_nav.styl')
 
 *
     box-sizing: border-box
@@ -16,16 +17,16 @@ body,html
     float:left
     padding: 0 20px 0 0px
     font-size: 24px
-    font-weight: 500;
-    color: #563d7c;
+    font-weight: 500
+    color: #563d7c
     img 
         vertical-align: middle
         margin: -4px 0 0 0
         max-height: 27px
 
 .container
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 15px
+    padding-right: 15px
     width: 1124px
     margin 0 auto
     @media mq-tablet
@@ -33,19 +34,13 @@ body,html
     @media mq-mobile
         width auto
     &:before
-        display: table;
-        content: " ";
+        display: table
+        content: " "
     &:after
-        display: table;
-        content: " ";
-        clear: both;
+        display: table
+        content: " "
+        clear: both
 
-.navbar
-    z-index: 2
-    height: nav-height
-    line-height: nav-height
-    background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%)
-    
 .bs-docs-header
     background:#445588
     background-image: linear-gradient(to bottom,#445588 0,#458 100%)
@@ -53,8 +48,8 @@ body,html
     position: relative
     padding: 88px 0
     color: #A3AFD4
-    font-size: 24px;
-    text-align: left;
+    font-size: 24px
+    text-align: left
     text-shadow: 0 1px 0 rgba(0,0,0,.1)
     @media mq-mobile
         padding: 28px 0
@@ -71,8 +66,8 @@ body,html
         margin: .67em 0
         margin-bottom: 10px
         margin-top: 0
-        font-size: 60px;
-        line-height: 1;
+        font-size: 60px
+        line-height: 1
         text-align: left
         @media mq-mobile
             margin: .37em 0
@@ -83,70 +78,6 @@ body,html
         line-height: 1.4
 .navbar-line
     border-bottom: 1px solid #E9E9F1
-.navbar
-    ul  
-        list-style: none
-        position: relative
-        display: inline-table
-        float: left
-        @media mq-mobile
-            position: absolute
-        ul
-            display: none
-            background: #FFFFFF
-            border-radius: 0 0 5px 5px
-            padding: 3px
-            position: absolute
-            top: 100%
-            z-index: 9
-            li.active
-                a
-                    color: #463265
-                    background-color: #f9f9f9
-                    line-height:29px
-                    height:29px
-            li 
-                float: none
-                border-bottom: 1px solid #F7F2FF
-                position: relative
-                a:hover 
-                    color:#573E7D
-            a
-                color: #fff
-                line-height: 29px
-                white-space:nowrap
-                word-break:keep-all
-            ul
-                position: absolute
-                left: 100%
-                top:0
-                border-radius 0 5px 5px 5px
-        li
-            float: left
-            line-height: nav-height
-            a
-                display: block
-                color: #757575
-                text-decoration: none
-                padding: 0 15px
-                @media mq-mobile
-                    padding: 0 5px
-        li:hover
-            background: #F3F3F3
-            a
-                color: #333
-        li.active
-            a
-                color: #463265
-                background-color: #F3F3F3
-                height: nav-height
-    ul li:hover > ul
-        display: block
-        box-shadow: rgba(0, 0, 0, 0.26) 0px 2px 2px 1px
-    ul:after
-        content: ""
-        clear: both
-        display: block
 
 .markdown-body
     overflow: auto
@@ -220,5 +151,6 @@ body,html
         overflow hidden
         @media mq-tablet
             padding-top 0
-            height: 149px
+            // height: 149px
+            height 50px
             

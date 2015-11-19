@@ -1,0 +1,239 @@
+.navbar
+    line-height: nav-height
+    ul  
+        list-style: none
+        position: relative
+        display: inline-table
+        float: left
+        @media mq-mobile
+            position: absolute
+        ul
+            display: none
+            background: #FFFFFF
+            border-radius: 0 0 5px 5px
+            padding: 3px
+            position: absolute
+            top: 100%
+            z-index: 9
+            li.active
+                a
+                    color: #463265
+                    background-color: #f9f9f9
+                    line-height:29px
+                    height:29px
+            li 
+                float: none
+                border-bottom: 1px solid #F7F2FF
+                position: relative
+                a:hover 
+                    color:#573E7D
+            a
+                color: #fff
+                line-height: 29px
+                white-space:nowrap
+                word-break:keep-all
+            ul
+                position: absolute
+                left: 100%
+                top:0
+                border-radius 0 5px 5px 5px
+        li
+            float: left
+            line-height: nav-height
+            a
+                display: block
+                color: #757575
+                text-decoration: none
+                padding: 0 15px
+                @media mq-mobile
+                    padding: 0 5px
+        li:hover
+            background: #F3F3F3
+            a
+                color: #333
+        li.active
+            a
+                color: #463265
+                background-color: #F3F3F3
+                height: nav-height
+    ul li:hover > ul
+        display: block
+        box-shadow: rgba(0, 0, 0, 0.26) 0px 2px 2px 1px
+    ul:after
+        content: ""
+        clear: both
+        display: block
+       
+#idoc_nav
+    display none
+
+@media mq-tablet
+    .navbar
+        z-index: 2
+        background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%)
+        
+        section.idoc_nav_btn 
+            position relative
+            transition all 0.6s
+            z-index 999
+            display block
+            label
+                position fixed 
+                display block
+                right 7px
+                top 10px
+                cursor pointer 
+                z-index 99
+                width 26px
+                height 26px
+                overflow hidden
+                span,&:after,&:before
+                    content ''
+                    display block
+                    height 3px
+                    background #333
+                    margin 4px 4px 0 4px
+                    transform rotate(0deg)
+                    transition all 0.6s
+        .menu_tree 
+            transition all 0.6s
+            background #fff
+            position relative
+            width 100%
+            // display none
+            ul 
+                opacity 0
+                height 0
+                overflow hidden
+                display block
+                transition all 0.6s
+        input#idoc_nav:checked ~ section label span
+            display none
+        input#idoc_nav:checked ~ section label:before
+            margin 12px 4px 0 4px
+            transform rotate(45deg)
+            border-radius 3px
+            background #458
+        input#idoc_nav:checked ~ section label:after
+            margin -3px 4px 0 4px
+            transform rotate(-45deg)
+            border-radius 3px
+            background #458
+        input#idoc_nav:checked ~ .menu_tree 
+            display block
+            ul
+                width 100%
+                opacity 1
+                position relative
+                transition all 0.6s
+                padding-bottom 10px
+                display block
+                height inherit
+                li.active
+                    line-height 36px
+                    a
+                        line-height 36px
+                        height 36px
+                        background-color #D7D7D7
+                li 
+                    float initial
+                    line-height 30px
+                    &:hover
+                        background transparent
+                    &:hover > ul
+                        box-shadow #fff 0 0 0 0
+                    ul 
+                        display block
+                        position inherit
+                        border-radius 0
+                        float inherit
+                        background #EEE
+                        padding-left 7px
+                        padding-bottom 0px
+                        li 
+                            display inline-block
+@media mq-mobile
+    .navbar
+        z-index: 2
+        background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%)
+        
+        section.idoc_nav_btn 
+            position relative
+            transition all 0.6s
+            z-index 999
+            display block
+            label
+                position fixed 
+                display block
+                right 7px
+                top 10px
+                cursor pointer 
+                z-index 99
+                width 26px
+                height 26px
+                overflow hidden
+                span,&:after,&:before
+                    content ''
+                    display block
+                    height 3px
+                    background #333
+                    margin 4px 4px 0 4px
+                    transform rotate(0deg)
+                    transition all 0.6s
+        .menu_tree 
+            transition all 0.6s
+            background #fff
+            position relative
+            width 100%
+            // display none
+            ul 
+                opacity 0
+                height 0
+                overflow hidden
+                display block
+                transition all 0.6s
+        input#idoc_nav:checked ~ section label span
+            display none
+        input#idoc_nav:checked ~ section label:before
+            margin 12px 4px 0 4px
+            transform rotate(45deg)
+            border-radius 3px
+            background #458
+        input#idoc_nav:checked ~ section label:after
+            margin -3px 4px 0 4px
+            transform rotate(-45deg)
+            border-radius 3px
+            background #458
+        input#idoc_nav:checked ~ .menu_tree 
+            display block
+            ul
+                width 100%
+                opacity 1
+                position relative
+                transition all 0.6s
+                padding-bottom 10px
+                display block
+                height inherit
+                li.active
+                    line-height 36px
+                    a
+                        line-height 36px
+                        height 36px
+                        background-color #D7D7D7
+                li 
+                    float initial
+                    line-height 30px
+                    &:hover
+                        background transparent
+                    &:hover > ul
+                        box-shadow #fff 0 0 0 0
+                    ul 
+                        display block
+                        position inherit
+                        border-radius 0
+                        float inherit
+                        background #EEE
+                        padding-left 7px
+                        padding-bottom 0px
+                        li 
+                            display inline-block

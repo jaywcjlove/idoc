@@ -7,11 +7,18 @@
                 <%= title %>
             <%}%>
         </div>
-        <%- menu_html %>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <%- menu_html %>    
+        </div>
         
         <% if(pkg&&pkg.repository&&pkg.repository.url) {%>
         <div class="forkgithub"><a target="_blank" href="<%=pkg.repository.url%>">fork on github</a></div>
         <%}%>
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
     </div>
     
 </div>
