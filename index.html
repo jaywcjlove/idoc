@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>idoc</title>
+        
+        
+    
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
 </head>
 <body>
@@ -14,11 +17,18 @@
                 <img src="img/idoc-logo.svg">
             
         </div>
-        <ul><li class="active"><a href="index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="html/使用方法/命令文档.html">命令文档</a></li><li><a href="html/使用方法/配置说明.html">配置说明</a></li><li><a href="html/使用方法/markdown使用说明.html">markdown使用说明</a></li></ul></li><li><a href="html/主题.html">主题</a></li><li><a href="html/文档收录.html">文档收录</a></li><li><a href="html/关于.html">关于</a></li></ul>
+        <input type="checkbox" id="idoc_nav" />
+        <div class="menu_tree">
+        <ul><li class="active"><a href="index.html">首页</a></li><li><a href="#"><span></span>使用方法</a><ul><li><a href="html/使用方法/命令文档.html">命令文档</a></li><li><a href="html/使用方法/配置说明.html">配置说明</a></li><li><a href="html/使用方法/markdown使用说明.html">markdown使用说明</a></li></ul></li><li><a href="html/主题.html">主题</a></li><li><a href="html/文档收录.html">文档收录</a></li><li><a href="html/关于.html">关于</a></li></ul>    
+        </div>
         
         
         <div class="forkgithub"><a target="_blank" href="https://github.com/jaywcjlove/idoc">fork on github</a></div>
         
+
+        <section class="idoc_nav_btn">
+            <label for="idoc_nav"><span></span></label>
+        </section>
     </div>
     
 </div>
@@ -90,7 +100,6 @@ $ idoc -h
 
 </div>
 
-<script type="text/javascript" src="static/js/jquery.2.1.4.min.js"></script>
-<script type="text/javascript" src="static/js/pagetoc.js"></script>
+
 </body>
 </html>
