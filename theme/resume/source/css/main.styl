@@ -12,16 +12,17 @@ body
 
 
 .container
-    max-width 768px
+    // max-width 768px
     margin 0 auto
+    padding 0 40px 0 40px
+    max-width 848px
     
 
 .header
     background #303538 no-repeat center center
     .container
         height 250px
-        padding 50px 40px 0 40px
-        max-width 848px
+        padding-top 50px
     .vertical
         vertical-align: middle
     h1 
@@ -42,3 +43,8 @@ body
         color #E5E5E5
         &:hover 
             color #333
+
+
+@media print
+    .header
+        background #303538

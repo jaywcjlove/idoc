@@ -1,5 +1,18 @@
 <% include head.ejs %>
 
+<header class="header">
+    <div class="container">
+        <div class="vertical">
+        <% if(pkg.idoc && pkg.idoc.name ){ %>
+            <h1><%=pkg.idoc.name%></h1>
+        <% } %>
+        <% if(pkg.idoc && pkg.idoc.baseinfo ){ %>
+            <pre><%=pkg.idoc.baseinfo%></pre>
+        <% } %>
+        </div>
+    </div>
+</header>
+
 <div class="container">
     
     <div class="content markdown-body">
@@ -8,5 +21,7 @@
     </div>
 
 </div>
+
+
 
 <% include footer.ejs %>

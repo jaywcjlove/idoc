@@ -22,6 +22,7 @@ commander
     .option('-c, clean','Clear the generate static files.')
     .option('-t, theme','Choose a theme.')
     .option('-d, deploy','Publish to a gh-pages branch on GitHub.')
+    .option('-p, pdf','PDF generation.')
 
 commander
     .on('--help',function(){
