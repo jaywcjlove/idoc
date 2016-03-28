@@ -3,9 +3,9 @@
     padding: 30px 35px 30px 0
     word-wrap: break-word
     font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif
-    font-size: 14px
-    line-height: 1.4em
-    color:#333
+    font-size: 0.8em;
+    line-height: 1.2em;
+    color:#5D5D5D
     @media mq-mobile
         padding-right 0
     &>*:first-child
@@ -22,7 +22,7 @@
     h1,h2,h3,h4,h5,h6
         position: relative
         margin-top: 1em
-        margin-bottom: 16px
+        margin-bottom: 1em
         font-weight: bold
         line-height: 1.4
         a 
@@ -42,6 +42,22 @@
         font-size: 1.5em
         line-height: 1.225
         border-bottom:1px dashed #DEDEDE
+        color #36444C
+    h3
+        font-size 1.3em
+        color: #333;
+        &:before,&:after
+            content ''
+            display inline-block
+            width 5px
+            background-color #7A8388
+            height 17px
+            position relative
+            top 3px
+            margin 0 7px 0 2px
+    h4,h5,h6 
+        margin-bottom 0.4em
+        color: #333;
     blockquote
         padding: 0 15px
         color: #777
@@ -55,7 +71,7 @@
         margin-top: 0;
         margin-bottom: 16px
     ul,ol
-        padding-left: 1.4em
+        padding-left: 2em
         list-style-type: square;
     ol
         list-style-type: decimal
