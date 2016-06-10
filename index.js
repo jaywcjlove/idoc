@@ -6,7 +6,7 @@ var clean   = require('./lib/clean');
 var deploy  = require('./lib/deploy');
 var pdf     = require('./lib/pdf');
 var theme   = require('./lib/theme');
-var color   = require('colorful');
+var color   = require('colors-cli');
 var path    = require('path');
 var server  = require('ssr');
 
