@@ -23,19 +23,19 @@
   "author": "kenny wang <wowohoo@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "autoprefixer-stylus": "^0.8.1",
-    "cheerio": "^0.19.0",
-    "chokidar": "^1.5.0",
-    "colorful": "^2.1.0",
-    "commander": "^2.9.0",
-    "ejs": "^2.4.1",
-    "highlight.js": "^8.9.1",
-    "inquirer": "^0.9.0",
-    "marked": "^0.3.5",
-    "semver": "^5.1.0",
-    "shelljs": "^0.5.3",
-    "ssr": "^1.0.10",
-    "stylus": "^0.52.4",
-    "underscore": "^1.8.3"
+    "autoprefixer-stylus": "~0.8.1",
+    "cheerio": "~0.19.0",
+    "chokidar": "~1.5.0",
+    "commander": "~2.9.0",
+    "ejs": "~2.4.1",
+    "highlight.js": "~8.9.1",
+    "inquirer": "~0.9.0",
+    "marked": "~0.3.5",
+    "semver": "~5.1.0",
+    "shelljs": "~0.5.3",
+    "ssr": "~1.0.10",
+    "stylus": "~0.52.4",
+    "underscore": "~1.8.3",
+    "colors-cli": "~1.0.7"
   }
 }

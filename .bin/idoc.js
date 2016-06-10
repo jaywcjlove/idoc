@@ -4,7 +4,7 @@ var commander = require('commander');
 var appInfo = require('../package');
 var idoc  = require('..');
 var log =console.log;
-require('colorful').toxic()
+require('colors-cli/toxic')
 
 commander
     .usage('[options]')
@@ -42,14 +42,14 @@ commander
         // 图片文字 http://patorjk.com/software/taag/#p=testall&f=Graffiti&t=idoc
 
         log('')
-        log("    ,,        ,,                    ".bold.grey)
-        log("    db      `7MM                    ".bold.grey)
-        log("              MM                    ".bold.grey)
-        log("  `7MM   ,M\"\"bMM  ,pW\"Wq.   ,p6\"bo  ".bold.grey)
-        log("    MM ,AP    MM 6W'   `Wb 6M'  OO  ".bold.grey)
-        log("    MM 8MI    MM 8M     M8 8M       ".bold.grey)
-        log("    MM `Mb    MM YA.   ,A9 YM.    , ".bold.grey)
-        log("  .JMML.`Wbmd\"MML.`Ybmd9'   YMbmd'  ".bold.grey)
+        log("    ,,        ,,                    ".bold.x241)
+        log("    db      `7MM                    ".bold.x241)
+        log("              MM                    ".bold.x241)
+        log("  `7MM   ,M\"\"bMM  ,pW\"Wq.   ,p6\"bo  ".bold.x241)
+        log("    MM ,AP    MM 6W'   `Wb 6M'  OO  ".bold.x241)
+        log("    MM 8MI    MM 8M     M8 8M       ".bold.x241)
+        log("    MM `Mb    MM YA.   ,A9 YM.    , ".bold.x241)
+        log("  .JMML.`Wbmd\"MML.`Ybmd9'   YMbmd'  ".bold.x241)
         log('')
         log('')
 
