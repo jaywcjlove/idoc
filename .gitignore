@@ -5,3 +5,4 @@ examples/
 *.swp
 *.swn
 idoc-theme-*/
+.idea/
