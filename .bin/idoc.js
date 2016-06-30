@@ -4,7 +4,7 @@ var commander = require('commander');
 var appInfo = require('../package');
 var idoc  = require('..');
 var log =console.log;
-require('colors-cli/toxic')
+var safe = require('colors-cli/safe');
 
 commander
     .usage('[options]')
