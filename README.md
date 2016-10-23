@@ -44,6 +44,7 @@ $ sudo npm install idoc -g
 3. [store.js - js本地存储操作](http://jaywcjlove.github.io/store.js)
 4. [cookie.js - js本地cookie操作](http://jslite.io/cookie.js/)
 5. [iNotify - 浏览器各种方法通知](http://jaywcjlove.github.io/iNotify)
+5. [Nodejs教程](http://nodejs.jakeyu.top/)
 
 
 # 命令使用
