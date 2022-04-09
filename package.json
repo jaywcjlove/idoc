@@ -2,13 +2,16 @@
   "name": "idoc",
   "version": "0.3.0",
   "description": "Simple document generation tool. Dependence Node.js run.",
+  "homepage": "https://jaywcjlove.github.io/idoc/",
+  "author": "kenny wang <wowohoo@qq.com>",
+  "main": "lib/index.js",
+  "bin": {
+    "idoc": "lib/idoc.js"
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaywcjlove/idoc.git"
-  },
-  "main": "index.js",
-  "bin": {
-    "idoc": ".bin/idoc.js"
   },
   "keywords": [
     "idoc",
@@ -18,24 +21,27 @@
     "tool"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node lib/idoc.js -w",
+    "doc": "node lib/idoc.js",
+    "watch": "tsbb watch --disable-babel --no-esm -f src/idoc.ts",
+    "build": "tsbb build --disable-babel --no-esm -f src/idoc.ts"
   },
-  "author": "kenny wang <wowohoo@qq.com>",
-  "license": "MIT",
   "dependencies": {
-    "autoprefixer-stylus": "^0.13.0",
-    "cheerio": "^0.22.0",
-    "chokidar": "^1.6.1",
-    "colors-cli": "^1.0.7",
-    "commander": "^2.9.0",
-    "ejs": "^2.5.6",
-    "highlight.js": "^9.9.0",
-    "inquirer": "^3.0.5",
-    "marked": "^0.3.6",
-    "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
-    "ssr": "^1.0.15",
-    "stylus": "^0.54.5",
-    "underscore": "^1.8.3"
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "~9.0.13",
+    "@types/minimist": "~1.2.2",
+    "@wcj/markdown-to-html": "~2.0.4",
+    "chokidar": "^3.5.3",
+    "ejs": "^3.1.6",
+    "fs-extra": "~10.0.1",
+    "minimist": "~1.2.6",
+    "rehype-slug": "~5.0.1",
+    "rehype-ignore": "~1.0.0",
+    "rehype-autolink-headings": "~6.1.1",
+    "recursive-readdir-files": "^2.0.7",
+    "yaml": "^2.0.0"
+  },
+  "devDependencies": {
+    "tsbb": "^3.7.2"
   }
 }

@@ -1,0 +1,32 @@
+## directory of document source files
+## defalut: `docs`
+# -----------------------
+# dir: docs
+
+
+## output directory of generated documents
+## defalut: `dist`
+# -----------------------
+# output: dist
+
+
+## site name
+# -----------------------
+site: iDoc
+
+
+## site theme
+## defalut: `default`
+# -----------------------
+theme: default
+
+
+## Template Data
+# -----------------------
+data: 
+  # Show open source button
+  openSource: https://github.com/jaywcjlove/idoc
+  # Navigation Menu.
+  menus:
+    Markdown: docs/markdown.html
+    About: about.html
