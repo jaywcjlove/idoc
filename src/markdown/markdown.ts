@@ -49,7 +49,10 @@ export async function createHTML(str: string = '', from: string, to: string) {
   data.RELATIVE_PATH = config.getRelativePath(to);
   if (config.data.data) {
     data.openSource = config.data.data.openSource || '';
-    data.editButton = config.data.data.editButton;
+    data.editButton = { ...config.data.data.editButton };
+    if (data.editButton.url) {
+      data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`
+    }
     data.edit = config.data.data.edit || '';
     if (config.data.data.menus) {
       data.menus = config.getMenuData(to);

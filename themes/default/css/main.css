@@ -2,16 +2,19 @@
   --color-header-bg: #3a3a3a8f;
   --color-header-border: #323232;
   --color-hover: #ffffff1c;
+  --color-accent-fg: #58a6ff;
 }
 
 [data-color-mode*='light'], [data-color-mode*='light'] body {
   --color-header-bg: #ffffff52;
   --color-header-border: #d3d3d3;
   --color-hover: #0000001a;
+  --color-accent-fg: #0969da;
 }
 
 body {
   margin: 0;
+  font-size: 14px;
 }
 
 markdown-style {
@@ -19,6 +22,14 @@ markdown-style {
   margin: 0 auto;
   margin-top: 48px;
   padding-top: 32px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-accent-fg);
+}
+a:hover {
+  text-decoration: underline;
 }
 
 .header {
@@ -30,10 +41,6 @@ markdown-style {
   border-bottom: 1px solid var(--color-header-border);
   z-index: 99;
   top: 0;
-}
-
-a {
-  text-decoration: none;
 }
 
 .header .inner {
@@ -86,6 +93,16 @@ a {
   width: 18px;
   height: 18px;
   padding: 0 10px 0 10px;
+}
+
+.edit-link {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+.edit-link svg {
+  height: 18px;
+  margin-right: 6px;
 }
 
 .footer {

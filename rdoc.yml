@@ -29,7 +29,7 @@ data:
   # Display the edit button, need to configure `openSource`.
   editButton: 
     label: Edit this page on GitHub
-    url: https://github.com/jaywcjlove/idoc/blob/next/docs/
+    url: https://github.com/jaywcjlove/idoc/blob/master/
   # Navigation Menu.
   menus:
     Markdown: docs/markdown.html
@@ -37,4 +37,4 @@ data:
 
   footer: |
     Released under the MIT License.<br />
-    Copyright © 2016-2022 Kenny Wong 22222
+    Copyright © 2016-2022 Kenny Wong
