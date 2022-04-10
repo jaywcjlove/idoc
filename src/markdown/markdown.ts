@@ -19,7 +19,11 @@ export type TemplateData = {
   title?: string;
   site?: string;
   menus?: MenuData[];
-  fileStat: Partial<IFileDirStat>;
+  fileStat: Partial<IFileDirStat> & {
+    atimeStr?: string,
+    mtimeStr?: string,
+    ctimeStr?: string,
+  };
 }
 
 export async function createHTML(str: string = '', from: string, to: string) {
@@ -61,12 +65,13 @@ export async function createHTML(str: string = '', from: string, to: string) {
       data.menus = config.getMenuData(to);
     }
   }
+
   // File Stat
   data.fileStat = config.data.asset.find(item => item.path === from) || {};
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
     if((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
-      data.fileStat = { ...data.fileStat, ...{ [key]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } }
+      data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } }
     }
   }
   return render(tmpStr.toString(), { ...config.data.data, ...data }, {
