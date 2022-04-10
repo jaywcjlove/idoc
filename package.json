@@ -42,6 +42,6 @@
     "yaml": "^2.0.0"
   },
   "devDependencies": {
-    "tsbb": "^3.7.2"
+    "tsbb": "3.7.2"
   }
 }
