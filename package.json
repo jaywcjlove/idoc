@@ -20,6 +20,10 @@
     "document",
     "tool"
   ],
+  "files": [
+    "lib",
+    "themes"
+  ],
   "scripts": {
     "start": "node lib/idoc.js -w",
     "doc": "node lib/idoc.js",
