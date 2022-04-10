@@ -9,6 +9,10 @@ type TemplateData = {
   RELATIVE_PATH?: string;
   markdown?: string;
   openSource?: string;
+  editButton?: {
+    label: string;
+    url: string;
+  };
   edit?: string;
   title?: string;
   site?: string;
@@ -45,6 +49,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
   data.RELATIVE_PATH = config.getRelativePath(to);
   if (config.data.data) {
     data.openSource = config.data.data.openSource || '';
+    data.editButton = config.data.data.editButton;
     data.edit = config.data.data.edit || '';
     if (config.data.data.menus) {
       data.menus = config.getMenuData(to);

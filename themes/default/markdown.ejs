@@ -3,6 +3,12 @@
 
 <markdown-style>
   <%- markdown %>
+  <% if (editButton) { %>
+  <a class="vt-link link" href="<%=editButton.url || '' %>template-syntax.md" target="_blank" rel="noopener noreferrer">
+    <%=editButton.label%>
+  </a>
+  <% } %>
 </markdown-style>
+
 
 <%- include('partial/footer'); %>
