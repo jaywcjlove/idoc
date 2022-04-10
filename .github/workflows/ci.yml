@@ -39,7 +39,7 @@ jobs:
         with:
           commit_message: ${{steps.tag_version.outputs.tag}} ${{ github.event.head_commit.message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
 
       - name: Generate Changelog
         id: changelog
