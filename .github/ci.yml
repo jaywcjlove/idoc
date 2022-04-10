@@ -1,0 +1,32 @@
+name: CI
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+  Build Deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Look Changelog
+        uses: jaywcjlove/changelog-generator@v1.5.3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
+          filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
+
+      - run: npm install
+      - run: npm run build
+      - run: npm run doc
+      
+      - name: Generate Contributors Images
+        uses: jaywcjlove/github-action-contributors@main
+        with:
+          filter-author: (renovate\[bot\]|renovate-bot|dependabot\[bot\])
+          output: dist/CONTRIBUTORS.svg
+          avatarSize: 42
