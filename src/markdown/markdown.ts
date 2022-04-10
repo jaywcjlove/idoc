@@ -2,10 +2,12 @@ import path from 'path';
 import fs from 'fs-extra';
 import { render, Data } from 'ejs';
 import { Options } from '@wcj/markdown-to-html';
+import formatter from '@uiw/formatter';
+import { rehypeAutolinkHeadings, rehypeSlug, rehypeIgnore, markdownToHTML } from './plugins';
+import { IFileDirStat } from 'recursive-readdir-files';
 import { config, MenuData } from '../utils/conf';
-import {rehypeAutolinkHeadings, rehypeSlug, rehypeIgnore, markdownToHTML } from './plugins';
 
-type TemplateData = {
+export type TemplateData = {
   RELATIVE_PATH?: string;
   markdown?: string;
   openSource?: string;
@@ -17,6 +19,7 @@ type TemplateData = {
   title?: string;
   site?: string;
   menus?: MenuData[];
+  fileStat: Partial<IFileDirStat>;
 }
 
 export async function createHTML(str: string = '', from: string, to: string) {
@@ -42,20 +45,28 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const mdHtml = await markdownToHTML(str, mdOptions) as string;
   const tempPath = path.resolve(config.data.theme, 'markdown.ejs')
   const tmpStr = await fs.readFile(tempPath);
-  const data: Data & TemplateData = {}
+  const data: Data & TemplateData = { fileStat: {} }
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;
   data.RELATIVE_PATH = config.getRelativePath(to);
+
   if (config.data.data) {
     data.openSource = config.data.data.openSource || '';
     data.editButton = { ...config.data.data.editButton };
     if (data.editButton.url) {
       data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`
     }
-    data.edit = config.data.data.edit || '';
     if (config.data.data.menus) {
       data.menus = config.getMenuData(to);
+    }
+  }
+  // File Stat
+  data.fileStat = config.data.asset.find(item => item.path === from) || {};
+  const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
+  for (const key of getKeys(data.fileStat)) {
+    if((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
+      data.fileStat = { ...data.fileStat, ...{ [key]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } }
     }
   }
   return render(tmpStr.toString(), { ...config.data.data, ...data }, {

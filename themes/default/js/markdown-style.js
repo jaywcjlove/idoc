@@ -19,7 +19,7 @@ const __TEMPLATE__ = document.createElement('template');
 __TEMPLATE__.innerHTML = `
 <style>
 ${octiconLinkStyle}
-markdown-style[theme*='light'] {
+[data-color-mode*='light'], [data-color-mode*='light'] body, markdown-style[theme*='light'] {
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
   --color-prettylights-syntax-entity: #8250df;
@@ -63,7 +63,7 @@ markdown-style[theme*='light'] {
   --color-attention-subtle: #fff8c5;
   --color-danger-fg: #cf222e;
 }
-markdown-style[theme*='dark'] {
+[data-color-mode*='dark'], [data-color-mode*='dark'] body, markdown-style[theme*='dark'] {
   --color-prettylights-syntax-comment: #8b949e;
   --color-prettylights-syntax-constant: #79c0ff;
   --color-prettylights-syntax-entity: #d2a8ff;
