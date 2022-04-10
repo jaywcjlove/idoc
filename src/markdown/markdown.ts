@@ -2,12 +2,17 @@ import path from 'path';
 import fs from 'fs-extra';
 import { render, Data } from 'ejs';
 import { Options } from '@wcj/markdown-to-html';
-import { config } from '../utils/conf';
+import { config, MenuData } from '../utils/conf';
 import {rehypeAutolinkHeadings, rehypeSlug, rehypeIgnore, markdownToHTML } from './plugins';
 
 type TemplateData = {
-  markdown?: string;
   RELATIVE_PATH?: string;
+  markdown?: string;
+  openSource?: string;
+  edit?: string;
+  title?: string;
+  site?: string;
+  menus?: MenuData[];
 }
 
 export async function createHTML(str: string = '', from: string, to: string) {
@@ -35,11 +40,15 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const tmpStr = await fs.readFile(tempPath);
   const data: Data & TemplateData = {}
   data.markdown = mdHtml;
-  data.site = config.data.site;
-  data.title = config.data.site || 'idoc';
+  data.site = config.data.site || 'idoc';
+  data.title = config.data.site;
   data.RELATIVE_PATH = config.getRelativePath(to);
-  if (config.data.data && config.data.data.menus) {
-    data.menus = config.getMenuData(to);
+  if (config.data.data) {
+    data.openSource = config.data.data.openSource || '';
+    data.edit = config.data.data.edit || '';
+    if (config.data.data.menus) {
+      data.menus = config.getMenuData(to);
+    }
   }
   return render(tmpStr.toString(), { ...config.data.data, ...data }, {
     filename: tempPath
