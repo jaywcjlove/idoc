@@ -15,7 +15,7 @@
 site: iDoc
 
 
-## site theme
+## Customize theme settings.
 ## defalut: `default`
 # -----------------------
 theme: default
@@ -26,7 +26,13 @@ theme: default
 data: 
   # Show open source button
   openSource: https://github.com/jaywcjlove/idoc
+  # Display the edit button, need to configure `openSource`.
+  edit: Edit this page on GitHub
   # Navigation Menu.
   menus:
     Markdown: docs/markdown.html
     About: about.html
+
+  footer: |
+    Released under the MIT License.<br />
+    Copyright © 2016-2022 Kenny Wong

@@ -35,7 +35,7 @@ Options:
   -d, --dir <dir-path>, Markdown file directory. defalut(docs)
   -o, --output <dir-path>, Output directory. defalut(dist)
   -w, --watch, Watch and compile Markdown files.
-  -t, --theme, Watch and compile Markdown files. defalut(defalut)
+  -t, --theme, Customize theme settings. defalut(defalut)
 
 Example:
 

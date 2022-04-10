@@ -1,7 +1,7 @@
 [data-color-mode*='dark'], [data-color-mode*='dark'] body {
   --color-header-bg: #3a3a3a8f;
   --color-header-border: #323232;
-  --color-hover: #ffffff30;
+  --color-hover: #ffffff1c;
 }
 
 [data-color-mode*='light'], [data-color-mode*='light'] body {
@@ -41,7 +41,7 @@ a {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  min-height: 48px;
+  min-height: 45px;
 }
 .header .logo {
   font-weight: bold;
@@ -85,7 +85,15 @@ a {
 .header .github {
   width: 18px;
   height: 18px;
-  padding-right: 14px;
-  padding-left: 10px;
-  padding: 0 14px 0 10px;
+  padding: 0 10px 0 10px;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid var(--color-header-border);
+  max-width: 960px;
+  margin: 32px auto 0 auto;
+  padding: 32px 0 110px 0;
+  color: #596068;
+  font-size: 14px;
 }

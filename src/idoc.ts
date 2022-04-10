@@ -14,7 +14,7 @@ function outputHelp() {
   console.log('   -d, --dir <dir-path>,', 'Markdown file directory. defalut(docs)');
   console.log('   -o, --output <dir-path>,', 'Output directory. defalut(dist)');
   console.log('   -w, --watch,', 'Watch and compile Markdown files.');
-  console.log('   -t, --theme,', 'Watch and compile Markdown files. defalut(defalut)');
+  console.log('   -t, --theme,', 'Customize theme settings. defalut(defalut)');
   console.log('');
   console.log(' Example:');
   console.log('');
