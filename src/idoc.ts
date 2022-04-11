@@ -57,6 +57,10 @@ argvs.theme = argvs.t = argvs.theme || argvs.t;
 
 ;(async () => {
   try {
+    if (argvs._[0] === 'init') {
+      await init(argvs._[1] || './')
+      return;
+    }
     await config.initConf();
     await config.getChaptersConf();
     await config.getFiles();
@@ -64,9 +68,7 @@ argvs.theme = argvs.t = argvs.theme || argvs.t;
     if (argvs.output) config.data.output = argvs.output;
     if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
 
-    if (argvs._ && argvs._[0] === 'init') {
-      await init(argvs._[1] || './')
-    } else if (argvs.watch) {
+    if (argvs.watch) {
       await watch();
     } else {
       await build();
