@@ -1,10 +1,12 @@
-[data-color-mode*='dark'], [data-color-mode*='dark'] body {
+[data-color-mode*='dark'],
+[data-color-mode*='dark'] body {
   --color-header-bg: #3a3a3a8f;
   --color-header-border: #21262d;
   --color-hover: #ffffff1c;
 }
 
-[data-color-mode*='light'], [data-color-mode*='light'] body {
+[data-color-mode*='light'],
+[data-color-mode*='light'] body {
   --color-header-bg: #ffffff52;
   --color-header-border: #d3d3d3;
   --color-hover: #0000001a;
@@ -15,7 +17,8 @@ body {
   font-size: 14px;
 }
 
-footer.article-footer, markdown-style {
+footer.article-footer,
+markdown-style {
   max-width: 960px;
   margin: 0 auto;
 }
