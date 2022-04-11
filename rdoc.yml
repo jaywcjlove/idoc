@@ -32,7 +32,7 @@ data:
     url: https://github.com/jaywcjlove/idoc/blob/master/
   # Navigation Menu.
   menus:
-    Docs: docs/index.html
+    Docs: docs/installation.html
     About: about.html
 
   footer: |

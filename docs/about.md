@@ -14,3 +14,17 @@
 
 [![](https://img.shields.io/github/forks/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/followers) [![](https://img.shields.io/github/stars/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/idoc/stargazers) [![](https://img.shields.io/github/followers/jaywcjlove.svg?style=social)](https://github.com/jaywcjlove/followers)
 
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/jaywcjlove/idoc/graphs/contributors">
+  <img src="https://jaywcjlove.github.io/idoc/CONTRIBUTORS.svg" />
+</a>
+
+Made with [action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+
+## License
+
+Licensed under the MIT License.

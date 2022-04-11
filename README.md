@@ -20,17 +20,35 @@ Generate static pages from all Markdown in a folder.
   .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
 ```
 
+## Quick Start
 
-## Install
+Create a idoc site using the beautiful defalut theme.
 
 ```bash
-$ sudo npm install idoc -g
+$ npx idoc@1.0.0-beta.9 init myapp
+```
+
+Or
+
+```bash
+$ sudo npm i idoc -g
+$ idoc init myapp
+```
+
+Running the `idoc init myapp` generator from the command line will create a directory structure with the following elements:
+
+```bash
+├── docs
+│   ├── README.md
+│   └── about.md
+├── package.json
+└── rdoc.yml
 ```
 
 ## Command Help
 
 ```bash
-Usage: idoc [options] [--help|h] [--version|v]
+Usage: idoc [init][options] [--help|h] [--version|v]
 
 Options:
 
@@ -43,6 +61,7 @@ Options:
 
 Example:
 
+  npm idoc init <folder>
   npm idoc --theme="defalut"
   npm idoc --dir="docs"
   npm idoc --output="dist"
