@@ -6,6 +6,7 @@ import formatter from '@uiw/formatter';
 import { rehypeAutolinkHeadings, rehypeSlug, rehypeIgnore, markdownToHTML } from './plugins';
 import { IFileDirStat } from 'recursive-readdir-files';
 import { config, MenuData } from '../utils/conf';
+import rehypeUrls from './rehype-urls';
 
 export type TemplateData = {
   RELATIVE_PATH?: string;
@@ -33,12 +34,14 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const autolinkHeadings = await rehypeAutolinkHeadings();
   const slug = await rehypeSlug();
   const ignore = await rehypeIgnore();
+
   mdOptions.rehypePlugins = [[ignore, {
     openDelimiter: 'idoc:ignore:start',
     closeDelimiter: 'idoc:ignore:end',
   }], [slug], [autolinkHeadings]];
 
   mdOptions.rewrite = (node, index, parent) => {
+    rehypeUrls(node);
     if (node.type == 'element' && /h(1|2|3|4|5|6)/.test(node.tagName) && node.children && Array.isArray(node.children) && node.children.length > 0) {
       node.children = node.children.map(item => {
         if (item.type === 'element' && item.tagName === 'a') {
