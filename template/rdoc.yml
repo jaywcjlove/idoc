@@ -1,24 +1,24 @@
 ## directory of document source files
 ## defalut: `docs`
 # -----------------------
-# dir: docs
+dir: {{dir}}
 
 
 ## output directory of generated documents
 ## defalut: `dist`
 # -----------------------
-# output: dist
+output: {{output}}
 
 
 ## site name
 # -----------------------
-site: iDoc
+site: {{site}}
 
 
 ## Customize theme settings.
 ## defalut: `default`
 # -----------------------
-theme: default
+theme: {{theme}}
 
 
 ## Template Data
@@ -32,7 +32,7 @@ data:
     url: https://github.com/jaywcjlove/idoc/blob/master/
   # Navigation Menu.
   menus:
-    Docs: docs/index.html
+    Home: index.html
     About: about.html
 
   footer: |

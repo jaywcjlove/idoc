@@ -39,8 +39,6 @@ export const getExt = async (file: string) => {
 export class Conf {
   constructor() {
     this.initConf();
-    this.getChaptersConf();
-    this.getFiles();
   }
   data: Config =  {
     root: process.cwd(),
@@ -59,11 +57,20 @@ export class Conf {
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
       const conf = await fs.promises.readFile(confPath, 'utf8');
-      this.data = Object.assign(this.data, parse(conf));
+      const data: Config = parse(conf);
+      if (data.dir) {
+        data.dir = path.resolve(process.cwd(), data.dir);
+      }
+      if (data.output) {
+        data.output = path.resolve(process.cwd(), data.output);
+      }
+      this.data = Object.assign(this.data, data);
       if (this.data.theme === 'default') {
         this.data.theme = path.resolve(__dirname, '../../themes/default');
       }
     }
+    this.getChaptersConf();
+    this.getFiles();
     return this.data;
   }
   async getChaptersConf() {

@@ -3,10 +3,11 @@ import path from 'path';
 import minimist from 'minimist';
 import { build } from './scripts/build';
 import { watch } from './scripts/watch';
+import { init } from './scripts/init';
 import { config } from './utils/conf';
 
 function outputHelp() {
-  console.log(' Usage: idoc [options] [--help|h] [--version|v]');
+  console.log(' Usage: idoc [init][options] [--help|h] [--version|v]');
   console.log('\n Options:');
   console.log('');
   console.log('   -v, --version,', 'Show version number');
@@ -18,6 +19,7 @@ function outputHelp() {
   console.log('');
   console.log(' Example:');
   console.log('');
+  console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33minit\x1b[0m \x1b[34;1m<folder>\x1b[0m');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--theme\x1b[0m="defalut"');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--dir\x1b[0m="docs"');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--output\x1b[0m="dist"');
@@ -48,22 +50,23 @@ if (argvs.v || argvs.version) {
   process.exit(0);
 }
 
-argvs.output = argvs.o = argvs.output || argvs.o || path.resolve(process.cwd(), 'dist');
-argvs.dir = argvs.d = argvs.dir || argvs.d || path.resolve(process.cwd(), 'docs');
+argvs.output = argvs.o = argvs.output || argvs.o;
+argvs.dir = argvs.d = argvs.dir || argvs.d;
 argvs.watch = argvs.w = argvs.watch || argvs.w;
-argvs.theme = argvs.t = argvs.theme || argvs.t || path.resolve(process.cwd(), 'themes/default');
+argvs.theme = argvs.t = argvs.theme || argvs.t;
 
 ;(async () => {
   try {
-    config.data.dir = argvs.dir;
-    config.data.theme = argvs.theme;
-    config.data.output = argvs.output;
-
     await config.initConf();
     await config.getChaptersConf();
     await config.getFiles();
+    if (argvs.dir) config.data.dir = argvs.dir;
+    if (argvs.output) config.data.output = argvs.output;
+    if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
 
-    if (argvs.watch) {
+    if (argvs._ && argvs._[0] === 'init') {
+      await init(argvs._[1] || './')
+    } else if (argvs.watch) {
       await watch();
     } else {
       await build();
