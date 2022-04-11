@@ -6,10 +6,7 @@ import * as log from '../utils/log';
 import { config } from '../utils/conf';
 
 export function watch() {
-  const watchPaths = [config.data.dir, config.data.theme, config.data.config.conf, config.data.config.chapters];
-  if (config.data.readme) {
-    watchPaths.push(config.data.readme)
-  }
+  const watchPaths = [config.data.dir, config.data.theme, config.data.config.conf, config.data.config.chapters, config.data.readme].filter(Boolean);
   const watcher = chokidar.watch(watchPaths);
   watcher.on('change', async (filepath, stats) => {
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
