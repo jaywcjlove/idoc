@@ -25,17 +25,17 @@ function outputHelp() {
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--output\x1b[0m="dist"');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--watch\x1b[0m \x1b[33m--output\x1b[0m="www"');
   console.log('');
-  console.log(' ------------------------------------')
-  console.log("    ,,        ,,                    ");
-  console.log("    db      `7MM                    ");
-  console.log("              MM                    ");
-  console.log("  `7MM   ,M\"\"bMM  ,pW\"Wq.   ,p6\"bo  ");
+  console.log(' ------------------------------------');
+  console.log('    ,,        ,,                    ');
+  console.log('    db      `7MM                    ');
+  console.log('              MM                    ');
+  console.log('  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo  ');
   console.log("    MM ,AP    MM 6W'   `Wb 6M'  OO  ");
-  console.log("    MM 8MI    MM 8M     M8 8M       ");
-  console.log("    MM `Mb    MM YA.   ,A9 YM.    , ");
+  console.log('    MM 8MI    MM 8M     M8 8M       ');
+  console.log('    MM `Mb    MM YA.   ,A9 YM.    , ');
   console.log("  .JMML.`Wbmd\"MML.`Ybmd9'   YMbmd'  ");
-  console.log(' ------------------------------------')
-  console.log('')
+  console.log(' ------------------------------------');
+  console.log('');
 }
 
 const argvs = minimist(process.argv.slice(2));
@@ -55,10 +55,10 @@ argvs.dir = argvs.d = argvs.dir || argvs.d;
 argvs.watch = argvs.w = argvs.watch || argvs.w;
 argvs.theme = argvs.t = argvs.theme || argvs.t;
 
-;(async () => {
+(async () => {
   try {
     if (argvs._[0] === 'init') {
-      await init(argvs._[1] || './')
+      await init(argvs._[1] || './');
       return;
     }
     await config.initConf();

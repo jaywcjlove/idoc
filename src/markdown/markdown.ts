@@ -23,11 +23,11 @@ export type TemplateData = {
   site?: string;
   menus?: MenuData[];
   fileStat: Partial<IFileDirStat> & {
-    atimeStr?: string,
-    mtimeStr?: string,
-    ctimeStr?: string,
+    atimeStr?: string;
+    mtimeStr?: string;
+    ctimeStr?: string;
   };
-}
+};
 
 export async function createHTML(str: string = '', from: string, to: string) {
   const mdOptions: Options = {};
@@ -35,26 +35,39 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const slug = await rehypeSlug();
   const ignore = await rehypeIgnore();
 
-  mdOptions.rehypePlugins = [[ignore, {
-    openDelimiter: 'idoc:ignore:start',
-    closeDelimiter: 'idoc:ignore:end',
-  }], [slug], [autolinkHeadings]];
+  mdOptions.rehypePlugins = [
+    [
+      ignore,
+      {
+        openDelimiter: 'idoc:ignore:start',
+        closeDelimiter: 'idoc:ignore:end',
+      },
+    ],
+    [slug],
+    [autolinkHeadings],
+  ];
 
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
-    if (node.type == 'element' && /h(1|2|3|4|5|6)/.test(node.tagName) && node.children && Array.isArray(node.children) && node.children.length > 0) {
-      node.children = node.children.map(item => {
+    if (
+      node.type == 'element' &&
+      /h(1|2|3|4|5|6)/.test(node.tagName) &&
+      node.children &&
+      Array.isArray(node.children) &&
+      node.children.length > 0
+    ) {
+      node.children = node.children.map((item) => {
         if (item.type === 'element' && item.tagName === 'a') {
-          item.properties.class = 'anchor'
+          item.properties.class = 'anchor';
         }
-        return item
+        return item;
       });
     }
-  }
-  const mdHtml = await markdownToHTML(str, mdOptions) as string;
-  const tempPath = path.resolve(config.data.theme, 'markdown.ejs')
+  };
+  const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
+  const tempPath = path.resolve(config.data.theme, 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
-  const data: Data & TemplateData = { fileStat: {} }
+  const data: Data & TemplateData = { fileStat: {} };
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;
@@ -66,7 +79,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
     data.openSource = config.data.data.openSource || '';
     data.editButton = { ...config.data.data.editButton };
     if (data.editButton.url) {
-      data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`
+      data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
     }
     if (config.data.data.menus) {
       data.menus = config.getMenuData(to);
@@ -74,14 +87,18 @@ export async function createHTML(str: string = '', from: string, to: string) {
   }
 
   // File Stat
-  data.fileStat = config.data.asset.find(item => item.path === from) || {};
+  data.fileStat = config.data.asset.find((item) => item.path === from) || {};
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
-    if((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
-      data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } }
+    if ((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
+      data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  return render(tmpStr.toString(), { ...config.data.data, ...data }, {
-    filename: tempPath
-  });
+  return render(
+    tmpStr.toString(),
+    { ...config.data.data, ...data },
+    {
+      filename: tempPath,
+    },
+  );
 }

@@ -31,25 +31,32 @@ export async function compilation(filepath: string) {
 export async function copyThemeAsset() {
   const assetTemp = await readdirFiles(config.data.theme, {
     ignored: /\/(node_modules|\.git)/,
-    exclude: /(\.ejs)$/
+    exclude: /(\.ejs)$/,
   });
 
-  await Promise.all(assetTemp.map(async (item) => {
-    await copyThemeFileAsset(item.path);
-  }));
+  await Promise.all(
+    assetTemp.map(async (item) => {
+      await copyThemeFileAsset(item.path);
+    }),
+  );
 }
 
 export async function copyThemeFileAsset(file: string) {
   const outPath = path.join(config.data.output, path.relative(config.data.theme, file));
   await fs.copy(file, outPath);
-  log.output('\x1b[35;1mcopy\x1b[0m')(path.relative(config.data.root, file), path.relative(config.data.output, outPath));
+  log.output('\x1b[35;1mcopy\x1b[0m')(
+    path.relative(config.data.root, file),
+    path.relative(config.data.output, outPath),
+  );
 }
 
 export async function build() {
   const { asset = [] } = config.data || {};
-  await Promise.all(asset.map(async (item) => {
-    await compilation(item.path);
-  }));
+  await Promise.all(
+    asset.map(async (item) => {
+      await compilation(item.path);
+    }),
+  );
   await copyThemeAsset();
   console.log(`\n \x1b[34;1m Compliled successfully!\x1b[0m\n`);
 }

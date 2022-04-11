@@ -9,9 +9,9 @@
 
 ```bash
 # 我的 xxx 使用 idoc 生成文档
-[文档名称](连接地址) 
+![文档名称](连接地址)
 ```
 
 ## 收录文档
 
-这些文档是都是使用idoc生成的页面哦，可以提交用idoc生成的文档哦[提交收录](https://github.com/jaywcjlove/idoc/issues)。
+这些文档是都是使用 idoc 生成的页面哦，可以提交用 idoc 生成的文档哦[提交收录](https://github.com/jaywcjlove/idoc/issues)。

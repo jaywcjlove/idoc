@@ -10,13 +10,13 @@ export async function init(folder: string) {
       type: 'input',
       name: 'projectName',
       default: path.basename(initFolder) || 'my-app',
-      message: 'new project name'
+      message: 'new project name',
     },
     {
       type: 'confirm',
       name: 'force',
       default: false,
-      message: 'Whether to force regeneration of catalog files'
+      message: 'Whether to force regeneration of catalog files',
     },
     {
       type: 'confirm',
@@ -37,7 +37,7 @@ export async function init(folder: string) {
       default: 'dist',
       message: 'Modify the specified output static page directory location',
       filter: (input) => path.resolve(initFolder, input || 'dist'),
-    }
+    },
   ]);
 
   if (option.force) {
@@ -52,9 +52,9 @@ export async function init(folder: string) {
 
   if (option.theme) {
     const themepath = path.resolve(__dirname, '../../themes');
-    await fs.copy(themepath, path.resolve(initFolder, 'themes'))
+    await fs.copy(themepath, path.resolve(initFolder, 'themes'));
   }
-  
+
   const temp = path.resolve(__dirname, '../../template/');
   const pkg = await fs.readJSON(path.resolve(temp, 'package.json'));
 
@@ -71,7 +71,7 @@ export async function init(folder: string) {
   });
 
   await fs.copy(path.resolve(temp, 'docs'), option.dir);
-  console.log()
+  console.log();
   console.log(` \x1b[32;1m✔\x1b[0m Start documentation with \x1b[35;1midoc\x1b[0m!`);
-  console.log()
+  console.log();
 }

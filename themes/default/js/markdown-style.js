@@ -1,4 +1,3 @@
-
 const octiconLinkStyle = `
 markdown-style h1:hover a.anchor .icon-link:before,
 markdown-style h2:hover a.anchor .icon-link:before,
@@ -968,44 +967,42 @@ markdown-style ::-webkit-calendar-picker-indicator {
 <slot></slot>
 `;
 class MarkdownStyle extends HTMLElement {
-    constructor() {
-        super();
-        this.shadow = this.attachShadow({ mode: 'open' });
-        this.shadow.appendChild(__TEMPLATE__.content.cloneNode(true));
-        const style = Array.prototype.slice
-            .call(this.shadow.children)
-            .find((item) => item.tagName === 'STYLE');
-        if (style) {
-            const id = '__MARKDOWN_STYLE__';
-            const findStyle = document.getElementById(id);
-            if (!findStyle) {
-                style.id = id;
-                document.head.append(style);
-            }
-        }
+  constructor() {
+    super();
+    this.shadow = this.attachShadow({ mode: 'open' });
+    this.shadow.appendChild(__TEMPLATE__.content.cloneNode(true));
+    const style = Array.prototype.slice.call(this.shadow.children).find((item) => item.tagName === 'STYLE');
+    if (style) {
+      const id = '__MARKDOWN_STYLE__';
+      const findStyle = document.getElementById(id);
+      if (!findStyle) {
+        style.id = id;
+        document.head.append(style);
+      }
     }
-    get theme() {
-        const value = this.getAttribute('theme');
-        return value === null ? '' : value;
+  }
+  get theme() {
+    const value = this.getAttribute('theme');
+    return value === null ? '' : value;
+  }
+  set theme(name) {
+    this.setAttribute('theme', name);
+  }
+  connectedCallback() {
+    if (!this.theme) {
+      const { colorMode } = document.documentElement.dataset;
+      this.theme = colorMode;
+      const observer = new MutationObserver((mutationsList, observer) => {
+        this.theme = document.documentElement.dataset.colorMode;
+      });
+      observer.observe(document.documentElement, { attributes: true });
+      window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
+        this.theme = event.matches ? 'light' : 'dark';
+      };
+      window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
+        this.theme = event.matches ? 'dark' : 'light';
+      };
     }
-    set theme(name) {
-        this.setAttribute('theme', name);
-    }
-    connectedCallback() {
-        if (!this.theme) {
-            const { colorMode } = document.documentElement.dataset;
-            this.theme = colorMode;
-            const observer = new MutationObserver((mutationsList, observer) => {
-                this.theme = document.documentElement.dataset.colorMode;
-            });
-            observer.observe(document.documentElement, { attributes: true });
-            window.matchMedia('(prefers-color-scheme: light)').onchange = (event) => {
-                this.theme = event.matches ? 'light' : 'dark';
-            };
-            window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
-                this.theme = event.matches ? 'dark' : 'light';
-            };
-        }
-    }
+  }
 }
 customElements.define('markdown-style', MarkdownStyle);

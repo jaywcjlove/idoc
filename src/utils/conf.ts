@@ -25,31 +25,35 @@ export type MenuData = {
   name: string;
   url?: string;
   active?: boolean;
-}
+};
 
 export const readdirFiles = async (file: string, opts: RecursiveReaddirFilesOptions) => {
   // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
-  const readdir = await (await (Function('return import("recursive-readdir-files")')()) as Promise<typeof import("recursive-readdir-files")>);
+  const readdir = await ((await Function('return import("recursive-readdir-files")')()) as Promise<
+    typeof import('recursive-readdir-files')
+  >);
   return readdir.default(file, opts);
-}
+};
 export const getExt = async (file: string) => {
   // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
-  const readdir = await (await (Function('return import("recursive-readdir-files")')()) as Promise<typeof import("recursive-readdir-files")>);
+  const readdir = await ((await Function('return import("recursive-readdir-files")')()) as Promise<
+    typeof import('recursive-readdir-files')
+  >);
   return readdir.getExt(file);
-}
+};
 
 export class Conf {
   constructor() {
     this.initConf();
   }
-  data: Config =  {
+  data: Config = {
     root: process.cwd(),
     dir: path.resolve(process.cwd(), 'docs'),
     output: path.resolve(process.cwd(), 'dist'),
     chapters: {},
     config: {},
     asset: [],
-    data: {}
+    data: {},
   };
   get all() {
     return this.data;
@@ -91,19 +95,19 @@ export class Conf {
   }
   async getFiles() {
     const files = await readdirFiles(this.data.dir, {
-      ignored: /\/(node_modules|\.git)/
+      ignored: /\/(node_modules|\.git)/,
     });
     this.data.asset = files;
-    await this.getReadme()
+    await this.getReadme();
   }
   async getReadme() {
     const readmePath = path.resolve(this.data.root, 'README.md');
-    const existsReadme = this.data.asset.find(item => /\/(readme.md)/.test(item.path.toString()));
+    const existsReadme = this.data.asset.find((item) => /\/(readme.md)/.test(item.path.toString()));
     if (existsReadme) {
       this.data.readme = existsReadme.path;
     } else if (fs.existsSync(readmePath) && !existsReadme) {
       this.data.readme = readmePath;
-      const stat = await fs.promises.stat(readmePath) as IFileDirStat;
+      const stat = (await fs.promises.stat(readmePath)) as IFileDirStat;
       stat.path = path.resolve(this.data.root, 'README.md');
       stat.ext = await getExt(stat.path);
       stat.name = path.basename(stat.path);
@@ -115,23 +119,26 @@ export class Conf {
     return rel ? rel + '/' : '';
   }
   getMenuData(toPath: string) {
-    const data: MenuData[] = []
+    const data: MenuData[] = [];
     if (this.data.data.menus) {
       Object.keys(this.data.data.menus).forEach((key) => {
-        const menu: MenuData =  { name: key };
+        const menu: MenuData = { name: key };
         const current = path.join(this.data.output, this.data.data.menus[key]);
         if (toPath === current) {
           menu.url = path.basename(current);
           menu.active = true;
         } else {
-          const rel = path.relative(path.dirname(toPath), path.dirname(path.join(this.data.output, this.data.data.menus[key])));
+          const rel = path.relative(
+            path.dirname(toPath),
+            path.dirname(path.join(this.data.output, this.data.data.menus[key])),
+          );
           if (rel.startsWith('..')) {
             menu.url = path.join(rel, this.data.data.menus[key]).split(path.sep).join('/');
           } else {
-            menu.url = this.data.data.menus[key]
+            menu.url = this.data.data.menus[key];
           }
         }
-        data.push(menu)
+        data.push(menu);
       });
     }
     return data;

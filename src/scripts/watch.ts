@@ -6,7 +6,13 @@ import * as log from '../utils/log';
 import { config } from '../utils/conf';
 
 export function watch() {
-  const watchPaths = [config.data.dir, config.data.theme, config.data.config.conf, config.data.config.chapters, config.data.readme].filter(Boolean);
+  const watchPaths = [
+    config.data.dir,
+    config.data.theme,
+    config.data.config.conf,
+    config.data.config.chapters,
+    config.data.readme,
+  ].filter(Boolean);
   const watcher = chokidar.watch(watchPaths);
   watcher.on('change', async (filepath, stats) => {
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
@@ -20,18 +26,18 @@ export function watch() {
     } else if (isTheme && /\.ejs/i.test(filepath)) {
       await build();
     } else if (isTheme) {
-      await copyThemeFileAsset(filepath)
+      await copyThemeFileAsset(filepath);
     } else if (/\.(md|markdown)/i.test(filepath)) {
-      await compilation(filepath)
+      await compilation(filepath);
     } else {
       const assetPath = getOutputPath(filepath);
-      await copyFile(filepath, assetPath)
+      await copyFile(filepath, assetPath);
     }
   });
 
   watcher.on('add', async (filepath) => {
     if (/\.(md|markdown)/i.test(filepath)) {
-      await compilation(filepath)
+      await compilation(filepath);
     }
   });
   watcher.on('unlink', async (filepath) => {
@@ -39,16 +45,25 @@ export function watch() {
     if (/\.(md|markdown)$/i.test(filepath)) {
       let assetPath = getOutputPath(filepath);
       await remove(assetPath);
-      log.output('\x1b[35;1mremove\x1b[0m')(path.relative(config.data.dir, filepath), path.relative(config.data.output, assetPath));
+      log.output('\x1b[35;1mremove\x1b[0m')(
+        path.relative(config.data.dir, filepath),
+        path.relative(config.data.output, assetPath),
+      );
     } else if (isTheme) {
       // Theme
       let assetPath = path.join(config.data.output, path.relative(config.data.theme, filepath));
       await remove(assetPath);
-      log.output('\x1b[35;1mremove\x1b[0m')(path.relative(config.data.theme, filepath), path.relative(config.data.output, assetPath));
+      log.output('\x1b[35;1mremove\x1b[0m')(
+        path.relative(config.data.theme, filepath),
+        path.relative(config.data.output, assetPath),
+      );
     } else {
       let assetPath = getOutputPath(filepath);
       await remove(assetPath);
-      log.output('\x1b[35;1mremove\x1b[0m')(path.relative(config.data.dir, filepath), path.relative(config.data.output, assetPath));
+      log.output('\x1b[35;1mremove\x1b[0m')(
+        path.relative(config.data.dir, filepath),
+        path.relative(config.data.output, assetPath),
+      );
     }
   });
 
@@ -58,5 +73,5 @@ export function watch() {
 
   watcher.on('ready', async () => {
     await copyThemeAsset();
-  })
+  });
 }
