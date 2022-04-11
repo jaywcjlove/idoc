@@ -23,6 +23,8 @@ footer.article-footer, markdown-style {
 markdown-style {
   margin-top: 48px;
   padding-top: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 a {
@@ -50,6 +52,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   min-height: 45px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .header .logo {
   font-weight: bold;
