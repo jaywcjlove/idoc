@@ -30,7 +30,17 @@
     "doc": "node lib/idoc.js",
     "watch": "tsbb watch --disable-babel --no-esm -f src/idoc.ts",
     "build": "tsbb build --disable-babel --no-esm -f src/idoc.ts",
-    "type-check": "tsc --noEmit"
+    "prettier": "prettier --write \"**/*.{js,ts,css,md,json}\"",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*.ts?(x)": [
+      "npm run prettier"
+    ]
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "dependencies": {
     "@types/ejs": "^3.1.0",
@@ -42,8 +52,11 @@
     "chokidar": "^3.5.3",
     "ejs": "^3.1.6",
     "fs-extra": "~10.0.1",
+    "husky": "^7.0.4",
     "inquirer": "^8.2.2",
+    "lint-staged": "^12.3.7",
     "minimist": "~1.2.6",
+    "prettier": "^2.6.2",
     "recursive-readdir-files": "^2.0.7",
     "rehype-autolink-headings": "~6.1.1",
     "rehype-ignore": "~1.0.0",
