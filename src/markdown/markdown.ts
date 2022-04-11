@@ -9,6 +9,8 @@ import { config, MenuData } from '../utils/conf';
 
 export type TemplateData = {
   RELATIVE_PATH?: string;
+  version?: string;
+  idocVersion?: string;
   markdown?: string;
   openSource?: string;
   editButton?: {
@@ -53,6 +55,8 @@ export async function createHTML(str: string = '', from: string, to: string) {
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;
+  data.version = config.data.version;
+  data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(to);
 
   if (config.data.data) {

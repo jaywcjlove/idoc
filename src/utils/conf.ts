@@ -1,5 +1,5 @@
 import { parse } from 'yaml';
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
 import { IFileDirStat, RecursiveReaddirFilesOptions } from 'recursive-readdir-files';
 
@@ -17,6 +17,8 @@ export interface Config {
   site?: string;
   /** Template Data */
   data?: Record<string, any>;
+  version?: string;
+  idocVersion?: string;
 }
 
 export type MenuData = {
@@ -56,7 +58,7 @@ export class Conf {
     const confPath = path.resolve(this.data.root, 'rdoc.yml');
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
-      const conf = await fs.promises.readFile(confPath, 'utf8');
+      const conf = await fs.readFile(confPath, 'utf8');
       const data: Config = parse(conf);
       if (data.dir) {
         data.dir = path.resolve(process.cwd(), data.dir);
@@ -71,6 +73,12 @@ export class Conf {
     }
     this.getChaptersConf();
     this.getFiles();
+
+    const pkgIdoc = await fs.readJSON(path.resolve(__dirname, '../../package.json'));
+    this.data.idocVersion = pkgIdoc.version;
+    const pkg = await fs.readJSON(path.resolve(this.data.root, 'package.json'));
+    this.data.version = pkg.version;
+
     return this.data;
   }
   async getChaptersConf() {
