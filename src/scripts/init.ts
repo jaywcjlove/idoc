@@ -5,47 +5,51 @@ import { copyFile } from '../utils/copy';
 
 export async function init(folder: string) {
   const initFolder = path.resolve(process.cwd(), folder);
-  if (!fs.existsSync(initFolder)) {
-    await fs.ensureDir(initFolder);
-  }
   const option = await inquirer.prompt([
     {
       type: 'input',
       name: 'projectName',
       default: path.basename(initFolder) || 'my-app',
-      message: '新项目名称'
+      message: 'new project name'
     },
     {
       type: 'confirm',
       name: 'force',
       default: false,
-      message: '是否强制重新生成目录文件'
+      message: 'Whether to force regeneration of catalog files'
     },
     {
       type: 'confirm',
       name: 'theme',
       default: false,
-      message: '是否暴露模板(Theme)文件，自己修改定义',
+      message: 'Whether to customize the template(\x1b[34;1mTheme\x1b[0m)',
     },
     {
       type: 'input',
       name: 'dir',
       default: 'docs',
-      message: '修改指定文档目录位置',
+      message: 'Modify the specified document directory location',
       filter: (input) => path.resolve(initFolder, input || 'docs'),
     },
     {
       type: 'input',
       name: 'output',
       default: 'dist',
-      message: '修改指定输出静态页面目录位置',
+      message: 'Modify the specified output static page directory location',
       filter: (input) => path.resolve(initFolder, input || 'dist'),
     }
   ]);
 
   if (option.force) {
-    await fs.emptyDir(initFolder);
+    await fs.remove(initFolder);
   }
+  if (!fs.existsSync(initFolder)) {
+    await fs.ensureDir(initFolder);
+  } else {
+    console.log(`\n  \x1b[31;1mError:\x1b[0m Directory already exists!`);
+    console.log(`   ╰┈\x1b[31;1m✗\x1b[0m folder: \x1b[33;1m${initFolder}\x1b[0m`);
+  }
+
   if (option.theme) {
     const themepath = path.resolve(__dirname, '../../themes');
     await fs.copy(themepath, path.resolve(initFolder, 'themes'))
