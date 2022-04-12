@@ -31,7 +31,7 @@ export async function compilation(filepath: string) {
 
 export async function copyThemeAsset() {
   const assetTemp = await readdirFiles(config.data.theme, {
-    ignored: /\/(node_modules|\.git)/,
+    ignored: /\/(\.git)/,
     exclude: /(\.ejs)$/,
   });
 
