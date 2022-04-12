@@ -9,15 +9,15 @@ idoc
 
 Generate static pages from all Markdown in a folder.
 
-```
-    ,,        ,,
-    db      `7MM
-              MM
-  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
-    MM ,AP    MM 6W'   `Wb 6M'  OO
-    MM 8MI    MM 8M     M8 8M
-    MM `Mb    MM YA.   ,A9 YM.    ,
-  .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
+```bash
+  ,,        ,,
+  db      `7MM
+            MM
+`7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
+  MM ,AP    MM 6W'   `Wb 6M'  OO
+  MM 8MI    MM 8M     M8 8M
+  MM `Mb    MM YA.   ,A9 YM.    ,
+.JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
 ```
 
 ## Quick Start

@@ -1,18 +1,16 @@
 关于
 ===
 
+```bash
+  ,,        ,,
+  db      `7MM
+            MM
+`7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
+  MM ,AP    MM 6W'   `Wb 6M'  OO
+  MM 8MI    MM 8M     M8 8M
+  MM `Mb    MM YA.   ,A9 YM.    ,
+.JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
 ```
-    ,,        ,,
-    db      `7MM
-              MM
-  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo
-    MM ,AP    MM 6W'   `Wb 6M'  OO
-    MM 8MI    MM 8M     M8 8M
-    MM `Mb    MM YA.   ,A9 YM.    ,
-  .JMML.`Wbmd"MML.`Ybmd9'   YMbmd'
-```
-
-[![](https://img.shields.io/github/forks/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/followers) [![](https://img.shields.io/github/stars/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/idoc/stargazers) [![](https://img.shields.io/github/followers/jaywcjlove.svg?style=social)](https://github.com/jaywcjlove/followers)
 
 在工作的原因，idoc 停滞五六年，中间尝试使用 react 封装 [rdoc](https://github.com/jaywcjlove/rdoc) 工具，同时为了小的工具方便生成单个静态页面，作为文档网站，搞了个 [markdown-to-html-cli](https://github.com/jaywcjlove/markdown-to-html-cli) ，同时支持 GitHub Action ，在 CI 中生成页面，及时你不是一个 node 项目，也可以生成简单的文档网站。
 
@@ -22,6 +20,9 @@
 ```
 $ npx idoc@1.0.0-beta.10 init myapp
 ```
+
+[![](https://img.shields.io/github/forks/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/followers) [![](https://img.shields.io/github/stars/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/idoc/stargazers) [![](https://img.shields.io/github/followers/jaywcjlove.svg?style=social)](https://github.com/jaywcjlove/followers)
+
 
 ## Contributors
 
