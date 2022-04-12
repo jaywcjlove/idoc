@@ -33,7 +33,7 @@ data:
   # Navigation Menu.
   menus:
     Docs: introduce/getting-started/installation.html
-    Markdown: markdown.md
+    Markdown: markdown.html
     About: about.html
 
   footer: |

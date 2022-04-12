@@ -6,12 +6,7 @@
     <%- markdown %>
   </markdown-style>
   <nav class="tocs">
-    <aside class="inner">
-      <% tocs.forEach((toc) => { %>
-        <a class="<%= toc.class %>" href="#<%= toc.href %>">
-          <%= toc.label %>
-        </a>
-      <% }) %>
+    <aside class="inner toc">
     </aside>
   </nav>
 </div>
@@ -30,5 +25,25 @@
 <span class="atime"><%= fileStat.mtimeStr %></span>
 <% } %>
 </footer>
+
+
+<script src="<%= RELATIVE_PATH %>js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+tocbot.refresh();
+</script>
 
 <%- include('partial/footer'); %>

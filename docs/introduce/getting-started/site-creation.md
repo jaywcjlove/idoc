@@ -20,7 +20,7 @@ $ rdoc
     "build": "idoc"
   },
   "devDependencies": {
-+    "idoc": "^1.0.0-beta.10"
++    "idoc": "^1.0.0-beta.12"
   }
 }
 ```

@@ -1,6 +1,7 @@
 **/*.svg
 **/*.ejs
 **/*.yml
+themes/default/js/*.js
 package-lock.json
 package.json
 node_modules
