@@ -1,11 +1,22 @@
 <%- include('partial/header'); %>
 <%- include('partial/navigation'); %>
 
-<markdown-style>
-  <%- markdown %>
-</markdown-style>
+<div class="warpper-content warpper">
+  <markdown-style>
+    <%- markdown %>
+  </markdown-style>
+  <nav class="tocs">
+    <aside class="inner">
+      <% tocs.forEach((toc) => { %>
+        <a class="<%= toc.class %>" href="#<%= toc.href %>">
+          <%= toc.label %>
+        </a>
+      <% }) %>
+    </aside>
+  </nav>
+</div>
 
-<footer class="article-footer">
+<footer class="article-footer warpper">
 <% if (editButton) { %>
 <a href="<%=editButton.url || '' %>" target="_blank" rel="noopener noreferrer">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

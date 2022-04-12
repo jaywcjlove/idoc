@@ -27,6 +27,13 @@ export type TemplateData = {
     mtimeStr?: string;
     ctimeStr?: string;
   };
+  toc?: Toc[];
+};
+
+type Toc = {
+  label?: string;
+  href?: string;
+  class?: string;
 };
 
 export async function createHTML(str: string = '', from: string, to: string) {
@@ -34,7 +41,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const autolinkHeadings = await rehypeAutolinkHeadings();
   const slug = await rehypeSlug();
   const ignore = await rehypeIgnore();
-
+  const tocs: Toc[] = [];
   mdOptions.rehypePlugins = [
     [
       ignore,
@@ -56,18 +63,25 @@ export async function createHTML(str: string = '', from: string, to: string) {
       Array.isArray(node.children) &&
       node.children.length > 0
     ) {
+      const tocItem: Toc = {};
+      tocItem.class = `toc-${node.tagName}`;
+      tocItem.href = node.properties.id as string;
       node.children = node.children.map((item) => {
         if (item.type === 'element' && item.tagName === 'a') {
           item.properties.class = 'anchor';
         }
+        if (item.type === 'text') {
+          tocItem.label = item.value;
+        }
         return item;
       });
+      tocs.push(tocItem);
     }
   };
   const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
   const tempPath = path.resolve(config.data.theme, 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
-  const data: Data & TemplateData = { fileStat: {} };
+  const data: Data & TemplateData = { fileStat: {}, tocs };
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;

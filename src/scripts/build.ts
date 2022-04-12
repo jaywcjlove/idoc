@@ -52,11 +52,15 @@ export async function copyThemeFileAsset(file: string) {
 
 export async function build() {
   const { asset = [] } = config.data || {};
-  await Promise.all(
-    asset.map(async (item) => {
-      await compilation(item.path);
-    }),
-  );
-  await copyThemeAsset();
-  console.log(`\n \x1b[34;1m Compliled successfully!\x1b[0m\n`);
+  try {
+    await Promise.all(
+      asset.map(async (item) => {
+        await compilation(item.path);
+      }),
+    );
+    await copyThemeAsset();
+    console.log(`\n \x1b[34;1m Compliled successfully!\x1b[0m\n`);
+  } catch (error) {
+    console.log(` \x1b[31midoc:\x1b[0m`, error);
+  }
 }
