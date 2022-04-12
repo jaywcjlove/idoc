@@ -68,9 +68,6 @@ export class Conf {
       const pkg = await fs.readJSON(pkgpath);
       this.data.version = pkg.version;
     }
-
-    await this.getChaptersConf();
-    await this.getFiles();
     return this.data;
   }
   async getChaptersConf() {

@@ -4,9 +4,8 @@ import minimist from 'minimist';
 import fs from 'fs-extra';
 import { build } from './scripts/build.js';
 import { watch } from './scripts/watch.js';
-import { init } from './scripts/init.js';
 import { config } from './utils/conf.js';
-import { __dirname } from './utils/index.js';
+import { init } from './scripts/init.js';
 
 function outputHelp() {
   console.log(' Usage: idoc [init][options] [--help|h] [--version|v]');

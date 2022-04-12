@@ -34,6 +34,7 @@ export type TemplateData = {
 };
 
 type Toc = {
+  number?: number;
   label?: string;
   href?: string;
   class?: string;
@@ -41,7 +42,6 @@ type Toc = {
 
 export async function createHTML(str: string = '', from: string, to: string) {
   const mdOptions: Options = {};
-  const tocs: Toc[] = [];
   mdOptions.rehypePlugins = [
     [
       ignore,
@@ -54,6 +54,8 @@ export async function createHTML(str: string = '', from: string, to: string) {
     [autolinkHeadings],
   ];
 
+  const tocs: Toc[] = [];
+  let tocsStart: number = 6;
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
     if (
@@ -63,9 +65,10 @@ export async function createHTML(str: string = '', from: string, to: string) {
       Array.isArray(node.children) &&
       node.children.length > 0
     ) {
-      const tocItem: Toc = {};
-      tocItem.class = `toc-${node.tagName}`;
+      const num = Number(node.tagName.replace('h', ''));
+      const tocItem: Toc = { number: num };
       tocItem.href = node.properties.id as string;
+      if (num < tocsStart) tocsStart = num;
       node.children = node.children.map((item) => {
         if (item.type === 'element' && item.tagName === 'a') {
           item.properties.class = 'anchor';
@@ -81,7 +84,11 @@ export async function createHTML(str: string = '', from: string, to: string) {
   const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
   const tempPath = path.resolve(config.data.theme, 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
-  const data: Data & TemplateData = { fileStat: {}, tocs };
+  const tocsArr = tocs.map((item) => ({
+    ...item,
+    class: `toc${item.number - tocsStart + 1}`,
+  }));
+  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr] };
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;

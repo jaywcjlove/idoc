@@ -14,6 +14,12 @@
   --color-hoc-bg: #00000008;
 }
 
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-size: 14px;
@@ -25,8 +31,6 @@ body {
 }
 
 markdown-style {
-  padding-left: 10px;
-  padding-right: 10px;
   flex: 1 auto;
   max-width: 100%;
   min-width: 0;
@@ -48,15 +52,15 @@ nav.tocs p {
   margin-bottom: 0;
 }
 nav.tocs a {
-  /* white-space: nowrap; */
   color: var(--color-fg-muted);
   display: block;
+  padding: 0 5px;
 }
 nav.tocs .inner {
-  padding: 10px 14px 18px 14px;
+  padding: 10px 10px 18px 10px;
   background-color: var(--color-hoc-bg);
 }
-nav.tocs a.toc-h2 {
+nav.tocs a.toc2 {
   padding-left: 18px;
 }
 
