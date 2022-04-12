@@ -3,10 +3,13 @@ import fs from 'fs-extra';
 import { render, Data } from 'ejs';
 import { Options } from '@wcj/markdown-to-html';
 import formatter from '@uiw/formatter';
-import { rehypeAutolinkHeadings, rehypeSlug, rehypeIgnore, markdownToHTML } from './plugins';
 import { IFileDirStat } from 'recursive-readdir-files';
-import { config, MenuData } from '../utils/conf';
-import rehypeUrls from './rehype-urls';
+import autolinkHeadings from 'rehype-autolink-headings';
+import markdownToHTML from '@wcj/markdown-to-html';
+import ignore from 'rehype-ignore';
+import slug from 'rehype-slug';
+import { config, MenuData } from '../utils/conf.js';
+import rehypeUrls from './rehype-urls.js';
 
 export type TemplateData = {
   RELATIVE_PATH?: string;
@@ -38,9 +41,6 @@ type Toc = {
 
 export async function createHTML(str: string = '', from: string, to: string) {
   const mdOptions: Options = {};
-  const autolinkHeadings = await rehypeAutolinkHeadings();
-  const slug = await rehypeSlug();
-  const ignore = await rehypeIgnore();
   const tocs: Toc[] = [];
   mdOptions.rehypePlugins = [
     [

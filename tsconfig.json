@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
+    "target": "esnext",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": true,
-    "target": "es2017",
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",

@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import inquirer from 'inquirer';
-import { copyFile } from '../utils/copy';
+import { copyFile } from '../utils/copy.js';
 
 export async function init(folder: string) {
   const initFolder = path.resolve(process.cwd(), folder);

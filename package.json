@@ -4,7 +4,10 @@
   "description": "Simple document generation tool. Dependence Node.js run.",
   "homepage": "https://jaywcjlove.github.io/idoc/",
   "author": "kenny wang <wowohoo@qq.com>",
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "bin": {
     "idoc": "lib/idoc.js"
   },

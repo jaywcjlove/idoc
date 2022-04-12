@@ -1,9 +1,9 @@
 import path from 'path';
 import chokidar from 'chokidar';
-import { copyFile, remove } from 'fs-extra';
-import { build, compilation, copyThemeAsset, getOutputPath, copyThemeFileAsset } from './build';
-import * as log from '../utils/log';
-import { config } from '../utils/conf';
+import fs from 'fs-extra';
+import { build, compilation, copyThemeAsset, getOutputPath, copyThemeFileAsset } from './build.js';
+import * as log from '../utils/log.js';
+import { config } from '../utils/conf.js';
 
 export function watch() {
   const watchPaths = [
@@ -31,7 +31,7 @@ export function watch() {
       await compilation(filepath);
     } else {
       const assetPath = getOutputPath(filepath);
-      await copyFile(filepath, assetPath);
+      await fs.copyFile(filepath, assetPath);
     }
   });
 
@@ -44,7 +44,7 @@ export function watch() {
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
     if (/\.(md|markdown)$/i.test(filepath)) {
       let assetPath = getOutputPath(filepath);
-      await remove(assetPath);
+      await fs.remove(assetPath);
       log.output('\x1b[35;1mremove\x1b[0m')(
         path.relative(config.data.dir, filepath),
         path.relative(config.data.output, assetPath),
@@ -52,14 +52,14 @@ export function watch() {
     } else if (isTheme) {
       // Theme
       let assetPath = path.join(config.data.output, path.relative(config.data.theme, filepath));
-      await remove(assetPath);
+      await fs.remove(assetPath);
       log.output('\x1b[35;1mremove\x1b[0m')(
         path.relative(config.data.theme, filepath),
         path.relative(config.data.output, assetPath),
       );
     } else {
       let assetPath = getOutputPath(filepath);
-      await remove(assetPath);
+      await fs.remove(assetPath);
       log.output('\x1b[35;1mremove\x1b[0m')(
         path.relative(config.data.dir, filepath),
         path.relative(config.data.output, assetPath),

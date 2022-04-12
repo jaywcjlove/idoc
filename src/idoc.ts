@@ -1,10 +1,18 @@
 #!/usr/bin/env node
 import path from 'path';
 import minimist from 'minimist';
-import { build } from './scripts/build';
-import { watch } from './scripts/watch';
-import { init } from './scripts/init';
-import { config } from './utils/conf';
+import fs from 'fs-extra';
+import { build } from './scripts/build.js';
+import { watch } from './scripts/watch.js';
+import { init } from './scripts/init.js';
+import { config } from './utils/conf.js';
+import { __dirname } from './utils/index.js';
+
+export const packages = async () => {
+  // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
+  const pkg = await ((await Function('return import("../package.json")')()) as Promise<typeof import('rehype-slug')>);
+  return pkg;
+};
 
 function outputHelp() {
   console.log(' Usage: idoc [init][options] [--help|h] [--version|v]');
@@ -44,7 +52,8 @@ if (argvs.h || argvs.help) {
   process.exit(0);
 }
 
-const { version } = require('../package.json');
+const { version } = await fs.readJSON(path.resolve(__dirname, '../package.json'));
+
 if (argvs.v || argvs.version) {
   console.log(` \x1b[35midoc\x1b[0m v${version}\n`);
   process.exit(0);

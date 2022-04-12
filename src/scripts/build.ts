@@ -1,8 +1,8 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { createHTML } from '../markdown/markdown';
-import * as log from '../utils/log';
-import { config, readdirFiles } from '../utils/conf';
+import { createHTML } from '../markdown/markdown.js';
+import * as log from '../utils/log.js';
+import { config, readdirFiles } from '../utils/conf.js';
 
 export function getOutputPath(filepath: string) {
   const relativePath = path.relative(config.data.dir, filepath);

@@ -2,6 +2,7 @@ import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
 import { IFileDirStat, RecursiveReaddirFilesOptions } from 'recursive-readdir-files';
+import { __dirname } from './index.js';
 
 export interface Config {
   root: string;
