@@ -8,7 +8,7 @@
 如果你全局安装了 `idoc` 工具，下面的命令直接可以运行生成静态页面，但是不建议这么干，推荐将下面命令到 `package.json` 中
 
 ```bash
-$ rdoc
+$ idoc
 ```
 
 配置到 `package.json` 中有一些优势，可以锁定 `idoc` 的版本，不会引发 `idoc` 版本不一致导致的问题。
@@ -20,7 +20,7 @@ $ rdoc
     "build": "idoc"
   },
   "devDependencies": {
-+    "idoc": "^1.0.0-beta.12"
++    "idoc": "^1.0.0-beta.16"
   }
 }
 ```
@@ -30,7 +30,7 @@ $ rdoc
 我们需要监听 Markdown 文件，实时生成 HTML 文件，您需要运行下面命令：
 
 ```bash
-$ rdoc --watch
+$ idoc --watch
 
 ✔ copy: themes/default/css/main.css -> css/main.css
 ✔ copy: themes/default/js/dark-mode.js -> js/dark-mode.js
@@ -43,7 +43,7 @@ $ rdoc --watch
 
 ## 本地预览
 
-默认使用 `rdoc` 命令，将 `Markdown` 文件生成到默认的 `dist` 目录中，直接在浏览器里面打开 `index.html` 即可。
+默认使用 `idoc` 命令，将 `Markdown` 文件生成到默认的 `dist` 目录中，直接在浏览器里面打开 `index.html` 即可。
 
 如果你想编辑 `Markdown` 文件生成的静态页面，在浏览器中自动在浏览器中刷新，可以使用类似 [`sgo`](https://www.npmjs.com/package/sgo) 工具预览你的静态网站。
 

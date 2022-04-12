@@ -18,7 +18,7 @@
 
 
 ```
-$ npx idoc@1.0.0-beta.12 init myapp
+$ npx idoc@1.0.0-beta.16 init myapp
 ```
 
 [![](https://img.shields.io/github/forks/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/followers) [![](https://img.shields.io/github/stars/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/idoc/stargazers) [![](https://img.shields.io/github/followers/jaywcjlove.svg?style=social)](https://github.com/jaywcjlove/followers)

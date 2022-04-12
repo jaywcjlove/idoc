@@ -42,7 +42,7 @@ Running the `idoc init myapp` generator from the command line will create a dire
 │   ├── README.md
 │   └── about.md
 ├── package.json
-└── rdoc.yml
+└── idoc.yml
 ```
 
 ## Command Help
