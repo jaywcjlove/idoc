@@ -71,22 +71,6 @@ nav.tocs .inner {
   min-width: 240px;
 }
 
-nav.tocs a.toc2 {
-  padding-left: 18px;
-}
-nav.tocs a.toc3 {
-  padding-left: 36px;
-}
-nav.tocs a.toc4 {
-  padding-left: 54px;
-}
-nav.tocs a.toc5 {
-  padding-left: 72px;
-}
-nav.tocs a.toc6 {
-  padding-left: 90px;
-}
-
 a {
   text-decoration: none;
   color: var(--color-accent-fg);
