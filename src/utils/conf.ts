@@ -60,14 +60,17 @@ export class Conf {
         this.data.theme = path.resolve(new URL('../../themes/default', import.meta.url).pathname);
       }
     }
-    this.getChaptersConf();
-    this.getFiles();
 
     const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
     this.data.idocVersion = pkgIdoc.version;
-    const pkg = await fs.readJSON(path.resolve(this.data.root, 'package.json'));
-    this.data.version = pkg.version;
+    const pkgpath = path.resolve(this.data.root, 'package.json');
+    if (fs.existsSync(pkgpath)) {
+      const pkg = await fs.readJSON(pkgpath);
+      this.data.version = pkg.version;
+    }
 
+    await this.getChaptersConf();
+    await this.getFiles();
     return this.data;
   }
   async getChaptersConf() {

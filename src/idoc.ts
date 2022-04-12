@@ -48,9 +48,9 @@ if (argvs.h || argvs.help) {
 
 (async () => {
   try {
-    const { version } = await fs.readJSON(path.resolve(new URL('../package.json', import.meta.url).pathname));
-
     if (argvs.v || argvs.version) {
+      const pkgpath = path.resolve(new URL('../package.json', import.meta.url).pathname);
+      const { version } = await fs.readJSON(pkgpath);
       console.log(` \x1b[35midoc\x1b[0m v${version}\n`);
       process.exit(0);
     }
