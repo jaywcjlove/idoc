@@ -49,7 +49,7 @@ nav.tocs p {
 }
 nav.tocs a {
   /* white-space: nowrap; */
-  color: var(--color-fg-subtle);
+  color: var(--color-fg-muted);
   display: block;
 }
 nav.tocs .inner {
