@@ -1,7 +1,7 @@
 import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
-import { IFileDirStat, RecursiveReaddirFilesOptions } from 'recursive-readdir-files';
+import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { __dirname } from './index.js';
 
 export interface Config {
@@ -26,21 +26,6 @@ export type MenuData = {
   name: string;
   url?: string;
   active?: boolean;
-};
-
-export const readdirFiles = async (file: string, opts: RecursiveReaddirFilesOptions) => {
-  // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
-  const readdir = await ((await Function('return import("recursive-readdir-files")')()) as Promise<
-    typeof import('recursive-readdir-files')
-  >);
-  return readdir.default(file, opts);
-};
-export const getExt = async (file: string) => {
-  // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
-  const readdir = await ((await Function('return import("recursive-readdir-files")')()) as Promise<
-    typeof import('recursive-readdir-files')
-  >);
-  return readdir.getExt(file);
 };
 
 export class Conf {

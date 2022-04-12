@@ -8,12 +8,6 @@ import { init } from './scripts/init.js';
 import { config } from './utils/conf.js';
 import { __dirname } from './utils/index.js';
 
-export const packages = async () => {
-  // https://github.com/microsoft/TypeScript/issues/43329#issuecomment-922544562
-  const pkg = await ((await Function('return import("../package.json")')()) as Promise<typeof import('rehype-slug')>);
-  return pkg;
-};
-
 function outputHelp() {
   console.log(' Usage: idoc [init][options] [--help|h] [--version|v]');
   console.log('\n Options:');
