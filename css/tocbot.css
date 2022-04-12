@@ -35,7 +35,7 @@ a.toc-link {
   font-weight: 700;
 }
 .toc-link::before {
-  background-color: #eee;
+  background-color: var(--color-border-default);
   content: ' ';
   display: inline-block;
   height: inherit;
