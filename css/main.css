@@ -139,7 +139,7 @@ a:hover {
 .header .github {
   width: 18px;
   height: 18px;
-  padding: 0 10px 0 10px;
+  margin-right: 8px;
 }
 
 footer.article-footer {
