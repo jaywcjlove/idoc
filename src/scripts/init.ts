@@ -51,11 +51,11 @@ export async function init(folder: string) {
   }
 
   if (option.theme) {
-    const themepath = path.resolve(__dirname, '../../themes');
+    const themepath = path.resolve(new URL('../../themes', import.meta.url).pathname);
     await fs.copy(themepath, path.resolve(initFolder, 'themes'));
   }
 
-  const temp = path.resolve(__dirname, '../../template/');
+  const temp = path.resolve(new URL('../../template', import.meta.url).pathname);
   const pkg = await fs.readJSON(path.resolve(temp, 'package.json'));
 
   await copyFile(path.resolve(temp, 'rdoc.yml'), path.resolve(initFolder, 'rdoc.yml'), {
