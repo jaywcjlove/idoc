@@ -2,7 +2,6 @@ import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
-import { __dirname } from './index.js';
 
 export interface Config {
   root: string;
@@ -58,13 +57,13 @@ export class Conf {
       }
       this.data = Object.assign(this.data, data);
       if (this.data.theme === 'default') {
-        this.data.theme = path.resolve(__dirname, '../../themes/default');
+        this.data.theme = path.resolve(new URL('../../themes/default', import.meta.url).pathname);
       }
     }
     this.getChaptersConf();
     this.getFiles();
 
-    const pkgIdoc = await fs.readJSON(path.resolve(__dirname, '../../package.json'));
+    const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
     this.data.idocVersion = pkgIdoc.version;
     const pkg = await fs.readJSON(path.resolve(this.data.root, 'package.json'));
     this.data.version = pkg.version;

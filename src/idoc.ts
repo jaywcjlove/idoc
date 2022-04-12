@@ -46,20 +46,20 @@ if (argvs.h || argvs.help) {
   process.exit(0);
 }
 
-const { version } = await fs.readJSON(path.resolve(__dirname, '../package.json'));
-
-if (argvs.v || argvs.version) {
-  console.log(` \x1b[35midoc\x1b[0m v${version}\n`);
-  process.exit(0);
-}
-
-argvs.output = argvs.o = argvs.output || argvs.o;
-argvs.dir = argvs.d = argvs.dir || argvs.d;
-argvs.watch = argvs.w = argvs.watch || argvs.w;
-argvs.theme = argvs.t = argvs.theme || argvs.t;
-
 (async () => {
   try {
+    const { version } = await fs.readJSON(path.resolve(new URL('../package.json', import.meta.url).pathname));
+
+    if (argvs.v || argvs.version) {
+      console.log(` \x1b[35midoc\x1b[0m v${version}\n`);
+      process.exit(0);
+    }
+
+    argvs.output = argvs.o = argvs.output || argvs.o;
+    argvs.dir = argvs.d = argvs.dir || argvs.d;
+    argvs.watch = argvs.w = argvs.watch || argvs.w;
+    argvs.theme = argvs.t = argvs.theme || argvs.t;
+
     if (argvs._[0] === 'init') {
       await init(argvs._[1] || './');
       return;
