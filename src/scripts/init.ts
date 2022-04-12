@@ -59,7 +59,7 @@ export async function init(folder: string) {
   const pkgpath = path.resolve(new URL('../../package.json', import.meta.url).pathname);
   const pkg = await fs.readJSON(pkgpath);
 
-  await copyFile(path.resolve(temp, 'rdoc.yml'), path.resolve(initFolder, 'rdoc.yml'), {
+  await copyFile(path.resolve(temp, 'idoc.yml'), path.resolve(initFolder, 'idoc.yml'), {
     dir: path.basename(option.dir),
     output: path.basename(option.output),
     site: option.projectName,

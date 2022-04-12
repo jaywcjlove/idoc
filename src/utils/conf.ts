@@ -44,7 +44,7 @@ export class Conf {
     return this.data;
   }
   async initConf() {
-    const confPath = path.resolve(this.data.root, 'rdoc.yml');
+    const confPath = path.resolve(this.data.root, 'idoc.yml');
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
       const conf = await fs.readFile(confPath, 'utf8');
@@ -71,7 +71,7 @@ export class Conf {
     return this.data;
   }
   async getChaptersConf() {
-    const chaptersPath = path.resolve(this.data.root, 'rdoc.chapters.yml');
+    const chaptersPath = path.resolve(this.data.root, 'idoc.chapters.yml');
     if (fs.existsSync(chaptersPath)) {
       this.data.config.chapters = chaptersPath;
       const chapters = await fs.promises.readFile(chaptersPath, 'utf8');
