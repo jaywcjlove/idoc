@@ -1,0 +1,11 @@
+<% if (chapters) {%>
+<aside class="sidebar" role="navigation">
+  <% chapters.forEach((chapter) => {%>
+    <% if (chapter.isFolder) {%>
+      <label><%= chapter.label %></label>
+    <% } else { %>
+      <a href="<%= chapter.href %>" class="<%- chapter.active ? 'active' : ''  %>"><%= chapter.label %></a>
+    <% } %>
+  <% }) %>
+</aside>
+<% } %>

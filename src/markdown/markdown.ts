@@ -11,6 +11,7 @@ import ignore from 'rehype-ignore';
 import slug from 'rehype-slug';
 import { config, MenuData } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
+import { formatChapters, Chapters } from '../utils/chapters.js';
 
 export type TemplateData = {
   RELATIVE_PATH?: string;
@@ -26,12 +27,13 @@ export type TemplateData = {
   title?: string;
   site?: string;
   menus?: MenuData[];
+  tocs?: Toc[];
   fileStat: Partial<IFileDirStat> & {
     atimeStr?: string;
     mtimeStr?: string;
     ctimeStr?: string;
   };
-  tocs?: Toc[];
+  chapters?: Array<Chapters>;
 };
 
 type Toc = {
@@ -43,7 +45,7 @@ type Toc = {
 
 interface ConfigData extends TemplateData {}
 
-export async function createHTML(str: string = '', from: string, to: string) {
+export async function createHTML(str: string = '', from: string, toPath: string) {
   const mdOptions: Options = {};
   mdOptions.rehypePlugins = [
     [
@@ -102,7 +104,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
   data.title = config.data.site;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
-  data.RELATIVE_PATH = config.getRelativePath(to);
+  data.RELATIVE_PATH = config.getRelativePath(toPath);
 
   // Markdown comment config.
   const { editButton, ...configData }: ConfigData = parse(configMarkdownStr) || {};
@@ -114,7 +116,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
       data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
     }
     if (config.data.data.menus) {
-      data.menus = config.getMenuData(to);
+      data.menus = config.getMenuData(toPath);
     }
   }
 
@@ -126,11 +128,9 @@ export async function createHTML(str: string = '', from: string, to: string) {
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  return render(
-    tmpStr.toString(),
-    { ...config.data.data, ...data, ...configData },
-    {
-      filename: tempPath,
-    },
-  );
+  const varData: ConfigData = { ...config.data.data, ...data, ...configData };
+  varData.chapters = formatChapters(config.data.chapters, toPath);
+  return render(tmpStr.toString(), varData, {
+    filename: tempPath,
+  });
 }

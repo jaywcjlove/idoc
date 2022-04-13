@@ -7,7 +7,7 @@ export interface Config {
   root: string;
   dir: string;
   output: string;
-  chapters: Record<string, string>;
+  chapters: Array<Record<string, string>>;
   asset: IFileDirStat[];
   config?: Partial<Record<'conf' | 'chapters', string>>;
   theme?: string;
@@ -19,6 +19,14 @@ export interface Config {
   data?: Record<string, any>;
   version?: string;
   idocVersion?: string;
+  menus?: Record<
+    string,
+    | string
+    | {
+        label?: string;
+        scope?: string;
+      }
+  >;
 }
 
 export type MenuData = {
@@ -35,7 +43,7 @@ export class Conf {
     root: process.cwd(),
     dir: path.resolve(process.cwd(), 'docs'),
     output: path.resolve(process.cwd(), 'dist'),
-    chapters: {},
+    chapters: [],
     config: {},
     asset: [],
     data: {},
@@ -76,9 +84,9 @@ export class Conf {
   async getChaptersConf() {
     const chaptersPath = path.resolve(this.data.root, 'idoc.chapters.yml');
     if (fs.existsSync(chaptersPath)) {
-      this.data.config.chapters = chaptersPath;
       const chapters = await fs.promises.readFile(chaptersPath, 'utf8');
-      this.data.chapters = parse(chapters) || {};
+      this.data.config.chapters = chaptersPath;
+      this.data.chapters = parse(chapters) || [];
     }
   }
   async getFiles() {
@@ -112,9 +120,10 @@ export class Conf {
       Object.keys(this.data.data.menus).forEach((key) => {
         const menu: MenuData = { name: key };
         const current = path.join(this.data.output, this.data.data.menus[key]);
+        const active = isActive(current, toPath);
+        menu.active = active;
         if (toPath === current) {
           menu.url = path.basename(current);
-          menu.active = true;
         } else {
           const rel = path.relative(
             path.dirname(toPath),
@@ -131,6 +140,20 @@ export class Conf {
     }
     return data;
   }
+}
+
+export function isActive(from: string, toPath: string) {
+  from = from.split(path.sep).join(path.sep);
+  toPath = toPath.split(path.sep).join(path.sep);
+  if (from === toPath) {
+    return true;
+  }
+  const formatFrom = path.dirname(from).replace(config.data.output, '');
+  const formatToPath = toPath.replace(config.data.output, '');
+  if (formatFrom && formatToPath.includes(formatFrom)) {
+    return true;
+  }
+  return false;
 }
 
 export const config = new Conf();

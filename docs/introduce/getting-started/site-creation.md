@@ -50,15 +50,15 @@ $ idoc --watch
 ```bash
 $ npx sgo --port 5858
 
- 🗂  Serving files from ./ on  http://localhost:5858
- 📡 Exposed to the network on  http://192.168.31.179:5858
- 🖥  Using index.html as the fallback for route requests
- ♻️  Reloading the browser when files under ./ change
+🗂  Serving files from ./ on  http://localhost:5858
+📡 Exposed to the network on  http://192.168.31.179:5858
+🖥  Using index.html as the fallback for route requests
+♻️  Reloading the browser when files under ./ change
 
- 200  /index.html
- 200  /css/main.css
- 200  /js/dark-mode.js
- 200  /js/markdown-style.js
+200  /index.html
+200  /css/main.css
+200  /js/dark-mode.js
+200  /js/markdown-style.js
 ```
 
 恭喜你！打开网址 `http://localhost:5858/` 即可访问网站。
