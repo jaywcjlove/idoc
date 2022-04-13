@@ -3,7 +3,7 @@ import path from 'path';
 import readdirFiles from 'recursive-readdir-files';
 import { createHTML } from '../markdown/markdown.js';
 import * as log from '../utils/log.js';
-import { config } from '../utils/conf.js';
+import { config, Config } from '../utils/conf.js';
 
 export function getOutputPath(filepath: string) {
   const relativePath = path.relative(config.data.dir, filepath);
@@ -25,14 +25,14 @@ export async function compilation(filepath: string) {
   await fs.ensureDir(path.dirname(htmlPath));
   if (/\.(md|markdown)$/.test(filepath.toLocaleLowerCase())) {
     await fs.writeFile(htmlPath, htmlStr);
-    log.output()(path.relative(dir, filepath), path.relative(output, htmlPath));
+    log.output()(filepath, htmlPath);
   }
 }
 
 export async function copyThemeAsset() {
   const assetTemp = await readdirFiles(config.data.theme, {
     ignored: /\/(\.git)/,
-    exclude: /(\.ejs)$/,
+    exclude: /(\.ejs|\.DS_Store)$/,
   });
 
   await Promise.all(
@@ -45,20 +45,21 @@ export async function copyThemeAsset() {
 export async function copyThemeFileAsset(file: string) {
   const outPath = path.join(config.data.output, path.relative(config.data.theme, file));
   await fs.copy(file, outPath);
-  log.output('\x1b[35;1mcopy\x1b[0m')(
-    path.relative(config.data.root, file),
-    path.relative(config.data.output, outPath),
+  log.output('\x1b[35;1mcopy\x1b[0m')(file, outPath);
+}
+
+export async function compilationAll() {
+  const { asset = [] } = config.data || {};
+  await Promise.all(
+    asset.map(async (item) => {
+      await compilation(item.path);
+    }),
   );
 }
 
 export async function build() {
-  const { asset = [] } = config.data || {};
   try {
-    await Promise.all(
-      asset.map(async (item) => {
-        await compilation(item.path);
-      }),
-    );
+    await compilationAll();
     await copyThemeAsset();
     console.log(`\n \x1b[34;1m Compliled successfully!\x1b[0m\n`);
   } catch (error) {
