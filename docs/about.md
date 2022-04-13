@@ -38,3 +38,6 @@ Made with [action-contributors](https://github.com/jaywcjlove/github-action-cont
 
 Licensed under the MIT License.
 
+<!--idoc:config:
+tocs: false
+-->

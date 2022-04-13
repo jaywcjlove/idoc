@@ -5,9 +5,11 @@
   <markdown-style>
     <%- markdown %>
   </markdown-style>
+  <% if (tocs) { %>
   <nav class="tocs">
     <aside class="inner toc"></aside>
   </nav>
+  <% } %>
 </div>
 
 <footer class="article-footer warpper">
@@ -24,7 +26,7 @@
 <span class="atime"><%= fileStat.mtimeStr %></span>
 <% } %>
 </footer>
-
+<% if (tocs) { %>
 <script src="<%= RELATIVE_PATH %>js/tocbot.min.js?v=4.18.2"></script>
 <script>
 tocbot.init({
@@ -42,5 +44,6 @@ tocbot.init({
   scrollSmoothOffset: -40,
 });
 </script>
+<% } %>
 
 <%- include('partial/footer'); %>

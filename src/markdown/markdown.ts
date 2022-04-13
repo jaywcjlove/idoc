@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { render, Data } from 'ejs';
+import { parse } from 'yaml';
 import { Options } from '@wcj/markdown-to-html';
 import formatter from '@uiw/formatter';
 import { IFileDirStat } from 'recursive-readdir-files';
@@ -30,7 +31,7 @@ export type TemplateData = {
     mtimeStr?: string;
     ctimeStr?: string;
   };
-  toc?: Toc[];
+  tocs?: Toc[];
 };
 
 type Toc = {
@@ -39,6 +40,8 @@ type Toc = {
   href?: string;
   class?: string;
 };
+
+interface ConfigData extends TemplateData {}
 
 export async function createHTML(str: string = '', from: string, to: string) {
   const mdOptions: Options = {};
@@ -56,6 +59,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
 
   const tocs: Toc[] = [];
   let tocsStart: number = 6;
+  let configMarkdownStr = '';
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
     if (
@@ -80,6 +84,9 @@ export async function createHTML(str: string = '', from: string, to: string) {
       });
       tocs.push(tocItem);
     }
+    if (node.type === 'comment' && /^idoc:config:/i.test(node.value.trimStart())) {
+      configMarkdownStr = node.value.replace(/^idoc:config:/i, '');
+    }
   };
   const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
   const tempPath = path.resolve(config.data.theme, 'markdown.ejs');
@@ -88,7 +95,8 @@ export async function createHTML(str: string = '', from: string, to: string) {
     ...item,
     class: `toc${item.number - tocsStart + 1}`,
   }));
-  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [], footer: '' };
+
+  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;
@@ -96,9 +104,12 @@ export async function createHTML(str: string = '', from: string, to: string) {
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(to);
 
+  // Markdown comment config.
+  const { editButton, ...configData }: ConfigData = parse(configMarkdownStr) || {};
+
   if (config.data.data) {
     data.openSource = config.data.data.openSource || '';
-    data.editButton = { ...config.data.data.editButton };
+    data.editButton = { ...config.data.data.editButton, ...editButton };
     if (data.editButton.url) {
       data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
     }
@@ -117,7 +128,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
   }
   return render(
     tmpStr.toString(),
-    { ...config.data.data, ...data },
+    { ...config.data.data, ...data, ...configData },
     {
       filename: tempPath,
     },
