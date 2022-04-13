@@ -5,9 +5,13 @@
 
 ## 添加配置
 
-配置可以通过，在根目录下添加 idoc.yml 文件，将配置内容存入该文件中。
+目前有三种配置，每种配置方式都起不通的作用，都不是必要的配置。三种配置：
 
-## 配置说明
+- [x] `idoc.yml`，在根目录下添加，可不用配置。
+- [ ] `idoc.chapters.yml`，侧栏文件导航，在根目录下添加。
+- [ ] `注释配置`，在 markdown 文档中添加的配置。
+
+## `idoc.yml`
 
 ```yml
 ## directory of document source files
@@ -61,6 +65,16 @@ data:
 
 自定义网站的名称，也将用户导航菜单 logo 旁边显示的文本。
 
+```yml
+site: iDoc
+```
+
+如果你没有配置，将会自动读取 `package.json` 中的 `name` 字段
+
+```json
+"name": "idoc",
+```
+
 ### `theme`
 
 主题定制，默认值为 `default`，你也可以自定义主题，可以使用 `idoc init myapp` 生成项目工程的时候，选择暴露模版文件，主题将被生成到 `themes/default` 目录中
@@ -76,13 +90,21 @@ theme: themes/default
 
 默认主题模版变量传递。
 
-
 #### `openSource`
 
-默认页面顶部 GitHub 按钮菜单自定义定义。
+默认页面顶部 GitHub 按钮菜单自定义。
 
 ```yml
 openSource: https://github.com/jaywcjlove/idoc
+```
+
+如果你没有配置，将会自动读取 `package.json` 中的 `repository` 字段
+
+```json
+"repository": {
+  "type": "git",
+  "url": "https://github.com/jaywcjlove/idoc.git"
+},
 ```
 
 #### `editButton`

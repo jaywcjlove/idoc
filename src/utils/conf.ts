@@ -44,6 +44,13 @@ export class Conf {
     return this.data;
   }
   async initConf() {
+    const pkgpath = path.resolve(this.data.root, 'package.json');
+    if (fs.existsSync(pkgpath)) {
+      const pkg = await fs.readJSON(pkgpath);
+      this.data.version = pkg.version;
+      this.data.site = pkg.name || '';
+      this.data.data.openSource = pkg.repository ? pkg.repository || pkg.repository.url || '' : '';
+    }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
@@ -56,18 +63,14 @@ export class Conf {
         data.output = path.resolve(process.cwd(), data.output);
       }
       this.data = Object.assign(this.data, data);
-      if (this.data.theme === 'default') {
-        this.data.theme = path.resolve(new URL('../../themes/default', import.meta.url).pathname);
-      }
+    }
+
+    if (this.data.theme === 'default' || !this.data.theme) {
+      this.data.theme = path.resolve(new URL('../../themes/default', import.meta.url).pathname);
     }
 
     const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
     this.data.idocVersion = pkgIdoc.version;
-    const pkgpath = path.resolve(this.data.root, 'package.json');
-    if (fs.existsSync(pkgpath)) {
-      const pkg = await fs.readJSON(pkgpath);
-      this.data.version = pkg.version;
-    }
     return this.data;
   }
   async getChaptersConf() {

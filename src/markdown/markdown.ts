@@ -88,7 +88,7 @@ export async function createHTML(str: string = '', from: string, to: string) {
     ...item,
     class: `toc${item.number - tocsStart + 1}`,
   }));
-  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr] };
+  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [], footer: '' };
   data.markdown = mdHtml;
   data.site = config.data.site || 'idoc';
   data.title = config.data.site;
