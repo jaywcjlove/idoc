@@ -20,7 +20,7 @@ $ idoc
     "build": "idoc"
   },
   "devDependencies": {
-+    "idoc": "^1.0.0-beta.16"
++    "idoc": "^1.0.0"
   }
 }
 ```

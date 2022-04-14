@@ -1,5 +1,5 @@
 import path from 'path';
-import { config } from '../utils/conf.js';
+import { config, isScope } from '../utils/conf.js';
 
 export type Chapters = {
   from?: string;
@@ -8,12 +8,12 @@ export type Chapters = {
   href?: string;
   current?: string;
   label?: string;
-  class?: string;
   isFolder?: boolean;
   active?: boolean;
 };
 
 export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapters[] {
+  const findScope = config.data.scope.find((item) => isScope(current, item));
   const chapters = arr.map((item) => {
     const obj: Chapters = {};
     Object.keys(item).forEach((key) => {
@@ -29,6 +29,9 @@ export function formatChapters(arr: Array<Record<string, string>> = [], current?
       obj.active = current === obj.to;
       obj.href = path.relative(path.dirname(current), obj.to).split(path.sep).join('/');
     });
+    if (!isScope(obj.to, findScope) && config.data.scope.length > 0) {
+      return;
+    }
     return obj;
   });
   return [...chapters].filter(Boolean);

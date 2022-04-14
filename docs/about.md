@@ -17,8 +17,10 @@
 在一系列的工具、经验积攒下，让我重构 idoc 变得非常简单，主要程序开发只花费了 1 天时间，剩下的是各种小功能，未来会慢慢的集成，可以使用 [beta](https://www.npmjs.com/package/idoc) 版本尝鲜，使用下面命令初始化一个项目：
 
 
-```
-$ npx idoc@1.0.0-beta.16 init myapp
+```bash
+$ npx idoc init myapp
+# Or
+$ npx idoc@1.0.0 init myapp
 ```
 
 [![](https://img.shields.io/github/forks/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/followers) [![](https://img.shields.io/github/stars/jaywcjlove/idoc.svg?style=social)](https://github.com/jaywcjlove/idoc/stargazers) [![](https://img.shields.io/github/followers/jaywcjlove.svg?style=social)](https://github.com/jaywcjlove/followers)

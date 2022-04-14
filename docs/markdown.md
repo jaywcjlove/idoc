@@ -20,13 +20,15 @@ idoc
 
 ### 定义样式
 
-默认 Markdown 语法解析有很多限制，`idoc` 通过使用 [rehype-attr](https://github.com/jaywcjlove/rehype-attr) 让文档可以使用 HTML 注释 `<!--rehype:xxx-->`<!--rehype:style=color: #070707; background: #ffef66cc;--> 自定义样式。
+通过使用 [HTML](https://github.com/jaywcjlove/rehype-attr)<!--rehype:target="__blank"--> 注释 `<!--rehype:xxx-->`<!--rehype:style=color: #070707; background: #ffef66cc;--> ，解锁 Markdown 语法解析自生的一些限制，比如设置颜色，定义一个链接地址在新窗口中打开等。
 
 ```markdown
 ## Title
 <!--rehype:style=display: flex; height: 230px; align-items: center; justify-content: center; font-size: 38px;-->
 
 Markdown Supports **Style**<!--rehype:style=color: red;-->
+
+[HTML](https://github.com/jaywcjlove/rehype-attr)<!--rehype:target="__blank"-->
 ```
 
 ## 其它参考链接

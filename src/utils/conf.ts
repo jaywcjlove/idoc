@@ -17,8 +17,11 @@ export interface Config {
   site?: string;
   /** Template Data */
   data?: Record<string, any>;
+  /** project version */
   version?: string;
+  /** idoc version */
   idocVersion?: string;
+  scope?: string[];
 }
 
 export type MenuData = {
@@ -38,6 +41,7 @@ export class Conf {
     chapters: [],
     config: {},
     asset: [],
+    scope: [],
     data: {},
   };
   get all() {
@@ -114,6 +118,7 @@ export class Conf {
         const menu: MenuData = { name: key };
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);
+        if (scope) this.data.scope.push(scope.trim());
         menu.active = active;
         if (toPath === current) {
           menu.url = path.basename(current);
@@ -134,15 +139,23 @@ export class Conf {
   }
 }
 
+export function isScope(toPath: string, scope?: string) {
+  if (scope) {
+    scope = scope.split(path.sep).join(path.sep);
+    let relative = path.relative(config.data.output, toPath).split(path.sep).join(path.sep);
+    if (new RegExp(`^${scope.split(path.sep).join(path.sep)}`, 'i').test(relative)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export function isActive(from: string, toPath: string, scope?: string) {
   from = from.split(path.sep).join(path.sep);
   toPath = toPath.split(path.sep).join(path.sep);
 
   if (scope) {
-    let relative = path.relative(config.data.output, toPath).split(path.sep).join(path.sep);
-    if (new RegExp(`^${scope.split(path.sep).join(path.sep)}`, 'i').test(relative)) {
-      return true;
-    }
+    return isScope(toPath, scope);
   }
 
   if (from === toPath) {
