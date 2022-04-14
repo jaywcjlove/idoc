@@ -1,4 +1,5 @@
 # yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
+# yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
 
 ## directory of document source files
 ## defalut: `docs`
