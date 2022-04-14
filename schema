@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/idoc",
+  "definitions": {
+      "idoc": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "dir": {
+                  "type": "string",
+                  "description": "directory of document source files. defalut: `docs`"
+              },
+              "output": {
+                  "type": "string",
+                  "description": "output directory of generated documents. defalut: `dist`"
+              },
+              "site": {
+                  "type": "string",
+                  "description": "site name"
+              },
+              "theme": {
+                  "type": "string",
+                  "description": "Customize theme settings. defalut: `default`"
+              },
+              "data": {
+                  "$ref": "#/definitions/Data",
+                  "description": "Template Data"
+              }
+          }
+      },
+      "Data": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "openSource": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Show open source button",
+                  "qt-uri-protocols": [
+                      "https"
+                  ]
+              },
+              "editButton": {
+                  "$ref": "#/definitions/EditButton",
+                  "description": "Display the edit button, need to configure `openSource`."
+              },
+              "menus": {
+                  "type": "object",
+                  "description": "Navigation Menu."
+              },
+              "footer": {
+                  "type": "string",
+                  "description": "The footer content is displayed."
+              }
+          },
+          "title": "Template Data"
+      },
+      "EditButton": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+              "label": {
+                  "type": "string"
+              },
+              "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "qt-uri-protocols": [
+                      "https"
+                  ]
+              }
+          },
+          "required": [
+              "label",
+              "url"
+          ],
+          "title": "Display the edit button"
+      }
+  }
+}
