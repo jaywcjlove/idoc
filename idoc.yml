@@ -22,6 +22,18 @@ site: iDoc
 theme: default
 
 
+## Website logo icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+logo: ./logo.png
+
+
+## Website favicon icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+favicon: ./logo.png
+
+
 ## Template Data
 # -----------------------
 data: 

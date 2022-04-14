@@ -16,7 +16,15 @@
               },
               "site": {
                   "type": "string",
-                  "description": "site name"
+                  "description": "Website name"
+              },
+              "logo": {
+                  "type": "string",
+                  "description": "Website logo icon"
+              },
+              "favicon": {
+                  "type": "string",
+                  "description": "Website favicon icon"
               },
               "theme": {
                   "type": "string",

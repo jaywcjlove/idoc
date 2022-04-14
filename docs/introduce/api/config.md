@@ -33,6 +33,19 @@ site: iDoc
 # -----------------------
 theme: default
 
+
+## Website logo icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+logo: ./logo.png
+
+
+## Website favicon icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+favicon: ./logo.png
+
+
 ## Template Data
 # -----------------------
 data: 
@@ -65,6 +78,14 @@ data:
 ### `site`
 
 自定义网站的名称，也将用户导航菜单 logo 旁边显示的文本。
+
+### `logo`
+
+自定义网站的导航菜单 `logo`，默认内置了 `logo`。
+
+### `favicon`
+
+自定义网站的 `favicon` 图标，默认内置了图标。
 
 ```yml
 site: iDoc

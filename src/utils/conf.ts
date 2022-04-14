@@ -1,7 +1,9 @@
 import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
+import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
+import { logo } from './logo.js';
 
 export interface Config {
   root: string;
@@ -15,6 +17,10 @@ export interface Config {
   readme?: string;
   /** site name */
   site?: string;
+  /** website logo icon */
+  logo?: string;
+  /** website favicon icon */
+  favicon?: string;
   /** Template Data */
   data?: Record<string, any>;
   /** project version */
@@ -43,6 +49,7 @@ export class Conf {
     asset: [],
     scope: [],
     data: {},
+    site: 'idoc',
   };
   get all() {
     return this.data;
@@ -66,6 +73,14 @@ export class Conf {
       if (data.output) {
         data.output = path.resolve(process.cwd(), data.output);
       }
+      if (data.logo) {
+        data.logo = await image2uri(data.logo);
+      }
+      if (data.favicon) {
+        data.favicon = await image2uri(data.favicon);
+      }
+      if (!data.logo) data.logo = logo;
+      if (!data.favicon) data.favicon = logo;
       this.data = Object.assign(this.data, data);
     }
 

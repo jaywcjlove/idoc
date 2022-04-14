@@ -26,6 +26,8 @@ export type TemplateData = {
   edit?: string;
   title?: string;
   site?: string;
+  favicon?: string;
+  logo?: string;
   menus?: MenuData[];
   tocs?: Toc[];
   fileStat: Partial<IFileDirStat> & {
@@ -100,8 +102,10 @@ export async function createHTML(str: string = '', from: string, toPath: string)
 
   const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
   data.markdown = mdHtml;
-  data.site = config.data.site || 'idoc';
+  data.site = config.data.site;
   data.title = config.data.site;
+  data.favicon = config.data.favicon;
+  data.logo = config.data.logo;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
