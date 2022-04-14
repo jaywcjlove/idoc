@@ -8,6 +8,7 @@ import { IFileDirStat } from 'recursive-readdir-files';
 import autolinkHeadings from 'rehype-autolink-headings';
 import markdownToHTML from '@wcj/markdown-to-html';
 import ignore from 'rehype-ignore';
+import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
 import { config, MenuData } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
@@ -24,8 +25,10 @@ export type TemplateData = {
     url: string;
   };
   edit?: string;
-  title?: string;
   site?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
   favicon?: string;
   logo?: string;
   menus?: MenuData[];
@@ -64,8 +67,27 @@ export async function createHTML(str: string = '', from: string, toPath: string)
   const tocs: Toc[] = [];
   let tocsStart: number = 6;
   let configMarkdownStr = '';
+  let pagetitle = '';
+  let description = '';
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
+    if (node.type === 'root') {
+      // get title
+      const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');
+      if (h1Elm && h1Elm.type === 'element') {
+        pagetitle = getCodeString(h1Elm.children);
+      }
+      // get description
+      const desElm = node.children.find((item) => {
+        if (item.type === 'element' && item.tagName === 'p') {
+          return !!item.children.find((item) => item.type === 'text' && item.value.trim().replace(/\n/g, ''));
+        }
+        return false;
+      });
+      if (desElm && desElm.type === 'element') {
+        description = getCodeString(desElm.children) || pagetitle;
+      }
+    }
     if (
       node.type == 'element' &&
       /h(1|2|3|4|5|6)/.test(node.tagName) &&
@@ -103,7 +125,9 @@ export async function createHTML(str: string = '', from: string, toPath: string)
   const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
   data.markdown = mdHtml;
   data.site = config.data.site;
-  data.title = config.data.site;
+  data.title = pagetitle;
+  data.description = description.trim().slice(0, 120);
+  data.keywords = config.data.keywords;
   data.favicon = config.data.favicon;
   data.logo = config.data.logo;
   data.version = config.data.version;

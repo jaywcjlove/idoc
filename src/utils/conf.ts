@@ -17,6 +17,7 @@ export interface Config {
   readme?: string;
   /** site name */
   site?: string;
+  keywords?: string;
   /** website logo icon */
   logo?: string;
   /** website favicon icon */
@@ -50,6 +51,7 @@ export class Conf {
     scope: [],
     data: {},
     site: 'idoc',
+    keywords: '',
   };
   get all() {
     return this.data;
