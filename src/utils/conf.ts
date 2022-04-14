@@ -129,7 +129,9 @@ export class Conf {
             path.dirname(toPath),
             path.dirname(path.join(this.data.output, this.data.data.menus[key])),
           );
-          if (rel.startsWith('..')) {
+          if (!rel) {
+            menu.url = path.basename(this.data.data.menus[key]);
+          } else if (rel.startsWith('..')) {
             menu.url = path.join(rel, this.data.data.menus[key]).split(path.sep).join('/');
           } else {
             menu.url = this.data.data.menus[key];
