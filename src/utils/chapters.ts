@@ -1,5 +1,5 @@
 import path from 'path';
-import { config, isActive } from '../utils/conf.js';
+import { config } from '../utils/conf.js';
 
 export type Chapters = {
   from?: string;

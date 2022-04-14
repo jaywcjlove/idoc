@@ -19,14 +19,6 @@ export interface Config {
   data?: Record<string, any>;
   version?: string;
   idocVersion?: string;
-  menus?: Record<
-    string,
-    | string
-    | {
-        label?: string;
-        scope?: string;
-      }
-  >;
 }
 
 export type MenuData = {
@@ -118,23 +110,21 @@ export class Conf {
     const data: MenuData[] = [];
     if (this.data.data.menus) {
       Object.keys(this.data.data.menus).forEach((key) => {
+        const [value, scope] = this.data.data.menus[key].split(' ').map((val: string) => (val || '').trim());
         const menu: MenuData = { name: key };
-        const current = path.join(this.data.output, this.data.data.menus[key]);
-        const active = isActive(current, toPath);
+        const current = path.join(this.data.output, value);
+        const active = isActive(current, toPath, scope);
         menu.active = active;
         if (toPath === current) {
           menu.url = path.basename(current);
         } else {
-          const rel = path.relative(
-            path.dirname(toPath),
-            path.dirname(path.join(this.data.output, this.data.data.menus[key])),
-          );
+          const rel = path.relative(path.dirname(toPath), path.dirname(path.join(this.data.output, value)));
           if (!rel) {
-            menu.url = path.basename(this.data.data.menus[key]);
+            menu.url = path.basename(value);
           } else if (rel.startsWith('..')) {
-            menu.url = path.join(rel, this.data.data.menus[key]).split(path.sep).join('/');
+            menu.url = path.join(rel, path.basename(value)).split(path.sep).join('/');
           } else {
-            menu.url = this.data.data.menus[key];
+            menu.url = value;
           }
         }
         data.push(menu);
@@ -144,9 +134,17 @@ export class Conf {
   }
 }
 
-export function isActive(from: string, toPath: string) {
+export function isActive(from: string, toPath: string, scope?: string) {
   from = from.split(path.sep).join(path.sep);
   toPath = toPath.split(path.sep).join(path.sep);
+
+  if (scope) {
+    let relative = path.relative(config.data.output, toPath).split(path.sep).join(path.sep);
+    if (new RegExp(`^${scope.split(path.sep).join(path.sep)}`, 'i').test(relative)) {
+      return true;
+    }
+  }
+
   if (from === toPath) {
     return true;
   }

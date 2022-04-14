@@ -33,4 +33,4 @@ Node.js 为大多数平台提供了官方的 [安装程序](https://nodejs.org/e
 $ npm install -g idoc
 ```
 
-恭喜您！你可以全局使用 [idoc](./command.md) 命令创建自己的文档网站了。
+恭喜您！你可以全局使用 [idoc](../api/command.md) 命令创建自己的文档网站了。

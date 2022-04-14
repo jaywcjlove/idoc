@@ -44,7 +44,8 @@ data:
     url: https://github.com/jaywcjlove/idoc/blob/master/
   # Navigation Menu.
   menus:
-    Docs: introduce/getting-started/installation.html
+    # Label: <URL> [scope]
+    Docs: introduce/getting-started/installation.html introduce
     Markdown: markdown.html
     About: about.html
 
@@ -123,9 +124,18 @@ editButton:
 
 ```yml
 menus:
-  Docs: introduce/getting-started/installation.html
+  # Label: <URL> [scope]
+  Docs: introduce/getting-started/installation.html introduce
   Markdown: markdown.html
   About: about.html
+```
+
+定义范围 `scope`，下面示例定义了个范围 `introduce`，这个范围表示，以 `introduce` 开头的页面，页面导航 `Docs` 选中效果。
+
+```yml
+menus:
+  # Label: <URL> [scope]
+  Docs: introduce/getting-started/installation.html introduce
 ```
 
 #### `footer`
