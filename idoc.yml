@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=./schema
 ## directory of document source files
 ## defalut: `docs`
 # -----------------------
