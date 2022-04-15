@@ -26,6 +26,10 @@
                   "type": "string",
                   "description": "Website favicon icon"
               },
+              "keywords": {
+                  "type": "string",
+                  "description": "The keywords of your website. Supports multiple values"
+              },
               "theme": {
                   "type": "string",
                   "description": "Customize theme settings. defalut: `default`"

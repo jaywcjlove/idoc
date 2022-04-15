@@ -79,6 +79,14 @@ data:
 
 自定义网站的名称，也将用户导航菜单 logo 旁边显示的文本。
 
+### `keywords`
+
+搜索引擎能搜索到的关键词，每个关键词之间用逗号，隔开，必须是英文的逗号。`idoc.yml` -> `注释配置`
+
+```yml
+keywords: idoc,document,doc
+```
+
 ### `logo`
 
 自定义网站的导航菜单 `logo`，默认内置了 `logo`。
@@ -173,7 +181,7 @@ footer: |
 
 ## `idoc.chapters.yml`
 
-定义左侧边栏(SiderBar)菜单
+定义左侧边栏(SiderBar)菜单，同时可以控制顺序
 
 ```yml
 - introduce/getting-started: 入门
@@ -192,7 +200,7 @@ footer: |
 
 ### 配置方法
 
-在 markdown 文本中添加一条特定标记(`<!--idoc:config:<您的配置>-->`)的注视，将 [yaml](https://yaml.org/) 格式的配置添加到注释中即可：
+在 markdown 文本中，任意位置添加一条特定标记(`<!--idoc:config:<您的配置>-->`)的注视，将 [yaml](https://yaml.org/) 格式的配置添加到注释中即可：
 
 ```markdown
 <!--idoc:config:

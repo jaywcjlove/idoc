@@ -34,6 +34,11 @@ logo: ./logo.png
 favicon: ./logo.png
 
 
+## The keywords of your website. Supports multiple values
+# -----------------------
+keywords: idoc,document,doc
+
+
 ## Template Data
 # -----------------------
 data: 

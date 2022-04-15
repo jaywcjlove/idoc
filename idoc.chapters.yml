@@ -1,8 +1,8 @@
 - introduce/getting-started: 入门
 - introduce/getting-started/installation.md: 安装
-- introduce/getting-started/publish.md: 发布网站
-- introduce/getting-started/site-creation.md: 创建网站
 - introduce/getting-started/site-preparation.md: 网站准备
+- introduce/getting-started/site-creation.md: 创建网站
+- introduce/getting-started/publish.md: 发布网站
 - introduce/api: API
 - introduce/api/command.md: 命令
 - introduce/api/config.md: 配置文件说明
