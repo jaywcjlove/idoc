@@ -18,6 +18,9 @@
 a.toc-link {
   color: currentColor;
   height: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .is-collapsible {
   max-height: 1000px;

@@ -70,6 +70,7 @@ nav.tocs .inner {
   padding: 10px 10px 10px 10px;
   background-color: var(--color-hoc-bg);
   min-width: 240px;
+  width: 240px;
 }
 
 a {
