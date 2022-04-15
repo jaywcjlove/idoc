@@ -65,7 +65,7 @@ export class Conf {
       const pkg = await fs.readJSON(pkgpath);
       this.data.version = pkg.version;
       this.data.site = pkg.name || '';
-      this.data.data.openSource = pkg.repository ? pkg.repository || pkg.repository.url || '' : '';
+      this.data.data.openSource = pkg.repository || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
     if (fs.existsSync(confPath)) {

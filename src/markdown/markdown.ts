@@ -19,7 +19,12 @@ export type TemplateData = {
   version?: string;
   idocVersion?: string;
   markdown?: string;
-  openSource?: string;
+  openSource?:
+    | string
+    | {
+        type: string;
+        url: string;
+      };
   editButton?: {
     label: string;
     url: string;
@@ -64,8 +69,6 @@ export async function createHTML(str: string = '', from: string, toPath: string)
     [autolinkHeadings],
   ];
 
-  console.log('222', config.data.footer);
-  console.log(config.all);
   const tocs: Toc[] = [];
   let tocsStart: number = 6;
   let configMarkdownStr = '';
@@ -158,7 +161,7 @@ export async function createHTML(str: string = '', from: string, toPath: string)
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  const varData: ConfigData = { ...config.all, ...data, ...configData };
+  const varData: ConfigData = { ...config.all, ...data, ...configData, menus: data.menus, editButton: data.editButton };
   varData.chapters = formatChapters(config.data.chapters, toPath);
   return render(tmpStr.toString(), varData, {
     filename: tempPath,
