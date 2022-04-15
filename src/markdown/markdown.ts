@@ -112,13 +112,6 @@ export async function createHTML(str: string = '', from: string, toPath: string)
 
   const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
   data.markdown = mdHtml;
-  // data.site = config.data.site;
-  // data.title = pagetitle.replace(/\n/g, '').trim().slice(0, 120) || config.data.title;
-  // data.description = description.replace(/\n/g, '').trim().slice(0, 120) || config.data.description;
-  // data.keywords = config.data.keywords;
-  // data.favicon = config.data.favicon;
-  // data.logo = config.data.logo;
-  // data.openSource = config.data.openSource || '';
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);

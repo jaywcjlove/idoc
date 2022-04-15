@@ -135,11 +135,13 @@ export class Conf {
     }
   }
   async getFiles() {
+    if (!fs.existsSync(this.data.dir)) {
+      return;
+    }
     const files = await readdirFiles(this.data.dir, {
       ignored: /\/(node_modules|\.git)/,
     });
     this.data.asset = files;
-    await this.getReadme();
   }
   async getReadme() {
     const readmePath = path.resolve(this.data.root, 'README.md');

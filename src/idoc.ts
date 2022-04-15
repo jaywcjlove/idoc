@@ -66,6 +66,7 @@ if (argvs.h || argvs.help) {
     await config.initConf();
     await config.getChaptersConf();
     await config.getFiles();
+    await config.getReadme();
     if (argvs.dir) config.data.dir = argvs.dir;
     if (argvs.output) config.data.output = argvs.output;
     if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);

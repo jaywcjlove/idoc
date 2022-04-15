@@ -3,7 +3,7 @@ import path from 'path';
 import readdirFiles from 'recursive-readdir-files';
 import { createHTML } from '../markdown/markdown.js';
 import * as log from '../utils/log.js';
-import { config, Config } from '../utils/conf.js';
+import { config } from '../utils/conf.js';
 
 export function getOutputPath(filepath: string) {
   const relativePath = path.relative(config.data.dir, filepath);
@@ -18,7 +18,6 @@ export function getOutputPath(filepath: string) {
 }
 
 export async function compilation(filepath: string) {
-  const { dir, output } = config.data || {};
   const mdStr = await fs.readFile(filepath);
   const htmlPath = getOutputPath(filepath);
   const htmlStr = await createHTML(mdStr.toString(), filepath, htmlPath);

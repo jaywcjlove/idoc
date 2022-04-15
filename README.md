@@ -25,7 +25,7 @@ Generate static pages from all Markdown in a folder.
 Create a idoc site using the beautiful defalut theme.
 
 ```bash
-$ npx idoc@1.0.0-beta.9 init myapp
+$ npx idoc init myapp
 ```
 
 Or
