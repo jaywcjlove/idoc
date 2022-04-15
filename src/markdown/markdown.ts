@@ -10,32 +10,15 @@ import markdownToHTML from '@wcj/markdown-to-html';
 import ignore from 'rehype-ignore';
 import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
-import { config, MenuData } from '../utils/conf.js';
+import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapters } from '../utils/chapters.js';
 
-export type TemplateData = {
+export interface TemplateData extends Omit<SiteGlobalConfig, 'menus'> {
   RELATIVE_PATH?: string;
   version?: string;
   idocVersion?: string;
   markdown?: string;
-  openSource?:
-    | string
-    | {
-        type: string;
-        url: string;
-      };
-  editButton?: {
-    label: string;
-    url: string;
-  };
-  edit?: string;
-  site?: string;
-  title?: string;
-  description?: string;
-  keywords?: string;
-  favicon?: string;
-  logo?: string;
   menus?: MenuData[];
   tocs?: Toc[];
   fileStat: Partial<IFileDirStat> & {
@@ -44,7 +27,7 @@ export type TemplateData = {
     ctimeStr?: string;
   };
   chapters?: Array<Chapters>;
-};
+}
 
 type Toc = {
   number?: number;
@@ -129,39 +112,55 @@ export async function createHTML(str: string = '', from: string, toPath: string)
 
   const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
   data.markdown = mdHtml;
-  data.site = config.data.site;
-  data.title = pagetitle;
-  data.description = description.trim().slice(0, 120);
-  data.keywords = config.data.keywords;
-  data.favicon = config.data.favicon;
-  data.logo = config.data.logo;
+  // data.site = config.data.site;
+  // data.title = pagetitle.replace(/\n/g, '').trim().slice(0, 120) || config.data.title;
+  // data.description = description.replace(/\n/g, '').trim().slice(0, 120) || config.data.description;
+  // data.keywords = config.data.keywords;
+  // data.favicon = config.data.favicon;
+  // data.logo = config.data.logo;
+  // data.openSource = config.data.openSource || '';
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
 
   // Markdown comment config.
-  const { editButton, ...configData }: ConfigData = parse(configMarkdownStr) || {};
+  const { fileStat, ...mdConf }: ConfigData = parse(configMarkdownStr) || {};
+  if (typeof mdConf.tocs === 'boolean' && mdConf.tocs === false) {
+    data.tocs = mdConf.tocs;
+  }
+  config.all = {
+    site: mdConf.site || config.data.site,
+    keywords: mdConf.keywords || config.data.keywords,
+    favicon: mdConf.favicon || config.data.favicon,
+    logo: mdConf.logo || config.data.logo,
+    title: mdConf.title || pagetitle.replace(/\n/g, '').trim().slice(0, 120) || config.data.title,
+    description: mdConf.description || description.replace(/\n/g, '').trim().slice(0, 120) || config.data.description,
+    footer: mdConf.footer || config.data.footer || '',
+    editButton: mdConf.editButton || config.data.editButton,
+    openSource: mdConf.openSource || config.data.openSource,
+  } as unknown as Config;
 
-  if (config.data.data) {
-    data.openSource = config.data.data.openSource || '';
-    data.editButton = { ...config.data.data.editButton, ...editButton };
-    if (data.editButton.url) {
-      data.editButton.url = `${data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
-    }
-    if (config.data.data.menus) {
-      data.menus = config.getMenuData(toPath);
-    }
+  if (config.data.editButton && config.data.editButton.url) {
+    config.data.editButton.url = `${config.data.editButton.url.replace(/\/$/, '')}/${path.relative(
+      config.data.root,
+      from,
+    )}`;
+  }
+
+  if (config.data.menus) {
+    data.menus = config.getMenuData(toPath);
   }
 
   // File Stat
   data.fileStat = config.data.asset.find((item) => item.path === from) || {};
+  data.fileStat = { ...data.fileStat, ...fileStat };
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
     if ((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  const varData: ConfigData = { ...config.all, ...data, ...configData, menus: data.menus, editButton: data.editButton };
+  const varData: ConfigData = { ...config.all, ...data, menus: data.menus };
   varData.chapters = formatChapters(config.data.chapters, toPath);
   return render(tmpStr.toString(), varData, {
     filename: tempPath,

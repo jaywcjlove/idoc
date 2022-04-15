@@ -5,7 +5,32 @@ import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
 
-export interface Config {
+export interface SiteGlobalConfig {
+  /** site name */
+  site?: string;
+  title?: string;
+  keywords?: string;
+  description?: string;
+
+  /** website logo icon */
+  logo?: string;
+  /** website favicon icon */
+  favicon?: string;
+  editButton?: {
+    label: string;
+    url: string;
+  };
+  openSource?:
+    | string
+    | {
+        type: string;
+        url: string;
+      };
+  footer?: string;
+  menus?: Record<string, string>;
+}
+
+export interface Config extends SiteGlobalConfig {
   root: string;
   dir: string;
   output: string;
@@ -15,14 +40,6 @@ export interface Config {
   theme?: string;
   /** `<process.cwd()>/README.md` */
   readme?: string;
-  /** site name */
-  site?: string;
-  keywords?: string;
-  footer?: string;
-  /** website logo icon */
-  logo?: string;
-  /** website favicon icon */
-  favicon?: string;
   /** Template Data */
   data?: Record<string, any>;
   /** project version */
@@ -59,13 +76,25 @@ export class Conf {
   get all() {
     return this.data;
   }
+  set all(data: Config) {
+    Object.keys(data).forEach((key: keyof Config) => {
+      if ((key === 'favicon' || key === 'logo') && !/^data:image\//.test(data[key])) {
+        const filePath = path.resolve(this.data.root, data[key]);
+        if (fs.existsSync(filePath)) {
+          this.data[key] = image2uri(filePath) as string;
+        }
+      } else {
+        this.data[key] = data[key] as any;
+      }
+    });
+  }
   async initConf() {
     const pkgpath = path.resolve(this.data.root, 'package.json');
     if (fs.existsSync(pkgpath)) {
       const pkg = await fs.readJSON(pkgpath);
       this.data.version = pkg.version;
       this.data.site = pkg.name || '';
-      this.data.data.openSource = pkg.repository || '';
+      this.data.openSource = pkg.repository || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
     if (fs.existsSync(confPath)) {
@@ -132,9 +161,9 @@ export class Conf {
   }
   getMenuData(toPath: string) {
     const data: MenuData[] = [];
-    if (this.data.data.menus) {
-      Object.keys(this.data.data.menus).forEach((key) => {
-        const [value, scope] = this.data.data.menus[key].split(' ').map((val: string) => (val || '').trim());
+    if (this.data.menus) {
+      Object.keys(this.data.menus).forEach((key) => {
+        const [value, scope] = this.data.menus[key].split(' ').map((val: string) => (val || '').trim());
         const menu: MenuData = { name: key };
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);

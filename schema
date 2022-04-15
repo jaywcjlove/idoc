@@ -18,6 +18,14 @@
                   "type": "string",
                   "description": "Website name"
               },
+              "title": {
+                  "type": "string",
+                  "description": "Content displayed at browser tabs, Default Markdown document first heading <h1>"
+              },
+              "description": {
+                  "type": "string",
+                  "description": "A brief overview of the web page, the first text of the current Markdown page is obtained by default"
+              },
               "logo": {
                   "type": "string",
                   "description": "Website logo icon"
@@ -34,23 +42,14 @@
                   "type": "string",
                   "description": "Customize theme settings. defalut: `default`"
               },
-              "data": {
-                  "$ref": "#/definitions/Data",
-                  "description": "Template Data"
-              }
-          }
-      },
-      "Data": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
+
               "openSource": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "Show open source button",
-                  "qt-uri-protocols": [
-                      "https"
-                  ]
+                "type": "string",
+                "format": "uri",
+                "description": "Show open source button",
+                "qt-uri-protocols": [
+                    "https"
+                ]
               },
               "editButton": {
                   "$ref": "#/definitions/EditButton",
@@ -63,8 +62,16 @@
               "footer": {
                   "type": "string",
                   "description": "The footer content is displayed."
+              },
+              "data": {
+                  "$ref": "#/definitions/Data",
+                  "description": "Template Data"
               }
-          },
+          }
+      },
+      "Data": {
+          "type": "object",
+          "additionalProperties": true,
           "title": "Template Data"
       },
       "EditButton": {
