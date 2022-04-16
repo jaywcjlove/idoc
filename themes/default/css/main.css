@@ -52,6 +52,10 @@ markdown-style img {
   grid-template-columns: 180px minmax(0, 3.5fr) minmax(0, 15rem);
   grid-template-areas: 'sidebar main toc';
 }
+.warpper-content.notocs {
+  grid-template-columns: minmax(0, 3.5fr);
+  grid-template-areas: 'main';
+}
 
 nav.tocs .is-position-fixed {
   top: 58px !important;
