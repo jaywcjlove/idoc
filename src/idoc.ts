@@ -13,6 +13,7 @@ function outputHelp() {
   console.log('');
   console.log('   -v, --version,', 'Show version number');
   console.log('   -h, --help,', 'Displays help information.');
+  console.log('   -f, --force,', 'Force file regeneration.');
   console.log('   -d, --dir <dir-path>,', 'Markdown file directory. defalut(docs)');
   console.log('   -o, --output <dir-path>,', 'Output directory. defalut(dist)');
   console.log('   -w, --watch,', 'Watch and compile Markdown files.');
@@ -58,6 +59,7 @@ if (argvs.h || argvs.help) {
     argvs.dir = argvs.d = argvs.dir || argvs.d;
     argvs.watch = argvs.w = argvs.watch || argvs.w;
     argvs.theme = argvs.t = argvs.theme || argvs.t;
+    argvs.force = argvs.f = argvs.force || argvs.f;
 
     if (argvs._[0] === 'init') {
       await init(argvs._[1] || './');
@@ -70,6 +72,10 @@ if (argvs.h || argvs.help) {
     if (argvs.dir) config.data.dir = argvs.dir;
     if (argvs.output) config.data.output = argvs.output;
     if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
+
+    if (argvs.force) {
+      await fs.emptyDir(config.data.output);
+    }
 
     if (argvs.watch) {
       await watch();

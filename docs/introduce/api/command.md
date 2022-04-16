@@ -12,6 +12,7 @@ Options:
 
   -v, --version, Show version number
   -h, --help, Displays help information.
+  -f, --force, Force file regeneration.
   -d, --dir <dir-path>, Markdown file directory. defalut(docs)
   -o, --output <dir-path>, Output directory. defalut(dist)
   -w, --watch, Watch and compile Markdown files.
