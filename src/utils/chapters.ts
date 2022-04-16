@@ -20,14 +20,19 @@ export function formatChapters(arr: Array<Record<string, string>> = [], current?
       obj.from = path.resolve(config.data.dir, key).split(path.sep).join('/');
       obj.to = path
         .resolve(config.data.output, key)
-        .replace(/\.(md|markdown)/, '.html')
+        .replace(/\.(md|markdown)/i, '.html')
         .split(path.sep)
-        .join('/');
+        .join('/')
+        .replace(/\/(README).html$/i, '/index.html');
       obj.relative = key.replace(/\/$/, '');
       obj.label = item[key];
       obj.isFolder = !obj.to.endsWith('.html');
       obj.active = current === obj.to;
-      obj.href = path.relative(path.dirname(current), obj.to).split(path.sep).join('/');
+      obj.href = path
+        .relative(path.dirname(current), obj.to)
+        .split(path.sep)
+        .join('/')
+        .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
     });
     if (!isScope(obj.to, findScope) && config.data.scope.length > 0) {
       return;
