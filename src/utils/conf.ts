@@ -179,6 +179,8 @@ export class Conf {
             menu.url = path.basename(value);
           } else if (rel.startsWith('..')) {
             menu.url = path.join(rel, path.basename(value)).split(path.sep).join('/');
+          } else if (rel) {
+            menu.url = path.relative(path.dirname(toPath), current).split(path.sep).join('/');
           } else {
             menu.url = value;
           }
