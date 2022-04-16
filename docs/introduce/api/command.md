@@ -1,9 +1,9 @@
-命令
+命令帮助
 ===
 
 idoc 是主要命令，用于构建你的 idoc 文档网站站点。
 
-## 命令帮助
+## 帮助
 
 ```bash
 Usage: idoc [init][options] [--help|h] [--version|v]
@@ -41,13 +41,13 @@ Example:
 ## 创建项目
 
 ```bash
-idoc init my-app
+$ idoc init my-app
 ```
 
 ## 监听编译
 
 ```bash
-idoc --watch
+$ idoc --watch
 ```
 
 监听 markdown 文件，编译并将静态页面输出到 `dist` 目录中。
@@ -55,7 +55,7 @@ idoc --watch
 ## 编译
 
 ```bash
-idoc
+$ idoc
 ```
 
 默认将编译好的静态页面输出到 `dist` 目录中。

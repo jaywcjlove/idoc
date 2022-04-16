@@ -13,7 +13,19 @@
 
 ## `idoc.yml`
 
+在你的配置最顶端添加配置 [schema](https://www.schemastore.org/)，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 [Visual Studio Code](https://code.visualstudio.com/) 需要按照 [YAML](https://github.com/redhat-developer/vscode-yaml.git) 插件支持这一特性。
+
 ```yml
+# yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
+# yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
+```
+
+下面是 `idoc.yml` 完整示例：
+
+```yml
+# yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
+# yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
+
 ## directory of document source files
 ## defalut: `docs`
 # -----------------------

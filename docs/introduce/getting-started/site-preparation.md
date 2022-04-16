@@ -22,3 +22,21 @@ $ npx idoc@1.0.0 init myapp
 ├── package.json
 └── idoc.yml
 ```
+
+如果你在生成器初始化项目过程中，选择生成默认主题自己修改，那么将创建一个包含 `themes` 的目录结构：
+
+```
+├── docs
+│   ├── README.md
+│   └── about.md
+├── idoc.yml
+├── package.json
+└── themes
+    └── default
+```
+
+这时候你的配置主题值产生了变化，如下：
+
+```yml
+theme: themes/default
+```
