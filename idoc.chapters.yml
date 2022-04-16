@@ -5,5 +5,8 @@
 - introduce/getting-started/site-creation.md: 创建网站
 - introduce/getting-started/publish.md: 发布网站
 - introduce/api: API
-- introduce/api/command.md: 命令
+- introduce/api/command.md: 命令帮助
 - introduce/api/config.md: 配置文件
+- introduce/theme: 主题
+- introduce/theme/theme-defalut.md: 默认主题
+- introduce/theme/templates.md: 模板
