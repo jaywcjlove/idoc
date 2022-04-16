@@ -78,7 +78,7 @@ export class Conf {
   }
   set all(data: Config) {
     Object.keys(data).forEach((key: keyof Config) => {
-      if ((key === 'favicon' || key === 'logo') && !/^data:image\//.test(data[key])) {
+      if ((key === 'favicon' || key === 'logo') && data[key] && !/^data:image\//.test(data[key])) {
         const filePath = path.resolve(this.data.root, data[key]);
         if (fs.existsSync(filePath)) {
           this.data[key] = image2uri(filePath) as string;
