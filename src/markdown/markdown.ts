@@ -2,17 +2,17 @@ import path from 'path';
 import fs from 'fs-extra';
 import { render, Data } from 'ejs';
 import { parse } from 'yaml';
-import { Options } from '@wcj/markdown-to-html';
+import markdownToHTML, { Options } from '@wcj/markdown-to-html';
 import formatter from '@uiw/formatter';
 import { IFileDirStat } from 'recursive-readdir-files';
 import autolinkHeadings from 'rehype-autolink-headings';
-import markdownToHTML from '@wcj/markdown-to-html';
 import ignore from 'rehype-ignore';
 import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
 import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapters } from '../utils/chapters.js';
+import { copyButton } from './copy-button.js';
 
 export interface TemplateData extends Omit<SiteGlobalConfig, 'menus'> {
   RELATIVE_PATH?: string;
@@ -75,6 +75,10 @@ export async function createHTML(str: string = '', from: string, toPath: string)
       if (desElm && desElm.type === 'element') {
         description = getCodeString(desElm.children) || pagetitle;
       }
+    }
+    if (node.type == 'element' && node.tagName === 'pre') {
+      const code = getCodeString(node.children);
+      node.children.push(copyButton(code));
     }
     if (
       node.type == 'element' &&
