@@ -50,6 +50,7 @@ export function watch() {
     }
   });
   watcher.on('unlink', async (filepath) => {
+    watcher.unwatch(filepath);
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
     if (/\.(md|markdown)$/i.test(filepath)) {
       let assetPath = getOutputPath(filepath);
