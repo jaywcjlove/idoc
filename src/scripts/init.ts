@@ -48,6 +48,8 @@ export async function init(folder: string) {
   } else {
     console.log(`\n  \x1b[31;1mError:\x1b[0m Directory already exists!`);
     console.log(`   ╰┈\x1b[31;1m✗\x1b[0m folder: \x1b[33;1m${initFolder}\x1b[0m`);
+    console.log();
+    return;
   }
 
   if (option.theme) {
@@ -73,6 +75,6 @@ export async function init(folder: string) {
 
   await fs.copy(path.resolve(temp, 'docs'), option.dir);
   console.log();
-  console.log(` \x1b[32;1m✔\x1b[0m Start documentation with \x1b[35;1midoc\x1b[0m!`);
+  console.log(` 🎉  \x1b[32;1m✔\x1b[0m Start documentation with \x1b[35;1midoc\x1b[0m!`);
   console.log();
 }

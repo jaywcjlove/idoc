@@ -1,4 +1,4 @@
-配置文件说明
+配置文件
 ===
 
 配置文件可以添加设置网站内容和主题等。
@@ -19,6 +19,7 @@
 # yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
 # yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
 ```
+<!--rehype:style=background-color: #c0d2f342-->
 
 下面是 `idoc.yml` 完整示例：
 
@@ -114,7 +115,9 @@ site: iDoc
 如果你没有配置，将会自动读取 `package.json` 中的 `name` 字段
 
 ```json
-"name": "idoc",
+{
+  "name": "idoc",
+}
 ```
 
 ### `theme`
@@ -222,8 +225,10 @@ data:
 ```markdown
 <!--idoc:config:
 tocs: false
+site: 网站名称
 -->
 ```
+<!--rehype:style=background-color: #c0d2f342-->
 
 ### 详细配置说明
 
@@ -253,6 +258,17 @@ fileStat:
   # 配置当前文档的修改时间，展示在页脚
   mtimeStr: 2022/04/13
 ```
+
+### layout
+
+布局模版配置，默认值 `markdown.ejs` 不需要配置，这将在您自定义模板的时候很有用，例如您需要自定义首页。
+
+```yml
+layout: markdown.ejs
+```
+<!--rehype:style=background-color: #c0d2f342-->
+
+🚧  注意：默认不需要配置，自定义主题的时候可以用得到。
 
 <!--idoc:config:
 keywords: idoc,config

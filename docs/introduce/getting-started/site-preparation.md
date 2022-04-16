@@ -8,7 +8,7 @@
 ```bash
 $ npx idoc init myapp
 # Or
-$ npx idoc@1.0.0 init myapp
+$ npx idoc@1.4.2 init myapp
 ```
 
 ## 准备好的目录
@@ -35,7 +35,7 @@ $ npx idoc@1.0.0 init myapp
     └── default
 ```
 
-这时候你的配置主题值产生了变化，如下：
+此时，你的配置主题值产生了变化，如下：
 
 ```yml
 theme: themes/default

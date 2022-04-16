@@ -10,7 +10,7 @@
 ```yml
 theme: default
 ```
-
+<!--rehype:style=background-color: #c0d2f342-->
 ## 修改默认主题
 
 创建项目通过 init 参数，在命令行询问是否自定义模板，输入 `y` 可生成默认主题，提供给您修改。
@@ -24,7 +24,7 @@ $ idoc init myapp
 ? Modify the specified document directory location /idoc/myapp/docs
 ? Modify the specified output static page directory location /idoc/myapp/dist
 
- ✔ Start documentation with idoc!
+ 🎉  ✔ Start documentation with idoc!
 ```
 
 准备好的目录 `themes` 中包含 `default` 主题
@@ -37,8 +37,8 @@ $ tree -I 'node_modules' -L 3
 │   └── about.md
 ├── idoc.yml
 ├── package.json
-└── themes
-    └── default
+└── themes          # 👈 🎁 主题文件夹
+    └── default     # 👈 默认主题
         ├── css
         ├── js
         ├── markdown.ejs

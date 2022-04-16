@@ -36,7 +36,9 @@ type Toc = {
   class?: string;
 };
 
-interface ConfigData extends TemplateData {}
+interface ConfigData extends TemplateData {
+  layout?: string;
+}
 
 export async function createHTML(str: string = '', from: string, toPath: string) {
   const mdOptions: Options = {};
@@ -107,8 +109,6 @@ export async function createHTML(str: string = '', from: string, toPath: string)
     }
   };
   const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
-  const tempPath = path.resolve(config.data.theme, 'markdown.ejs');
-  const tmpStr = await fs.readFile(tempPath);
   const tocsArr = tocs.map((item) => ({
     ...item,
     class: `toc${item.number - tocsStart + 1}`,
@@ -159,6 +159,8 @@ export async function createHTML(str: string = '', from: string, toPath: string)
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus };
   varData.chapters = formatChapters(config.data.chapters, toPath);
+  const tempPath = path.resolve(config.data.theme, mdConf.layout || 'markdown.ejs');
+  const tmpStr = await fs.readFile(tempPath);
   return render(tmpStr.toString(), varData, {
     filename: tempPath,
   });

@@ -60,7 +60,7 @@ export async function build() {
   try {
     await compilationAll();
     await copyThemeAsset();
-    console.log(`\n \x1b[34;1m Compliled successfully!\x1b[0m\n`);
+    console.log(`\n \x1b[34;1m 🎉 Compliled successfully!\x1b[0m\n`);
   } catch (error) {
     console.log(` \x1b[31midoc:\x1b[0m`, error);
   }
