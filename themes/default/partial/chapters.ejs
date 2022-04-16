@@ -1,11 +1,15 @@
 <% if (chapters && chapters.length > 0) {%>
-<aside class="sidebar" role="navigation">
-  <% chapters.forEach((chapter) => {%>
-    <% if (chapter.isFolder) {%>
-      <label><%= chapter.label %></label>
-    <% } else { %>
-      <a href="<%= chapter.href %>" class="<%- chapter.active ? 'active' : ''  %>"><%= chapter.label %></a>
-    <% } %>
-  <% }) %>
-</aside>
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    <% chapters.forEach((chapter) => {%>
+      <% if (chapter.isFolder) {%>
+        <label><%= chapter.label %></label>
+      <% } else { %>
+        <a href="<%= chapter.href %>" class="<%- chapter.active ? 'active' : ''  %>"><%= chapter.label %></a>
+      <% } %>
+    <% }) %>
+    </div>
+  </aside>
+</div>
 <% } %>

@@ -1,7 +1,7 @@
 <%- include('partial/header'); %>
 <%- include('partial/navigation'); %>
 
-<div class="warpper-content warpper">
+<div class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%>">
   <%- include('partial/chapters'); %>
   <markdown-style>
     <%- markdown %>

@@ -9,7 +9,7 @@ Markdown 使用说明
 
 ### 隐藏内容
 
-我们使用 `<!--idoc:ignore:start-->`<!--rehype:style=background: #7ee787; color: #333;--> 与 `<!--idoc:ignore:end-->`<!--rehype:style=background: #7ee787; color: #333;--> 这个注释语法，忽略被包裹在中间的内容，这很有用，在 GitHub Markdown 预览文件中注释不会显示，在编译后的 HTML 中，忽略被包裹的 Markdown 内容：
+我们使用 `<!--idoc:ignore:start-->`<!--rehype:style=background: #7ee787; color: #333;--> 与 `<!--idoc:ignore:end-->`<!--rehype:style=background: #7ee787; color: #333;--> 这个注释语法，忽略被包裹在中间的内容，这很有用，在 GitHub 中预览 Markdown 注释会被忽略，在编译后的 HTML 中，忽略被包裹的 Markdown 内容：
 
 ```markdown
 <!--idoc:ignore:start-->
