@@ -23,8 +23,10 @@ export function watch() {
     // Modify Theme files
     if (config.data.config.conf === filepath) {
       await config.initConf();
+      await config.getChaptersConf();
       await build();
     } else if (config.data.config.chapters === filepath) {
+      await config.initConf();
       await config.getChaptersConf();
       await build();
     } else if (isTheme && /\.ejs/i.test(filepath)) {

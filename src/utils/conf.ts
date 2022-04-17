@@ -17,8 +17,8 @@ export interface SiteGlobalConfig {
   /** website favicon icon */
   favicon?: string;
   editButton?: {
-    label: string;
-    url: string;
+    label?: string;
+    url?: string;
   };
   openSource?:
     | string

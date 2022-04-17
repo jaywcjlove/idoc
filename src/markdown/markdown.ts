@@ -114,7 +114,7 @@ export async function createHTML(str: string = '', from: string, toPath: string)
     class: `toc${item.number - tocsStart + 1}`,
   }));
 
-  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [] };
+  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [], editButton: {} };
   data.markdown = mdHtml;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
@@ -138,10 +138,8 @@ export async function createHTML(str: string = '', from: string, toPath: string)
   } as unknown as Config;
 
   if (config.data.editButton && config.data.editButton.url) {
-    config.data.editButton.url = `${config.data.editButton.url.replace(/\/$/, '')}/${path.relative(
-      config.data.root,
-      from,
-    )}`;
+    data.editButton.label = config.data.editButton.label;
+    data.editButton.url = `${config.data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
   }
 
   if (config.data.menus) {
