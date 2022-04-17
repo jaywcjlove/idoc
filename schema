@@ -53,7 +53,7 @@
               },
               "editButton": {
                   "$ref": "#/definitions/EditButton",
-                  "description": "Display the edit button, need to configure `openSource`."
+                  "description": "Display the edit button."
               },
               "menus": {
                   "type": "object",
