@@ -19,7 +19,7 @@
 # yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
 # yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
 ```
-<!--rehype:style=background-color: #c0d2f342-->
+<!--rehype:style=background: #41ae622b;-->
 
 下面是 `idoc.yml` 完整示例：
 

@@ -54,6 +54,7 @@ export interface Config extends SiteGlobalConfig {
 export type MenuData = {
   name: string;
   url?: string;
+  raw?: string;
   active?: boolean;
 };
 
@@ -170,7 +171,7 @@ export class Conf {
     if (this.data.menus) {
       Object.keys(this.data.menus).forEach((key) => {
         const [value, scope] = this.data.menus[key].split(' ').map((val: string) => (val || '').trim());
-        const menu: MenuData = { name: key };
+        const menu: MenuData = { name: key, raw: value };
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);
         if (scope && !this.data.scope.includes(scope)) this.data.scope.push(scope.trim());

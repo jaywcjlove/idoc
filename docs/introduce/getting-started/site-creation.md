@@ -41,9 +41,11 @@ $ idoc --watch
 ✔ idoc: ../README.md -> index.html
 ```
 
-## 本地预览
+## 静态文件预览
 
 默认使用 `idoc` 命令，将 `Markdown` 文件生成到默认的 `dist` 目录中，直接在 `浏览器` 里面打开 `index.html` 文件即可。
+
+## 静态服务预览
 
 如果你想编辑 `Markdown` 文件生成的静态页面，在浏览器中自动在浏览器中刷新，可以使用类似 [`sgo`](https://www.npmjs.com/package/sgo) 工具预览你的静态网站。
 

@@ -128,9 +128,13 @@ type Chapter = {
 
 ```js
 [
-  { name: 'Docs', active: true, url: '../getting-started/installation.html' },
-  { name: 'Markdown', active: false, url: '../../markdown.html' },
-  { name: 'About', active: false, url: '../../about.html' }
+  {
+    name: 'Docs',
+    raw: 'introduce/getting-started/installation.html',
+    active: true,
+    url: '../getting-started/installation.html'
+  },
+  // 👈 更多数据....
 ]
 ```
 
@@ -146,6 +150,12 @@ type Chapter = {
   </li>
   <% }); %>
 </ul>
+```
+
+如果你使用[静态服务](../getting-started/site-creation.md#静态服务预览)，预览您的静态页面，你可以使用绝对路径：
+
+```ejs
+<a href="/<%= item.raw %>">
 ```
 
 ### chapters
@@ -271,4 +281,4 @@ type MenuData = {
 ]
 ```
 
-左边 SiderBar 提供的章节 `chapters` 数据也是如此。
+左边 SiderBar 提供的章节 [`chapters`](#chapters) 数据也是如此。

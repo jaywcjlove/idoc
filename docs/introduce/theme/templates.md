@@ -54,6 +54,7 @@ layout: home.ejs
 <h1 id="logo">My Site</h1>
 <div id="content">Home page</div>
 ```
+<!--rehype:style=background: #41ae622b;-->
 
 ## 局部变量使用
 
@@ -78,5 +79,6 @@ layout: home.ejs
 <h1 id="logo">Hello World</h1>
 <div id="content">Home page</div>
 ```
+<!--rehype:style=background: #41ae622b;-->
 
 更多使用方式请查看 [EJS](https://github.com/mde/ejs) 模版引擎文档
