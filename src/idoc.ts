@@ -6,9 +6,10 @@ import { build } from './scripts/build.js';
 import { watch } from './scripts/watch.js';
 import { config } from './utils/conf.js';
 import { init } from './scripts/init.js';
+import { newDoc } from './scripts/new-doc.js';
 
 function outputHelp() {
-  console.log(' Usage: idoc [init][options] [--help|h] [--version|v]');
+  console.log(' Usage: idoc [init|new][options] [--help|h] [--version|v]');
   console.log('\n Options:');
   console.log('');
   console.log('   -v, --version,', 'Show version number');
@@ -22,6 +23,8 @@ function outputHelp() {
   console.log(' Example:');
   console.log('');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33minit\x1b[0m \x1b[34;1m<folder>\x1b[0m');
+  console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md');
+  console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md "Hello World" -f');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--theme\x1b[0m="defalut"');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--dir\x1b[0m="docs"');
   console.log('   \x1b[35mnpm\x1b[0m idoc \x1b[33m--output\x1b[0m="dist"');
@@ -63,6 +66,10 @@ if (argvs.h || argvs.help) {
 
     if (argvs._[0] === 'init') {
       await init(argvs._[1] || './');
+      return;
+    }
+    if (argvs._[0] === 'new') {
+      await newDoc(argvs._[1] || './README.md', argvs._[2], argvs);
       return;
     }
     await config.initConf();

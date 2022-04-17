@@ -6,7 +6,7 @@ idoc 是主要命令，用于构建你的 idoc 文档网站站点。
 ## 帮助
 
 ```bash
-Usage: idoc [init][options] [--help|h] [--version|v]
+Usage: idoc [init|new][options] [--help|h] [--version|v]
 
 Options:
 
@@ -21,6 +21,8 @@ Options:
 Example:
 
   npm idoc init <folder>
+  npm idoc new introduce/README.md
+  npm idoc new introduce/README.md "Hello World" -f
   npm idoc --theme="defalut"
   npm idoc --dir="docs"
   npm idoc --output="dist"

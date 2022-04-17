@@ -13,6 +13,7 @@ import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
+import { getTitle, getDescription } from './utils.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   tocs?: Toc[] | false;
@@ -63,21 +64,8 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
     if (node.type === 'root') {
-      // get title
-      const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');
-      if (h1Elm && h1Elm.type === 'element') {
-        pagetitle = getCodeString(h1Elm.children).replace(/\n/g, '').trim().slice(0, 120);
-      }
-      // get description
-      const desElm = node.children.find((item) => {
-        if (item.type === 'element' && item.tagName === 'p') {
-          return !!item.children.find((item) => item.type === 'text' && item.value.trim().replace(/\n/g, ''));
-        }
-        return false;
-      });
-      if (desElm && desElm.type === 'element') {
-        description = getCodeString(desElm.children) || pagetitle;
-      }
+      pagetitle = getTitle(node) || pagetitle;
+      description = getDescription(node) || pagetitle;
     }
     if (node.type == 'element' && node.tagName === 'pre') {
       const code = getCodeString(node.children);

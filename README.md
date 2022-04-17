@@ -48,7 +48,7 @@ Running the `idoc init myapp` generator from the command line will create a dire
 ## Command Help
 
 ```bash
-Usage: idoc [init][options] [--help|h] [--version|v]
+Usage: idoc [init|new][options] [--help|h] [--version|v]
 
 Options:
 
@@ -63,6 +63,8 @@ Options:
 Example:
 
   npm idoc init <folder>
+  npm idoc new introduce/README.md
+  npm idoc new introduce/README.md "Hello World" -f
   npm idoc --theme="defalut"
   npm idoc --dir="docs"
   npm idoc --output="dist"
