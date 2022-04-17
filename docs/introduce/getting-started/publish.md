@@ -65,4 +65,6 @@ $ npm run deploy
 
 ## 在 GitHub 中配置
 
+在配置中 `Setting` -> `pages` 设置
+
 ![](publish-001.png)
