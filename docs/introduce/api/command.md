@@ -55,7 +55,7 @@ $ idoc --watch
 ## 编译
 
 ```bash
-$ idoc
+$ idoc --force
 ```
 
 默认将编译好的静态页面输出到 `dist` 目录中。

@@ -1,7 +1,7 @@
 import path from 'path';
 import { config, isScope } from '../utils/conf.js';
 
-export type Chapters = {
+export type Chapter = {
   from?: string;
   to?: string;
   relative?: string;
@@ -12,10 +12,10 @@ export type Chapters = {
   active?: boolean;
 };
 
-export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapters[] {
+export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapter[] {
   const findScope = config.data.scope.find((item) => isScope(current, item));
   const chapters = arr.map((item) => {
-    const obj: Chapters = {};
+    const obj: Chapter = {};
     Object.keys(item).forEach((key) => {
       obj.from = path.resolve(config.data.dir, key).split(path.sep).join('/');
       obj.to = path

@@ -11,7 +11,7 @@ import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
 import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
-import { formatChapters, Chapters } from '../utils/chapters.js';
+import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
@@ -27,8 +27,9 @@ export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
 export interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
   RELATIVE_PATH?: string;
   markdown?: string;
+  html?: string;
   menus?: MenuData[];
-  chapters?: Array<Chapters>;
+  chapters?: Array<Chapter>;
 }
 
 export type Toc = {
@@ -40,7 +41,7 @@ export type Toc = {
 
 interface ConfigData extends TemplateData, PageConfig {}
 
-export async function createHTML(str: string = '', from: string, toPath: string) {
+export async function createHTML(mdStr: string = '', from: string, toPath: string) {
   const mdOptions: Options = {};
   mdOptions.rehypePlugins = [
     [
@@ -108,14 +109,13 @@ export async function createHTML(str: string = '', from: string, toPath: string)
       configMarkdownStr = node.value.replace(/^idoc:config:/i, '');
     }
   };
-  const mdHtml = (await markdownToHTML(str, mdOptions)) as string;
+  const mdHtml = (await markdownToHTML(mdStr, mdOptions)) as string;
   const tocsArr = tocs.map((item) => ({
     ...item,
     class: `toc${item.number - tocsStart + 1}`,
   }));
 
   const data = { fileStat: {}, tocs: [...tocsArr], menus: [], editButton: {} } as Data & ConfigData;
-  data.markdown = mdHtml;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
@@ -158,7 +158,7 @@ export async function createHTML(str: string = '', from: string, toPath: string)
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page };
+  const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
   varData.chapters = formatChapters(config.data.chapters, toPath);
   const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);

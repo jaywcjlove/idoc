@@ -64,9 +64,127 @@ interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
 interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
   RELATIVE_PATH?: string;
   markdown?: string;
+  html?: string;
   menus?: MenuData[];
-  chapters?: Array<Chapters>;
+  chapters?: Array<Chapter>;
 }
+type Chapter = {
+  from?: string;
+  to?: string;
+  relative?: string;
+  href?: string;
+  current?: string;
+  label?: string;
+  isFolder?: boolean;
+  active?: boolean;
+};
+```
+
+### RELATIVE_PATH
+
+此变量表示，`当前页` 面到 `指定` 输出根目录的相对目录，作用在于引入静态资源，例如引入 JS/CSS 等文件：
+
+```html
+<link href="<%= RELATIVE_PATH %>css/copy.css" rel="stylesheet" type="text/css"/>
+<script src="<%= RELATIVE_PATH %>js/dark-mode.js"></script>
+<script src="<%= RELATIVE_PATH %>js/markdown-style.js"></script>
+```
+
+所有 `HTML` 页面是根据 `markdown` 所在目录，生成到对应的目录中，所以相对地址访问静态资源，每个目录会不太一样。
+
+### html
+
+将 `Markdown` 转换成 `HTML` 传递给模板。下面示例将给 HTML 添加样式代码高亮。
+
+```ejs
+<script src="https://unpkg.com/@wcj/markdown-style"></script>
+<markdown-style>
+  <%- html %>
+</markdown-style>
+```
+
+### markdown
+
+此变量将 `Markdown` 原始没有处理的字符串传递给模版。
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@wcj/markdown-to-html/dist/marked.css">
+
+<script src="https://unpkg.com/@wcj/markdown-to-html/dist/markdown.min.js"></script>
+<script type="text/javascript">
+  ;(() => {
+    const div = document.createElement('div');
+    div.className = 'markdown-body';
+    div.innerHTML = markdown.default('<%= markdown %>')
+    document.body.appendChild(div)
+  })();
+</script>
+```
+
+### menus
+
+导航菜单数据，此部分数据来自于 [idoc.yml](../api/config.md#menus) 中配置 [`menus`](../api/config.md#menus)，数据被转换如下：
+
+```js
+[
+  { name: 'Docs', active: true, url: '../getting-started/installation.html' },
+  { name: 'Markdown', active: false, url: '../../markdown.html' },
+  { name: 'About', active: false, url: '../../about.html' }
+]
+```
+
+模板中使用示例：
+
+```ejs
+<ul class="menu">
+  <% menus.forEach(function(item) { %>
+  <li>
+    <a href="<%= item.url %>" class="<%- item.active ? 'active' : '' %>">
+      <%= item.name %>
+    </a>
+  </li>
+  <% }); %>
+</ul>
+```
+
+### chapters
+
+左侧 SiderBar 章节导航，数据来源于您自定义的 [`idoc.chapters.yml`](../api/config.md#idocchaptersyml) 配置中定义。
+
+```js
+[
+  {
+    from: '/idoc/docs/introduce/README.md',
+    to: '/idoc/dist/introduce/index.html',
+    relative: 'introduce/README.md',
+    label: '自述',
+    isFolder: false,
+    active: false,
+    href: '../index.html'
+  },
+  // 👈 更多数据....
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (chapters && chapters.length > 0) {%>
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    <% chapters.forEach((chapter) => {%>
+      <% if (chapter.isFolder) {%>
+        <label><%= chapter.label %></label>
+      <% } else { %>
+        <a href="<%= chapter.href %>" class="<%- chapter.active ? 'active' : ''  %>"><%= chapter.label %></a>
+      <% } %>
+    <% }) %>
+    </div>
+  </aside>
+</div>
+<% } %>
 ```
 
 ## 内置变量
@@ -123,7 +241,7 @@ type MenuData = {
 
 ### page
 
-变量包含 [`注释配置`](../api/config.md#注释配置) 的原始配置数据信息，定制主题可以用到它，帮助你主题提供更多单独页面功能的配置。`注释配置` 变量默认直接传递到模版中使用，定义的其它变量使用需要加上 `page` 前缀，例如：
+变量包含 [`注释配置`](../api/config.md#注释配置) 的原始配置数据信息，定制主题可以用到它，帮助你主题提供更多单独页面功能的配置。`注释配置` 变量默认直接传递到模版中使用，定义的其它变量使用需要加上 `page` 前缀，示例：
 
 ```html
 <h1><%= page.example %></h1>
@@ -133,7 +251,7 @@ type MenuData = {
 
 在变量没有被 [`注释配置`](../api/config.md#注释配置) 变量覆盖之前的全局配置。例如 `menus`：
 
-原始配置得到的数据：
+使用 `global.menus` 获取原始配置数据：
 
 ```js
 {
@@ -143,7 +261,7 @@ type MenuData = {
 }
 ```
 
-处理之后给到模板的数据：
+使用 [`menus`](#menus) 直接得到处理之后给到模板的数据：
 
 ```js
 [

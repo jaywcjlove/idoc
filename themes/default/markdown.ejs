@@ -4,7 +4,7 @@
 <div class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocs ? '' : 'notocs'%>">
   <%- include('partial/chapters'); %>
   <markdown-style>
-    <%- markdown %>
+    <%- html %>
     <footer class="article-footer warpper">
       <% if (editButton && editButton.url && editButton.label) { %>
       <a href="<%=editButton.url || '' %>" class="edit-button" target="_blank" rel="noopener noreferrer">

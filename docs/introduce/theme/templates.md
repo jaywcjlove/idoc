@@ -35,13 +35,13 @@ layout: home.ejs
 
 局部模板让您在不同模板之间共享相同的组件，例如页首（Header）、页脚（Footer）或侧边栏（Sidebar）等，可利用局部模板功能分割为个别文件，让维护更加便利。举例来说：
 
-partial/header.ejs
+`partial/header.ejs`
 
 ```html
 <h1 id="logo"><%= title %></h1>
 ```
 
-home.ejs
+`home.ejs`
 
 ```html
 <%- partial('partial/header') %>
@@ -55,17 +55,17 @@ home.ejs
 <div id="content">Home page</div>
 ```
 
-## 局部使用
+## 局部变量使用
 
 您可以在局部模板中指定局部变量并使用。
 
-partial/header.ejs
+`partial/header.ejs`
 
 ```html
 <h1 id="logo"><%= title_partial %></h1>
 ```
 
-home.ejs
+`home.ejs`
 
 ```html
 <%- partial('partial/header', { title_partial: 'Hello World' }) %>
