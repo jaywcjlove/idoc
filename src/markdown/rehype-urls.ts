@@ -9,7 +9,6 @@ export default function rehypeUrls(node: Root | RootContent) {
       if (/readme\.(md|markdown)$/i.test(href)) {
         node.properties.href = href.toLocaleLowerCase().replace(/readme\.(md|markdown)/gi, 'index.html');
       } else {
-        console.log('href', node, href, href.replace(/([^\.\/\\]+)\.(md|markdown)/gi, '$1.html'));
         node.properties.href = href.toLocaleLowerCase().replace(/([^\.\/\\]+)\.(md|markdown)/gi, '$1.html');
       }
     }

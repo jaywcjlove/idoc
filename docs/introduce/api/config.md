@@ -196,12 +196,14 @@ footer: |
 
 ### `data`
 
-默认主题模版变量传递，这将对自定义主题可能会起到很大的帮助。
+默认主题模版变量传递，这将对自定义主题可能会起到很大的帮助。除了以上定义，定义多余的变量也会被传递到模板中。
 
 ```yml
 data:
   name: value
 ```
+
+目前保留这个配置作用是，如果配置使用了 `schema`，传递的变量放到 `data` 配置(**idoc.yml**)不会报错 :)，还有避免覆盖内置变量。
 
 ## `idoc.chapters.yml`
 
@@ -220,7 +222,7 @@ data:
 
 ## 注释配置
 
-这种配置是指在 `markdown` 文档中添加的配置，主要用于控制类似于 `tocs` 页面导航是否显示，页面标题展示，翻页等功能。
+这种配置是指在 `markdown` 文档中添加的配置，主要用于控制类似于 `tocs` 页面导航是否显示，页面标题展示，翻页等功能。在 `markdown` 注释配置所在的页面起作用。
 
 ### 配置方法
 
@@ -253,6 +255,12 @@ title: 网页标题
 description: 网页简述
 # 搜索引擎能搜索到的关键词，每个关键词之间用逗号，隔开，必须是英文的逗号。
 keywords: 关键词
+# 显示编辑按钮
+editButton: 
+  label: Edit this page on GitHub
+  url: https://github.com/jaywcjlove/idoc/blob/master/
+# 导航栏 GitHub 按钮
+openSource: https://github.com/jaywcjlove/idoc
 # 当前页面<页脚>配置
 footer: |
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />

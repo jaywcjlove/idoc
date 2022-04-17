@@ -14,31 +14,31 @@ import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapters } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 
-export interface TemplateData extends Omit<SiteGlobalConfig, 'menus'> {
-  RELATIVE_PATH?: string;
-  version?: string;
-  idocVersion?: string;
-  markdown?: string;
-  menus?: MenuData[];
-  tocs?: Toc[];
-  fileStat: Partial<IFileDirStat> & {
+export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
+  tocs?: Toc[] | false;
+  layout?: string;
+  fileStat?: Partial<IFileDirStat> & {
     atimeStr?: string;
     mtimeStr?: string;
     ctimeStr?: string;
   };
+}
+
+export interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
+  RELATIVE_PATH?: string;
+  markdown?: string;
+  menus?: MenuData[];
   chapters?: Array<Chapters>;
 }
 
-type Toc = {
+export type Toc = {
   number?: number;
   label?: string;
   href?: string;
   class?: string;
 };
 
-interface ConfigData extends TemplateData {
-  layout?: string;
-}
+interface ConfigData extends TemplateData, PageConfig {}
 
 export async function createHTML(str: string = '', from: string, toPath: string) {
   const mdOptions: Options = {};
@@ -114,27 +114,28 @@ export async function createHTML(str: string = '', from: string, toPath: string)
     class: `toc${item.number - tocsStart + 1}`,
   }));
 
-  const data: Data & TemplateData = { fileStat: {}, tocs: [...tocsArr], menus: [], editButton: {} };
+  const data = { fileStat: {}, tocs: [...tocsArr], menus: [], editButton: {} } as Data & ConfigData;
   data.markdown = mdHtml;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
 
   // Markdown comment config.
-  const { fileStat, ...mdConf }: ConfigData = parse(configMarkdownStr) || {};
-  if (typeof mdConf.tocs === 'boolean' && mdConf.tocs === false) {
-    data.tocs = mdConf.tocs;
+  const page: PageConfig = parse(configMarkdownStr) || {};
+  if (typeof page.tocs === 'boolean' && page.tocs === false) {
+    data.tocs = page.tocs;
   }
   config.all = {
-    site: mdConf.site || config.data.site,
-    keywords: mdConf.keywords || config.data.keywords,
-    favicon: mdConf.favicon || config.data.favicon,
-    logo: mdConf.logo || config.data.logo,
-    title: mdConf.title || pagetitle.replace(/\n/g, '').trim().slice(0, 120) || config.data.title,
-    description: mdConf.description || description.replace(/\n/g, '').trim().slice(0, 120) || config.data.description,
-    footer: mdConf.footer || config.data.footer || '',
-    editButton: mdConf.editButton || config.data.editButton,
-    openSource: mdConf.openSource || config.data.openSource,
+    site: page.site || config.data.site,
+    keywords: page.keywords || config.data.keywords,
+    favicon: page.favicon || config.data.favicon,
+    logo: page.logo || config.data.logo,
+    title: page.title || pagetitle.replace(/\n/g, '').trim().slice(0, 120) || config.data.title,
+    description: page.description || description.replace(/\n/g, '').trim().slice(0, 120) || config.data.description,
+    footer: page.footer || config.data.footer || '',
+    editButton: page.editButton || config.data.editButton,
+    openSource: page.openSource || config.data.openSource,
+    page,
   } as unknown as Config;
 
   if (config.data.editButton && config.data.editButton.url) {
@@ -148,16 +149,16 @@ export async function createHTML(str: string = '', from: string, toPath: string)
 
   // File Stat
   data.fileStat = config.data.asset.find((item) => item.path === from) || {};
-  data.fileStat = { ...data.fileStat, ...fileStat };
+  data.fileStat = { ...data.fileStat, ...page.fileStat };
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
     if ((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
     }
   }
-  const varData: ConfigData = { ...config.all, ...data, menus: data.menus };
+  const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page };
   varData.chapters = formatChapters(config.data.chapters, toPath);
-  const tempPath = path.resolve(config.data.theme, mdConf.layout || 'markdown.ejs');
+  const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
   return render(tmpStr.toString(), varData, {
     filename: tempPath,

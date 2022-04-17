@@ -4,6 +4,7 @@ import path from 'path';
 import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
+import { PageConfig } from '../markdown/markdown.js';
 
 export interface SiteGlobalConfig {
   /** site name */
@@ -11,7 +12,6 @@ export interface SiteGlobalConfig {
   title?: string;
   keywords?: string;
   description?: string;
-
   /** website logo icon */
   logo?: string;
   /** website favicon icon */
@@ -47,6 +47,8 @@ export interface Config extends SiteGlobalConfig {
   /** idoc version */
   idocVersion?: string;
   scope?: string[];
+  global?: Config;
+  page?: PageConfig;
 }
 
 export type MenuData = {
@@ -72,6 +74,8 @@ export class Conf {
     logo: logo,
     keywords: '',
     footer: '',
+    global: {} as Config,
+    page: {},
   };
   get all() {
     return this.data;
