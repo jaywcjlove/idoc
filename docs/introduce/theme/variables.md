@@ -37,6 +37,59 @@ interface SiteGlobalConfig {
 }
 ```
 
+### tocs
+
+页面目录数据，如果 [注释配置](../api/config.md#注释配置) 中没有设置 `tocs: false` 禁用目录，将得到如下数据：
+
+```js
+[
+  { number: 1, href: '配置文件', label: '配置文件', class: 'toc1' },
+  { number: 2, href: '添加配置', label: '添加配置', class: 'toc2' },
+  { number: 2, href: 'idocyml', class: 'toc2' },
+  { number: 3, href: 'dir', class: 'toc3' },
+  { number: 2, href: '注释配置', label: '注释配置', class: 'toc2' },
+  { number: 3, href: '配置方法', label: '配置方法', class: 'toc3' },
+  { number: 3, href: '详细配置说明', label: '详细配置说明', class: 'toc3' },
+  { number: 3, href: 'layout', label: 'layout', class: 'toc3' }
+]
+```
+
+模板中使用示例：
+
+```ejs
+<% if (tocs && tocs.length > 0 ) { %>
+  <nav class="tocs">
+    <% tocs.forEach(function(item) { %>
+      <a href="#<%= item.href %>" class="<%= item.class %>">
+        <%= item.label %>
+      </a>
+    <% }); %>
+  </nav>
+<% } %>
+```
+
+### editButton
+
+```js
+{
+  label: 'Edit this page on GitHub',
+  url: 'https://github.com/jaywcjlove/idoc/blob/master/README.md'
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (editButton && editButton.url && editButton.label) { %>
+<a href="<%=editButton.url || '' %>" class="edit-button" target="_blank" rel="noopener noreferrer">
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+  </svg>
+  <span><%=editButton.label%></span>
+</a>
+<% } %>
+```
+
 ## 页面变量
 
 `页面变量` 可以覆盖 `全局变量`，请谨慎使用。`页面变量` 在页面当中通过 [注释配置](../api/config.md#注释配置) 定义。在 markdown 注释配置所在的页面起作用。
@@ -245,6 +298,7 @@ type Toc = {
 type MenuData = {
   name: string;
   url?: string;
+  raw?: string;
   active?: boolean;
 };
 ```
