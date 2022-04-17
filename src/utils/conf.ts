@@ -173,7 +173,7 @@ export class Conf {
         const menu: MenuData = { name: key };
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);
-        if (scope) this.data.scope.push(scope.trim());
+        if (scope && !this.data.scope.includes(scope)) this.data.scope.push(scope.trim());
         menu.active = active;
         if (toPath === current) {
           menu.url = path.basename(current);

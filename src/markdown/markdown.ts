@@ -65,7 +65,7 @@ export async function createHTML(str: string = '', from: string, toPath: string)
       // get title
       const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');
       if (h1Elm && h1Elm.type === 'element') {
-        pagetitle = getCodeString(h1Elm.children);
+        pagetitle = getCodeString(h1Elm.children).replace(/\n/g, '').trim().slice(0, 120);
       }
       // get description
       const desElm = node.children.find((item) => {
@@ -119,6 +119,8 @@ export async function createHTML(str: string = '', from: string, toPath: string)
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
+  const { global, ...other } = config.data;
+  config.data.global = { ...other };
 
   // Markdown comment config.
   const page: PageConfig = parse(configMarkdownStr) || {};

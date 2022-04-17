@@ -128,3 +128,29 @@ type MenuData = {
 ```html
 <h1><%= page.example %></h1>
 ```
+
+### global
+
+在变量没有被 [`注释配置`](../api/config.md#注释配置) 变量覆盖之前的全局配置。例如 `menus`：
+
+原始配置得到的数据：
+
+```js
+{
+  Docs: 'introduce/getting-started/installation.html introduce',
+  Markdown: 'markdown.html',
+  About: 'about.html'
+}
+```
+
+处理之后给到模板的数据：
+
+```js
+[
+  { name: 'Docs', active: true, url: '../getting-started/installation.html' },
+  { name: 'Markdown', active: false, url: '../../markdown.html' },
+  { name: 'About', active: false, url: '../../about.html' }
+]
+```
+
+左边 SiderBar 提供的章节 `chapters` 数据也是如此。

@@ -283,7 +283,7 @@ layout: markdown.ejs
 🚧  注意：默认不需要配置，自定义主题的时候可以用得到。
 
 <!--idoc:config:
-keywords: idoc,config
+keywords: idoc,config,api
 fileStat:
   mtimeStr: 2022/04/13
 -->
