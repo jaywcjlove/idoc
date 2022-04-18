@@ -51,6 +51,9 @@ menus:
   Docs: introduce/getting-started/installation.html introduce
   Markdown: markdown.html
   About: about.html
+  # Github: 
+  #   url: https://github.com/jaywcjlove/idoc
+  #   target: __blank
 
 footer: |
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />

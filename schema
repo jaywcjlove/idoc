@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$ref": "#/definitions/idoc",
+  "title": "JSON schema for idoc.yaml",
   "definitions": {
       "idoc": {
           "type": "object",
@@ -56,8 +57,29 @@
                   "description": "Display the edit button."
               },
               "menus": {
-                  "type": "object",
-                  "description": "Navigation Menu."
+                  "description": "Navigation Menu.",
+                  "type": [
+                    "string",
+                    "object"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "target": {
+                      "type": "string",
+                      "pattern": "(__blank|_parent|_top|_self)",
+                      "enum": [
+                        "__blank",
+                        "_parent",
+                        "_top",
+                        "_self"
+                      ]
+                    }
+                  }
               },
               "footer": {
                   "type": "string",

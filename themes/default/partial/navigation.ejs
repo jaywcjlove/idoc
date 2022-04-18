@@ -10,7 +10,7 @@
       <ul class="menu">
         <% menus.forEach(function(item) { %>
         <li>
-          <a href="<%= item.url %>" class="<%- item.active ? 'active' : '' %>"> <%= item.name %> </a>
+          <a href="<%= item.url %>" target="<%- item.target || '' %>" class="<%- item.active ? 'active' : '' %>"> <%= item.name %> </a>
         </li>
         <% }); %>
       </ul>

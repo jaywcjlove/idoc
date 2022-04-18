@@ -5,6 +5,7 @@ import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
 import { PageConfig } from '../markdown/markdown.js';
+import { isAbsoluteURL } from '../markdown/utils.js';
 
 export interface SiteGlobalConfig {
   /** site name */
@@ -27,7 +28,15 @@ export interface SiteGlobalConfig {
         url: string;
       };
   footer?: string;
-  menus?: Record<string, string>;
+  menus?: Record<
+    string,
+    | string
+    | {
+        url: string;
+        active: boolean;
+        target: string;
+      }
+  >;
 }
 
 export interface Config extends SiteGlobalConfig {
@@ -56,6 +65,7 @@ export type MenuData = {
   url?: string;
   raw?: string;
   active?: boolean;
+  target?: string;
 };
 
 export class Conf {
@@ -170,13 +180,20 @@ export class Conf {
     const data: MenuData[] = [];
     if (this.data.menus) {
       Object.keys(this.data.menus).forEach((key) => {
-        const [value, scope] = this.data.menus[key].split(' ').map((val: string) => (val || '').trim());
-        const menu: MenuData = { name: key, raw: value };
+        const url = this.data.menus[key];
+        const urlhref = typeof url === 'object' ? url.url : url;
+        const [value, scope] = urlhref.split(' ').map((val: string) => (val || '').trim());
+        const menu: MenuData = { name: key, raw: value, target: '' };
+        if (typeof url === 'object' && url.target) {
+          menu.target = url.target;
+        }
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);
         if (scope && !this.data.scope.includes(scope)) this.data.scope.push(scope.trim());
         menu.active = active;
-        if (toPath === current) {
+        if (isAbsoluteURL(value)) {
+          menu.url = value;
+        } else if (toPath === current) {
           menu.url = path.basename(current);
         } else {
           const rel = path.relative(path.dirname(toPath), path.dirname(path.join(this.data.output, value)));

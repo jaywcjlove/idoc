@@ -74,6 +74,9 @@ data:
     Docs: introduce/getting-started/installation.html introduce
     Markdown: markdown.html
     About: about.html
+    Github: 
+      url: https://github.com/jaywcjlove/idoc
+      target: __blank
 
   footer: |
     Released under the MIT License. Copyright © 2022 Kenny Wong<br />
@@ -172,6 +175,9 @@ menus:
   Docs: introduce/getting-started/installation.html introduce
   Markdown: markdown.html
   About: about.html
+  Github: 
+    url: https://github.com/jaywcjlove/idoc
+    target: __blank
 ```
 
 定义范围 `scope`，下面示例定义了个范围名字叫 `introduce`，这个范围表示，匹配到 `introduce` 开头的页面，页面导航 `Docs` 选中效果。

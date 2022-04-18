@@ -33,7 +33,11 @@ interface SiteGlobalConfig {
       };
   footer?: string;
   /** 传递到页面上成为页面变量，值发生了变化 */
-  menus?: Record<string, string>;
+  menus?: Record<string, string | {
+    url: string;
+    active: boolean;
+    target: string;
+  }>;
 }
 ```
 
@@ -185,6 +189,7 @@ type Chapter = {
     name: 'Docs',
     raw: 'introduce/getting-started/installation.html',
     active: true,
+    target: '',
     url: '../getting-started/installation.html'
   },
   // 👈 更多数据....
@@ -317,6 +322,7 @@ type MenuData = {
   name: string;
   url?: string;
   raw?: string;
+  target?: string;
   active?: boolean;
 };
 ```
@@ -347,9 +353,34 @@ type MenuData = {
 
 ```js
 [
-  { name: 'Docs', active: true, url: '../getting-started/installation.html' },
-  { name: 'Markdown', active: false, url: '../../markdown.html' },
-  { name: 'About', active: false, url: '../../about.html' }
+  {
+    name: 'Docs',
+    target: '',
+    active: true,
+    raw: 'introduce/getting-started/installation.html',
+    url: '../getting-started/installation.html'
+  },
+  {
+    name: 'Markdown',
+    target: '',
+    active: false,
+    raw: 'markdown.html',
+    url: '../../markdown.html'
+  },
+  {
+    name: 'About',
+    target: '',
+    active: false,
+    raw: 'about.html',
+    url: '../../about.html'
+  },
+  {
+    name: 'UIW',
+    target: '__blank',
+    active: false,
+    raw: 'https://github.com/jaywcjlove/idoc',
+    url: 'https://github.com/jaywcjlove/idoc'
+  }
 ]
 ```
 
