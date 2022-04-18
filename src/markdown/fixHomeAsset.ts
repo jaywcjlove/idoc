@@ -19,13 +19,19 @@ export function fixHomeAsset(node: Root | RootContent, mdpath: string) {
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
     const outputPath = path.resolve(config.data.output, node.properties.src);
     if (!isIncludesDocs) {
-      fs.copyFile(assetPath, outputPath)
-        .then((result) => {
-          log.output('\x1b[35;1mcopy\x1b[0m')(assetPath, outputPath);
-        })
-        .catch((err) => {
+      fs.emptyDir(path.dirname(outputPath), (err) => {
+        if (err) {
           console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
-        });
+          return;
+        }
+        fs.copyFile(assetPath, outputPath)
+          .then((result) => {
+            log.output('\x1b[35;1mcopy\x1b[0m')(assetPath, outputPath);
+          })
+          .catch((err) => {
+            console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
+          });
+      });
     } else {
       node.properties.src = path.relative(config.data.dir, assetPath).split(path.sep).join('/');
     }
