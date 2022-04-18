@@ -1,0 +1,24 @@
+<% if (tocs) { %>
+<nav class="tocs">
+  <aside class="inner toc"></aside>
+</nav>
+<% } %>
+<% if (tocs) { %>
+<script src="<%= RELATIVE_PATH %>js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+</script>
+<% } %>
