@@ -19,7 +19,7 @@ export function fixHomeAsset(node: Root | RootContent, mdpath: string) {
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
     const outputPath = path.resolve(config.data.output, node.properties.src);
     if (!isIncludesDocs) {
-      fs.emptyDir(path.dirname(outputPath), (err) => {
+      fs.ensureDir(path.dirname(outputPath), (err) => {
         if (err) {
           console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
           return;
