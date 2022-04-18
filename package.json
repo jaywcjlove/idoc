@@ -1,6 +1,6 @@
 {
   "name": "idoc",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Simple document generation tool. Dependence Node.js run.",
   "homepage": "https://jaywcjlove.github.io/idoc/",
   "author": "kenny wang <wowohoo@qq.com>",
