@@ -58,6 +58,9 @@ export async function compilationAll() {
 
 export async function build() {
   try {
+    await config.getChaptersConf();
+    await config.getFiles();
+    await config.getReadme();
     await compilationAll();
     await copyThemeAsset();
     console.log(`\n \x1b[34;1m 🎉 Compliled successfully!\x1b[0m\n`);

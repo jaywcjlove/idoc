@@ -49,7 +49,7 @@ editButton:
 menus:
   # Label: <URL> [scope]
   Docs: introduce/getting-started/installation.html introduce
-  Markdown: markdown.html
+  Markdown: markdown/basic-syntax.html markdown
   About: about.html
   # Github: 
   #   url: https://github.com/jaywcjlove/idoc
