@@ -208,6 +208,12 @@ footer.article-footer > section {
 .previous a svg {
   margin-top: 1px;
 }
+.previous a.prev svg {
+  margin-right: 3px;
+}
+.previous a.next svg {
+  margin-left: 3px;
+}
 
 .footer {
   text-align: center;
