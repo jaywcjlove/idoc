@@ -123,7 +123,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
 
   // Paging....
   page.prevPage = getPrevOrNextPage('prev', page.prevPage || {}, data.chapters, fromPath, toPath);
-  page.nextPage = getPrevOrNextPage('next', page.prevPage || {}, data.chapters, fromPath, toPath);
+  page.nextPage = getPrevOrNextPage('next', page.nextPage || {}, data.chapters, fromPath, toPath);
 
   config.all = {
     site: page.site || config.data.site,
