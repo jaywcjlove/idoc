@@ -41,37 +41,6 @@ interface SiteGlobalConfig {
 }
 ```
 
-### tocs
-
-页面目录数据，如果 [注释配置](../api/config.md#注释配置) 中没有设置 `tocs: false` 禁用目录，将得到如下数据：
-
-```js
-[
-  { number: 1, href: '配置文件', label: '配置文件', class: 'toc1' },
-  { number: 2, href: '添加配置', label: '添加配置', class: 'toc2' },
-  { number: 2, href: 'idocyml', class: 'toc2' },
-  { number: 3, href: 'dir', class: 'toc3' },
-  { number: 2, href: '注释配置', label: '注释配置', class: 'toc2' },
-  { number: 3, href: '配置方法', label: '配置方法', class: 'toc3' },
-  { number: 3, href: '详细配置说明', label: '详细配置说明', class: 'toc3' },
-  { number: 3, href: 'layout', label: 'layout', class: 'toc3' }
-]
-```
-
-模板中使用示例：
-
-```ejs
-<% if (tocs && tocs.length > 0 ) { %>
-  <nav class="tocs">
-    <% tocs.forEach(function(item) { %>
-      <a href="#<%= item.href %>" class="<%= item.class %>">
-        <%= item.label %>
-      </a>
-    <% }); %>
-  </nav>
-<% } %>
-```
-
 ### editButton
 
 ```js
@@ -275,6 +244,62 @@ type Chapter = {
 ]
 ```
 
+### prevPage
+
+👈 向前翻一页，默认使用 `href` 和 `label` 两个字段展现界面。
+
+```js
+{
+  from: '/idoc/docs/markdown/line-html.md',
+  to: '/idoc/dist/markdown/line-html.html',
+  raw: 'markdown/line-html.md',
+  label: 'HTML 元素',
+  isFolder: false,
+  active: false,
+  href: 'line-html.html'
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (page.prevPage && page.prevPage.href && page.prevPage.label) { %>
+<a class="prev" href="<%= page.prevPage.href %>">
+  <span>
+    <%= page.prevPage.label %>
+  </span>
+</a>
+<% } %>
+```
+
+### nextPage
+
+👉 向后翻一页，默认使用 `href` 和 `label` 两个字段展现界面。
+
+```js
+{
+  from: '/idoc/docs/markdown/line-html.md',
+  to: '/idoc/dist/markdown/line-html.html',
+  raw: 'markdown/line-html.md',
+  label: 'HTML 元素',
+  isFolder: false,
+  active: false,
+  href: 'line-html.html'
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (page.nextPage && page.nextPage.href && page.nextPage.label) { %>
+<a class="next" href="<%= page.nextPage.href %>">
+  <span>
+    <%= page.nextPage.label %>
+  </span>
+</a>
+<% } %>
+```
+
 ## 内置变量
 
 我们的想法是可以做到 `0` 配置编译文档，所以内置配置包含全局配置的默认值。
@@ -327,6 +352,37 @@ type MenuData = {
   target?: string;
   active?: boolean;
 };
+```
+
+### tocs
+
+页面目录数据变量，是根据 `Markdown` 标题自动生成的的数据，如果 [注释配置](../api/config.md#注释配置) 中没有设置 `tocs: false` 禁用目录，将得到如下数据：
+
+```js
+[
+  { number: 1, href: '配置文件', label: '配置文件', class: 'toc1' },
+  { number: 2, href: '添加配置', label: '添加配置', class: 'toc2' },
+  { number: 2, href: 'idocyml', class: 'toc2' },
+  { number: 3, href: 'dir', class: 'toc3' },
+  { number: 2, href: '注释配置', label: '注释配置', class: 'toc2' },
+  { number: 3, href: '配置方法', label: '配置方法', class: 'toc3' },
+  { number: 3, href: '详细配置说明', label: '详细配置说明', class: 'toc3' },
+  { number: 3, href: 'layout', label: 'layout', class: 'toc3' }
+]
+```
+
+模板中使用示例：
+
+```ejs
+<% if (tocs && tocs.length > 0 ) { %>
+  <nav class="tocs">
+    <% tocs.forEach(function(item) { %>
+      <a href="#<%= item.href %>" class="<%= item.class %>">
+        <%= item.label %>
+      </a>
+    <% }); %>
+  </nav>
+<% } %>
 ```
 
 ### page

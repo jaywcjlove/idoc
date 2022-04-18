@@ -141,6 +141,11 @@ export class Conf {
 
     const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
     this.data.idocVersion = pkgIdoc.version;
+    if (this.data.footer) {
+      this.data.footer = this.data.footer
+        .replace('{{idocVersion}}', this.data.idocVersion)
+        .replace('{{version}}', this.data.version);
+    }
     return this.data;
   }
   async getChaptersConf() {
