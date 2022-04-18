@@ -286,12 +286,12 @@ openSource: https://github.com/jaywcjlove/idoc
 # 👈 上一页，raw 配置指定目录（默认 dist）全路径，idoc 会处理成正确的目录。
 prevPage: 
   raw: introduce/getting-started/site-add.md
-  label: 添加文档
+  label: 添加文档  # 🤙 可以单独只配 label 覆盖默认的 label
 # 🚧  翻页默认不需要配置，默认是根据 `idoc.chapters.yml` 的顺序自动生成。
 # 👉 下一页，raw 配置指定目录（默认 dist）全路径，idoc 会处理成正确的目录
 nextPage: 
   raw: introduce/getting-started/site-add.md
-  label: 添加文档
+  label: 添加文档  # 🤙 可以单独只配 label 覆盖默认的 label
 # 当前页面<页脚>配置
 footer: |
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />

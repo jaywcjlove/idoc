@@ -2,7 +2,7 @@ import path from 'path';
 import { getCodeString } from 'rehype-rewrite';
 import { Root } from 'hast';
 import { config } from '../utils/conf.js';
-import { Chapter } from '../utils/chapters.js';
+import { Chapter, formatChapter } from '../utils/chapters.js';
 
 export function getTitle(node: Root) {
   const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');
@@ -27,13 +27,18 @@ export const isAbsoluteURL = (str: string) => /^[a-z][a-z0-9+.-]*:/.test(str);
 
 export function getPrevOrNextPage(
   type: 'prev' | 'next',
-  {}: Chapter,
+  { raw, label }: Chapter,
   chapters: Chapter[] = [],
   mdPath: string,
+  htmlPath: string,
 ): Chapter {
   const entirePath = path.resolve(config.data.dir, mdPath);
+  const outputPath = path.resolve(config.data.output, htmlPath);
   const index = chapters.findIndex((item) => item.from === entirePath);
-  let result = {};
+  let result: Chapter = {};
+  if (raw && label) {
+    return formatChapter({ [raw]: label }, outputPath);
+  }
   if (type === 'next') {
     let n = index;
     while (n < chapters.length) {
@@ -55,6 +60,9 @@ export function getPrevOrNextPage(
         break;
       }
     }
+  }
+  if (label) {
+    result.label = label;
   }
   return result;
 }

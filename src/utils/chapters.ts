@@ -12,28 +12,34 @@ export type Chapter = {
   active?: boolean;
 };
 
+export function formatChapter(chapter: Record<string, string>, current?: string): Chapter {
+  const obj: Chapter = {};
+  Object.keys(chapter).forEach((key) => {
+    obj.from = path.resolve(config.data.dir, key).split(path.sep).join('/');
+    obj.to = path
+      .resolve(config.data.output, key)
+      .replace(/\.(md|markdown)/i, '.html')
+      .split(path.sep)
+      .join('/')
+      .replace(/\/(README).html$/i, '/index.html');
+    obj.raw = key.replace(new RegExp(`(\/|${path.sep})$`, 'g'), '');
+    obj.label = chapter[key];
+    obj.isFolder = !obj.to.endsWith('.html');
+    obj.active = current === obj.to;
+    obj.href = path
+      .relative(path.dirname(current), obj.to)
+      .split(path.sep)
+      .join('/')
+      .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
+  });
+  return obj;
+}
+
 export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapter[] {
   const findScope = config.data.scope.find((item) => isScope(current, item));
   const chapters = arr.map((item) => {
-    const obj: Chapter = {};
-    Object.keys(item).forEach((key) => {
-      obj.from = path.resolve(config.data.dir, key).split(path.sep).join('/');
-      obj.to = path
-        .resolve(config.data.output, key)
-        .replace(/\.(md|markdown)/i, '.html')
-        .split(path.sep)
-        .join('/')
-        .replace(/\/(README).html$/i, '/index.html');
-      obj.raw = key.replace(new RegExp(`(\/|${path.sep})$`, 'g'), '');
-      obj.label = item[key];
-      obj.isFolder = !obj.to.endsWith('.html');
-      obj.active = current === obj.to;
-      obj.href = path
-        .relative(path.dirname(current), obj.to)
-        .split(path.sep)
-        .join('/')
-        .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
-    });
+    const obj: Chapter = formatChapter(item, current);
+    // console.log(item)
     if (!isScope(obj.to, findScope) && config.data.scope.length > 0) {
       return;
     }
