@@ -14,6 +14,7 @@ import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 import { getTitle, getDescription } from './utils.js';
+import { fixHomeAsset } from './fixHomeAsset.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   tocs?: Toc[] | false;
@@ -63,6 +64,7 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
   let description = '';
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
+    fixHomeAsset(node, from);
     if (node.type === 'root') {
       pagetitle = getTitle(node) || pagetitle;
       description = getDescription(node) || pagetitle;

@@ -19,3 +19,5 @@ export function getDescription(node: Root) {
     return getCodeString(desElm.children);
   }
 }
+
+export const isAbsoluteURL = (str: string) => /^[a-z][a-z0-9+.-]*:/.test(str);

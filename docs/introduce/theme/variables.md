@@ -250,6 +250,24 @@ type Chapter = {
 <% } %>
 ```
 
+配置中的 `chapters` 原始数据通过 `global.chapters` 获取：
+
+```js
+[
+  { 'introduce/README.md': '自述' },
+  { 'introduce/getting-started': '入门' },
+  { 'introduce/getting-started/installation.md': '安装' },
+  { 'introduce/getting-started/publish.md': '发布网站' },
+  { 'introduce/api': 'API' },
+  { 'introduce/api/command.md': '命令帮助' },
+  { 'introduce/api/config.md': '配置文件' },
+  { 'introduce/theme': '主题' },
+  { 'introduce/theme/theme-defalut.md': '定制主题' },
+  { 'introduce/theme/templates.md': '模板' },
+  { 'introduce/theme/variables.md': '变量' }
+]
+```
+
 ## 内置变量
 
 我们的想法是可以做到 `0` 配置编译文档，所以内置配置包含全局配置的默认值。

@@ -1,6 +1,5 @@
 import { Root, RootContent } from 'hast';
-
-const isAbsoluteURL = (str: string) => /^[a-z][a-z0-9+.-]*:/.test(str);
+import { isAbsoluteURL } from './utils.js';
 
 export default function rehypeUrls(node: Root | RootContent) {
   if (node.type === 'element' && node.properties.href && /.md/.test(node.properties.href as string)) {
