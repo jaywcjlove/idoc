@@ -161,8 +161,15 @@ footer.article-footer {
   display: flex;
   align-items: center;
   font-size: 14px;
-  padding-bottom: 15px;
   justify-content: space-between;
+  background-color: var(--color-canvas-subtle);
+  padding: 10px;
+  padding-right: 12px;
+  border-radius: 5px;
+  margin-top: 26px;
+}
+markdown-style > footer.article-footer {
+  margin-bottom: 18px !important;
 }
 
 footer.article-footer a {
@@ -181,6 +188,25 @@ footer.article-footer a.edit-button svg {
 footer.article-footer .atime {
   font-size: 12px;
   color: var(--color-fg-muted);
+  margin-top: 2px;
+}
+footer.article-footer > section {
+  display: flex;
+  align-items: center;
+}
+
+.previous {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  gap: 12px;
+}
+.previous a {
+  display: flex;
+  align-items: center;
+}
+.previous a svg {
+  margin-top: 1px;
 }
 
 .footer {

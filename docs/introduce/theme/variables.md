@@ -112,6 +112,8 @@ interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   /** 禁用 toc 展示 **/
   tocs?: Toc[] | false;
   layout?: string;
+  prevPage?: Chapter;
+  nextPage?: Chapter;
   fileStat?: Partial<IFileDirStat> & {
     atimeStr?: string;
     mtimeStr?: string;
@@ -128,7 +130,7 @@ interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
 type Chapter = {
   from?: string;
   to?: string;
-  relative?: string;
+  raw?: string;
   href?: string;
   current?: string;
   label?: string;

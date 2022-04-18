@@ -15,10 +15,13 @@ import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 import { getTitle, getDescription } from './utils.js';
 import { fixHomeAsset } from './fixHomeAsset.js';
+import { getPrevOrNextPage } from './utils.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   tocs?: Toc[] | false;
   layout?: string;
+  prevPage?: Chapter;
+  nextPage?: Chapter;
   fileStat?: Partial<IFileDirStat> & {
     atimeStr?: string;
     mtimeStr?: string;
@@ -43,7 +46,7 @@ export type Toc = {
 
 interface ConfigData extends TemplateData, PageConfig {}
 
-export async function createHTML(mdStr: string = '', from: string, toPath: string) {
+export async function createHTML(mdStr: string = '', fromPath: string, toPath: string) {
   const mdOptions: Options = {};
   mdOptions.rehypePlugins = [
     [
@@ -64,14 +67,13 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
   let description = '';
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node);
-    fixHomeAsset(node, from);
+    fixHomeAsset(node, fromPath);
     if (node.type === 'root') {
       pagetitle = getTitle(node) || pagetitle;
       description = getDescription(node) || pagetitle;
     }
     if (node.type == 'element' && node.tagName === 'pre') {
-      const code = getCodeString(node.children);
-      node.children.push(copyButton(code));
+      node.children.push(copyButton(getCodeString(node.children)));
     }
     if (
       node.type == 'element' &&
@@ -111,12 +113,18 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
   data.RELATIVE_PATH = config.getRelativePath(toPath);
   const { global, ...other } = config.data;
   config.data.global = { ...other };
+  data.chapters = formatChapters(config.data.chapters, toPath);
 
   // Markdown comment config.
   const page: PageConfig = parse(configMarkdownStr) || {};
   if (typeof page.tocs === 'boolean' && page.tocs === false) {
     data.tocs = page.tocs;
   }
+
+  // Paging....
+  page.prevPage = getPrevOrNextPage('prev', page.prevPage || {}, data.chapters, fromPath);
+  page.nextPage = getPrevOrNextPage('next', page.prevPage || {}, data.chapters, fromPath);
+
   config.all = {
     site: page.site || config.data.site,
     keywords: page.keywords || config.data.keywords,
@@ -132,7 +140,10 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
 
   if (config.data.editButton && config.data.editButton.url) {
     data.editButton.label = config.data.editButton.label;
-    data.editButton.url = `${config.data.editButton.url.replace(/\/$/, '')}/${path.relative(config.data.root, from)}`;
+    data.editButton.url = `${config.data.editButton.url.replace(/\/$/, '')}/${path.relative(
+      config.data.root,
+      fromPath,
+    )}`;
   }
 
   if (config.data.menus) {
@@ -140,7 +151,7 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
   }
 
   // File Stat
-  data.fileStat = config.data.asset.find((item) => item.path === from) || {};
+  data.fileStat = config.data.asset.find((item) => item.path === fromPath) || {};
   data.fileStat = { ...data.fileStat, ...page.fileStat };
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
@@ -149,7 +160,7 @@ export async function createHTML(mdStr: string = '', from: string, toPath: strin
     }
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
-  varData.chapters = formatChapters(config.data.chapters, toPath);
+
   const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
   return render(tmpStr.toString(), varData, {

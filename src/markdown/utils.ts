@@ -1,5 +1,8 @@
+import path from 'path';
 import { getCodeString } from 'rehype-rewrite';
 import { Root } from 'hast';
+import { config } from '../utils/conf.js';
+import { Chapter } from '../utils/chapters.js';
 
 export function getTitle(node: Root) {
   const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');
@@ -21,3 +24,37 @@ export function getDescription(node: Root) {
 }
 
 export const isAbsoluteURL = (str: string) => /^[a-z][a-z0-9+.-]*:/.test(str);
+
+export function getPrevOrNextPage(
+  type: 'prev' | 'next',
+  {}: Chapter,
+  chapters: Chapter[] = [],
+  mdPath: string,
+): Chapter {
+  const entirePath = path.resolve(config.data.dir, mdPath);
+  const index = chapters.findIndex((item) => item.from === entirePath);
+  let result = {};
+  if (type === 'next') {
+    let n = index;
+    while (n < chapters.length) {
+      n++;
+      const chapter = chapters[n];
+      if (chapter && !chapter.isFolder) {
+        result = chapter;
+        break;
+      }
+    }
+  }
+  if (type === 'prev') {
+    let n = index;
+    while (n > -1) {
+      n--;
+      const chapter = chapters[n];
+      if (chapter && !chapter.isFolder) {
+        result = chapter;
+        break;
+      }
+    }
+  }
+  return result;
+}

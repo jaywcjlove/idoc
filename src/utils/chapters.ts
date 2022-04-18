@@ -4,7 +4,7 @@ import { config, isScope } from '../utils/conf.js';
 export type Chapter = {
   from?: string;
   to?: string;
-  relative?: string;
+  raw?: string;
   href?: string;
   current?: string;
   label?: string;
@@ -24,7 +24,7 @@ export function formatChapters(arr: Array<Record<string, string>> = [], current?
         .split(path.sep)
         .join('/')
         .replace(/\/(README).html$/i, '/index.html');
-      obj.relative = key.replace(/\/$/, '');
+      obj.raw = key.replace(new RegExp(`(\/|${path.sep})$`, 'g'), '');
       obj.label = item[key];
       obj.isFolder = !obj.to.endsWith('.html');
       obj.active = current === obj.to;

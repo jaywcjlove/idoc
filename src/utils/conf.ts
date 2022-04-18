@@ -99,7 +99,7 @@ export class Conf {
           this.data[key] = image2uri(filePath) as string;
         }
       } else {
-        this.data[key] = data[key] as any;
+        this.data[key] = data[key] as never;
       }
     });
   }
@@ -116,6 +116,8 @@ export class Conf {
       this.data.config.conf = confPath;
       const conf = await fs.readFile(confPath, 'utf8');
       const data: Config = parse(conf);
+      config.data.global = { ...data };
+
       if (data.dir) {
         data.dir = path.resolve(process.cwd(), data.dir);
       }
@@ -147,6 +149,7 @@ export class Conf {
       const chapters = await fs.promises.readFile(chaptersPath, 'utf8');
       this.data.config.chapters = chaptersPath;
       this.data.chapters = parse(chapters) || [];
+      config.data.global.chapters = [...this.data.chapters];
     }
   }
   async getFiles() {
@@ -170,6 +173,7 @@ export class Conf {
       stat.ext = await getExt(stat.path);
       stat.name = path.basename(stat.path);
       this.data.asset.push(stat);
+      config.data.global.asset = [...this.data.asset];
     }
   }
   getRelativePath(toPath: string) {
