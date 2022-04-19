@@ -1,7 +1,7 @@
 import path from 'path';
 import chokidar from 'chokidar';
 import fs from 'fs-extra';
-import { build, compilation, compilationAll, copyThemeAsset, getOutputPath, copyThemeFileAsset } from './build.js';
+import { compilation, compilationAll, copyThemeAsset, getOutputPath, copyThemeFileAsset } from './build.js';
 import * as log from '../utils/log.js';
 import { config } from '../utils/conf.js';
 
@@ -24,11 +24,13 @@ export function watch() {
     if (config.data.config.conf === filepath) {
       await config.initConf();
       await config.getChaptersConf();
-      build();
+      compilationAll();
+      copyThemeAsset();
     } else if (config.data.config.chapters === filepath) {
       await config.initConf();
       await config.getChaptersConf();
-      build();
+      compilationAll();
+      copyThemeAsset();
     } else if (isTheme && /\.ejs/i.test(filepath)) {
       compilationAll();
     } else if (isTheme) {
@@ -74,7 +76,7 @@ export function watch() {
     console.log(` \x1b[31midoc:watch:\x1b[0m`, err);
   });
 
-  watcher.on('ready', async () => {
-    await copyThemeAsset();
+  watcher.on('ready', () => {
+    copyThemeAsset();
   });
 }
