@@ -66,7 +66,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   let pagetitle = '';
   let description = '';
   mdOptions.rewrite = (node, index, parent) => {
-    rehypeUrls(node);
+    rehypeUrls(node, fromPath);
     fixHomeAsset(node, fromPath);
     if (node.type === 'root') {
       pagetitle = getTitle(node) || pagetitle;
