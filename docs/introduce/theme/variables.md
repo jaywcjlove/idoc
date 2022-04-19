@@ -18,9 +18,9 @@ interface SiteGlobalConfig {
   /** 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本 **/
   description?: string;
   /** 导航上的logo */
-  logo?: string;
+  logo?: LogoOrFavicon;
   /** 网站 favicon 设置 */
-  favicon?: string;
+  favicon?: LogoOrFavicon;
   editButton?: {
     label?: string;
     url?: string;
@@ -39,6 +39,54 @@ interface SiteGlobalConfig {
     target: string;
   }>;
 }
+```
+
+### logo
+
+```ts
+type LogoOrFavicon = {
+  href?: string;
+  raw?: string;
+  path?: string;
+  base64?: string;
+  /** svg code */
+  code?: string;
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (logo.code) { %>
+  <%- logo.code %>
+<%} else if(logo.href) { %>
+  <img alt="<%=site%> logo" src="<%= RELATIVE_PATH %><%=logo.href%>">
+<%} else if (logo.base64) { %>
+  <img alt="<%=site%> logo" src="<%=logo.base64%>">
+<% } %>
+```
+
+### favicon
+
+```ts
+type LogoOrFavicon = {
+  href?: string;
+  raw?: string;
+  path?: string;
+  base64?: string;
+  /** svg code */
+  code?: string;
+}
+```
+
+模板中使用示例：
+
+```ejs
+<% if (favicon.href) { %>
+  <link rel="icon" href="<%=favicon.href%>" type="image/x-icon">
+<% } else if (favicon.base64) { %>
+  <link rel="icon" href="<%=favicon.base64%>" type="image/x-icon">
+<% } %>
 ```
 
 ### editButton

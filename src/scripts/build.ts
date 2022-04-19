@@ -29,31 +29,34 @@ export async function compilation(filepath: string) {
 }
 
 export async function copyThemeAsset() {
-  const assetTemp = await readdirFiles(config.data.theme, {
-    ignored: /\/(\.git)/,
-    exclude: /(\.ejs|\.DS_Store)$/,
-  });
-
-  await Promise.all(
-    assetTemp.map(async (item) => {
-      await copyThemeFileAsset(item.path);
-    }),
+  readdirFiles(
+    config.data.theme,
+    {
+      ignored: /\/(\.git)/,
+      exclude: /(\.ejs|\.DS_Store)$/,
+    },
+    (_, stat) => {
+      if (stat.isFile()) {
+        copyThemeFileAsset(stat.path);
+      }
+    },
   );
 }
 
 export async function copyThemeFileAsset(file: string) {
   const outPath = path.join(config.data.output, path.relative(config.data.theme, file));
-  await fs.copy(file, outPath);
-  log.output('\x1b[35;1mcopy\x1b[0m')(file, outPath);
+  fs.copy(file, outPath, (err) => {
+    if (err) {
+      console.log(` \x1b[31midoc:copy:theme:asset:\x1b[0m`, err);
+      return;
+    }
+    log.output('\x1b[35;1mcopy\x1b[0m')(file, outPath);
+  });
 }
 
 export async function compilationAll() {
   const { asset = [] } = config.data || {};
-  await Promise.all(
-    asset.map(async (item) => {
-      await compilation(item.path);
-    }),
-  );
+  asset.map(async (item) => compilation(item.path));
 }
 
 export async function build() {
@@ -61,8 +64,8 @@ export async function build() {
     await config.getChaptersConf();
     await config.getFiles();
     await config.getReadme();
-    await compilationAll();
-    await copyThemeAsset();
+    compilationAll();
+    copyThemeAsset();
     console.log(`\n \x1b[34;1m 🎉 Compliled successfully!\x1b[0m\n`);
   } catch (error) {
     console.log(` \x1b[31midoc:\x1b[0m`, error);

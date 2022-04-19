@@ -108,6 +108,18 @@ data:
 
 自定义网站的名称，也将用户导航菜单 logo 旁边显示的文本。
 
+```yml
+site: iDoc
+```
+
+如果你没有配置，将会自动读取 `package.json` 中的 `name` 字段
+
+```json
+{
+  "name": "idoc",
+}
+```
+
 ### `description`
 
  对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本。
@@ -124,20 +136,25 @@ keywords: idoc,document,doc
 
 自定义网站的导航菜单 `logo`，默认内置了 `logo`。
 
+```yml
+## Website logo icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+logo: ./logo.png
+```
+
+支持 base64 字符串，和图片文件相对目录配置，如果配置 svg 图标路径，自动将 svg 代码生成到页面中，这将有助于解决明暗主题样式、logo 模糊等问题。
+
+
 ### `favicon`
 
 自定义网站的 `favicon` 图标，默认内置了图标。
 
 ```yml
-site: iDoc
-```
-
-如果你没有配置，将会自动读取 `package.json` 中的 `name` 字段
-
-```json
-{
-  "name": "idoc",
-}
+## Website favicon icon
+## defalut: `data:image/png;base64,iVBOR......`
+# -----------------------
+favicon: ./logo.png
 ```
 
 ### `theme`
@@ -276,6 +293,10 @@ title: 网页标题
 description: 网页简述
 # 搜索引擎能搜索到的关键词，每个关键词之间用逗号，隔开，必须是英文的逗号。
 keywords: 关键词
+# 自定义网站的 favicon 图标，默认内置了图标。
+favicon: page.favicon || config.data.favicon,
+# 自定义网站的导航菜单 logo，默认内置了 logo。
+logo: page.logo || config.data.logo,
 # 显示编辑按钮
 editButton: 
   label: Edit this page on GitHub
@@ -317,4 +338,6 @@ layout: markdown.ejs
 keywords: idoc,config,api
 fileStat:
   mtimeStr: 2022/04/13
+logo: 
+  href: false
 -->

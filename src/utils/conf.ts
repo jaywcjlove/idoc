@@ -7,6 +7,15 @@ import { logo } from './logo.js';
 import { PageConfig } from '../markdown/markdown.js';
 import { isAbsoluteURL } from '../markdown/utils.js';
 
+export type LogoOrFavicon = {
+  href?: string;
+  raw?: string;
+  path?: string;
+  base64?: string;
+  /** svg code */
+  code?: string;
+};
+
 export interface SiteGlobalConfig {
   /** site name */
   site?: string;
@@ -14,9 +23,9 @@ export interface SiteGlobalConfig {
   keywords?: string;
   description?: string;
   /** website logo icon */
-  logo?: string;
+  logo?: LogoOrFavicon;
   /** website favicon icon */
-  favicon?: string;
+  favicon?: LogoOrFavicon;
   editButton?: {
     label?: string;
     url?: string;
@@ -56,8 +65,15 @@ export interface Config extends SiteGlobalConfig {
   /** idoc version */
   idocVersion?: string;
   scope?: string[];
-  global?: Config;
+  global?: IdocConfig;
   page?: PageConfig;
+}
+
+export interface IdocConfig extends Omit<Config, 'logo' | 'favicon'> {
+  /** website logo icon */
+  logo?: string | LogoOrFavicon;
+  /** website favicon icon */
+  favicon?: string | LogoOrFavicon;
 }
 
 export type MenuData = {
@@ -82,7 +98,12 @@ export class Conf {
     scope: [],
     data: {},
     site: 'idoc',
-    logo: logo,
+    logo: {
+      base64: logo,
+    },
+    favicon: {
+      base64: logo,
+    },
     keywords: '',
     footer: '',
     global: {} as Config,
@@ -91,13 +112,23 @@ export class Conf {
   get all() {
     return this.data;
   }
+  set footer(str: string) {
+    this.data.footer = str.replace('{{idocVersion}}', this.data.idocVersion).replace('{{version}}', this.data.version);
+  }
+  set logo(src: string) {
+    this.data.logo = transformLogoOrFavicon(src) as unknown as Config['logo'];
+  }
+  set favicon(src: string) {
+    this.data.favicon = transformLogoOrFavicon(src) as unknown as Config['favicon'];
+  }
   set all(data: Config) {
     Object.keys(data).forEach((key: keyof Config) => {
-      if ((key === 'favicon' || key === 'logo') && data[key] && !/^data:image\//.test(data[key])) {
-        const filePath = path.resolve(this.data.root, data[key]);
-        if (fs.existsSync(filePath)) {
-          this.data[key] = image2uri(filePath) as string;
-        }
+      if (key === 'favicon') {
+        this.favicon = data[key] as string;
+      } else if (key === 'logo') {
+        this.logo = data[key] as string;
+      } else if (key === 'footer') {
+        this.footer = data[key] || '';
       } else {
         this.data[key] = data[key] as never;
       }
@@ -115,7 +146,7 @@ export class Conf {
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
       const conf = await fs.readFile(confPath, 'utf8');
-      const data: Config = parse(conf);
+      const data: IdocConfig = parse(conf);
       config.data.global = { ...data };
 
       if (data.dir) {
@@ -124,15 +155,9 @@ export class Conf {
       if (data.output) {
         data.output = path.resolve(process.cwd(), data.output);
       }
-      if (data.logo) {
-        data.logo = await image2uri(data.logo);
-      }
-      if (data.favicon) {
-        data.favicon = await image2uri(data.favicon);
-      }
-      if (!data.logo) data.logo = logo;
-      if (!data.favicon) data.favicon = logo;
       this.data = Object.assign(this.data, data);
+      this.logo = (data.logo || logo) as string;
+      this.favicon = (data.favicon || logo) as string;
     }
 
     if (this.data.theme === 'default' || !this.data.theme) {
@@ -142,9 +167,7 @@ export class Conf {
     const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
     this.data.idocVersion = pkgIdoc.version;
     if (this.data.footer) {
-      this.data.footer = this.data.footer
-        .replace('{{idocVersion}}', this.data.idocVersion)
-        .replace('{{version}}', this.data.version);
+      this.footer = this.data.footer;
     }
     return this.data;
   }
@@ -221,6 +244,30 @@ export class Conf {
     }
     return data;
   }
+}
+
+export function transformLogoOrFavicon(opts: string | LogoOrFavicon) {
+  const data = typeof opts === 'object' ? { raw: '', ...opts } : ({ raw: opts || '' } as LogoOrFavicon);
+  if (/^data:image\//.test(data.raw)) {
+    data.base64 = data.raw;
+  }
+  const filePath = path.resolve(config.data.root, data.raw);
+  if (fs.existsSync(filePath) && data.raw) {
+    data.path = filePath;
+    const output = getOutputCurrentPath(filePath);
+    data.href = path.relative(config.data.output, output).split(path.sep).join('/');
+    fs.ensureDirSync(path.dirname(output));
+    fs.copyFileSync(filePath, output);
+    if (data.raw.toLocaleLowerCase().endsWith('.svg')) {
+      data.code = fs.readFileSync(path.resolve(config.data.root, data.raw)).toString();
+    }
+    data.base64 = image2uri(filePath) as string;
+  }
+  return data;
+}
+
+export function getOutputCurrentPath(current: string) {
+  return path.resolve(config.data.output, path.relative(config.data.root, current));
 }
 
 export function isScope(toPath: string, scope?: string) {

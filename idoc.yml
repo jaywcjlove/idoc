@@ -27,7 +27,6 @@ theme: default
 # -----------------------
 logo: ./logo.png
 
-
 ## Website favicon icon
 ## defalut: `data:image/png;base64,iVBOR......`
 # -----------------------

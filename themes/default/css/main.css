@@ -122,7 +122,8 @@ a:hover {
 .header .logo .title {
   padding-left: 8px;
 }
-.header .logo img {
+.header .logo img,
+.header .logo svg {
   height: 26px;
   display: block;
 }

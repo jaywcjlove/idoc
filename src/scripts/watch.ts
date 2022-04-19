@@ -24,20 +24,20 @@ export function watch() {
     if (config.data.config.conf === filepath) {
       await config.initConf();
       await config.getChaptersConf();
-      await build();
+      build();
     } else if (config.data.config.chapters === filepath) {
       await config.initConf();
       await config.getChaptersConf();
-      await build();
+      build();
     } else if (isTheme && /\.ejs/i.test(filepath)) {
-      await compilationAll();
+      compilationAll();
     } else if (isTheme) {
-      await copyThemeFileAsset(filepath);
+      copyThemeFileAsset(filepath);
     } else if (/\.(md|markdown)/i.test(filepath)) {
-      await compilation(filepath);
+      compilation(filepath);
     } else {
       const assetPath = getOutputPath(filepath);
-      await fs.copyFile(filepath, assetPath);
+      fs.copyFile(filepath, assetPath);
     }
   });
 

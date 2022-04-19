@@ -1,8 +1,12 @@
 <header class="header">
   <article class="inner warpper">
     <a class="logo" href="<%= RELATIVE_PATH %>index.html">
-      <% if (logo) { %>
-        <img alt="handbook logo" src="<%=logo%>">
+      <% if (logo.code) { %>
+        <%- logo.code %>
+      <%} else if(logo.href) { %>
+        <img alt="<%=site%> logo" src="<%= RELATIVE_PATH %><%=logo.href%>">
+      <%} else if (logo.base64) { %>
+        <img alt="<%=site%> logo" src="<%=logo.base64%>">
       <% } %>
       <span class="title"><%-site%></span>
     </a>
