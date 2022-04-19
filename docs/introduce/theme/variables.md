@@ -83,7 +83,7 @@ type LogoOrFavicon = {
 
 ```ejs
 <% if (favicon.href) { %>
-  <link rel="icon" href="<%=favicon.href%>" type="image/x-icon">
+  <link rel="icon" href="<%= RELATIVE_PATH %><%=favicon.href%>" type="image/x-icon">
 <% } else if (favicon.base64) { %>
   <link rel="icon" href="<%=favicon.base64%>" type="image/x-icon">
 <% } %>
