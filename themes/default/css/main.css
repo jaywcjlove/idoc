@@ -33,6 +33,7 @@ body {
 markdown-style {
   min-height: 60vh;
   grid-area: main;
+  margin-bottom: 18px !important;
 }
 markdown-style img {
   background-color: transparent !important;
@@ -167,9 +168,6 @@ footer.article-footer {
   padding-right: 12px;
   border-radius: 5px;
   margin-top: 26px;
-}
-markdown-style > footer.article-footer {
-  margin-bottom: 18px !important;
 }
 
 footer.article-footer a {
