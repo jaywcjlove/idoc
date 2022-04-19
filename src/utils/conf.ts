@@ -140,6 +140,7 @@ export class Conf {
       const pkg = await fs.readJSON(pkgpath);
       this.data.version = pkg.version;
       this.data.site = pkg.name || '';
+      this.data.description = pkg.description || '';
       this.data.openSource = pkg.repository || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
