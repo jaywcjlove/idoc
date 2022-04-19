@@ -122,11 +122,41 @@ site: iDoc
 
 ### `description`
 
- 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本。
+对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本。
+
+```yml
+description: idoc description
+```
+
+如果你没有配置，将会自动读取 `package.json` 中的 `description` 字段
+
+```json
+{
+  "description": "idoc description",
+}
+```
 
 ### `keywords`
 
-搜索引擎能搜索到的关键词，每个关键词之间用逗号，隔开，必须是英文的逗号。`idoc.yml` -> `注释配置`
+搜索引擎能搜索到的关键词，每个关键词之间用英文逗号 `,` 隔开，必须是英文的逗号。`package.json` -> `idoc.yml` -> `注释配置`
+
+```yml
+keywords: idoc,markdown,api,document,tool
+```
+
+如果你没有配置，将会自动读取 `package.json` 中的 `keywords` 字段
+
+```json
+{
+  "keywords": [
+    "idoc",
+    "markdown",
+    "api",
+    "document",
+    "tool"
+  ]
+}
+```
 
 ```yml
 keywords: idoc,document,doc
@@ -338,6 +368,4 @@ layout: markdown.ejs
 keywords: idoc,config,api
 fileStat:
   mtimeStr: 2022/04/13
-logo: 
-  href: false
 -->
