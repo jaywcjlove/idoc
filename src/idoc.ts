@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import path from 'path';
+import { fileURLToPath } from 'url';
 import minimist from 'minimist';
 import fs from 'fs-extra';
 import { build } from './scripts/build.js';
@@ -52,7 +53,7 @@ if (argvs.h || argvs.help) {
 (async () => {
   try {
     if (argvs.v || argvs.version) {
-      const pkgpath = path.resolve(new URL('../package.json', import.meta.url).pathname);
+      const pkgpath = fileURLToPath(new URL('../package.json', import.meta.url));
       const { version } = await fs.readJSON(pkgpath);
       console.log(` \x1b[35midoc\x1b[0m v${version}\n`);
       process.exit(0);

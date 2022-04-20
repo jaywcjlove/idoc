@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
 import inquirer from 'inquirer';
 import { copyFile } from '../utils/copy.js';
@@ -53,12 +54,12 @@ export async function init(folder: string) {
   }
 
   if (option.theme) {
-    const themepath = path.resolve(new URL('../../themes', import.meta.url).pathname);
+    const themepath = fileURLToPath(new URL('../../themes', import.meta.url));
     await fs.copy(themepath, path.resolve(initFolder, 'themes'));
   }
 
-  const temp = path.resolve(new URL('../../template', import.meta.url).pathname);
-  const pkgpath = path.resolve(new URL('../../package.json', import.meta.url).pathname);
+  const temp = fileURLToPath(new URL('../../template', import.meta.url));
+  const pkgpath = fileURLToPath(new URL('../../package.json', import.meta.url));
   const pkg = await fs.readJSON(pkgpath);
 
   await copyFile(path.resolve(temp, 'idoc.yml'), path.resolve(initFolder, 'idoc.yml'), {
