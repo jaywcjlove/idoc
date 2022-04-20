@@ -22,7 +22,7 @@ export function formatChapter(chapter: Record<string, string>, current?: string)
       .split(path.sep)
       .join('/')
       .replace(/\/(README).html$/i, '/index.html');
-    obj.raw = key.replace(new RegExp(`(\/|${path.sep})$`, 'g'), '');
+    obj.raw = key.replace(new RegExp(`(\/|\\)$`, 'g'), '');
     obj.label = chapter[key];
     obj.isFolder = !obj.to.endsWith('.html');
     obj.active = current === obj.to;
