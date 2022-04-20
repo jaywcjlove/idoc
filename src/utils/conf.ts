@@ -188,7 +188,6 @@ export class Conf {
     if (!fs.existsSync(this.data.dir)) {
       return;
     }
-    console.log('asset:', config.data.dir);
     const files = await readdirFiles(this.data.dir, {
       ignored: /\/(node_modules|\.git)/,
       filter: (filepath) => /.(md|markdown)$/.test(filepath.path),
