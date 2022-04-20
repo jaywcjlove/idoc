@@ -45,4 +45,10 @@ $ tree -I 'node_modules' -L 3
         └── partial
 ```
 
+注意，这时候主题配置值发生了改变，请查看 `idoc.yml` 配置文件：
+
+```yml
+theme: "themes/default"
+```
+
 如果你需要更改主题，您可以查看[模版文档](./templates.md)。

@@ -22,11 +22,12 @@ export function copyied(fromPath: string, toPath: string) {
   });
 }
 
-export function fixHomeAsset(node: Root | RootContent, mdpath: string) {
+export function copyAsset(node: Root | RootContent, mdpath: string) {
   const isOutReadme = path.relative(config.data.root, mdpath).toLocaleLowerCase() === 'readme.md';
   if (node.type !== 'element' || node.tagName !== 'img' || Array.isArray(node.properties.src)) return;
   if (typeof node.properties.src === 'boolean') return;
   if (typeof node.properties.src === 'number') return;
+  // `root/README.md`
   if (!isAbsoluteURL(node.properties.src) && isOutReadme && mdpath.toLocaleLowerCase().endsWith('readme.md')) {
     const assetPath = path.resolve(config.data.root, node.properties.src);
     if (!fs.existsSync(assetPath) || !assetPath.startsWith(config.data.root)) return;
