@@ -1,13 +1,13 @@
 import path from 'path';
 import { Root, RootContent } from 'hast';
-import { isAbsoluteURL } from './utils.js';
+import { isAbsoluteURL, isOutReadme } from './utils.js';
 import { config } from '../utils/conf.js';
 
 export default function rehypeUrls(node: Root | RootContent, fromPath: string) {
   if (node.type === 'element' && node.properties.href && /.md/.test(node.properties.href as string)) {
     let href = node.properties.href as string;
     if (!isAbsoluteURL(href) && typeof href === 'string') {
-      const isOutDocs = !fromPath.startsWith(config.data.dir);
+      const isOutDocs = isOutReadme(fromPath);
       if (isOutDocs) {
         href = path.relative(config.data.dir, path.resolve(config.data.root, href));
       }

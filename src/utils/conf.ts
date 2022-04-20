@@ -6,8 +6,8 @@ import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
 import { PageConfig } from '../markdown/markdown.js';
-import { isAbsoluteURL } from '../markdown/utils.js';
-import * as log from '../utils/log.js';
+import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
+// import * as log from '../utils/log.js';
 
 export type LogoOrFavicon = {
   href?: string;
@@ -196,7 +196,7 @@ export class Conf {
   }
   async getReadme() {
     const readmePath = path.resolve(this.data.root, 'README.md');
-    const existsReadme = this.data.asset.find((item) => /\/(readme.md)/.test(item.path.toString()));
+    const existsReadme = this.data.asset.find((item) => isOutReadme(item.path));
     if (existsReadme) {
       this.data.readme = existsReadme.path;
     } else if (fs.existsSync(readmePath) && !existsReadme) {

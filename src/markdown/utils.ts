@@ -24,7 +24,8 @@ export function getDescription(node: Root) {
 }
 
 export const isAbsoluteURL = (str: string) => /^[a-z][a-z0-9+.-]*:/.test(str);
-
+export const isOutReadme = (mdPath: string) =>
+  path.relative(config.data.root, mdPath).toLocaleLowerCase() === 'readme.md';
 export function getPrevOrNextPage(
   type: 'prev' | 'next',
   { raw, label }: Chapter,
@@ -34,7 +35,13 @@ export function getPrevOrNextPage(
 ): Chapter {
   const entirePath = path.resolve(config.data.dir, mdPath);
   const outputPath = path.resolve(config.data.output, htmlPath);
-  const index = chapters.findIndex((item) => item.from === entirePath);
+  const outReadme = isOutReadme(mdPath);
+  const index = chapters.findIndex((item) => {
+    if (outReadme && item.from === path.resolve(config.data.dir, path.basename(mdPath))) {
+      return true;
+    }
+    return item.from === entirePath;
+  });
   let result: Chapter = {};
   if (raw && label) {
     return formatChapter({ [raw]: label }, outputPath);

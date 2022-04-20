@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import { Root, RootContent } from 'hast';
 import { config, getOutputCurrentPath } from '../utils/conf.js';
-import { isAbsoluteURL } from './utils.js';
+import { isAbsoluteURL, isOutReadme } from './utils.js';
 import { getOutputPath } from '../scripts/build.js';
 import * as log from '../utils/log.js';
 
@@ -23,12 +23,12 @@ export function copyied(fromPath: string, toPath: string) {
 }
 
 export function copyAsset(node: Root | RootContent, mdpath: string) {
-  const isOutReadme = path.relative(config.data.root, mdpath).toLocaleLowerCase() === 'readme.md';
+  const outReadme = isOutReadme(mdpath);
   if (node.type !== 'element' || node.tagName !== 'img' || Array.isArray(node.properties.src)) return;
   if (typeof node.properties.src === 'boolean') return;
   if (typeof node.properties.src === 'number') return;
   // `root/README.md`
-  if (!isAbsoluteURL(node.properties.src) && isOutReadme && mdpath.toLocaleLowerCase().endsWith('readme.md')) {
+  if (!isAbsoluteURL(node.properties.src) && outReadme && mdpath.toLocaleLowerCase().endsWith('readme.md')) {
     const assetPath = path.resolve(config.data.root, node.properties.src);
     if (!fs.existsSync(assetPath) || !assetPath.startsWith(config.data.root)) return;
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
@@ -39,7 +39,7 @@ export function copyAsset(node: Root | RootContent, mdpath: string) {
       node.properties.src = path.relative(config.data.dir, assetPath).split(path.sep).join('/');
     }
   }
-  if (!isAbsoluteURL(node.properties.src) && !isOutReadme) {
+  if (!isAbsoluteURL(node.properties.src) && !outReadme) {
     const assetPath = path.resolve(path.dirname(mdpath), node.properties.src);
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
     const output = isIncludesDocs ? getOutputPath(assetPath) : getOutputCurrentPath(assetPath);
