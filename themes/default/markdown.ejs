@@ -1,7 +1,7 @@
 <%- include('partial/header'); %>
 <%- include('partial/navigation'); %>
 
-<div class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocs ? '' : 'notocs'%>">
+<div class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocs && tocs.length > 0 ? '' : 'notocs'%>">
   <%- include('partial/chapters'); %>
   <markdown-style>
     <%- html %>

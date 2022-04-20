@@ -1,9 +1,9 @@
-<% if (tocs) { %>
+<% if (tocs && tocs.length > 0) { %>
 <nav class="tocs">
   <aside class="inner toc"></aside>
 </nav>
 <% } %>
-<% if (tocs) { %>
+<% if (tocs && tocs.length > 0) { %>
 <script src="<%= RELATIVE_PATH %>js/tocbot.min.js?v=4.18.2"></script>
 <script>
 tocbot.init({

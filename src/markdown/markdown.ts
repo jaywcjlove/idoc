@@ -160,7 +160,6 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     }
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
-
   const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   const tmpStr = await fs.readFile(tempPath);
   return render(tmpStr.toString(), varData, {
