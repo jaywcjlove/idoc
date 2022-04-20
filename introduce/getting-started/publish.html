@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布网站 iDoc </title>
+  
+  <meta name="description" content="文档网站搞好之后，可以发布到 GitHub 中，也可以部署到自己的服务器上面，GitHub 仓库提供一个 gh-pages 分支，用于静态资源托管，意味着你将静态页面生成 push 到这个分支直接可以预览。下面简单的介绍发布到 GitHub">
+  
+  
+  <meta name="keywords" content="idoc,config,api">
+  
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650437596383">
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650437596383">
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650437596383">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650437596383">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650437596383">
+  
+    <link rel="icon" href="../../logo.png" type="image/x-icon">
+  
+  <script src="../../js/copy.js"></script>
+  <script src="../../js/dark-mode.js"></script>
+  <script src="../../js/markdown-style.js"></script>
+</head>
+<body>
+<header class="header">
+  <article class="inner warpper">
+    <a class="logo" href="../../index.html">
+      
+        <img alt="iDoc logo" src="../../logo.png">
+      
+      <span class="title">iDoc</span>
+    </a>
+    <div class="content">
+      <ul class="menu">
+        
+        <li>
+          <a href="../../index.html" target="" class=""> Home </a>
+        </li>
+        
+        <li>
+          <a href="installation.html" target="" class="active"> Docs </a>
+        </li>
+        
+        <li>
+          <a href="../../markdown/basic-syntax.html" target="" class=""> Markdown </a>
+        </li>
+        
+        <li>
+          <a href="../../about.html" target="" class=""> About </a>
+        </li>
+        
+      </ul>
+      
+        <a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+      
+      <dark-mode permanent></dark-mode>
+    </div>
+  </article>
+</header>
+
+<div class="warpper-content warpper sidebar ">
+  
+<div class="sidebar-border">
+  <aside class="sidebar" role="navigation">
+    <div>
+    
+      
+        <a href="../index.html" class="">自述</a>
+      
+    
+      
+        <label>入门</label>
+      
+    
+      
+        <a href="installation.html" class="">安装</a>
+      
+    
+      
+        <a href="site-preparation.html" class="">网站准备</a>
+      
+    
+      
+        <a href="site-creation.html" class="">创建网站</a>
+      
+    
+      
+        <a href="site-add.html" class="">添加文档</a>
+      
+    
+      
+        <a href="publish.html" class="active">发布网站</a>
+      
+    
+      
+        <label>API</label>
+      
+    
+      
+        <a href="../api/command.html" class="">命令帮助</a>
+      
+    
+      
+        <a href="../api/config.html" class="">配置文件</a>
+      
+    
+      
+        <label>主题</label>
+      
+    
+      
+        <a href="../theme/theme-defalut.html" class="">定制主题</a>
+      
+    
+      
+        <a href="../theme/templates.html" class="">模板使用教程</a>
+      
+    
+      
+        <a href="../theme/variables.html" class="">模板变量</a>
+      
+    
+    </div>
+  </aside>
+</div>
+
+  <markdown-style>
+    <h1 id="发布网站"><a aria-hidden="true" tabindex="-1" href="#发布网站" class="anchor"><span class="icon icon-link"></span></a>发布网站</h1>
+<p>文档网站搞好之后，可以发布到 <code>GitHub</code> 中，也可以部署到自己的服务器上面，<code>GitHub</code> 仓库提供一个 <code>gh-pages</code> 分支，用于静态资源托管，意味着你将静态页面生成 push 到这个分支直接可以预览。下面简单的介绍发布到 GitHub 中预览的步骤。</p>
+<h2 id="生成静态资源"><a aria-hidden="true" tabindex="-1" href="#生成静态资源" class="anchor"><span class="icon icon-link"></span></a>生成静态资源</h2>
+<p>通过命令运行生成静态资源，将根据 <code>idoc.yml</code> 生成到对于的目录中，默认生成到 <code>dist</code> 目录中，请阅读 <a href="site-creation.html">创建网站</a> 教程</p>
+<h2 id="部署网站"><a aria-hidden="true" tabindex="-1" href="#部署网站" class="anchor"><span class="icon icon-link"></span></a>部署网站</h2>
+<p>我们拥有多种方法部署到 GitHub 免费的静态资源服务中。</p>
+<h3 id="github-ci"><a aria-hidden="true" tabindex="-1" href="#github-ci" class="anchor"><span class="icon icon-link"></span></a>GitHub CI</h3>
+<p>通过在项目根目录创建 <code>.github/workflows/ci.yml</code> 监听 <code>master</code> 分支 <code>push</code> 自动将 <code>dist</code> 目录提交到 <code>gh-pages</code> 分支</p>
+<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line"><span class="token key atrule">name</span><span class="token punctuation">:</span> CI
+</span><span class="code-line"><span class="token key atrule">on</span><span class="token punctuation">:</span>
+</span><span class="code-line">  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+</span><span class="code-line">    <span class="token key atrule">branches</span><span class="token punctuation">:</span>
+</span><span class="code-line">      <span class="token punctuation">-</span> master
+</span><span class="code-line">
+</span><span class="code-line"><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+</span><span class="code-line">  <span class="token key atrule">Build_Deploy</span><span class="token punctuation">:</span>
+</span><span class="code-line">    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span><span class="token number">18.04</span>
+</span><span class="code-line">    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v2
+</span><span class="code-line">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+</span><span class="code-line">          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">14</span>
+</span><span class="code-line">
+</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm install
+</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm run build
+</span><span class="code-line">
+</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy Website
+</span><span class="code-line">        <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
+</span><span class="code-line">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+</span><span class="code-line">          <span class="token key atrule">user_name</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]'</span>
+</span><span class="code-line">          <span class="token key atrule">user_email</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]@users.noreply.github.com'</span>
+</span><span class="code-line">          <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+</span><span class="code-line">          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./dist
+</span></code><div onclick="copied(this)" data-code="name: CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Build_Deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Deploy Website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          user_name: &#x27;github-actions[bot]&#x27;
+          user_email: &#x27;github-actions[bot]@users.noreply.github.com&#x27;
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h3 id="使用-gh-pages-工具"><a aria-hidden="true" tabindex="-1" href="#使用-gh-pages-工具" class="anchor"><span class="icon icon-link"></span></a>使用 gh-pages 工具</h3>
+<p>通过本地安装 <code>gh-pages</code>，您可以使用如下内容设置包脚本：</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">npm</span> <span class="token function">install</span> gh-pages --save-dev
+</span></code><div onclick="copied(this)" data-code="$ npm install gh-pages --save-dev
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"><span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line">  <span class="token string-property property">"deploy"</span><span class="token operator">:</span> <span class="token string">"gh-pages -d dist"</span>
+</span><span class="code-line"><span class="token punctuation">}</span>
+</span></code><div onclick="copied(this)" data-code="&#x22;scripts&#x22;: {
+  &#x22;deploy&#x22;: &#x22;gh-pages -d dist&#x22;
+}
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>然后要将 <code>dist</code> 文件夹中的所有内容发布到 <code>gh-pages</code> 分支，您可以运行以下命令：</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">npm</span> run deploy
+</span></code><div onclick="copied(this)" data-code="$ npm run deploy
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="在-github-中配置"><a aria-hidden="true" tabindex="-1" href="#在-github-中配置" class="anchor"><span class="icon icon-link"></span></a>在 GitHub 中配置</h2>
+<p>需要在配置中 <code>Setting</code> -> <code>pages</code> 中设置，一次设置无需重复设置。</p>
+<p><img src="publish-001.png" alt=""></p>
+    
+
+<footer class="article-footer warpper">
+  <section>
+    
+    <a href="https://github.com/jaywcjlove/idoc/blob/master/docs/introduce/getting-started/publish.md" class="edit-button" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+      </svg>
+      <span>Edit this page on GitHub</span>
+    </a>
+    
+    <span class="atime">2022/04/20</span>
+    
+  </section>
+  
+  
+<div class="previous">
+  
+  <a class="prev" href="site-add.html">
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+      <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+    </svg>
+    <span>
+      添加文档
+    </span>
+  </a>
+  
+  
+  <a class="next" href="../api/command.html">
+    <span>
+      命令帮助
+    </span>
+    <svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+      <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+      <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+    </svg>
+  </a>
+  
+</div>
+
+</footer>
+
+  </markdown-style>
+  
+<nav class="tocs">
+  <aside class="inner toc"></aside>
+</nav>
+
+
+<script src="../../js/tocbot.min.js?v=4.18.2"></script>
+<script>
+tocbot.init({
+  tocSelector: 'aside.inner',
+  contentSelector: 'markdown-style',
+  positionFixedSelector: 'aside.inner',
+  headingSelector: 'h1, h2, h3, h4',
+  collapseDepth: 2,
+
+  includeHtml: true,
+  includeTitleTags: false,
+  hasInnerContainers: true,
+  onClick: (e) => { console.log('you clicked a link', e) },
+  headingsOffset: 40,
+  scrollSmoothOffset: -40,
+});
+</script>
+
+</div>
+
+
+<div class="footer warpper">
+  Released under the MIT License. Copyright © 2022 Kenny Wong<br />
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.10.1
+
+</div>
+
+</body>
+</html>
