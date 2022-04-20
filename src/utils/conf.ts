@@ -161,6 +161,7 @@ export class Conf {
       this.data = Object.assign(this.data, data);
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
+      this.initScope();
     }
 
     if (this.data.theme === 'default' || !this.data.theme) {
@@ -208,6 +209,20 @@ export class Conf {
       config.data.global.asset = [...this.data.asset];
     }
   }
+  initScope() {
+    const { menus = {} } = this.data;
+    Object.keys(this.data.menus).forEach((key) => {
+      const url = menus[key];
+      const urlhref = typeof url === 'object' ? url.url : url;
+      const [_, scope] = urlhref
+        .split(' ')
+        .map((val: string) => (val || '').trim())
+        .filter(Boolean);
+      if (scope && !this.data.scope.includes(scope)) {
+        this.data.scope.push(scope.trim());
+      }
+    });
+  }
   getRelativePath(toPath: string) {
     const rel = path.relative(path.dirname(toPath), config.data.output).split(path.sep).join('/');
     return rel ? rel + '/' : '';
@@ -218,14 +233,16 @@ export class Conf {
       Object.keys(this.data.menus).forEach((key) => {
         const url = this.data.menus[key];
         const urlhref = typeof url === 'object' ? url.url : url;
-        const [value, scope] = urlhref.split(' ').map((val: string) => (val || '').trim());
+        const [value, scope] = urlhref
+          .split(' ')
+          .map((val: string) => (val || '').trim())
+          .filter(Boolean);
         const menu: MenuData = { name: key, raw: value, target: '' };
         if (typeof url === 'object' && url.target) {
           menu.target = url.target;
         }
         const current = path.join(this.data.output, value);
         const active = isActive(current, toPath, scope);
-        if (scope && !this.data.scope.includes(scope)) this.data.scope.push(scope.trim());
         menu.active = active;
         if (isAbsoluteURL(value)) {
           menu.url = value;

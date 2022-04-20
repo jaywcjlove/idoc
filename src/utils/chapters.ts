@@ -37,9 +37,11 @@ export function formatChapter(chapter: Record<string, string>, current?: string)
 
 export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapter[] {
   const findScope = config.data.scope.find((item) => isScope(current, item));
+  if (!findScope && config.data.scope.length > 0) {
+    return [];
+  }
   const chapters = arr.map((item) => {
     const obj: Chapter = formatChapter(item, current);
-    // console.log(item)
     if (!isScope(obj.to, findScope) && config.data.scope.length > 0) {
       return;
     }

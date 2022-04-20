@@ -46,6 +46,7 @@ editButton:
 
 # Navigation Menu.
 menus:
+  Home: index.html
   # Label: <URL> [scope]
   Docs: introduce/getting-started/installation.html introduce
   Markdown: markdown/basic-syntax.html markdown
