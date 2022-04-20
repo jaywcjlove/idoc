@@ -24,11 +24,13 @@ export function watch() {
     if (config.data.config.conf === filepath) {
       await config.initConf();
       await config.getChaptersConf();
+      await config.getFiles();
       compilationAll();
       copyThemeAsset();
     } else if (config.data.config.chapters === filepath) {
       await config.initConf();
       await config.getChaptersConf();
+      await config.getFiles();
       compilationAll();
       copyThemeAsset();
     } else if (isTheme && /\.ejs/i.test(filepath)) {
