@@ -92,8 +92,10 @@ export class Conf {
   }
   data: Config = {
     root: process.cwd(),
-    dir: path.resolve(process.cwd(), 'docs'),
-    output: path.resolve(process.cwd(), 'dist'),
+    dir: '',
+    output: '',
+    // dir: path.resolve(process.cwd(), 'docs'),
+    // output: path.resolve(process.cwd(), 'dist'),
     chapters: [],
     config: {},
     asset: [],
@@ -151,13 +153,11 @@ export class Conf {
       const conf = await fs.readFile(confPath, 'utf8');
       const data: IdocConfig = parse(conf);
       config.data.global = { ...data };
-
-      if (data.dir) {
-        data.dir = path.resolve(process.cwd(), data.dir);
-      }
-      if (data.output) {
-        data.output = path.resolve(process.cwd(), data.output);
-      }
+      data.dir =
+        this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : path.resolve(process.cwd(), 'docs'));
+      data.output =
+        this.data.output ||
+        (data.output ? path.resolve(process.cwd(), data.output) : path.resolve(process.cwd(), 'dist'));
       this.data = Object.assign(this.data, data);
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
@@ -188,6 +188,7 @@ export class Conf {
     if (!fs.existsSync(this.data.dir)) {
       return;
     }
+    console.log('asset:', config.data.dir);
     const files = await readdirFiles(this.data.dir, {
       ignored: /\/(node_modules|\.git)/,
       filter: (filepath) => /.(md|markdown)$/.test(filepath.path),

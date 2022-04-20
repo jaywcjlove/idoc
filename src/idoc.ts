@@ -73,14 +73,13 @@ if (argvs.h || argvs.help) {
       await newDoc(argvs._[1] || './README.md', argvs._[2], argvs);
       return;
     }
+    if (argvs.dir) config.data.dir = path.resolve(process.cwd(), argvs.dir);
+    if (argvs.output) config.data.output = path.resolve(process.cwd(), argvs.output);
+    if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
     await config.initConf();
     await config.getChaptersConf();
     await config.getFiles();
     await config.getReadme();
-    if (argvs.dir) config.data.dir = argvs.dir;
-    if (argvs.output) config.data.output = argvs.output;
-    if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
-
     if (argvs.force) {
       await fs.emptyDir(config.data.output);
     }
