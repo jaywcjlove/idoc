@@ -44,12 +44,7 @@ export function watch() {
   });
 
   watcher.on('add', async (filepath) => {
-    const isAsset = new RegExp(`^${config.data.dir}`).test(filepath);
-    if (isAsset && !/\.(md|markdown|DS_Store)$/.test(filepath)) {
-      let assetPath = getOutputPath(filepath);
-      await fs.copy(filepath, assetPath);
-      log.output('\x1b[35;1mcopy\x1b[0m')(filepath, assetPath);
-    } else if (/\.(md|markdown)/i.test(filepath)) {
+    if (/\.(md|markdown)/i.test(filepath)) {
       await compilation(filepath);
     }
   });

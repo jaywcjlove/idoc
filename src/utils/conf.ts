@@ -7,6 +7,7 @@ import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
 import { PageConfig } from '../markdown/markdown.js';
 import { isAbsoluteURL } from '../markdown/utils.js';
+import * as log from '../utils/log.js';
 
 export type LogoOrFavicon = {
   href?: string;
@@ -188,6 +189,7 @@ export class Conf {
     }
     const files = await readdirFiles(this.data.dir, {
       ignored: /\/(node_modules|\.git)/,
+      filter: (filepath) => /.(md|markdown)$/.test(filepath.path),
     });
     this.data.asset = files;
   }
@@ -260,6 +262,7 @@ export function transformLogoOrFavicon(opts: string | LogoOrFavicon) {
     data.href = path.relative(config.data.output, output).split(path.sep).join('/');
     fs.ensureDirSync(path.dirname(output));
     fs.copyFileSync(filePath, output);
+    // log.output('\x1b[35;1mcopy:favicon\x1b[0m')(filePath, output);
     if (data.raw.toLocaleLowerCase().endsWith('.svg')) {
       data.code = fs.readFileSync(path.resolve(config.data.root, data.raw)).toString();
     }
