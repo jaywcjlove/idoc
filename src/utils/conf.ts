@@ -163,7 +163,7 @@ export class Conf {
     }
 
     if (this.data.theme === 'default' || !this.data.theme) {
-      this.data.theme = fileURLToPath(fileURLToPath(new URL('../../themes/default', import.meta.url)));
+      this.data.theme = fileURLToPath(new URL('../../themes/default', import.meta.url));
     }
 
     const pkgIdoc = await fs.readJSON(fileURLToPath(new URL('../../package.json', import.meta.url)));
