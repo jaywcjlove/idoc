@@ -1,6 +1,7 @@
 import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
@@ -162,10 +163,10 @@ export class Conf {
     }
 
     if (this.data.theme === 'default' || !this.data.theme) {
-      this.data.theme = path.resolve(new URL('../../themes/default', import.meta.url).pathname);
+      this.data.theme = fileURLToPath(fileURLToPath(new URL('../../themes/default', import.meta.url)));
     }
 
-    const pkgIdoc = await fs.readJSON(new URL('../../package.json', import.meta.url).pathname);
+    const pkgIdoc = await fs.readJSON(fileURLToPath(new URL('../../package.json', import.meta.url)));
     this.data.idocVersion = pkgIdoc.version;
     if (this.data.footer) {
       this.footer = this.data.footer;
