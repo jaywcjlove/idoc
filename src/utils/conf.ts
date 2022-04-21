@@ -220,7 +220,7 @@ export class Conf {
   }
   initScope() {
     const { menus = {} } = this.data;
-    Object.keys(this.data.menus).forEach((key) => {
+    Object.keys(menus).forEach((key) => {
       const url = menus[key];
       const urlhref = typeof url === 'object' ? url.url : url;
       const [_, scope] = urlhref
