@@ -233,7 +233,7 @@ export class Conf {
       Object.keys(this.data.menus).forEach((key) => {
         const url = this.data.menus[key];
         const urlhref = typeof url === 'object' ? url.url : url;
-        const [value, scope] = urlhref
+        const [value, scope] = (urlhref || '')
           .split(' ')
           .map((val: string) => (val || '').trim())
           .filter(Boolean);
