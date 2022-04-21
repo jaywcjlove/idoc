@@ -22,15 +22,19 @@ export function watch() {
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
     // Modify Theme files
     if (config.data.config.conf === filepath) {
+      log.log('\x1b[33;1mupdate\x1b[0m')(filepath);
       await config.initConf();
       await config.getChaptersConf();
       await config.getFiles();
+      await config.getReadme();
       compilationAll();
       copyThemeAsset();
     } else if (config.data.config.chapters === filepath) {
+      log.log('\x1b[33;1mupdate\x1b[0m')(filepath);
       await config.initConf();
       await config.getChaptersConf();
       await config.getFiles();
+      await config.getReadme();
       compilationAll();
       copyThemeAsset();
     } else if (isTheme && /\.ejs/i.test(filepath)) {

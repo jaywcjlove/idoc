@@ -12,9 +12,9 @@ export function copyied(fromPath: string, toPath: string) {
       console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
       return;
     }
-    fs.copyFile(fromPath, toPath)
+    fs.copyFile(decodeURIComponent(fromPath), decodeURIComponent(toPath))
       .then((result) => {
-        log.output('\x1b[35;1mcopy\x1b[0m')(fromPath, toPath);
+        log.output('\x1b[35;1mcopy\x1b[0m')(decodeURIComponent(fromPath), decodeURIComponent(toPath));
       })
       .catch((err) => {
         console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
@@ -44,10 +44,10 @@ export function copyAsset(node: Root | RootContent, mdpath: string) {
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
     const output = isIncludesDocs ? getOutputPath(assetPath) : getOutputCurrentPath(assetPath);
     if (!output.startsWith(config.data.root)) {
-      log.output('\x1b[35;1mcopy\x1b[0m')(assetPath, output);
+      log.output('\x1b[35;1mcopy\x1b[0m')(decodeURIComponent(assetPath), decodeURIComponent(output));
       console.log(
         `    ╰┈\x1b[33;1mwarning\x1b[0m ->`,
-        `In "\x1b[33;1m${path.relative(config.data.root, mdpath)}\x1b[0m"`,
+        `In "\x1b[33;1m${path.relative(config.data.root, decodeURIComponent(mdpath))}\x1b[0m"`,
       );
       return;
     }
