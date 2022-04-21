@@ -23,24 +23,40 @@ export function copyied(fromPath: string, toPath: string) {
 }
 
 export function copyAsset(node: Root | RootContent, mdpath: string) {
+  if (node.type !== 'element' || !/^(img|a)$/.test(node.tagName) || Array.isArray(node.properties.src)) return;
+  let href = '';
+  if (node.tagName === 'img') {
+    if (typeof node.properties.src !== 'string' || isAbsoluteURL(node.properties.src)) return;
+    href = node.properties.src;
+  }
+  if (node.tagName === 'a') {
+    if (
+      typeof node.properties.href !== 'string' ||
+      isAbsoluteURL(node.properties.href) ||
+      node.properties.href.startsWith('#')
+    )
+      return;
+    href = node.properties.href;
+  }
+
   const outReadme = isOutReadme(mdpath);
-  if (node.type !== 'element' || node.tagName !== 'img' || Array.isArray(node.properties.src)) return;
-  if (typeof node.properties.src === 'boolean') return;
-  if (typeof node.properties.src === 'number') return;
-  // `root/README.md`
-  if (!isAbsoluteURL(node.properties.src) && outReadme && mdpath.toLocaleLowerCase().endsWith('readme.md')) {
-    const assetPath = path.resolve(config.data.root, node.properties.src);
+  if (outReadme && mdpath.toLocaleLowerCase().endsWith('readme.md')) {
+    const assetPath = path.resolve(config.data.root, href);
     if (!fs.existsSync(assetPath) || !assetPath.startsWith(config.data.root)) return;
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
-    const outputPath = path.resolve(config.data.output, node.properties.src);
+    const outputPath = path.resolve(config.data.output, href);
     if (!isIncludesDocs) {
       copyied(assetPath, outputPath);
     } else {
       node.properties.src = path.relative(config.data.dir, assetPath).split(path.sep).join('/');
     }
   }
-  if (!isAbsoluteURL(node.properties.src) && !outReadme) {
-    const assetPath = path.resolve(path.dirname(mdpath), node.properties.src);
+
+  if (!outReadme) {
+    const assetPath = path.resolve(path.dirname(mdpath), href);
+    if (!fs.existsSync(assetPath)) {
+      return;
+    }
     const isIncludesDocs = assetPath.startsWith(config.data.dir);
     const output = isIncludesDocs ? getOutputPath(assetPath) : getOutputCurrentPath(assetPath);
     if (!output.startsWith(config.data.root)) {
