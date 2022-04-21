@@ -3,7 +3,6 @@
 
 你可以执行下列命令来创建一篇新文章或者新的页面。
 
-
 ```bash
 $ idoc new <path> [title]
 ```
@@ -36,3 +35,41 @@ site: 网站名称
 ## 添加章节(SiderBar)导航
 
 通过添加 [`idoc.chapters.yml`](../api/config.md#idocchaptersyml) 配置，设置默认主题的左侧 SiderBar 章节导航。详细配置说参考 [`idoc.chapters.yml`](../api/config.md#idocchaptersyml) 文档。
+
+## 文档标题
+
+在 Markdown 文档中第一个大标题 `<h1>` 视为标题，如：
+
+```markdown
+添加文档
+===
+```
+
+不推荐下面写法，推荐上面 👆 写法，与文档中的小标题做区分。
+
+```markdown
+# 添加文档
+```
+
+生成 HTML 代码：
+
+```html
+<title>添加文档 iDoc </title>
+```
+
+## 添加概述
+
+在 Markdown 文档中，第一段文本视为当前网页的概述，如：
+
+```markdown
+添加文档
+===
+
+你可以执行下列命令来创建一篇新文章或者新的页面。
+```
+
+生成 HTML 代码：
+
+```html
+<meta name="description" content="你可以执行下列命令来创建一篇新文章或者新的页面。">
+```
