@@ -145,6 +145,9 @@ export class Conf {
       this.data.version = pkg.version;
       this.data.site = pkg.name || '';
       this.data.keywords = pkg.keywords && Array.isArray(pkg.keywords) ? pkg.keywords.join(',') : '';
+      if (pkg.repository && pkg.repository.url) {
+        pkg.repository.url = pkg.repository.url.replace(/^git+/, '');
+      }
       this.data.openSource = pkg.repository || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
