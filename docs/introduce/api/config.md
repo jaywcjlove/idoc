@@ -112,11 +112,12 @@ data:
 site: iDoc
 ```
 
-如果你没有配置，将会自动读取 `package.json` 中的 `name` 字段
+如果你没有配置，将会自动读取 `package.json` 中的 `name` -> `title` 字段，优先 `title` 字段。
 
 ```json
 {
   "name": "idoc",
+  "title": "idoc book",
 }
 ```
 
