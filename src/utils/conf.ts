@@ -148,20 +148,26 @@ export class Conf {
       this.data.openSource = pkg.repository || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
+    const defaultDocsPath = path.resolve(process.cwd(), 'docs');
+    const defaultOutputPath = path.resolve(process.cwd(), 'dist');
     if (fs.existsSync(confPath)) {
       this.data.config.conf = confPath;
       const conf = await fs.readFile(confPath, 'utf8');
       const data: IdocConfig = parse(conf);
       config.data.global = { ...data };
-      data.dir =
-        this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : path.resolve(process.cwd(), 'docs'));
-      data.output =
-        this.data.output ||
-        (data.output ? path.resolve(process.cwd(), data.output) : path.resolve(process.cwd(), 'dist'));
+      data.dir = this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : defaultDocsPath);
+      data.output = this.data.output || (data.output ? path.resolve(process.cwd(), data.output) : defaultOutputPath);
       this.data = Object.assign(this.data, data);
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
       this.initScope();
+    } else {
+      if (!this.data.dir) {
+        this.data.dir = defaultDocsPath;
+      }
+      if (!this.data.output) {
+        this.data.output = defaultOutputPath;
+      }
     }
 
     if (this.data.theme === 'default' || !this.data.theme) {
