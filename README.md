@@ -5,7 +5,8 @@ idoc
 
 [![Downloads](https://img.shields.io/npm/dm/idoc.svg?style=flat)](https://www.npmjs.com/package/idoc)
 [![NPM version](https://img.shields.io/npm/v/idoc.svg?style=flat)](https://npmjs.org/package/idoc)
-[![Build](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml)
+[![CI](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml)
+[![Dependents Repo](https://badgen.net/github/dependents-repo/jaywcjlove/idoc)](https://github.com/jaywcjlove/idoc/network/dependents)
 
 Generate static pages from all Markdown in a folder.
 
