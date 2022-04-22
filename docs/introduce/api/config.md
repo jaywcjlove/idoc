@@ -170,7 +170,7 @@ keywords: idoc,document,doc
 
 ### `tocs`
 
-全局配置，隐藏的页面目录。
+全局配置，隐藏所有的页面目录。
 
 ```yml
 tocs: false
@@ -382,12 +382,24 @@ fileStat:
   mtimeStr: 2022/04/13
 ```
 
+### tocs
+
+如果全局配置，隐藏所有的页面目录，在页面中注释配置 `tocs=true`，让某个页面显示页面目录。
+
+```markdown
+<!--idoc:config:
+tocs: true
+-->
+```
+
 ### layout
 
 布局模版配置，默认值 `markdown.ejs` 不需要配置，这将在您自定义模板的时候很有用，例如您需要自定义首页。
 
-```yml
+```markdown
+<!--idoc:config:
 layout: markdown.ejs
+-->
 ```
 <!--rehype:style=background-color: #c0d2f342-->
 

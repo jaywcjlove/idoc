@@ -25,7 +25,7 @@ export interface SiteGlobalConfig {
   keywords?: string;
   description?: string;
   scope?: string[];
-  tocs?: Toc[] | false;
+  tocs?: Toc[] | boolean;
   /** website logo icon */
   logo?: LogoOrFavicon;
   /** website favicon icon */

@@ -18,7 +18,6 @@ import { copyAsset } from './copyAsset.js';
 import { getPrevOrNextPage } from './utils.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
-  tocs?: Toc[] | false;
   layout?: string;
   prevPage?: Chapter;
   nextPage?: Chapter;
@@ -121,7 +120,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     data.tocs = page.tocs;
   }
 
-  if (config.data.tocs === false) {
+  if (config.data.tocs === false && page.tocs !== true) {
     data.tocs = false;
   }
 
