@@ -16,6 +16,7 @@ import { copyButton } from './copy-button.js';
 import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
 import { getPrevOrNextPage } from './utils.js';
+import * as log from '../utils/log.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   layout?: string;
@@ -164,6 +165,15 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
   const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
+  if (!fs.existsSync(tempPath)) {
+    log.log('\x1b[31;1mcreate\x1b[0m')(fromPath);
+    console.log(
+      `    ╰┈\x1b[31;1m FAIL\x1b[0m ->`,
+      `Template \x1b[33;1m${tempPath}\x1b[0m does not exist. \n`,
+      `              Please check your configuration.`,
+    );
+    return '';
+  }
   const tmpStr = await fs.readFile(tempPath);
   return render(tmpStr.toString(), varData, {
     filename: tempPath,
