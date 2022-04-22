@@ -147,7 +147,7 @@ export class Conf {
       this.data.site = pkg.title || pkg.name || '';
       this.data.keywords = pkg.keywords && Array.isArray(pkg.keywords) ? pkg.keywords.join(',') : '';
       if (pkg.repository && pkg.repository.url) {
-        pkg.repository.url = pkg.repository.url.replace(/^git+/, '');
+        pkg.repository.url = pkg.repository.url.replace(/^git\+/, '');
       }
       this.data.openSource = pkg.repository || '';
     }
