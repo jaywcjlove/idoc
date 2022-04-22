@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import image2uri from 'image2uri';
 import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
-import { PageConfig } from '../markdown/markdown.js';
+import { PageConfig, Toc } from '../markdown/markdown.js';
 import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
 // import * as log from '../utils/log.js';
 
@@ -24,6 +24,7 @@ export interface SiteGlobalConfig {
   title?: string;
   keywords?: string;
   description?: string;
+  tocs?: Toc[] | false;
   /** website logo icon */
   logo?: LogoOrFavicon;
   /** website favicon icon */
@@ -160,6 +161,8 @@ export class Conf {
       config.data.global = { ...data };
       data.dir = this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : defaultDocsPath);
       data.output = this.data.output || (data.output ? path.resolve(process.cwd(), data.output) : defaultOutputPath);
+      // console.log('config.data.data', data, this.data)
+      this.data.tocs = data.tocs === false ? data.tocs : undefined;
       this.data = Object.assign(this.data, data);
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;

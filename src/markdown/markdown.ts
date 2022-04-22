@@ -121,6 +121,10 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     data.tocs = page.tocs;
   }
 
+  if (config.data.tocs === false) {
+    data.tocs = false;
+  }
+
   // Paging....
   page.prevPage = getPrevOrNextPage('prev', page.prevPage || {}, data.chapters, fromPath, toPath);
   page.nextPage = getPrevOrNextPage('next', page.nextPage || {}, data.chapters, fromPath, toPath);

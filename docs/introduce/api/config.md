@@ -163,6 +163,14 @@ keywords: idoc,markdown,api,document,tool
 keywords: idoc,document,doc
 ```
 
+### `tocs`
+
+全局配置，隐藏的页面目录。
+
+```yml
+tocs: false
+```
+
 ### `logo`
 
 自定义网站的导航菜单 `logo`，默认内置了 `logo`。

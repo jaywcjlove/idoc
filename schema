@@ -19,6 +19,10 @@
                   "type": "string",
                   "description": "Website name"
               },
+              "tocs": {
+                  "type": "boolean",
+                  "description": "page table of contents hidden"
+              },
               "title": {
                   "type": "string",
                   "description": "Content displayed at browser tabs, Default Markdown document first heading <h1>"
