@@ -7,6 +7,10 @@ import { getOutputPath } from '../scripts/build.js';
 import * as log from '../utils/log.js';
 
 export function copyied(fromPath: string, toPath: string) {
+  const stat = fs.statSync(fromPath);
+  if (!stat.isFile()) {
+    return;
+  }
   fs.ensureDir(path.dirname(toPath), (err) => {
     if (err) {
       console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
@@ -17,7 +21,7 @@ export function copyied(fromPath: string, toPath: string) {
         log.output('\x1b[35;1mcopy\x1b[0m')(decodeURIComponent(fromPath), decodeURIComponent(toPath));
       })
       .catch((err) => {
-        console.log(` \x1b[31midoc:copy:\x1b[0m`, err);
+        console.log(` \x1b[31midoc:asset:copy:\x1b[0m`, err);
       });
   });
 }
