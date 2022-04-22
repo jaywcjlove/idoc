@@ -94,6 +94,23 @@ a {
 a:hover {
   text-decoration: underline;
 }
+a.gototop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: inline-block;
+  background: var(--color-theme-text);
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 9999;
+  color: var(--color-theme-bg);
+  font-size: 10px;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+a.gototop:hover {
+  opacity: 1;
+}
 
 .header {
   position: fixed;
