@@ -24,6 +24,7 @@ export interface SiteGlobalConfig {
   title?: string;
   keywords?: string;
   description?: string;
+  scope?: string[];
   tocs?: Toc[] | false;
   /** website logo icon */
   logo?: LogoOrFavicon;
@@ -67,7 +68,6 @@ export interface Config extends SiteGlobalConfig {
   version?: string;
   /** idoc version */
   idocVersion?: string;
-  scope?: string[];
   global?: IdocConfig;
   page?: PageConfig;
 }

@@ -76,6 +76,11 @@ editButton:
   label: Edit this page on GitHub
   url: https://github.com/jaywcjlove/idoc/blob/master/
 
+## chapters scopes
+# -----------------------
+# scope: 
+#   - introduce
+
 # Navigation Menu.
 menus:
   # Label: <URL> [scope]
@@ -232,6 +237,21 @@ openSource: https://github.com/jaywcjlove/idoc
 editButton: 
   label: Edit this page on GitHub
   url: https://github.com/jaywcjlove/idoc/blob/master/
+```
+
+### `scope`
+
+```yml
+scope: 
+  - introduce/getting-started
+```
+
+与在 [`menus`](#menus) 中定义 `scope` 效果是一样的
+
+```yml
+menus:
+  Docs: introduce/getting-started/installation.html 
+  Markdown: markdown/basic-syntax.html markdown
 ```
 
 ### `menus`
