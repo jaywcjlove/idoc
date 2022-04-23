@@ -17,6 +17,7 @@ import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
 import { getPrevOrNextPage } from './utils.js';
 import * as log from '../utils/log.js';
+import { getTocsTree } from './tocsTree.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   layout?: string;
@@ -35,6 +36,11 @@ export interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
   html?: string;
   menus?: MenuData[];
   chapters?: Array<Chapter>;
+  tocsTree?: Array<TocTree>;
+}
+
+export interface TocTree extends Toc {
+  children?: Array<TocTree>;
 }
 
 export type Toc = {
@@ -90,11 +96,9 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
         if (item.type === 'element' && item.tagName === 'a') {
           item.properties.class = 'anchor';
         }
-        if (item.type === 'text') {
-          tocItem.label = item.value;
-        }
         return item;
       });
+      tocItem.label = getCodeString(node.children) || '';
       tocs.push(tocItem);
     }
     if (node.type === 'comment' && /^idoc:config:/i.test(node.value.trimStart())) {
@@ -106,14 +110,24 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     ...item,
     class: `toc${item.number - tocsStart + 1}`,
   }));
-
-  const data = { fileStat: {}, tocs: [...tocsArr], menus: [], editButton: {} } as Data & ConfigData;
+  const data = {
+    fileStat: {},
+    tocs: [...tocsArr],
+    tocsTree: getTocsTree([...tocs.filter((item) => item.number !== 1)]),
+    menus: [],
+    editButton: {},
+  } as Data & ConfigData;
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
   const { global, ...other } = config.data;
   config.data.global = { ...other };
   data.chapters = formatChapters(config.data.chapters, toPath);
+
+  if (toPath.endsWith('theme/variables.html')) {
+    console.log('tocs:', tocs);
+    console.log('data:', data.tocsTree);
+  }
 
   // Markdown comment config.
   const page: PageConfig = parse(configMarkdownStr) || {};
@@ -123,6 +137,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
 
   if (config.data.tocs === false && page.tocs !== true) {
     data.tocs = false;
+    data.tocsTree = [];
   }
 
   // Paging....

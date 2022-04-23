@@ -1,24 +1,52 @@
-<% if (tocs && tocs.length > 0) { %>
+<% if (tocsTree && tocsTree.length > 0) { %>
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    <% tocsTree.forEach((level2) => { %>
+      <li>
+        <a href="#<%= level2.href %>" class="tocs-link"><%= level2.label %></a>
+        <% if (level2.children && level2.children.length > 0) { %>
+          <ol class="tocs-list is-collapsed">
+            <% level2.children.forEach((level3) => { %>
+              <li>
+                <a href="#<%= level3.href %>" class="tocs-link"><%= level3.label %></a>
+                <% if (level3.children && level3.children.length > 0) { %>
+                  <ol class="tocs-list is-collapsed">
+                    <% level3.children.forEach((level4) => { %>
+                      <li>
+                        <a href="#<%= level4.href %>" class="tocs-link"><%= level4.label %></a>
+                        <% if (level4.children && level4.children.length > 0) { %>
+                          <ol class="tocs-list is-collapsed">
+                            <% level4.children.forEach((level5) => { %>
+                              <li>
+                                <a href="#<%= level5.href %>" class="tocs-link"><%= level5.label %></a>
+                                <% if (level5.children && level5.children.length > 0) { %>
+                                  <ol class="tocs-list is-collapsed">
+                                    <% level5.children.forEach((level6) => { %>
+                                      <li>
+                                        <a href="#<%= level6.href %>" class="tocs-link"><%= level6.label %></a>
+                                      </li>
+                                    <% }) %>
+                                  </ol>
+                                <% }%>
+                              </li>
+                            <% }) %>
+                          </ol>
+                        <% }%>
+                      </li>
+                    <% }) %>
+                  </ol>
+                <% }%>
+              </li>
+            <% }) %>
+          </ol>
+        <% }%>
+      </li>
+    <% }) %>
+    </ol>
+  </aside>
 </nav>
 <% } %>
-<% if (tocs && tocs.length > 0) { %>
-<script src="<%= RELATIVE_PATH %>js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
+<% if (tocsTree && tocsTree.length > 0) { %>
+<script src="<%= RELATIVE_PATH %>js/tocbot.js?v=1.0.0"></script>
 <% } %>

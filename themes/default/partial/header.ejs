@@ -12,7 +12,9 @@
   <meta name="keywords" content="<%= keywords %>">
   <% }%>
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/main.css?v=<%=new Date().getTime()%>">
+  <% if (tocsTree && tocsTree.length > 0) { %>
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/tocbot.css?v=<%=new Date().getTime()%>">
+  <% } %>
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/media.css?v=<%=new Date().getTime()%>">
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/sidebar.css?v=<%=new Date().getTime()%>">
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/copy.css?v=<%=new Date().getTime()%>">

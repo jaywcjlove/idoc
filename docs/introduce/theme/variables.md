@@ -143,7 +143,13 @@ interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
   html?: string;
   menus?: MenuData[];
   chapters?: Array<Chapter>;
+  tocsTree?: Array<TocTree>;
 }
+
+interface TocTree extends Toc {
+  children?: Array<TocTree>;
+}
+
 type Chapter = {
   from?: string;
   to?: string;
@@ -290,6 +296,59 @@ type Chapter = {
   { 'introduce/theme/templates.md': '模板' },
   { 'introduce/theme/variables.md': '变量' }
 ]
+```
+
+### tocsTree
+
+文档目录数据，用于生成当前页面导航的数据，数据最多 `5` (`<h2>` ~ `<h6>`)层，会忽略标题 `<h1>` 第一层数据。
+
+```js
+[
+  { "number": 2, "href": "生成静态资源", "label": "生成静态资源" },
+  {
+    "number": 2,
+    "href": "部署网站",
+    "label": "部署网站",
+    "children": [
+      { "number": 3, "href": "github-ci", "label": "GitHub CI" },
+      { "number": 3, "href": "使用-gh-pages-工具", "label": "使用 gh-pages 工具" }
+      {
+        "number": 3, "href": "github-ci", "label": "GitHub CI",
+        "children": [
+          { "number": 4, "href": "github-ci", "label": "GitHub CI" },
+        ]
+      },
+    ]
+  },
+  { "number": 2, "href": "在-github-中配置", "label": "在 GitHub 中配置" }
+]
+```
+
+模板中使用示例：
+
+```ejs
+<% if (tocsTree && tocsTree.length > 0) { %>
+<nav class="tocs">
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    <% tocsTree.forEach((level2) => { %>
+      <li>
+        <a href="#<%= level2.href %>" class="tocs-link"><%= level2.label %></a>
+        <% if (level2.children && level2.children.length > 0) { %>
+          <ol class="tocs-list is-collapsed">
+            <% level2.children.forEach((level3) => { %>
+              <li>
+                <a href="#<%= level3.href %>" class="tocs-link"><%= level3.label %></a>
+              </li>
+            <% }) %>
+          </ol>
+        <% }%>
+      </li>
+    <% }) %>
+    </ol>
+  </aside>
+</nav>
+<% } %>
 ```
 
 ### prevPage
