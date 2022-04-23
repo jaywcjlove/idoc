@@ -208,9 +208,11 @@ export class Conf {
   }
   async getReadme() {
     const readmePath = path.resolve(this.data.root, 'README.md');
+    const readmeDirPath = path.resolve(this.data.dir, 'README.md');
+    const existsReadmeDir = this.data.asset.find((item) => item.path === readmeDirPath);
     const existsReadme = this.data.asset.find((item) => isOutReadme(item.path));
-    if (existsReadme) {
-      this.data.readme = existsReadme.path;
+    if (existsReadmeDir) {
+      this.data.readme = existsReadmeDir.path;
     } else if (fs.existsSync(readmePath) && !existsReadme) {
       this.data.readme = readmePath;
       const stat = (await fs.promises.stat(readmePath)) as IFileDirStat;

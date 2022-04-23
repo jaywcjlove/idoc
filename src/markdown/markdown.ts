@@ -164,7 +164,10 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     }
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
-  const tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
+  let tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
+  if (page.layout) {
+    tempPath = path.resolve(config.data.root, page.layout);
+  }
   if (!fs.existsSync(tempPath)) {
     log.log('\x1b[31;1mcreate\x1b[0m')(fromPath);
     console.log(
