@@ -11,11 +11,11 @@
   
   <meta name="keywords" content="idoc,document,doc">
   
-  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650686903917">
-  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650686903917">
-  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650686903917">
-  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650686903917">
-  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650686903917">
+  <link rel="stylesheet" type="text/css" href="../css/main.css?v=1650688489105">
+  <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1650688489105">
+  <link rel="stylesheet" type="text/css" href="../css/media.css?v=1650688489105">
+  <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1650688489105">
+  <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1650688489105">
   
     <link rel="icon" href="../logo.png" type="image/x-icon">
   
@@ -106,7 +106,7 @@
   <markdown-style>
     <h1 id="插入图片"><a aria-hidden="true" tabindex="-1" href="#插入图片" class="anchor"><span class="icon icon-link"></span></a>插入图片</h1>
 <p>在 <a href="./basic-syntax.html#%e5%9b%be%e7%89%87">基本语法</a> 中已经解释了通用插入图片的方法。下面详细解释使用方法</p>
-<h2 id="基本使用方法"><a aria-hidden="true" tabindex="-1" href="#基本使用方法" class="anchor"><span class="icon icon-link"></span></a>基本使用方法</h2>
+<h2 id="基本使用"><a aria-hidden="true" tabindex="-1" href="#基本使用" class="anchor"><span class="icon icon-link"></span></a>基本使用</h2>
 <p>跟链接的方法区别在于前面加了个感叹号 <code>!</code>。</p>
 <pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line"><span class="token url"><span class="token operator">!</span>[<span class="token content">图像的替代文本 - 图片名称</span>](<span class="token url">../../logo.png</span>)</span>
 </span><span class="code-line"><span class="token url"><span class="token operator">!</span>[<span class="token content">图像的替代文本 - 图片名称</span>](<span class="token url">http://图片网址</span>)</span>
@@ -142,6 +142,25 @@
 <p>另外一种语法直接使用 <code>&#x3C;img></code> 标签引入图片：</p>
 <pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://jaywcjlove.github.io/logo.png<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 </span></code><div onclick="copied(this)" data-code="<img height=&#x22;200&#x22; src=&#x22;https://jaywcjlove.github.io/logo.png&#x22;>
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="存放位置"><a aria-hidden="true" tabindex="-1" href="#存放位置" class="anchor"><span class="icon icon-link"></span></a>存放位置</h2>
+<p>在文档中，引入本地图片，都是相对于 Markdown 文件的位置引入图片。</p>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs
+</span><span class="code-line">│   ├── README.md   <span class="token comment"># 👈  引用图片资源页面</span>
+</span><span class="code-line">│   └── about.md
+</span><span class="code-line">├── logo.svg        <span class="token comment"># 👈  图片资源</span>
+</span></code><div onclick="copied(this)" data-code="├── docs
+│   ├── README.md   # 👈  引用图片资源页面
+│   └── about.md
+├── logo.svg        # 👈  图片资源
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>文档 Markdown 中引入 <code>logo.svg</code> 图片</p>
+<pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line">![](../logo.svg)
+</span><span class="code-line">
+</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../logo.svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" data-code="![](../logo.svg)
+
+<img src=&#x22;../logo.svg&#x22;>
 " class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
