@@ -3,7 +3,7 @@
 
 在 [基本语法](./basic-syntax.md#图片) 中已经解释了通用插入图片的方法。下面详细解释使用方法
 
-## 基本使用方法
+## 基本使用
 
 跟链接的方法区别在于前面加了个感叹号 `!`。
 
@@ -36,4 +36,23 @@
 
 ```markdown
 <img height="200" src="https://jaywcjlove.github.io/logo.png">
+```
+
+## 存放位置
+
+在文档中，引入本地图片，都是相对于 Markdown 文件的位置引入图片。
+
+```bash
+├── docs
+│   ├── README.md   # 👈  引用图片资源页面
+│   └── about.md
+├── logo.svg        # 👈  图片资源
+```
+
+文档 Markdown 中引入 `logo.svg` 图片
+
+```markdown
+![](../logo.svg)
+
+<img src="../logo.svg">
 ```
