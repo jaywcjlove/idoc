@@ -61,4 +61,53 @@ body, html { background: #fff; }
 <div class="jumbotron-block"> </div>
 ```
 
-## 单独定制首页模板
+## 定制首页模板
+
+使用[注释配置](../api/config.md#注释配置)，在当前页面添加指定的模板，将当前 Markdown 使用自定义模板渲染生成 HTML，可以使用[模板变量](../theme/variables.md)获得你需要的内容，将它渲染到页面中。
+
+```markdown
+<!--idoc:config:
+layout: home.ejs
+-->
+
+这里可以添加首页展示的文本内容
+```
+
+自定义模板 `home.ejs`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <%- html %>
+</body>
+</html>
+```
+
+生成 HTML 内容：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <p>这里可以添加首页展示的文本内容</p>
+</body>
+</html>
+```
+
+目录结构
+
+```bash
+├── docs
+│   ├── README.md   # 👈 首页
+│   └── about.md
+├── package.json
+├── home.ejs        # 👈 自定义模板
+├── idoc.yml
+```
