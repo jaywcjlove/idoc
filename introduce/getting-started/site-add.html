@@ -11,11 +11,13 @@
   
   <meta name="keywords" content="idoc,config,api">
   
-  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650690965529">
-  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650690965529">
-  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650690965529">
-  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650690965529">
-  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650690965529">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650748049541">
+  
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650748049541">
+  
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650748049541">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650748049541">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650748049541">
   
     <link rel="icon" href="../../logo.png" type="image/x-icon">
   
@@ -173,9 +175,43 @@ site: 网站名称
 <pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line"><span class="token title important"><span class="token punctuation">#</span> 添加文档</span>
 </span></code><div onclick="copied(this)" data-code="# 添加文档
 " class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>生成 HTML 代码：</p>
+<p>会生成到 <code>&#x3C;head></code> 页头中：</p>
 <pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>添加文档 iDoc <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
 </span></code><div onclick="copied(this)" data-code="<title>添加文档 iDoc </title>
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<p>Markdown 页面中生成：</p>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h1</span><span class="token punctuation">></span></span>添加文档 <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>h1</span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" data-code="<h1>添加文档 </h1>
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<h2 id="文档目录"><a aria-hidden="true" tabindex="-1" href="#文档目录" class="anchor"><span class="icon icon-link"></span></a>文档目录</h2>
+<p>当前文档 <code>&#x3C;h2></code> ~ <code>&#x3C;h6></code> 视为文档目录标题，将生成到文档默认主题的右边，模板中使用 <a href="../theme/variables.html#tocstree"><code>tocsTree</code></a> 变量。</p>
+<pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line"><span class="token title important"><span class="token punctuation">##</span> 标题 2</span>
+</span><span class="code-line"><span class="token title important"><span class="token punctuation">###</span> 标题 3</span>
+</span><span class="code-line"><span class="token title important"><span class="token punctuation">####</span> 标题 4</span>
+</span><span class="code-line"><span class="token title important"><span class="token punctuation">#####</span> 标题 5</span>
+</span><span class="code-line"><span class="token title important"><span class="token punctuation">######</span> 标题 6</span>
+</span></code><div onclick="copied(this)" data-code="## 标题 2
+### 标题 3
+#### 标题 4
+##### 标题 5
+###### 标题 6
+" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line">标题 2
+</span><span class="code-line">----        👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>标题 2<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>
+</span><span class="code-line">
+</span><span class="code-line">## 标题 2    👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>标题 2<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h2</span><span class="token punctuation">></span></span>
+</span><span class="code-line">### 标题 3    👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h3</span><span class="token punctuation">></span></span>标题 3<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h3</span><span class="token punctuation">></span></span>
+</span><span class="code-line">#### 标题 4    👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h4</span><span class="token punctuation">></span></span>标题 4<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h4</span><span class="token punctuation">></span></span>
+</span><span class="code-line">##### 标题 5    👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h5</span><span class="token punctuation">></span></span>标题 5<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h5</span><span class="token punctuation">></span></span>
+</span><span class="code-line">###### 标题 6    👉  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h6</span><span class="token punctuation">></span></span>标题 6<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>h6</span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" data-code="标题 2
+----        👉  <h2>标题 2<h2>
+
+## 标题 2    👉  <h2>标题 2<h2>
+### 标题 3    👉  <h3>标题 3<h3>
+#### 标题 4    👉  <h4>标题 4<h4>
+##### 标题 5    👉  <h5>标题 5<h5>
+###### 标题 6    👉  <h6>标题 6<h6>
 " class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="添加概述"><a aria-hidden="true" tabindex="-1" href="#添加概述" class="anchor"><span class="icon icon-link"></span></a>添加概述</h2>
 <p>在 Markdown 文档中，第一段文本视为当前网页的概述，如：</p>
@@ -236,34 +272,57 @@ site: 网站名称
   </markdown-style>
   
 <nav class="tocs">
-  <aside class="inner toc"></aside>
+  <aside class="inner toc">
+    <ol class="tocs-list">
+    
+      <li>
+        <a href="#命令添加文档" class="tocs-link">命令添加文档</a>
+        
+      </li>
+    
+      <li>
+        <a href="#手动添加文档" class="tocs-link">手动添加文档</a>
+        
+      </li>
+    
+      <li>
+        <a href="#添加配置" class="tocs-link">添加配置</a>
+        
+      </li>
+    
+      <li>
+        <a href="#添加章节siderbar导航" class="tocs-link">添加章节(SiderBar)导航</a>
+        
+      </li>
+    
+      <li>
+        <a href="#文档标题" class="tocs-link">文档标题</a>
+        
+      </li>
+    
+      <li>
+        <a href="#文档目录" class="tocs-link">文档目录</a>
+        
+      </li>
+    
+      <li>
+        <a href="#添加概述" class="tocs-link">添加概述</a>
+        
+      </li>
+    
+    </ol>
+  </aside>
 </nav>
 
 
-<script src="../../js/tocbot.min.js?v=4.18.2"></script>
-<script>
-tocbot.init({
-  tocSelector: 'aside.inner',
-  contentSelector: 'markdown-style',
-  positionFixedSelector: 'aside.inner',
-  headingSelector: 'h1, h2, h3, h4',
-  collapseDepth: 2,
-
-  includeHtml: true,
-  includeTitleTags: false,
-  hasInnerContainers: true,
-  onClick: (e) => { console.log('you clicked a link', e) },
-  headingsOffset: 40,
-  scrollSmoothOffset: -40,
-});
-</script>
+<script src="../../js/tocbot.js?v=1.0.0"></script>
 
 </div>
 
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.5
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.13.6
 
 </div>
 
