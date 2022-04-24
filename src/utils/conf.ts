@@ -257,7 +257,7 @@ export class Conf {
           menu.target = url.target;
         }
         const current = path.join(this.data.output, value);
-        menu.active = isScope(current, scope);
+        menu.active = isScope(current, scope) || isActive(current, toPath);
         if (isAbsoluteURL(value)) {
           menu.url = value;
         } else if (toPath === current) {
@@ -313,6 +313,21 @@ export function isScope(toPath: string, scope?: string) {
     if (new RegExp(`^${scope.split(path.sep).join(path.sep)}`, 'i').test(relative)) {
       return true;
     }
+  }
+  return false;
+}
+
+export function isActive(from: string, toPath: string) {
+  from = from.split(path.sep).join(path.sep);
+  toPath = toPath.split(path.sep).join(path.sep);
+
+  if (from === toPath) {
+    return true;
+  }
+  const formatFrom = path.dirname(from).replace(config.data.output, '');
+  const formatToPath = toPath.replace(config.data.output, '');
+  if (formatFrom && formatToPath.includes(formatFrom)) {
+    return true;
   }
   return false;
 }
