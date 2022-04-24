@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "idoc",
-  "version": "1.13.8",
+  "version": "1.13.9",
   "description": "Simple document generation tool. Dependence Node.js run.",
   "homepage": "https://jaywcjlove.github.io/idoc/",
   "author": "kenny wang <wowohoo@qq.com>",
