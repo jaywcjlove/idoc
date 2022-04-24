@@ -45,7 +45,9 @@ export function watch() {
       compilation(filepath);
     } else {
       const assetPath = getOutputPath(filepath);
-      fs.copyFile(filepath, assetPath);
+      await fs.ensureDir(path.dirname(assetPath));
+      await fs.copyFile(filepath, assetPath);
+      log.output('\x1b[35;1mcopy\x1b[0m')(filepath, assetPath);
     }
   });
 
