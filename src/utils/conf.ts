@@ -243,11 +243,12 @@ export class Conf {
   }
   getMenuData(toPath: string) {
     const data: MenuData[] = [];
+    const scope = [...this.data.scope].find((item) => isScope(toPath, item));
     if (this.data.menus) {
       Object.keys(this.data.menus).forEach((key) => {
         const url = this.data.menus[key];
         const urlhref = typeof url === 'object' ? url.url : url;
-        const [value, scope] = (urlhref || '')
+        const [value] = (urlhref || '')
           .split(' ')
           .map((val: string) => (val || '').trim())
           .filter(Boolean);
@@ -256,8 +257,7 @@ export class Conf {
           menu.target = url.target;
         }
         const current = path.join(this.data.output, value);
-        const active = isActive(current, toPath, scope);
-        menu.active = active;
+        menu.active = isScope(current, scope);
         if (isAbsoluteURL(value)) {
           menu.url = value;
         } else if (toPath === current) {
@@ -313,25 +313,6 @@ export function isScope(toPath: string, scope?: string) {
     if (new RegExp(`^${scope.split(path.sep).join(path.sep)}`, 'i').test(relative)) {
       return true;
     }
-  }
-  return false;
-}
-
-export function isActive(from: string, toPath: string, scope?: string) {
-  from = from.split(path.sep).join(path.sep);
-  toPath = toPath.split(path.sep).join(path.sep);
-
-  if (scope) {
-    return isScope(toPath, scope);
-  }
-
-  if (from === toPath) {
-    return true;
-  }
-  const formatFrom = path.dirname(from).replace(config.data.output, '');
-  const formatToPath = toPath.replace(config.data.output, '');
-  if (formatFrom && formatToPath.includes(formatFrom)) {
-    return true;
   }
   return false;
 }

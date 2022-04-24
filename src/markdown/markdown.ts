@@ -124,11 +124,6 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   config.data.global = { ...other };
   data.chapters = formatChapters(config.data.chapters, toPath);
 
-  if (toPath.endsWith('theme/variables.html')) {
-    console.log('tocs:', tocs);
-    console.log('data:', data.tocsTree);
-  }
-
   // Markdown comment config.
   const page: PageConfig = parse(configMarkdownStr) || {};
   if (typeof page.tocs === 'boolean' && page.tocs === false) {
