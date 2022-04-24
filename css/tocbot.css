@@ -21,10 +21,11 @@ nav.tocs .inner > .tocs-list {
 .tocs-list.is-collapsed {
   max-height: 0;
   overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
 }
 .tocs-list.is-collapsed.is-open {
-  max-height: inherit;
-  overflow: hidden;
+  max-height: 9999px;
+  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
 }
 
 .tocs-link {
