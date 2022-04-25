@@ -254,6 +254,17 @@ menus:
   Markdown: markdown/basic-syntax.html markdown
 ```
 
+### `sideEffectFiles`
+
+添加副作用 `Markdown` 文件，如果你有一些文件不在指定文档目录（默认 `docs`），这些文件不会编译输出 `html`，也不会监听，通过 `sideEffectFiles` 配置，将实现在指定文档目录之外的 `Markdown` 文档也能编译。
+
+```yml
+sideEffectFiles:
+  - README.zh.md
+```
+
+⚠️ 注意：如果你在实时编译文档，修改此配置将需要重启监听服务。
+
 ### `menus`
 
 默认主题顶部导航菜单定义

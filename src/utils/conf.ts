@@ -3,11 +3,11 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import image2uri from 'image2uri';
-import readdirFiles, { getExt, IFileDirStat } from 'recursive-readdir-files';
+import readdirFiles, { IFileDirStat, getStat } from 'recursive-readdir-files';
 import { logo } from './logo.js';
 import { PageConfig, Toc } from '../markdown/markdown.js';
 import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
-// import * as log from '../utils/log.js';
+import * as log from '../utils/log.js';
 
 export type LogoOrFavicon = {
   href?: string;
@@ -64,6 +64,7 @@ export interface Config extends SiteGlobalConfig {
   readme?: string;
   /** Template Data */
   data?: Record<string, any>;
+  sideEffectFiles?: Array<string>;
   /** project version */
   version?: string;
   /** idoc version */
@@ -166,6 +167,7 @@ export class Conf {
       this.data = Object.assign(this.data, data);
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
+      this.data.sideEffectFiles = (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath));
       this.initScope();
     } else {
       if (!this.data.dir) {
@@ -205,6 +207,22 @@ export class Conf {
       filter: (filepath) => /.(md|markdown)$/.test(filepath.path),
     });
     this.data.asset = files;
+    const { sideEffectFiles = [] } = this.data;
+    await Promise.all(
+      sideEffectFiles.map(async (filename) => {
+        if (!fs.existsSync(filename)) {
+          log.log('\x1b[31;1mcreate\x1b[0m')(filename);
+          console.log(
+            `    ╰┈\x1b[31;1m FAIL\x1b[0m ->`,
+            `Markdown file \x1b[33;1m${filename}\x1b[0m does not exist. \n`,
+            `              Please check your configuration.`,
+          );
+          return;
+        }
+        const stat = await getStat(path.resolve(filename));
+        this.data.asset.push(stat);
+      }),
+    );
   }
   async getReadme() {
     const readmePath = path.resolve(this.data.root, 'README.md');
@@ -215,10 +233,7 @@ export class Conf {
       this.data.readme = existsReadmeDir.path;
     } else if (fs.existsSync(readmePath) && !existsReadme) {
       this.data.readme = readmePath;
-      const stat = (await fs.promises.stat(readmePath)) as IFileDirStat;
-      stat.path = path.resolve(this.data.root, 'README.md');
-      stat.ext = await getExt(stat.path);
-      stat.name = path.basename(stat.path);
+      const stat = await getStat(readmePath);
       this.data.asset.push(stat);
       config.data.global.asset = [...this.data.asset];
     }
@@ -305,6 +320,8 @@ export function transformLogoOrFavicon(opts: string | LogoOrFavicon) {
 export function getOutputCurrentPath(current: string) {
   return path.resolve(config.data.output, path.relative(config.data.root, current));
 }
+
+export const isIncludesDocs = (assetPath: string) => assetPath.startsWith(config.data.dir);
 
 export function isScope(toPath: string, scope?: string) {
   if (scope) {

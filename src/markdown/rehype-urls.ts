@@ -9,7 +9,7 @@ export default function rehypeUrls(node: Root | RootContent, fromPath: string) {
     if (!isAbsoluteURL(href) && typeof href === 'string') {
       const isOutDocs = isOutReadme(fromPath);
       if (isOutDocs) {
-        href = path.relative(config.data.dir, path.resolve(config.data.root, href));
+        href = path.relative(config.data.dir, path.resolve(config.data.root, href)).split(path.sep).join('/');
       }
       if (/readme\.(md|markdown)$/i.test(href)) {
         node.properties.href = href.toLocaleLowerCase().replace(/readme\.(md|markdown)/gi, 'index.html');

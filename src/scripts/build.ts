@@ -3,23 +3,26 @@ import path from 'path';
 import readdirFiles from 'recursive-readdir-files';
 import { createHTML } from '../markdown/markdown.js';
 import * as log from '../utils/log.js';
-import { config } from '../utils/conf.js';
+import { config, isIncludesDocs } from '../utils/conf.js';
 
-export function getOutputPath(filepath: string) {
-  const relativePath = path.relative(config.data.dir, filepath);
-  let htmlPath = path.resolve(config.data.output, relativePath).replace(/\.(md|markdown)$/, '.html');
-  if (/\/readme\.(md|markdown)$/i.test(filepath.toLocaleLowerCase())) {
-    if (filepath === config.data.readme) {
-      htmlPath = path.resolve(config.data.output, 'index.html');
-    }
-    htmlPath = htmlPath.replace(/\/readme\.(html)$/i, '/index.html');
+export function getOutput(filepath: string = '') {
+  filepath =
+    path.basename(filepath).toLocaleLowerCase() === 'readme.md'
+      ? path.resolve(path.dirname(filepath), 'index.html')
+      : filepath;
+  filepath = filepath.replace(/\.(md|markdown)$/, '.html');
+  let relativePath = '';
+  if (isIncludesDocs(filepath)) {
+    relativePath = path.relative(config.data.dir, filepath);
+  } else {
+    relativePath = path.relative(config.data.root, filepath);
   }
-  return path.resolve(htmlPath);
+  return path.resolve(config.data.output, relativePath);
 }
 
 export async function compilation(filepath: string) {
   const mdStr = await fs.readFile(filepath);
-  const htmlPath = getOutputPath(filepath);
+  const htmlPath = getOutput(filepath);
   const htmlStr = await createHTML(mdStr.toString(), filepath, htmlPath);
   await fs.ensureDir(path.dirname(htmlPath));
   if (/\.(md|markdown)$/.test(filepath.toLocaleLowerCase())) {
