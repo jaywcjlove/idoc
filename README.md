@@ -72,6 +72,22 @@ Example:
   npm idoc --watch --output="www"
 ```
 
+## Compiled with idoc
+
+| Repo | Starred  | Website |
+| ---- | ---- | ---- |
+| [MySQL Tutorial](https://github.com/jaywcjlove/mysql-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/mysql-tutorial.svg)](https://github.com/jaywcjlove/mysql-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/mysql-tutorial) |
+| [Docker Tutorial](https://github.com/jaywcjlove/docker-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/docker-tutorial.svg)](https://github.com/jaywcjlove/docker-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/docker-tutorial) |
+| [Nginx Tutorial](https://github.com/jaywcjlove/nginx-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/nginx-tutorial.svg)](https://github.com/jaywcjlove/nginx-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/nginx-tutorial) |
+| [Vim Web](https://github.com/jaywcjlove/vim-web) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/vim-web.svg)](https://github.com/jaywcjlove/vim-web/stargazers) | [Preview Website](https://jaywcjlove.github.io/vim-web) |
+| [Git Tips](https://github.com/jaywcjlove/git-tips) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/git-tips.svg)](https://github.com/jaywcjlove/git-tips/stargazers) | [Preview Website](https://jaywcjlove.github.io/git-tips) |
+| [Awesome UIKit](https://github.com/jaywcjlove/awesome-uikit) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/awesome-uikit.svg)](https://github.com/jaywcjlove/awesome-uikit/stargazers) | [Preview Website](https://jaywcjlove.github.io/awesome-uikit) |
+| [Shell Tutorial](https://github.com/jaywcjlove/shell-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/shell-tutorial.svg)](https://github.com/jaywcjlove/shell-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/shell-tutorial) |
+| [SwiftUI Example](https://github.com/jaywcjlove/swiftui-example) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/swiftui-example.svg)](https://github.com/jaywcjlove/swiftui-example/stargazers) | [Preview Website](https://jaywcjlove.github.io/swiftui-example) |
+| [Swift Tutorial](https://github.com/jaywcjlove/swift-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/swift-tutorial.svg)](https://github.com/jaywcjlove/swift-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/swift-tutorial) |
+| [Handbook](https://github.com/jaywcjlove/handbook) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/handbook.svg)](https://github.com/jaywcjlove/handbook/stargazers) | [Preview Website](https://jaywcjlove.github.io/handbook) |
+| [GitHub Actions](https://github.com/jaywcjlove/github-actions) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/github-actions.svg)](https://github.com/jaywcjlove/github-actions/stargazers) | [Preview Website](https://jaywcjlove.github.io/github-actions) |
+
 ## Contributors
 
 As always, thanks to our amazing contributors!
