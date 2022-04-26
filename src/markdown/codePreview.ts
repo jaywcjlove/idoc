@@ -38,7 +38,6 @@ export const codePreviewWarpperStyle = (node: Root | RootContent, fromPath: stri
     node.tagName = 'div';
     node.children = node.children.map((elm) => {
       if (elm.type === 'element' && elm.tagName === 'code') {
-        console.log('>>', elm.properties);
         elm.tagName = 'pre';
       }
       return elm;
