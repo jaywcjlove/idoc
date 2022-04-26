@@ -30,6 +30,13 @@
                   "type": "string"
                 }
               },
+              "sideEffectFiles": {
+                "description": "Add Markdown files that are not in the specified directory.",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "title": {
                   "type": "string",
                   "description": "Content displayed at browser tabs, Default Markdown document first heading <h1>"
