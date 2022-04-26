@@ -1,12 +1,11 @@
 import { Element } from 'hast';
 
-export function copyButton(code: string): Element {
+export function copyButton(): Element {
   return {
     type: 'element',
     tagName: 'div',
     properties: {
       onclick: 'copied(this)',
-      'data-code': code,
       className: 'copied',
     },
     children: [

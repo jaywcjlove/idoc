@@ -29,7 +29,8 @@ function copyTextToClipboard(text, cb) {
 
 function copied(target, str) {
   target.classList.add('active');
-  copyTextToClipboard(target.dataset.code, function() {
+  const value = target.previousElementSibling ? target.previousElementSibling.value : '';
+  copyTextToClipboard(value, function() {
     setTimeout(() => {
       target.classList.remove('active');
     }, 2000);

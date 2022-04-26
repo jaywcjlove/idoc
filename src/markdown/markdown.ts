@@ -15,6 +15,7 @@ import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
+import { codePreview } from './codePreview.js';
 import { getPrevOrNextPage } from './utils.js';
 import * as log from '../utils/log.js';
 import { getTocsTree } from './tocsTree.js';
@@ -71,6 +72,12 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   let configMarkdownStr = '';
   let pagetitle = '';
   let description = '';
+  mdOptions.filterPlugins = (type, plugins) => {
+    if (type === 'rehype') {
+      plugins.unshift([codePreview, {}]);
+    }
+    return plugins;
+  };
   mdOptions.rewrite = (node, index, parent) => {
     rehypeUrls(node, fromPath);
     copyAsset(node, fromPath);
@@ -79,7 +86,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
       description = getDescription(node) || pagetitle;
     }
     if (node.type == 'element' && node.tagName === 'pre') {
-      node.children.push(copyButton(getCodeString(node.children)));
+      node.children.push(copyButton());
     }
     if (
       node.type == 'element' &&
@@ -187,8 +194,12 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     );
     return '';
   }
-  const tmpStr = await fs.readFile(tempPath);
-  return render(tmpStr.toString(), varData, {
-    filename: tempPath,
-  });
+  try {
+    const tmpStr = await fs.readFile(tempPath);
+    return render(tmpStr.toString(), varData, {
+      filename: tempPath,
+    });
+  } catch (error) {
+    return error.message || error;
+  }
 }

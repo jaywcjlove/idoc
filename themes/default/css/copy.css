@@ -10,6 +10,7 @@ markdown-style pre .copied {
   padding: 6px;
   font-size: 12px;
   transition: all 0.3s;
+  z-index: 10;
 }
 markdown-style pre .copied:not(.active) {
   visibility: hidden;
