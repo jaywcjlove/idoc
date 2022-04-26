@@ -27,6 +27,25 @@ export function getCodeMeta(meta: string = ''): Record<'preview' | 'iframe', boo
   return result;
 }
 
+export const codePreviewWarpperStyle = (node: Root | RootContent, fromPath: string) => {
+  if (
+    node.type === 'element' &&
+    node.tagName === 'pre' &&
+    node.properties.className &&
+    Array.isArray(node.properties.className) &&
+    node.properties.className.includes('idoc-demo-warpper')
+  ) {
+    node.tagName = 'div';
+    node.children = node.children.map((elm) => {
+      if (elm.type === 'element' && elm.tagName === 'code') {
+        console.log('>>', elm.properties);
+        elm.tagName = 'pre';
+      }
+      return elm;
+    });
+  }
+};
+
 export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) => {
   return (tree) => {
     visit(tree, (node: Root | RootContent, index, parent) => {

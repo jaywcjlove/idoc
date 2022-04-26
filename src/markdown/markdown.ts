@@ -15,7 +15,7 @@ import { formatChapters, Chapter } from '../utils/chapters.js';
 import { copyButton } from './copy-button.js';
 import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
-import { codePreview } from './codePreview.js';
+import { codePreview, codePreviewWarpperStyle } from './codePreview.js';
 import { getPrevOrNextPage } from './utils.js';
 import * as log from '../utils/log.js';
 import { getTocsTree } from './tocsTree.js';
@@ -79,6 +79,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     return plugins;
   };
   mdOptions.rewrite = (node, index, parent) => {
+    codePreviewWarpperStyle(node, fromPath);
     rehypeUrls(node, fromPath);
     copyAsset(node, fromPath);
     if (node.type === 'root') {
