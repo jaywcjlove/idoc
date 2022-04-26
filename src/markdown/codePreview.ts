@@ -27,7 +27,7 @@ export function getCodeMeta(meta: string = ''): Record<'preview' | 'iframe', boo
   return result;
 }
 
-export const codePreviewWarpperStyle = (node: Root | RootContent, fromPath: string) => {
+export const codePreviewWarpperStyle = (node: Root | RootContent) => {
   if (
     node.type === 'element' &&
     node.tagName === 'pre' &&
@@ -48,6 +48,18 @@ export const codePreviewWarpperStyle = (node: Root | RootContent, fromPath: stri
 export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) => {
   return (tree) => {
     visit(tree, (node: Root | RootContent, index, parent) => {
+      if (node.type === 'element' && node.tagName === 'pre') {
+        const code = getCodeString(node.children) || '';
+        node.children.push({
+          type: 'element',
+          tagName: 'input',
+          properties: {
+            type: 'hidden',
+            value: code,
+          },
+          children: [],
+        });
+      }
       if (node.type === 'element' && node.tagName === 'code' && node.data && node.data.meta) {
         const metaRaw = node.data.meta as string;
         const metaData = getCodeMeta(metaRaw);
@@ -74,7 +86,7 @@ export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) =
                 height: '100%',
                 allowTransparency: true,
                 'data-previw': true,
-                className: 'idoc-demo-previw' + (lang ? ` ${lang}` : ''),
+                className: 'idoc-demo-previw',
                 srcdoc: code,
               },
             });
@@ -85,22 +97,10 @@ export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) =
               children: [],
               properties: {
                 'data-previw': true,
-                className: 'idoc-demo-previw' + (lang ? ` ${lang}` : ''),
+                className: 'idoc-demo-previw',
               },
             });
           }
-          parent.children.push({
-            type: 'element',
-            tagName: 'input',
-            properties: {
-              type: 'hidden',
-              'data-lang': (lang || '').replace(/^language-/i, ''),
-              'data-idoc-previw': metaData.preview,
-              'data-idoc-iframe': metaData.iframe,
-              value: code,
-            },
-            children: [],
-          });
           parent.children.push({
             type: 'element',
             tagName: 'button',

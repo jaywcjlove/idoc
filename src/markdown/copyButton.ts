@@ -1,4 +1,20 @@
 import { Element } from 'hast';
+import { Root, RootContent } from 'hast';
+
+export const addCopyButton = (node: Root | RootContent) => {
+  const className =
+    node.type === 'element' && node.properties.className && Array.isArray(node.properties.className)
+      ? node.properties.className
+      : [];
+  if (node.type == 'element' && className.length > 0) {
+    const includePre = className.find((name: string) => name.toLocaleLowerCase().startsWith('language-'));
+    if (includePre && !node.properties.dataMeta && (node.tagName === 'div' || node.tagName === 'pre')) {
+      node.children.push(copyButton());
+    }
+  } else if (node.type === 'element' && node.tagName === 'pre' && className.length === 0) {
+    node.children.push(copyButton());
+  }
+};
 
 export function copyButton(): Element {
   return {

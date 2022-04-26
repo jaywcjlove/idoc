@@ -12,7 +12,7 @@ import slug from 'rehype-slug';
 import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapter } from '../utils/chapters.js';
-import { copyButton } from './copy-button.js';
+import { addCopyButton } from './copyButton.js';
 import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
 import { codePreview, codePreviewWarpperStyle } from './codePreview.js';
@@ -79,15 +79,13 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     return plugins;
   };
   mdOptions.rewrite = (node, index, parent) => {
-    codePreviewWarpperStyle(node, fromPath);
+    codePreviewWarpperStyle(node);
     rehypeUrls(node, fromPath);
     copyAsset(node, fromPath);
+    addCopyButton(node);
     if (node.type === 'root') {
       pagetitle = getTitle(node) || pagetitle;
       description = getDescription(node) || pagetitle;
-    }
-    if (node.type == 'element' && node.tagName === 'pre') {
-      node.children.push(copyButton());
     }
     if (
       node.type == 'element' &&

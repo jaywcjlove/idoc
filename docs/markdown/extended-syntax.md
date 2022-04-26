@@ -3,6 +3,10 @@
 
 下面介绍的不是 Markdown 的标准语法，一些属于 idoc 自定义的语法，还有一些属于 [`Github GFM`](https://github.github.com/gfm/) 中的一些语法。
 
+```
+conso
+```
+
 ## 隐藏内容
 
 我们使用 `<!--idoc:ignore:start-->`<!--rehype:style=background: #7ee787; color: #333;--> 与 `<!--idoc:ignore:end-->`<!--rehype:style=background: #7ee787; color: #333;--> 这个注释语法，忽略被包裹在中间的内容，这很有用，在 GitHub 中预览 Markdown 注释会被忽略，在编译后的 HTML 中，忽略被包裹的 Markdown 内容：

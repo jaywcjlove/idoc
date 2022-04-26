@@ -14,6 +14,7 @@ div.idoc-demo-warpper > pre {
   padding: 16px;
   overflow: auto;
   display: block;
+  margin-bottom: 0 !important;
 }
 
 div.idoc-demo-previw {
