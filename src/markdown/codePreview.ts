@@ -9,7 +9,7 @@ export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) =
   return (tree) => {
     visit(tree, (node: Root | RootContent, index, parent) => {
       if (node.type === 'element' && node.tagName === 'code' && node.data && node.data.meta) {
-        const [meta = ''] = /idoc:(.\w+)/i.exec(String(node.data.meta));
+        const [meta = ''] = /idoc:(.\w+)/i.exec(String(node.data.meta)) || [];
         node.properties['data-meta'] = meta;
         const metaType = meta.replace(/^idoc:/i, '');
         if (metaType === 'preview' && parent.type === 'element') {
