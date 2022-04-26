@@ -743,15 +743,17 @@ type Chapter = {
 </span><span class="code-line line-number" line="17">  readme<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="18">  <span class="token comment">/** Template Data 目前没有什么作用的变量 */</span>
 </span><span class="code-line line-number" line="19">  data<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">any</span><span class="token operator">></span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="20">  <span class="token comment">/** project version */</span>
-</span><span class="code-line line-number" line="21">  version<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="22">  <span class="token comment">/** idoc version */</span>
-</span><span class="code-line line-number" line="23">  idocVersion<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="24">  scope<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="25">  global<span class="token operator">?</span><span class="token operator">:</span> Config<span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="26">  <span class="token comment">/** 页面中 - 注释配置的原始配置数据，看下面详细解释文档 **/</span>
-</span><span class="code-line line-number" line="27">  page<span class="token operator">?</span><span class="token operator">:</span> PageConfig<span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="28"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="20">  <span class="token comment">/** 编译文件不在指定文档目录（默认 docs）之外的 md 文件 **/</span>
+</span><span class="code-line line-number" line="21">  sideEffectFiles<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token operator">></span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="22">  <span class="token comment">/** project version */</span>
+</span><span class="code-line line-number" line="23">  version<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="24">  <span class="token comment">/** idoc version */</span>
+</span><span class="code-line line-number" line="25">  idocVersion<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="26">  scope<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="27">  global<span class="token operator">?</span><span class="token operator">:</span> Config<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="28">  <span class="token comment">/** 页面中 - 注释配置的原始配置数据，看下面详细解释文档 **/</span>
+</span><span class="code-line line-number" line="29">  page<span class="token operator">?</span><span class="token operator">:</span> PageConfig<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="30"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="import { IFileDirStat } from &#x27;recursive-readdir-files&#x27;;
 export interface Config extends SiteGlobalConfig {
   root: string;
@@ -771,6 +773,8 @@ export interface Config extends SiteGlobalConfig {
   readme?: string;
   /** Template Data 目前没有什么作用的变量 */
   data?: Record<string, any>;
+  /** 编译文件不在指定文档目录（默认 docs）之外的 md 文件 **/
+  sideEffectFiles?: Array<string>;
   /** project version */
   version?: string;
   /** idoc version */
