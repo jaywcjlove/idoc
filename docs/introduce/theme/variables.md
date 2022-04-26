@@ -431,6 +431,8 @@ export interface Config extends SiteGlobalConfig {
   readme?: string;
   /** Template Data 目前没有什么作用的变量 */
   data?: Record<string, any>;
+  /** 编译文件不在指定文档目录（默认 docs）之外的 md 文件 **/
+  sideEffectFiles?: Array<string>;
   /** project version */
   version?: string;
   /** idoc version */
