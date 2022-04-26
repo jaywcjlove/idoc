@@ -200,6 +200,11 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
       filename: tempPath,
     });
   } catch (error) {
+    console.log(
+      `    ╰┈\x1b[31;1m FAIL\x1b[0m ->`,
+      `please check template \x1b[33;1m${tempPath}\x1b[0m.\n`,
+      `              Error: \x1b[31;1m${error.message || error}\x1b[0m.`,
+    );
     return error.message || error;
   }
 }
