@@ -31,7 +31,7 @@ button.idoc-toggle-previw {
   padding: 2px 5px;
   border-radius: 5px;
   bottom: 3px;
-  left: 4px;
+  right: 4px;
 }
 button.idoc-toggle-previw:hover {
   color: var(--color-theme-text);
