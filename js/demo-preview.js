@@ -1,4 +1,4 @@
-const demo = document.querySelectorAll('.idoc-demo-previw.language-html');
+const demo = document.querySelectorAll('.idoc-demo-warpper .idoc-demo-previw');
 
 function getButton(elm, type = 'BUTTON') {
   let btn;
@@ -14,12 +14,12 @@ function getButton(elm, type = 'BUTTON') {
 }
 if (demo && demo.length > 0) {
   demo.forEach((item) => {
-    if (item.nextElementSibling && item.nextElementSibling.tagName === 'INPUT') {
+    if (item.previousElementSibling && item.previousElementSibling.tagName === 'INPUT') {
       const button = getButton(item);
       if (button) {
         button.innerHTML = item.classList.contains('ishiden') ? 'Preview' : 'Show Code';
         if (item.tagName === 'DIV') {
-          item.innerHTML = item.nextElementSibling.defaultValue
+          item.innerHTML = item.previousElementSibling.defaultValue
         }
         button.onclick = () => {
           item.classList.toggle('ishiden');
