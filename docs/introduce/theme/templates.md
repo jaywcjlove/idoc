@@ -7,7 +7,7 @@
 
 文件 `markdown.ejs` 是默认文章编译使用的模板。可以在 markdown 配置中配置自定义模板。应用场景，如自定义首页，默认 `项目根目录` 或者 `指定文档目录` 根目录下的 `README.md` 视为首页，在里面配置模板，配置如下：
 
-```markdown docs/README.md
+```markdown
 <!--idoc:config:
 layout: home.ejs
 -->

@@ -42,6 +42,11 @@ Markdown[^1] 可以提高排版效率，并将文本转换为 HTML[^html]
 
 示例语法扩展，正对需要预览的 HTML 提供了一个 `idoc:preview` 标记，会自动生成 HTML 预览结果到页面，通过按钮点击可以切换 `代码` 和 `预览`，注意下面示例中的 `idoc:preview` 标记：
 
+
+### `idoc:preview`
+
+代码块添加 `idoc:preview` 标记，示例将被生成在当前页面上预览，`<script>` 脚本将失效。
+
 ```markdown
 ```html idoc:preview
 <div style="color:red;">
@@ -55,5 +60,24 @@ Markdown[^1] 可以提高排版效率，并将文本转换为 HTML[^html]
   Test Preview HTML Example.
 </div>
 ```
+
+### `idoc:preview:iframe`
+
+代码块添加 `idoc:preview:iframe` 标记，示例将被生成到当前页面中的 `<iframe>` 中预览。
+
+```markdown
+```html idoc:preview:iframe
+<div style="color:red;">
+  Test Preview HTML Example.
+</div>
+\```
+```
+
+```html idoc:preview:iframe
+<div style="color:red;">
+  Test Preview HTML Example.
+</div>
+```
+
 
 [^1]: https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/
