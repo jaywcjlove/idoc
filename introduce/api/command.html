@@ -11,17 +11,18 @@
   
   <meta name="keywords" content="idoc,document,doc">
   
-  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650931744475">
-  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650931744475">
-  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650931744475">
-  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650931744475">
-  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650931744475">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.15.0">
   
     <link rel="icon" href="../../logo.png" type="image/x-icon">
   
-  <script src="../../js/copy.js"></script>
-  <script src="../../js/dark-mode.js"></script>
-  <script src="../../js/markdown-style.js"></script>
+  <script src="../../js/copy.js?v=1.15.0"></script>
+  <script src="../../js/dark-mode.js?v=1.15.0"></script>
+  <script src="../../js/markdown-style.js?v=1.15.0"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -139,84 +140,49 @@
     <h1 id="命令帮助"><a aria-hidden="true" tabindex="-1" href="#命令帮助" class="anchor"><span class="icon icon-link"></span></a>命令帮助</h1>
 <p>idoc 是主要命令，用于构建你的 idoc 文档网站站点。</p>
 <h2 id="帮助"><a aria-hidden="true" tabindex="-1" href="#帮助" class="anchor"><span class="icon icon-link"></span></a>帮助</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">Usage: idoc <span class="token punctuation">[</span>init<span class="token operator">|</span>new<span class="token punctuation">]</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>--help<span class="token operator">|</span>h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token operator">|</span>v<span class="token punctuation">]</span>
-</span><span class="code-line">
-</span><span class="code-line">Options:
-</span><span class="code-line">
-</span><span class="code-line">  -v, --version, Show version number
-</span><span class="code-line">  -h, --help, Displays <span class="token builtin class-name">help</span> information.
-</span><span class="code-line">  -f, --force, Force <span class="token function">file</span> regeneration.
-</span><span class="code-line">  -d, --dir <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Markdown <span class="token function">file</span> directory. defalut<span class="token punctuation">(</span>docs<span class="token punctuation">)</span>
-</span><span class="code-line">  -o, --output <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Output directory. defalut<span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
-</span><span class="code-line">  -w, --watch, Watch and compile Markdown files.
-</span><span class="code-line">  -t, --theme, Customize theme settings. defalut<span class="token punctuation">(</span>defalut<span class="token punctuation">)</span>
-</span><span class="code-line">
-</span><span class="code-line">Example:
-</span><span class="code-line">
-</span><span class="code-line">  <span class="token function">npm</span> idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
-</span><span class="code-line">  <span class="token function">npm</span> idoc new introduce/README.md
-</span><span class="code-line">  <span class="token function">npm</span> idoc new introduce/README.md <span class="token string">"Hello World"</span> -f
-</span><span class="code-line">  <span class="token function">npm</span> idoc --theme<span class="token operator">=</span><span class="token string">"defalut"</span>
-</span><span class="code-line">  <span class="token function">npm</span> idoc --dir<span class="token operator">=</span><span class="token string">"docs"</span>
-</span><span class="code-line">  <span class="token function">npm</span> idoc --output<span class="token operator">=</span><span class="token string">"dist"</span>
-</span><span class="code-line">  <span class="token function">npm</span> idoc --watch --output<span class="token operator">=</span><span class="token string">"www"</span>
-</span><span class="code-line">
-</span><span class="code-line">------------------------------------
-</span><span class="code-line">  ,,        ,,
-</span><span class="code-line">  db      <span class="token variable"><span class="token variable">`</span>7MM
-</span></span><span class="code-line"><span class="token variable">            MM
-</span></span><span class="code-line"><span class="token variable"><span class="token variable">`</span></span>7MM   ,M<span class="token string">""</span>bMM  ,pW<span class="token string">"Wq.   ,p6"</span>bo
-</span><span class="code-line">  MM ,AP    MM 6W<span class="token string">'   `Wb 6M'</span>  OO
-</span><span class="code-line">  MM 8MI    MM 8M     M8 8M
-</span><span class="code-line">  MM <span class="token variable"><span class="token variable">`</span>Mb    MM YA.   ,A9 YM.    ,
-</span></span><span class="code-line"><span class="token variable">.JMML.<span class="token variable">`</span></span>Wbmd"MML.`Ybmd9<span class="token string">'   YMbmd'</span>
-</span><span class="code-line">------------------------------------
-</span></code><div onclick="copied(this)" data-code="Usage: idoc [init|new][options] [--help|h] [--version|v]
-
-Options:
-
-  -v, --version, Show version number
-  -h, --help, Displays help information.
-  -f, --force, Force file regeneration.
-  -d, --dir <dir-path>, Markdown file directory. defalut(docs)
-  -o, --output <dir-path>, Output directory. defalut(dist)
-  -w, --watch, Watch and compile Markdown files.
-  -t, --theme, Customize theme settings. defalut(defalut)
-
-Example:
-
-  npm idoc init <folder>
-  npm idoc new introduce/README.md
-  npm idoc new introduce/README.md &#x22;Hello World&#x22; -f
-  npm idoc --theme=&#x22;defalut&#x22;
-  npm idoc --dir=&#x22;docs&#x22;
-  npm idoc --output=&#x22;dist&#x22;
-  npm idoc --watch --output=&#x22;www&#x22;
-
-------------------------------------
-  ,,        ,,
-  db      &#x60;7MM
-            MM
-&#x60;7MM   ,M&#x22;&#x22;bMM  ,pW&#x22;Wq.   ,p6&#x22;bo
-  MM ,AP    MM 6W&#x27;   &#x60;Wb 6M&#x27;  OO
-  MM 8MI    MM 8M     M8 8M
-  MM &#x60;Mb    MM YA.   ,A9 YM.    ,
-.JMML.&#x60;Wbmd&#x22;MML.&#x60;Ybmd9&#x27;   YMbmd&#x27;
-------------------------------------
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">Usage: idoc <span class="token punctuation">[</span>init<span class="token operator">|</span>new<span class="token punctuation">]</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>--help<span class="token operator">|</span>h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token operator">|</span>v<span class="token punctuation">]</span>
+</span><span class="code-line line-number" line="2">
+</span><span class="code-line line-number" line="3">Options:
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5">  -v, --version, Show version number
+</span><span class="code-line line-number" line="6">  -h, --help, Displays <span class="token builtin class-name">help</span> information.
+</span><span class="code-line line-number" line="7">  -f, --force, Force <span class="token function">file</span> regeneration.
+</span><span class="code-line line-number" line="8">  -d, --dir <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Markdown <span class="token function">file</span> directory. defalut<span class="token punctuation">(</span>docs<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="9">  -o, --output <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Output directory. defalut<span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="10">  -w, --watch, Watch and compile Markdown files.
+</span><span class="code-line line-number" line="11">  -t, --theme, Customize theme settings. defalut<span class="token punctuation">(</span>defalut<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="12">
+</span><span class="code-line line-number" line="13">Example:
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">  <span class="token function">npm</span> idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
+</span><span class="code-line line-number" line="16">  <span class="token function">npm</span> idoc new introduce/README.md
+</span><span class="code-line line-number" line="17">  <span class="token function">npm</span> idoc new introduce/README.md <span class="token string">"Hello World"</span> -f
+</span><span class="code-line line-number" line="18">  <span class="token function">npm</span> idoc --theme<span class="token operator">=</span><span class="token string">"defalut"</span>
+</span><span class="code-line line-number" line="19">  <span class="token function">npm</span> idoc --dir<span class="token operator">=</span><span class="token string">"docs"</span>
+</span><span class="code-line line-number" line="20">  <span class="token function">npm</span> idoc --output<span class="token operator">=</span><span class="token string">"dist"</span>
+</span><span class="code-line line-number" line="21">  <span class="token function">npm</span> idoc --watch --output<span class="token operator">=</span><span class="token string">"www"</span>
+</span><span class="code-line line-number" line="22">
+</span><span class="code-line line-number" line="23">------------------------------------
+</span><span class="code-line line-number" line="24">  ,,        ,,
+</span><span class="code-line line-number" line="25">  db      <span class="token variable"><span class="token variable">`</span>7MM
+</span></span><span class="code-line line-number" line="26"><span class="token variable">            MM
+</span></span><span class="code-line line-number" line="27"><span class="token variable"><span class="token variable">`</span></span>7MM   ,M<span class="token string">""</span>bMM  ,pW<span class="token string">"Wq.   ,p6"</span>bo
+</span><span class="code-line line-number" line="28">  MM ,AP    MM 6W<span class="token string">'   `Wb 6M'</span>  OO
+</span><span class="code-line line-number" line="29">  MM 8MI    MM 8M     M8 8M
+</span><span class="code-line line-number" line="30">  MM <span class="token variable"><span class="token variable">`</span>Mb    MM YA.   ,A9 YM.    ,
+</span></span><span class="code-line line-number" line="31"><span class="token variable">.JMML.<span class="token variable">`</span></span>Wbmd"MML.`Ybmd9<span class="token string">'   YMbmd'</span>
+</span><span class="code-line line-number" line="32">------------------------------------
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="创建项目"><a aria-hidden="true" tabindex="-1" href="#创建项目" class="anchor"><span class="icon icon-link"></span></a>创建项目</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ idoc init my-app
-</span></code><div onclick="copied(this)" data-code="$ idoc init my-app
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ idoc init my-app
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="监听编译"><a aria-hidden="true" tabindex="-1" href="#监听编译" class="anchor"><span class="icon icon-link"></span></a>监听编译</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ idoc --watch
-</span></code><div onclick="copied(this)" data-code="$ idoc --watch
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ idoc --watch
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>监听 markdown 文件，编译并将静态页面输出到 <code>dist</code> 目录中。</p>
 <h2 id="编译"><a aria-hidden="true" tabindex="-1" href="#编译" class="anchor"><span class="icon icon-link"></span></a>编译</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ idoc --force
-</span></code><div onclick="copied(this)" data-code="$ idoc --force
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ idoc --force
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>默认将编译好的静态页面输出到 <code>dist</code> 目录中。</p>
     
 
@@ -294,10 +260,12 @@ Example:
 
 </div>
 
+<script src="../../js/demo-preview.js?v=1.15.0"></script>
+
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.14.0
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.15.0
 
 </div>
 

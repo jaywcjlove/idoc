@@ -11,17 +11,18 @@
   
   <meta name="keywords" content="idoc,config,api">
   
-  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650931744751">
-  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650931744751">
-  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650931744751">
-  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650931744751">
-  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650931744751">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.15.0">
   
     <link rel="icon" href="../../logo.png" type="image/x-icon">
   
-  <script src="../../js/copy.js"></script>
-  <script src="../../js/dark-mode.js"></script>
-  <script src="../../js/markdown-style.js"></script>
+  <script src="../../js/copy.js?v=1.15.0"></script>
+  <script src="../../js/dark-mode.js?v=1.15.0"></script>
+  <script src="../../js/markdown-style.js?v=1.15.0"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -139,46 +140,30 @@
     <h1 id="网站准备"><a aria-hidden="true" tabindex="-1" href="#网站准备" class="anchor"><span class="icon icon-link"></span></a>网站准备</h1>
 <p>我们只需要运行 <code>npx idoc init myapp</code> 命令，就会生成一个 <code>myapp</code> 文件夹，已经为您的网站准备好了一个最简单的实例。如果您不是初始化一个工程，那您在创建一个文档网站前，需要做一些准备工作，规划您的网站目录。</p>
 <h2 id="初始化工程"><a aria-hidden="true" tabindex="-1" href="#初始化工程" class="anchor"><span class="icon icon-link"></span></a>初始化工程</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ npx idoc init myapp
-</span><span class="code-line"><span class="token comment"># Or</span>
-</span><span class="code-line">$ npx idoc@1.4.2 init myapp
-</span></code><div onclick="copied(this)" data-code="$ npx idoc init myapp
-# Or
-$ npx idoc@1.4.2 init myapp
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx idoc init myapp
+</span><span class="code-line line-number" line="2"><span class="token comment"># Or</span>
+</span><span class="code-line line-number" line="3">$ npx idoc@1.4.2 init myapp
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="准备好的目录"><a aria-hidden="true" tabindex="-1" href="#准备好的目录" class="anchor"><span class="icon icon-link"></span></a>准备好的目录</h2>
 <p>从命令行运行 <code>idoc init myapp</code> 生成器将创建一个包含以下元素的目录结构：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs            <span class="token comment"># 👈 默认文档放置目录</span>
-</span><span class="code-line">│   ├── README.md
-</span><span class="code-line">│   └── about.md
-</span><span class="code-line">├── package.json
-</span><span class="code-line">└── idoc.yml
-</span></code><div onclick="copied(this)" data-code="├── docs            # 👈 默认文档放置目录
-│   ├── README.md
-│   └── about.md
-├── package.json
-└── idoc.yml
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs            <span class="token comment"># 👈 默认文档放置目录</span>
+</span><span class="code-line line-number" line="2">│   ├── README.md
+</span><span class="code-line line-number" line="3">│   └── about.md
+</span><span class="code-line line-number" line="4">├── package.json
+</span><span class="code-line line-number" line="5">└── idoc.yml
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>如果您在生成器初始化项目过程中，选择生成默认主题自己修改，那么将创建一个包含 <code>themes</code> 的目录结构：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs
-</span><span class="code-line">│   ├── README.md
-</span><span class="code-line">│   └── about.md
-</span><span class="code-line">├── idoc.yml
-</span><span class="code-line">├── package.json
-</span><span class="code-line">└── themes          <span class="token comment"># 👈 主题目录</span>
-</span><span class="code-line">    └── default
-</span></code><div onclick="copied(this)" data-code="├── docs
-│   ├── README.md
-│   └── about.md
-├── idoc.yml
-├── package.json
-└── themes          # 👈 主题目录
-    └── default
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+</span><span class="code-line line-number" line="2">│   ├── README.md
+</span><span class="code-line line-number" line="3">│   └── about.md
+</span><span class="code-line line-number" line="4">├── idoc.yml
+</span><span class="code-line line-number" line="5">├── package.json
+</span><span class="code-line line-number" line="6">└── themes          <span class="token comment"># 👈 主题目录</span>
+</span><span class="code-line line-number" line="7">    └── default
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>注意，您的配置主题值产生了变化，如下：</p>
-<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line"><span class="token key atrule">theme</span><span class="token punctuation">:</span> themes/default
-</span></code><div onclick="copied(this)" data-code="theme: themes/default
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">theme</span><span class="token punctuation">:</span> themes/default
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -245,10 +230,12 @@ $ npx idoc@1.4.2 init myapp
 
 </div>
 
+<script src="../../js/demo-preview.js?v=1.15.0"></script>
+
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.14.0
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.15.0
 
 </div>
 

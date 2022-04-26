@@ -11,17 +11,18 @@
   
   <meta name="keywords" content="idoc,config,api">
   
-  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650931744641">
-  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650931744641">
-  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650931744641">
-  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650931744641">
-  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650931744641">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.15.0">
   
     <link rel="icon" href="../../logo.png" type="image/x-icon">
   
-  <script src="../../js/copy.js"></script>
-  <script src="../../js/dark-mode.js"></script>
-  <script src="../../js/markdown-style.js"></script>
+  <script src="../../js/copy.js?v=1.15.0"></script>
+  <script src="../../js/dark-mode.js?v=1.15.0"></script>
+  <script src="../../js/markdown-style.js?v=1.15.0"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -139,147 +140,86 @@
     <h1 id="网站首页"><a aria-hidden="true" tabindex="-1" href="#网站首页" class="anchor"><span class="icon icon-link"></span></a>网站首页</h1>
 <p>默认网站首页内容通过 <code>README.md</code> 生成 <code>index.html</code>。</p>
 <h2 id="添加首页"><a aria-hidden="true" tabindex="-1" href="#添加首页" class="anchor"><span class="icon icon-link"></span></a>添加首页</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs
-</span><span class="code-line">│   ├── README.md  <span class="token comment"># 👈 默认文档首页（优先 ⚠️ ）</span>
-</span><span class="code-line">│   └── about.md
-</span><span class="code-line">├── package.json
-</span><span class="code-line">├── idoc.yml
-</span><span class="code-line">└── README.md      <span class="token comment"># 👈 默认文档首页</span>
-</span></code><div onclick="copied(this)" data-code="├── docs
-│   ├── README.md  # 👈 默认文档首页（优先 ⚠️ ）
-│   └── about.md
-├── package.json
-├── idoc.yml
-└── README.md      # 👈 默认文档首页
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+</span><span class="code-line line-number" line="2">│   ├── README.md  <span class="token comment"># 👈 默认文档首页（优先 ⚠️ ）</span>
+</span><span class="code-line line-number" line="3">│   └── about.md
+</span><span class="code-line line-number" line="4">├── package.json
+</span><span class="code-line line-number" line="5">├── idoc.yml
+</span><span class="code-line line-number" line="6">└── README.md      <span class="token comment"># 👈 默认文档首页</span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>默认指定输出目录添加 <code>README.md</code> 文件视为首页，如果没有定义 <code>README.md</code>，根目录下的 <code>README.md</code> 视为首页。这是为了支持生成单页面站点。</p>
 <h2 id="注意-️"><a aria-hidden="true" tabindex="-1" href="#注意-️" class="anchor"><span class="icon icon-link"></span></a>注意 ⚠️</h2>
 <p>默认 <code>README.md</code> -> <code>index.html</code> 与 <code>index.md</code> -> <code>index.html</code> 生成的文件冲突。</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs
-</span><span class="code-line">│   ├── README.md  <span class="token comment"># 👈 冲突 -> `index.html`</span>
-</span><span class="code-line">│   └── index.md   <span class="token comment"># 👈 冲突 -> `index.html`</span>
-</span></code><div onclick="copied(this)" data-code="├── docs
-│   ├── README.md  # 👈 冲突 -> &#x60;index.html&#x60;
-│   └── index.md   # 👈 冲突 -> &#x60;index.html&#x60;
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+</span><span class="code-line line-number" line="2">│   ├── README.md  <span class="token comment"># 👈 冲突 -> `index.html`</span>
+</span><span class="code-line line-number" line="3">│   └── index.md   <span class="token comment"># 👈 冲突 -> `index.html`</span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p><code>README.md</code> 特殊处理生成 <code>index.html</code>，是因为在 GitHub 默认预览 <code>README.md</code>，所以建议使用 <code>README.md</code> 作为首页命名，这可在 GitHub 和 idoc 文档保持一致的体验。</p>
 <h2 id="定制首页样式"><a aria-hidden="true" tabindex="-1" href="#定制首页样式" class="anchor"><span class="icon icon-link"></span></a>定制首页样式</h2>
 <p>Markdown 文本中 HTML/CSS 是起作用的，可以自己定义一些内容，你可以将下面代码复制到您的文档中测试一下</p>
 <p>⚠️ 注意：在 GitHub 中预览是无效的，会影响在 GitHub 中预览展示。</p>
-<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token selector">body<span class="token punctuation">,</span> html</span> <span class="token punctuation">{</span> <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#fff</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron</span></span> <span class="token punctuation">{</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#383838</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#c1c1c1</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token punctuation">}</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-block</span></span> <span class="token punctuation">{</span> <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">330</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-warpper</span></span> <span class="token punctuation">{</span> <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">1200</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span> <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-title</span></span> <span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-</span></span></span><span class="code-line"><span class="token style"><span class="token language-css"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-warpper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</span><span class="code-line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>idoc <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
-</span><span class="code-line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-des<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>idoc 是一个文档生成工具，用于生成文档网站或简单的博客网站，简单到你只需写 Markdown 文件就可以帮助你生成网站。同时可以方便的集成到你的项目工程中。
-</span><span class="code-line">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
-</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-block<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
-</span></code><div onclick="copied(this)" data-code="<style>
-body, html { background: #fff; }
-.jumbotron {
-  position: absolute;
-  left: 0;
-  right: 0;
-  background-color: #383838;
-  padding-top: 100px;
-  min-height: 300px;
-  color: #c1c1c1;
-}
-.jumbotron-block { min-height: 330px; }
-.jumbotron-warpper { max-width: 1200px; margin: 0 auto; text-align: center; }
-.jumbotron-title { font-size: 30px; font-weight: bold; }
-</style>
-<div class=&#x22;jumbotron&#x22;>
-  <div class=&#x22;jumbotron-warpper&#x22;>
-    <div class=&#x22;jumbotron-title&#x22;>idoc </div>
-    <div class=&#x22;jumbotron-des&#x22;>idoc 是一个文档生成工具，用于生成文档网站或简单的博客网站，简单到你只需写 Markdown 文件就可以帮助你生成网站。同时可以方便的集成到你的项目工程中。
-    </div>
-  </div>
-</div>
-<div class=&#x22;jumbotron-block&#x22;> </div>
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line line-number" line="1"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+</span></span></span><span class="code-line line-number" line="2"><span class="token style"><span class="token language-css"><span class="token selector">body<span class="token punctuation">,</span> html</span> <span class="token punctuation">{</span> <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode color">#fff</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span></span></span><span class="code-line line-number" line="3"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron</span></span> <span class="token punctuation">{</span>
+</span></span></span><span class="code-line line-number" line="4"><span class="token style"><span class="token language-css">  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="5"><span class="token style"><span class="token language-css">  <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="6"><span class="token style"><span class="token language-css">  <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="7"><span class="token style"><span class="token language-css">  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#383838</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="8"><span class="token style"><span class="token language-css">  <span class="token property">padding-top</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="9"><span class="token style"><span class="token language-css">  <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="10"><span class="token style"><span class="token language-css">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#c1c1c1</span><span class="token punctuation">;</span>
+</span></span></span><span class="code-line line-number" line="11"><span class="token style"><span class="token language-css"><span class="token punctuation">}</span>
+</span></span></span><span class="code-line line-number" line="12"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-block</span></span> <span class="token punctuation">{</span> <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">330</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span></span></span><span class="code-line line-number" line="13"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-warpper</span></span> <span class="token punctuation">{</span> <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">1200</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span> <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span></span></span><span class="code-line line-number" line="14"><span class="token style"><span class="token language-css"><span class="token selector"><span class="token class">.jumbotron-title</span></span> <span class="token punctuation">{</span> <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</span></span></span><span class="code-line line-number" line="15"><span class="token style"><span class="token language-css"></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>style</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="16"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="17">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-warpper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="18">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>idoc <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="19">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-des<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>idoc 是一个文档生成工具，用于生成文档网站或简单的博客网站，简单到你只需写 Markdown 文件就可以帮助你生成网站。同时可以方便的集成到你的项目工程中。
+</span><span class="code-line line-number" line="20">    <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="21">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="22"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="23"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>jumbotron-block<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>div</span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="定制首页模板"><a aria-hidden="true" tabindex="-1" href="#定制首页模板" class="anchor"><span class="icon icon-link"></span></a>定制首页模板</h2>
 <p>使用<a href="../api/config.html#%e6%b3%a8%e9%87%8a%e9%85%8d%e7%bd%ae">注释配置</a>，在当前页面添加指定的模板，将当前 Markdown 使用自定义模板渲染生成 HTML，可以使用<a href="../theme/variables.html">模板变量</a>获得你需要的内容，将它渲染到页面中。</p>
-<pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line"><span class="token comment">&#x3C;!--idoc:config:
-</span></span><span class="code-line"><span class="token comment">layout: home.ejs
-</span></span><span class="code-line"><span class="token comment">--></span>
-</span><span class="code-line">
-</span><span class="code-line">这里可以添加首页展示的文本内容
-</span></code><div onclick="copied(this)" data-code="<!--idoc:config:
-layout: home.ejs
--->
-
-这里可以添加首页展示的文本内容
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-markdown"><code class="language-markdown code-highlight"><span class="code-line line-number" line="1"><span class="token comment">&#x3C;!--idoc:config:
+</span></span><span class="code-line line-number" line="2"><span class="token comment">layout: home.ejs
+</span></span><span class="code-line line-number" line="3"><span class="token comment">--></span>
+</span><span class="code-line line-number" line="4">
+</span><span class="code-line line-number" line="5">这里可以添加首页展示的文本内容
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>自定义模板 <code>home.ejs</code>:</p>
-<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
-</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
-</span><span class="code-line">  &#x3C;%- html %>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
-</span></code><div onclick="copied(this)" data-code="<!DOCTYPE html>
-<html lang=&#x22;en&#x22;>
-<head>
-  <title>Document</title>
-</head>
-<body>
-  <%- html %>
-</body>
-</html>
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line line-number" line="1"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="2"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="3"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="4">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="5"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="6"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="7">  &#x3C;%- html %>
+</span><span class="code-line line-number" line="8"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="9"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>生成 HTML 内容：</p>
-<pre class="language-html"><code class="language-html code-highlight"><span class="code-line"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
-</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
-</span><span class="code-line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>这里可以添加首页展示的文本内容<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
-</span><span class="code-line"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
-</span></code><div onclick="copied(this)" data-code="<!DOCTYPE html>
-<html lang=&#x22;en&#x22;>
-<head>
-  <title>Document</title>
-</head>
-<body>
-  <p>这里可以添加首页展示的文本内容</p>
-</body>
-</html>
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-html"><code class="language-html code-highlight"><span class="code-line line-number" line="1"><span class="token doctype"><span class="token punctuation">&#x3C;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="2"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="3"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>head</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="4">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>title</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="5"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>head</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="6"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>body</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="7">  <span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;</span>p</span><span class="token punctuation">></span></span>这里可以添加首页展示的文本内容<span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>p</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="8"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>body</span><span class="token punctuation">></span></span>
+</span><span class="code-line line-number" line="9"><span class="token tag"><span class="token tag"><span class="token punctuation">&#x3C;/</span>html</span><span class="token punctuation">></span></span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>目录结构</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">├── docs
-</span><span class="code-line">│   ├── README.md   <span class="token comment"># 👈 首页</span>
-</span><span class="code-line">│   └── about.md
-</span><span class="code-line">├── package.json
-</span><span class="code-line">├── home.ejs        <span class="token comment"># 👈 自定义模板</span>
-</span><span class="code-line">├── idoc.yml
-</span></code><div onclick="copied(this)" data-code="├── docs
-│   ├── README.md   # 👈 首页
-│   └── about.md
-├── package.json
-├── home.ejs        # 👈 自定义模板
-├── idoc.yml
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+</span><span class="code-line line-number" line="2">│   ├── README.md   <span class="token comment"># 👈 首页</span>
+</span><span class="code-line line-number" line="3">│   └── about.md
+</span><span class="code-line line-number" line="4">├── package.json
+</span><span class="code-line line-number" line="5">├── home.ejs        <span class="token comment"># 👈 自定义模板</span>
+</span><span class="code-line line-number" line="6">├── idoc.yml
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
     
 
 <div class="previous">
@@ -356,10 +296,12 @@ layout: home.ejs
 
 </div>
 
+<script src="../../js/demo-preview.js?v=1.15.0"></script>
+
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.14.0
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.15.0
 
 </div>
 

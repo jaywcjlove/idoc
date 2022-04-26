@@ -11,17 +11,18 @@
   
   <meta name="keywords" content="idoc,config,api">
   
-  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1650931744691">
-  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1650931744691">
-  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1650931744691">
-  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1650931744691">
-  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1650931744691">
+  <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.15.0">
+  <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.15.0">
   
     <link rel="icon" href="../../logo.png" type="image/x-icon">
   
-  <script src="../../js/copy.js"></script>
-  <script src="../../js/dark-mode.js"></script>
-  <script src="../../js/markdown-style.js"></script>
+  <script src="../../js/copy.js?v=1.15.0"></script>
+  <script src="../../js/dark-mode.js?v=1.15.0"></script>
+  <script src="../../js/markdown-style.js?v=1.15.0"></script>
 </head>
 <body id="idoctotop">
   <a href="#idoctotop" class="gototop">top</a>
@@ -144,73 +145,43 @@
 <p>我们拥有多种方法部署到 GitHub 免费的静态资源服务中。</p>
 <h3 id="github-ci"><a aria-hidden="true" tabindex="-1" href="#github-ci" class="anchor"><span class="icon icon-link"></span></a>GitHub CI</h3>
 <p>通过在项目根目录创建 <code>.github/workflows/ci.yml</code> 监听 <code>master</code> 分支 <code>push</code> 自动将 <code>dist</code> 目录提交到 <code>gh-pages</code> 分支</p>
-<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line"><span class="token key atrule">name</span><span class="token punctuation">:</span> CI
-</span><span class="code-line"><span class="token key atrule">on</span><span class="token punctuation">:</span>
-</span><span class="code-line">  <span class="token key atrule">push</span><span class="token punctuation">:</span>
-</span><span class="code-line">    <span class="token key atrule">branches</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token punctuation">-</span> master
-</span><span class="code-line">
-</span><span class="code-line"><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
-</span><span class="code-line">  <span class="token key atrule">Build_Deploy</span><span class="token punctuation">:</span>
-</span><span class="code-line">    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span><span class="token number">18.04</span>
-</span><span class="code-line">    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v2
-</span><span class="code-line">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
-</span><span class="code-line">          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">14</span>
-</span><span class="code-line">
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm install
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm run build
-</span><span class="code-line">
-</span><span class="code-line">      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy Website
-</span><span class="code-line">        <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
-</span><span class="code-line">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
-</span><span class="code-line">          <span class="token key atrule">user_name</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]'</span>
-</span><span class="code-line">          <span class="token key atrule">user_email</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]@users.noreply.github.com'</span>
-</span><span class="code-line">          <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
-</span><span class="code-line">          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./dist
-</span></code><div onclick="copied(this)" data-code="name: CI
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  Build_Deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      - run: npm install
-      - run: npm run build
-
-      - name: Deploy Website
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          user_name: &#x27;github-actions[bot]&#x27;
-          user_email: &#x27;github-actions[bot]@users.noreply.github.com&#x27;
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">name</span><span class="token punctuation">:</span> CI
+</span><span class="code-line line-number" line="2"><span class="token key atrule">on</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="3">  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="4">    <span class="token key atrule">branches</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="5">      <span class="token punctuation">-</span> master
+</span><span class="code-line line-number" line="6">
+</span><span class="code-line line-number" line="7"><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="8">  <span class="token key atrule">Build_Deploy</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="9">    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span><span class="token number">18.04</span>
+</span><span class="code-line line-number" line="10">    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="11">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+</span><span class="code-line line-number" line="12">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v2
+</span><span class="code-line line-number" line="13">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="14">          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">14</span>
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm install
+</span><span class="code-line line-number" line="17">      <span class="token punctuation">-</span> <span class="token key atrule">run</span><span class="token punctuation">:</span> npm run build
+</span><span class="code-line line-number" line="18">
+</span><span class="code-line line-number" line="19">      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy Website
+</span><span class="code-line line-number" line="20">        <span class="token key atrule">uses</span><span class="token punctuation">:</span> peaceiris/actions<span class="token punctuation">-</span>gh<span class="token punctuation">-</span>pages@v3
+</span><span class="code-line line-number" line="21">        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+</span><span class="code-line line-number" line="22">          <span class="token key atrule">user_name</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]'</span>
+</span><span class="code-line line-number" line="23">          <span class="token key atrule">user_email</span><span class="token punctuation">:</span> <span class="token string">'github-actions[bot]@users.noreply.github.com'</span>
+</span><span class="code-line line-number" line="24">          <span class="token key atrule">github_token</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span> secrets.GITHUB_TOKEN <span class="token punctuation">}</span><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="25">          <span class="token key atrule">publish_dir</span><span class="token punctuation">:</span> ./dist
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h3 id="使用-gh-pages-工具"><a aria-hidden="true" tabindex="-1" href="#使用-gh-pages-工具" class="anchor"><span class="icon icon-link"></span></a>使用 gh-pages 工具</h3>
 <p>通过本地安装 <code>gh-pages</code>，您可以使用如下内容设置包脚本：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">npm</span> <span class="token function">install</span> gh-pages --save-dev
-</span></code><div onclick="copied(this)" data-code="$ npm install gh-pages --save-dev
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"><span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-</span><span class="code-line">  <span class="token string-property property">"deploy"</span><span class="token operator">:</span> <span class="token string">"gh-pages -d dist"</span>
-</span><span class="code-line"><span class="token punctuation">}</span>
-</span></code><div onclick="copied(this)" data-code="&#x22;scripts&#x22;: {
-  &#x22;deploy&#x22;: &#x22;gh-pages -d dist&#x22;
-}
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">npm</span> <span class="token function">install</span> gh-pages --save-dev
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number" line="1"><span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token string-property property">"deploy"</span><span class="token operator">:</span> <span class="token string">"gh-pages -d dist"</span>
+</span><span class="code-line line-number" line="3"><span class="token punctuation">}</span>
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <p>然后要将 <code>dist</code> 文件夹中的所有内容发布到 <code>gh-pages</code> 分支，您可以运行以下命令：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line">$ <span class="token function">npm</span> run deploy
-</span></code><div onclick="copied(this)" data-code="$ npm run deploy
-" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">npm</span> run deploy
+</span></code><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
 <h2 id="在-github-中配置"><a aria-hidden="true" tabindex="-1" href="#在-github-中配置" class="anchor"><span class="icon icon-link"></span></a>在 GitHub 中配置</h2>
 <p>需要在配置中 <code>Setting</code> -> <code>pages</code> 中设置，一次设置无需重复设置。</p>
 <p><img src="publish-001.png" alt=""></p>
@@ -299,10 +270,12 @@ jobs:
 
 </div>
 
+<script src="../../js/demo-preview.js?v=1.15.0"></script>
+
 
 <div class="footer warpper">
   Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.14.0
+Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.15.0
 
 </div>
 
