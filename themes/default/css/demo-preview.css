@@ -23,6 +23,7 @@ div.idoc-demo-previw {
   line-height: initial;
   line-height: initial;
   font-family: initial;
+  overflow: auto;
 }
 .idoc-demo-previw {
   border: 0;
