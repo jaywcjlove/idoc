@@ -3,10 +3,12 @@ idoc
 ===
 <!--idoc:ignore:end-->
 
-[![Downloads](https://img.shields.io/npm/dm/idoc.svg?style=flat)](https://www.npmjs.com/package/idoc)
 [![NPM version](https://img.shields.io/npm/v/idoc.svg?style=flat)](https://npmjs.org/package/idoc)
 [![CI](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml)
 [![Dependents Repo](https://badgen.net/github/dependents-repo/jaywcjlove/idoc)](https://github.com/jaywcjlove/idoc/network/dependents)
+[![npm Downloads](https://img.shields.io/npm/dw/idoc?style=flat-square)](https://www.npmjs.com/package/idoc)
+[![npm Downloads](https://img.shields.io/npm/dm/idoc?style=flat-square)](https://www.npmjs.com/package/idoc)
+[![npm Downloads](https://img.shields.io/npm/dy/idoc?style=flat-square)](https://www.npmjs.com/package/idoc)
 
 Generate static pages from all Markdown in a folder.
 
@@ -87,6 +89,7 @@ Example:
 | [Swift Tutorial](https://github.com/jaywcjlove/swift-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/swift-tutorial.svg)](https://github.com/jaywcjlove/swift-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/swift-tutorial) |
 | [Handbook](https://github.com/jaywcjlove/handbook) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/handbook.svg)](https://github.com/jaywcjlove/handbook/stargazers) | [Preview Website](https://jaywcjlove.github.io/handbook) |
 | [GitHub Actions](https://github.com/jaywcjlove/github-actions) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/github-actions.svg)](https://github.com/jaywcjlove/github-actions/stargazers) | [Preview Website](https://jaywcjlove.github.io/github-actions) |
+| [HTML Tutorial](https://github.com/jaywcjlove/html-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/github-actions.svg)](https://github.com/jaywcjlove/html-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/html-tutorial) |
 
 ## Contributors
 
