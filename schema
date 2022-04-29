@@ -30,6 +30,13 @@
                   "type": "string"
                 }
               },
+              "scopePrivate": {
+                "description": "chapters scopes",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "sideEffectFiles": {
                 "description": "Add Markdown files that are not in the specified directory.",
                 "type": "array",

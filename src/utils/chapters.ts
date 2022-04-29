@@ -12,7 +12,7 @@ export type Chapter = {
   active?: boolean;
 };
 
-export function formatChapter(chapter: Record<string, string>, current?: string): Chapter {
+export function getFormatChapter(chapter: Record<string, string>, current?: string): Chapter {
   const obj: Chapter = {};
   Object.keys(chapter).forEach((key) => {
     obj.from = path.resolve(config.data.dir, key).split(path.sep).join('/');
@@ -36,13 +36,30 @@ export function formatChapter(chapter: Record<string, string>, current?: string)
 }
 
 export function formatChapters(arr: Array<Record<string, string>> = [], current?: string): Chapter[] {
+  const findScopePrivate = config.data.scopePrivate.find((item) => isScope(current, item));
+  if (findScopePrivate) {
+    return arr
+      .map((item) => {
+        const obj: Chapter = getFormatChapter(item, current);
+        if (!isScope(obj.to, findScopePrivate)) {
+          return;
+        }
+        return obj;
+      })
+      .filter(Boolean);
+  }
+
   const findScope = config.data.scope.find((item) => isScope(current, item));
   if (!findScope && config.data.scope.length > 0) {
     return [];
   }
   const chapters = arr.map((item) => {
-    const obj: Chapter = formatChapter(item, current);
+    const obj: Chapter = getFormatChapter(item, current);
     if (!isScope(obj.to, findScope) && config.data.scope.length > 0) {
+      return;
+    }
+    const scopePrivate = config.data.scopePrivate.find((item) => isScope(obj.to, item));
+    if (isScope(obj.to, scopePrivate)) {
       return;
     }
     return obj;

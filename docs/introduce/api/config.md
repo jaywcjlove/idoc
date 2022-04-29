@@ -241,6 +241,10 @@ editButton:
 
 ### `scope`
 
+范围是指能匹配到文件输出路径的一段字符串。
+
+这个配置将为你过滤左边 SiderBar 章节菜单展示内容，作用是根据范围（scope），过滤 `idoc.chapters.yml` 配置中的数据。
+
 ```yml
 scope: 
   - introduce/getting-started
@@ -252,6 +256,24 @@ scope:
 menus:
   Docs: introduce/getting-started/installation.html 
   Markdown: markdown/basic-syntax.html markdown
+```
+
+⚠️ 注意：
+
+- 范围 `scope` 配置，在匹配到的页面，展示匹配中的章节(SiderBar)菜单。
+- 范围 `scope` 没有配置，所有页面展示章节(SiderBar)菜单。
+- 范围是匹配文件路径，配置使用 `/` idoc 工具帮助转换兼容 Windows。
+- 范围 `scope` 配置，是过滤 `idoc.chapters.yml` 中的数据。
+
+### `scopePrivate`
+
+某一些页面展示指定范围的的章节(SiderBar)菜单，其它页面展示剩余范围的的章节(SiderBar)菜单。
+
+> ⚠️ 注意：需要删除 ~~`scope`~~ 配置选项，上面需求才能实现。
+
+```yml
+scopePrivate: 
+  - tutorial
 ```
 
 ### `sideEffectFiles`

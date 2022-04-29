@@ -25,6 +25,7 @@ export interface SiteGlobalConfig {
   keywords?: string;
   description?: string;
   scope?: string[];
+  scopePrivate?: string[];
   tocs?: Toc[] | boolean;
   /** website logo icon */
   logo?: LogoOrFavicon;
@@ -102,6 +103,7 @@ export class Conf {
     config: {},
     asset: [],
     scope: [],
+    scopePrivate: [],
     data: {},
     site: 'idoc',
     logo: {
