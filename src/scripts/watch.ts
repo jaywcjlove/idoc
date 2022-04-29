@@ -12,7 +12,7 @@ export function watch() {
     config.data.config.conf,
     config.data.config.chapters,
     config.data.readme,
-    ...config.data.sideEffectFiles,
+    ...(config.data.sideEffectFiles || []),
   ].filter(Boolean);
 
   const watcher = chokidar.watch(watchPaths, {
