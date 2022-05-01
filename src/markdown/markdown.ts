@@ -99,8 +99,15 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
       tocItem.href = node.properties.id as string;
       if (num < tocsStart) tocsStart = num;
       node.children = node.children.map((item) => {
-        if (item.type === 'element' && item.tagName === 'a') {
-          item.properties.class = 'anchor';
+        if (
+          item.type === 'element' &&
+          item.tagName === 'a' &&
+          item.children[0] &&
+          item.children[0].type === 'element'
+        ) {
+          if (item.children[0].properties.className.toString().indexOf('icon-link') > -1) {
+            item.properties.class = 'anchor';
+          }
         }
         return item;
       });
