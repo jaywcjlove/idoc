@@ -220,9 +220,6 @@ section.article-footer .atime {
   display: flex;
   align-items: center;
 }
-.previous a svg {
-  margin-top: 1px;
-}
 .previous a.prev svg {
   margin-right: 3px;
 }
