@@ -27,8 +27,21 @@ idoc
 <!--rehype:style=display: flex; height: 230px; align-items: center; justify-content: center; font-size: 38px;-->
 
 Markdown Supports **Style**<!--rehype:style=color: red;-->
+```
 
+### 超链接新窗口打开
+
+```markdown
 [HTML](https://github.com/jaywcjlove/rehype-attr)<!--rehype:target="__blank"-->
+```
+
+### 表格宽度设置
+
+```markdown
+表头 | xxx 
+---- | ----
+表头 | xxx 
+<!--rehype:style=width: 100%; display: inline-table;-->
 ```
 
 ## GFM 脚注
