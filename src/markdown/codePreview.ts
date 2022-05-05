@@ -18,12 +18,13 @@ export type CodePreviewOptions = {};
  */
 export function getCodeMeta(meta: string = ''): Record<'preview' | 'iframe', boolean> {
   const result = { preview: false, iframe: false };
-  const [metaRaw] = /idoc:(.[\w|:]+)/i.exec(meta) || [];
-  metaRaw.split(':').forEach((key: keyof typeof result) => {
-    if (typeof result[key] === 'boolean') {
-      result[key] = true;
-    }
-  });
+  const [metaRaw = ''] = /idoc:(.[\w|:]+)/i.exec(meta) || [];
+  typeof metaRaw === 'string' &&
+    metaRaw.split(':').forEach((key: keyof typeof result) => {
+      if (typeof result[key] === 'boolean') {
+        result[key] = true;
+      }
+    });
   return result;
 }
 
