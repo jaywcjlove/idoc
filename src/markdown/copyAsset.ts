@@ -26,9 +26,14 @@ export function copyied(fromPath: string, toPath: string) {
 }
 
 export function copyAsset(node: Root | RootContent, mdpath: string) {
-  if (node.type !== 'element' || !/^(img|a)$/.test(node.tagName) || Array.isArray(node.properties.src)) return;
+  if (
+    node.type !== 'element' ||
+    !/^(img|a|video|source|audio)$/.test(node.tagName) ||
+    Array.isArray(node.properties.src)
+  )
+    return;
   let href = '';
-  if (node.tagName === 'img') {
+  if (node.tagName === 'img' || node.tagName === 'video' || node.tagName === 'source' || node.tagName === 'audio') {
     if (typeof node.properties.src !== 'string' || isAbsoluteURL(node.properties.src)) return;
     href = node.properties.src;
   }
