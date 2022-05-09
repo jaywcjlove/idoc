@@ -30,6 +30,13 @@
                   "type": "string"
                 }
               },
+              "copyAssets": {
+                "description": "copy assets",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "scopePrivate": {
                 "description": "chapters scopes",
                 "type": "array",

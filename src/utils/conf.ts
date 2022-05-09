@@ -1,6 +1,7 @@
 import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
+import micromatch from 'micromatch';
 import { fileURLToPath } from 'url';
 import image2uri from 'image2uri';
 import readdirFiles, { IFileDirStat, getStat } from 'recursive-readdir-files';
@@ -70,6 +71,7 @@ export interface Config extends SiteGlobalConfig {
   version?: string;
   /** idoc version */
   idocVersion?: string;
+  copyAssets?: string | string[];
   global?: IdocConfig;
   page?: PageConfig;
 }
@@ -204,9 +206,11 @@ export class Conf {
     if (!fs.existsSync(this.data.dir)) {
       return;
     }
+    const { copyAssets = '' } = this.data;
     const files = await readdirFiles(this.data.dir, {
       ignored: /\/(node_modules|\.git)/,
-      filter: (filepath) => /.(md|markdown)$/.test(filepath.path),
+      filter: (filepath) =>
+        /.(md|markdown)$/.test(filepath.path) || (copyAssets && micromatch.isMatch(filepath.path, copyAssets)),
     });
     this.data.asset = files;
     const { sideEffectFiles = [] } = this.data;

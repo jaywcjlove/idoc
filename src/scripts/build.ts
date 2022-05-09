@@ -28,6 +28,9 @@ export async function compilation(filepath: string) {
   if (/\.(md|markdown)$/.test(filepath.toLocaleLowerCase())) {
     await fs.writeFile(htmlPath, htmlStr);
     log.output()(filepath, htmlPath);
+  } else {
+    await fs.copyFile(filepath, htmlPath);
+    log.output('\x1b[35;1mcopy\x1b[0m')(filepath, htmlPath);
   }
 }
 
