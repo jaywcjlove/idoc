@@ -4,6 +4,7 @@ import { Root, RootContent } from 'hast';
 import { isAbsoluteURL } from './utils.js';
 import { getOutput } from '../scripts/build.js';
 import * as log from '../utils/log.js';
+import { cacheCopyiedFiles } from '../utils/conf.js';
 
 export function copyied(fromPath: string, toPath: string) {
   const stat = fs.statSync(fromPath);
@@ -51,5 +52,8 @@ export function copyAsset(node: Root | RootContent, mdpath: string) {
   if (!fs.existsSync(assetPath)) return;
   const output = getOutput(assetPath);
   node.properties.src = path.relative(path.dirname(getOutput(mdpath)), output);
-  copyied(assetPath, output);
+  if (!cacheCopyiedFiles.includes(assetPath)) {
+    copyied(assetPath, output);
+    cacheCopyiedFiles.push(assetPath);
+  }
 }

@@ -3,7 +3,7 @@ import chokidar from 'chokidar';
 import fs from 'fs-extra';
 import { compilation, compilationAll, copyThemeAsset, getOutput, copyThemeFileAsset } from './build.js';
 import * as log from '../utils/log.js';
-import { config } from '../utils/conf.js';
+import { config, cacheCopyiedFiles } from '../utils/conf.js';
 
 export function watch() {
   const watchPaths = [
@@ -74,6 +74,7 @@ export function watch() {
     } else {
       let assetPath = getOutput(filepath);
       await fs.remove(assetPath);
+      cacheCopyiedFiles.splice(cacheCopyiedFiles.indexOf(filepath), 1);
       log.output('\x1b[35;1mremove\x1b[0m')(filepath, assetPath);
     }
   });

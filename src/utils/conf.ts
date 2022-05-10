@@ -91,6 +91,8 @@ export type MenuData = {
   target?: string;
 };
 
+export const cacheCopyiedFiles: string[] = [];
+
 export class Conf {
   constructor() {
     this.initConf();
