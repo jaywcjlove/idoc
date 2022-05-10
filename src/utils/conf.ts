@@ -203,15 +203,15 @@ export class Conf {
     }
   }
   async getFiles() {
-    if (!fs.existsSync(this.data.dir)) {
-      return;
-    }
     const { copyAssets = '' } = this.data;
-    const files = await readdirFiles(this.data.dir, {
-      ignored: /\/(node_modules|\.git)/,
-      filter: (filepath) =>
-        /.(md|markdown)$/.test(filepath.path) || (copyAssets && micromatch.isMatch(filepath.path, copyAssets)),
-    });
+    let files: IFileDirStat[] = [];
+    if (fs.existsSync(this.data.dir)) {
+      files = await readdirFiles(this.data.dir, {
+        ignored: /\/(node_modules|\.git)/,
+        filter: (filepath) =>
+          /.(md|markdown)$/.test(filepath.path) || (copyAssets && micromatch.isMatch(filepath.path, copyAssets)),
+      });
+    }
     this.data.asset = files;
     const { sideEffectFiles = [] } = this.data;
     await Promise.all(
