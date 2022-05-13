@@ -23,6 +23,10 @@
                   "type": "boolean",
                   "description": "page table of contents hidden"
               },
+              "cacheFileStat": {
+                  "type": "boolean",
+                  "description": "cache md file stat"
+              },
               "scope": {
                 "description": "chapters scopes",
                 "type": "array",

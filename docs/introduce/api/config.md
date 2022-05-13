@@ -207,6 +207,14 @@ logo: ./logo.png
 favicon: ./logo.png
 ```
 
+### `cacheFileStat`
+
+缓存 md 文件统计信息，主要解决时间更新问题（[#58](https://github.com/jaywcjlove/idoc/issues/58)）。
+
+```yml
+cacheFileStat: true
+```
+
 ### `copyAssets`
 
 使用 [通配模式](https://github.com/micromatch/micromatch) 拷贝指定的资源。
