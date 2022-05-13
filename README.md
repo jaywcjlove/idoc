@@ -78,6 +78,7 @@ Example:
 
 | Repo | Starred  | Website |
 | ---- | ---- | ---- |
+| [Awesome Mac](https://github.com/jaywcjlove/awesome-mac) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/awesome-mac.svg)](https://github.com/jaywcjlove/awesome-mac/stargazers) | [Preview Website](https://jaywcjlove.github.io/awesome-mac) |
 | [MySQL Tutorial](https://github.com/jaywcjlove/mysql-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/mysql-tutorial.svg)](https://github.com/jaywcjlove/mysql-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/mysql-tutorial) |
 | [Docker Tutorial](https://github.com/jaywcjlove/docker-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/docker-tutorial.svg)](https://github.com/jaywcjlove/docker-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/docker-tutorial) |
 | [Nginx Tutorial](https://github.com/jaywcjlove/nginx-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/nginx-tutorial.svg)](https://github.com/jaywcjlove/nginx-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/nginx-tutorial) |
