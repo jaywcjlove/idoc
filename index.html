@@ -1,84 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>模板变量 iDoc </title>
-
-<meta name="description" content="Generate static pages from all Markdown in a folder.">
-
-
-<meta name="keywords" content="idoc,config,api">
-
-<link rel="stylesheet" type="text/css" href="css/main.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="css/media.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="css/copy.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.19.1">
-
-<link rel="icon" href="logo.png" type="image/x-icon">
-
-<script src="js/copy.js?v=1.19.1"></script>
-<script src="js/dark-mode.js?v=1.19.1"></script>
-<script src="js/markdown-style.js?v=1.19.1"></script>
-</head>
-<body id="idoctotop">
-<a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-<article class="inner warpper">
-<a class="logo" href="index.html">
-
-<img alt="iDoc logo" src="logo.png">
-
-<span class="title">iDoc</span>
-</a>
-<div class="content">
-<ul class="menu">
-
-<li>
-<a href="index.html" target="" class="active"> Home </a>
-</li>
-
-<li>
-<a href="introduce/getting-started/installation.html" target="" class=""> Docs </a>
-</li>
-
-<li>
-<a href="markdown/basic-syntax.html" target="" class=""> Markdown </a>
-</li>
-
-<li>
-<a href="about.html" target="" class=""> About </a>
-</li>
-
-</ul>
-
-<a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-
-<dark-mode permanent></dark-mode>
-</div>
-</article>
-</header>
-<div class="warpper-content warpper  ">
-
-<markdown-style>
-
-<p>
-  <a href="https://npmjs.org/package/idoc"><img src="https://img.shields.io/npm/v/idoc.svg?style=flat" alt="NPM version"></a>
-  <a href="https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml"><img src="https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/jaywcjlove/idoc/network/dependents"><img src="https://badgen.net/github/dependents-repo/jaywcjlove/idoc" alt="Dependents Repo"></a>
-  <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dw/idoc?style=flat-square" alt="npm Downloads"></a>
-  <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dm/idoc?style=flat-square" alt="npm Downloads"></a>
-  <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dy/idoc?style=flat-square" alt="npm Downloads"></a>
-</p>
-<p>Generate static pages from all Markdown in a folder.</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">  ,,        ,,
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板变量 iDoc</title>
+    <meta name="description" content="Generate static pages from all Markdown in a folder.">
+    <meta name="keywords" content="idoc,config,api">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.19.1">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <script src="js/copy.js?v=1.19.1"></script>
+    <script src="js/dark-mode.js?v=1.19.1"></script>
+    <script src="js/markdown-style.js?v=1.19.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="index.html"><img alt="iDoc logo" src="logo.png">
+<span class="title">iDoc</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="index.html" target="" class="active">Home</a></li>
+            <li><a href="introduce/getting-started/installation.html" target="" class="">Docs</a></li>
+            <li><a href="markdown/basic-syntax.html" target="" class="">Markdown</a></li>
+            <li><a href="about.html" target="" class="">About</a></li>
+          </ul><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper">
+      <markdown-style>
+        <p>
+          <a href="https://npmjs.org/package/idoc"><img src="https://img.shields.io/npm/v/idoc.svg?style=flat" alt="NPM version"></a>
+          <a href="https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml"><img src="https://github.com/jaywcjlove/idoc/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+          <a href="https://github.com/jaywcjlove/idoc/network/dependents"><img src="https://badgen.net/github/dependents-repo/jaywcjlove/idoc" alt="Dependents Repo"></a>
+          <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dw/idoc?style=flat-square" alt="npm Downloads"></a>
+          <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dm/idoc?style=flat-square" alt="npm Downloads"></a>
+          <a href="https://www.npmjs.com/package/idoc"><img src="https://img.shields.io/npm/dy/idoc?style=flat-square" alt="npm Downloads"></a>
+        </p>
+        <p>Generate static pages from all Markdown in a folder.</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">  ,,        ,,
 </span><span class="code-line line-number" line="2">  db      <span class="token variable"><span class="token variable">`</span>7MM
 </span></span><span class="code-line line-number" line="3"><span class="token variable">            MM
 </span></span><span class="code-line line-number" line="4"><span class="token variable"><span class="token variable">`</span></span>7MM   ,M<span class="token string">""</span>bMM  ,pW<span class="token string">"Wq.   ,p6"</span>bo
@@ -95,19 +63,19 @@
   MM &#x60;Mb    MM YA.   ,A9 YM.    ,
 .JMML.&#x60;Wbmd&#x22;MML.&#x60;Ybmd9&#x27;   YMbmd&#x27;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="quick-start"><a aria-hidden="true" tabindex="-1" href="#quick-start" class="anchor"><span class="icon icon-link"></span></a>Quick Start</h2>
-<p>Create a idoc site using the beautiful defalut theme.</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx idoc init myapp
+        <h2 id="quick-start"><a aria-hidden="true" tabindex="-1" href="#quick-start" class="anchor"><span class="icon icon-link"></span></a>Quick Start</h2>
+        <p>Create a idoc site using the beautiful defalut theme.</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx idoc init myapp
 </span></code><input type="hidden" value="$ npx idoc init myapp
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>Or</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">sudo</span> <span class="token function">npm</span> i idoc -g
+        <p>Or</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ <span class="token function">sudo</span> <span class="token function">npm</span> i idoc -g
 </span><span class="code-line line-number" line="2">$ idoc init myapp
 </span></code><input type="hidden" value="$ sudo npm i idoc -g
 $ idoc init myapp
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>Running the <code>idoc init myapp</code> generator from the command line will create a directory structure with the following elements:</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+        <p>Running the <code>idoc init myapp</code> generator from the command line will create a directory structure with the following elements:</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
 </span><span class="code-line line-number" line="2">│   ├── README.md
 </span><span class="code-line line-number" line="3">│   └── about.md
 </span><span class="code-line line-number" line="4">├── package.json
@@ -118,8 +86,8 @@ $ idoc init myapp
 ├── package.json
 └── idoc.yml
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="command-help"><a aria-hidden="true" tabindex="-1" href="#command-help" class="anchor"><span class="icon icon-link"></span></a>Command Help</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">Usage: idoc <span class="token punctuation">[</span>init<span class="token operator">|</span>new<span class="token punctuation">]</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>--help<span class="token operator">|</span>h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token operator">|</span>v<span class="token punctuation">]</span>
+        <h2 id="command-help"><a aria-hidden="true" tabindex="-1" href="#command-help" class="anchor"><span class="icon icon-link"></span></a>Command Help</h2>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">Usage: idoc <span class="token punctuation">[</span>init<span class="token operator">|</span>new<span class="token punctuation">]</span><span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>--help<span class="token operator">|</span>h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token operator">|</span>v<span class="token punctuation">]</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3">Options:
 </span><span class="code-line line-number" line="4">
@@ -162,152 +130,113 @@ Example:
   npm idoc --output=&#x22;dist&#x22;
   npm idoc --watch --output=&#x22;www&#x22;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="compiled-with-idoc"><a aria-hidden="true" tabindex="-1" href="#compiled-with-idoc" class="anchor"><span class="icon icon-link"></span></a>Compiled with idoc</h2>
-<table style="width: 100%; display: inline-table;">
-  <thead>
-    <tr>
-      <th>Repo</th>
-      <th>Starred</th>
-      <th>Website</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/awesome-mac">Awesome Mac</a></td>
-      <td><a href="https://github.com/jaywcjlove/awesome-mac/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/awesome-mac.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/awesome-mac">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/mysql-tutorial">MySQL Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/mysql-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/mysql-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/mysql-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/docker-tutorial">Docker Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/docker-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/docker-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/docker-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/nginx-tutorial">Nginx Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/nginx-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/nginx-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/nginx-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/vim-web">Vim Web</a></td>
-      <td><a href="https://github.com/jaywcjlove/vim-web/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/vim-web.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/vim-web">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/git-tips">Git Tips</a></td>
-      <td><a href="https://github.com/jaywcjlove/git-tips/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/git-tips.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/git-tips">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/awesome-uikit">Awesome UIKit</a></td>
-      <td><a href="https://github.com/jaywcjlove/awesome-uikit/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/awesome-uikit.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/awesome-uikit">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/shell-tutorial">Shell Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/shell-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/shell-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/shell-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/swiftui-example">SwiftUI Example</a></td>
-      <td><a href="https://github.com/jaywcjlove/swiftui-example/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/swiftui-example.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/swiftui-example">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/swift-tutorial">Swift Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/swift-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/swift-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/swift-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/handbook">Handbook</a></td>
-      <td><a href="https://github.com/jaywcjlove/handbook/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/handbook.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/handbook">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/github-actions">GitHub Actions</a></td>
-      <td><a href="https://github.com/jaywcjlove/github-actions/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/github-actions.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/github-actions">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/html-tutorial">HTML Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/html-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/html-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/html-tutorial">Preview Website</a></td>
-    </tr>
-    <tr>
-      <td><a href="https://github.com/jaywcjlove/c-tutorial">C Tutorial</a></td>
-      <td><a href="https://github.com/jaywcjlove/c-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/c-tutorial.svg" alt="Github Stars"></a></td>
-      <td><a href="https://jaywcjlove.github.io/c-tutorial">Preview Website</a></td>
-    </tr>
-  </tbody>
-</table><!--rehype:style=width: 100%; display: inline-table;-->
-<h2 id="contributors"><a aria-hidden="true" tabindex="-1" href="#contributors" class="anchor"><span class="icon icon-link"></span></a>Contributors</h2>
-<p>As always, thanks to our amazing contributors!</p><a href="https://github.com/jaywcjlove/idoc/graphs/contributors"><img src="https://jaywcjlove.github.io/idoc/CONTRIBUTORS.svg"></a>
-<p>Made with <a href="https://github.com/jaywcjlove/github-action-contributors">action-contributors</a>.</p>
-<h2 id="license"><a aria-hidden="true" tabindex="-1" href="#license" class="anchor"><span class="icon icon-link"></span></a>License</h2>
-<p>Licensed under the MIT License.</p>
-
-
-
-<section class="article-footer">
-<a href="https://github.com/jaywcjlove/idoc/blob/master/README.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-</svg>
+        <h2 id="compiled-with-idoc"><a aria-hidden="true" tabindex="-1" href="#compiled-with-idoc" class="anchor"><span class="icon icon-link"></span></a>Compiled with idoc</h2>
+        <table style="width: 100%; display: inline-table;">
+          <thead>
+            <tr>
+              <th>Repo</th>
+              <th>Starred</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/awesome-mac">Awesome Mac</a></td>
+              <td><a href="https://github.com/jaywcjlove/awesome-mac/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/awesome-mac.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/awesome-mac">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/mysql-tutorial">MySQL Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/mysql-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/mysql-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/mysql-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/docker-tutorial">Docker Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/docker-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/docker-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/docker-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/nginx-tutorial">Nginx Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/nginx-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/nginx-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/nginx-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/vim-web">Vim Web</a></td>
+              <td><a href="https://github.com/jaywcjlove/vim-web/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/vim-web.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/vim-web">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/git-tips">Git Tips</a></td>
+              <td><a href="https://github.com/jaywcjlove/git-tips/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/git-tips.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/git-tips">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/awesome-uikit">Awesome UIKit</a></td>
+              <td><a href="https://github.com/jaywcjlove/awesome-uikit/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/awesome-uikit.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/awesome-uikit">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/shell-tutorial">Shell Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/shell-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/shell-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/shell-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/swiftui-example">SwiftUI Example</a></td>
+              <td><a href="https://github.com/jaywcjlove/swiftui-example/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/swiftui-example.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/swiftui-example">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/swift-tutorial">Swift Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/swift-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/swift-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/swift-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/handbook">Handbook</a></td>
+              <td><a href="https://github.com/jaywcjlove/handbook/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/handbook.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/handbook">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/github-actions">GitHub Actions</a></td>
+              <td><a href="https://github.com/jaywcjlove/github-actions/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/github-actions.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/github-actions">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/html-tutorial">HTML Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/html-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/html-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/html-tutorial">Preview Website</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://github.com/jaywcjlove/c-tutorial">C Tutorial</a></td>
+              <td><a href="https://github.com/jaywcjlove/c-tutorial/stargazers"><img src="https://img.shields.io/github/stars/jaywcjlove/c-tutorial.svg" alt="Github Stars"></a></td>
+              <td><a href="https://jaywcjlove.github.io/c-tutorial">Preview Website</a></td>
+            </tr>
+          </tbody>
+        </table><!--rehype:style=width: 100%; display: inline-table;-->
+        <h2 id="contributors"><a aria-hidden="true" tabindex="-1" href="#contributors" class="anchor"><span class="icon icon-link"></span></a>Contributors</h2>
+        <p>As always, thanks to our amazing contributors!</p><a href="https://github.com/jaywcjlove/idoc/graphs/contributors"><img src="https://jaywcjlove.github.io/idoc/CONTRIBUTORS.svg"></a>
+        <p>Made with <a href="https://github.com/jaywcjlove/github-action-contributors">action-contributors</a>.</p>
+        <h2 id="license"><a aria-hidden="true" tabindex="-1" href="#license" class="anchor"><span class="icon icon-link"></span></a>License</h2>
+        <p>Licensed under the MIT License.</p>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/idoc/blob/master/README.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
 <span>Edit this page on GitHub</span>
-</a>
-
-<span class="atime">2022/05/13</span>
-
-</section>
-
-</markdown-style>
-
-<nav class="tocs">
-<aside class="inner toc">
-<ol class="tocs-list">
-
-<li>
-<a href="#quick-start" class="tocs-link">Quick Start</a>
-
-</li>
-
-<li>
-<a href="#command-help" class="tocs-link">Command Help</a>
-
-</li>
-
-<li>
-<a href="#compiled-with-idoc" class="tocs-link">Compiled with idoc</a>
-
-</li>
-
-<li>
-<a href="#contributors" class="tocs-link">Contributors</a>
-
-</li>
-
-<li>
-<a href="#license" class="tocs-link">License</a>
-
-</li>
-
-</ol>
-</aside>
-</nav>
-
-</div>
-<script src="js/demo-preview.js?v=1.19.1"></script>
-
-<div class="footer warpper">
-Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1
-
-</div>
-
-<script src="js/tocbot.js?v=1.19.1"></script>
-</body>
+</a><span class="atime">2022/05/13</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#quick-start" class="tocs-link">Quick Start</a></li>
+            <li><a href="#command-help" class="tocs-link">Command Help</a></li>
+            <li><a href="#compiled-with-idoc" class="tocs-link">Compiled with idoc</a></li>
+            <li><a href="#contributors" class="tocs-link">Contributors</a></li>
+            <li><a href="#license" class="tocs-link">License</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="js/demo-preview.js?v=1.19.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1</div>
+    <script src="js/tocbot.js?v=1.19.1"></script>
+  </body>
 </html>

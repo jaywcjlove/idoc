@@ -1,212 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>自述 iDoc </title>
-
-<meta name="description" content="idoc 是一个快速、简洁且高效的文档生成工具。idoc 使用 Markdown 解析文章，在几秒内，即可利用默认主题生成静态网页。">
-
-
-<meta name="keywords" content="idoc,document,doc">
-
-<link rel="stylesheet" type="text/css" href="../css/main.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/media.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.19.1">
-
-<link rel="icon" href="../logo.png" type="image/x-icon">
-
-<script src="../js/copy.js?v=1.19.1"></script>
-<script src="../js/dark-mode.js?v=1.19.1"></script>
-<script src="../js/markdown-style.js?v=1.19.1"></script>
-</head>
-<body id="idoctotop">
-<a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-<article class="inner warpper">
-<a class="logo" href="../index.html">
-
-<img alt="iDoc logo" src="../logo.png">
-
-<span class="title">iDoc</span>
-</a>
-<div class="content">
-<ul class="menu">
-
-<li>
-<a href="../index.html" target="" class=""> Home </a>
-</li>
-
-<li>
-<a href="getting-started/installation.html" target="" class="active"> Docs </a>
-</li>
-
-<li>
-<a href="../markdown/basic-syntax.html" target="" class=""> Markdown </a>
-</li>
-
-<li>
-<a href="../about.html" target="" class=""> About </a>
-</li>
-
-</ul>
-
-<a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-
-<dark-mode permanent></dark-mode>
-</div>
-</article>
-</header>
-<div class="warpper-content warpper sidebar ">
-
-<div class="sidebar-border">
-<aside class="sidebar" role="navigation">
-<div>
-
-
-<a href="index.html" class="active">自述</a>
-
-
-
-<label>入门</label>
-
-
-
-<a href="getting-started/installation.html" class="">安装</a>
-
-
-
-<a href="getting-started/site-preparation.html" class="">网站准备</a>
-
-
-
-<a href="getting-started/site-creation.html" class="">创建网站</a>
-
-
-
-<a href="getting-started/site-add.html" class="">添加文档</a>
-
-
-
-<a href="getting-started/home.html" class="">网站首页</a>
-
-
-
-<a href="getting-started/publish.html" class="">发布网站</a>
-
-
-
-<label>API</label>
-
-
-
-<a href="api/command.html" class="">命令帮助</a>
-
-
-
-<a href="api/config.html" class="">配置文件</a>
-
-
-
-<label>主题</label>
-
-
-
-<a href="theme/theme-defalut.html" class="">定制主题</a>
-
-
-
-<a href="theme/templates.html" class="">模板使用教程</a>
-
-
-
-<a href="theme/variables.html" class="">模板变量</a>
-
-
-</div>
-</aside>
-</div>
-
-<markdown-style>
-
-<h1 id="自述"><a aria-hidden="true" tabindex="-1" href="#自述" class="anchor"><span class="icon icon-link"></span></a>自述</h1>
-<p><code>idoc</code> 是一个快速、简洁且高效的文档生成工具。<code>idoc</code> 使用 <a href="https://github.github.com/gfm/">Markdown</a> 解析文章，在几秒内，即可利用默认主题生成静态网页。</p><!--idoc:config:
-tocs: false
--->
-<h2 id="为什么开发-idoc-"><a aria-hidden="true" tabindex="-1" href="#为什么开发-idoc-" class="anchor"><span class="icon icon-link"></span></a>为什么开发 <code>idoc</code> ？</h2>
-<p>在 2015年有一些自动生成文档的需求，开发了 <code>idoc</code>，由于工作的原因，idoc 停滞到现在。中间尝试使用 react 封装 <a href="https://github.com/jaywcjlove/rdoc">rdoc</a> 工具，开发 <a href="https://github.com/jaywcjlove/markdown-to-html-cli">markdown-to-html-cli</a> 命令工具，帮助小的仓库方便生成单个静态页面，作为文档网站，让它同时支持 GitHub Action CI 中生成页面，即使你不是一个 node 项目，也可以生成简单的文档网站。这些工具在不同的应用场景，有着不同的作用，但是我眼下的一个想法，让我之前的工具并不能满足我眼下的需求，让我有了重构 idoc 的冲动。</p>
-<p>在过去的积累下，积攒了一些笔记，查看非常不方便，突然想把这些笔记整理到一起，之前的工具又不适合现有的想法，如在生成出 html 的同时很好的在 GitHub 中展示，给文档网站添加章节目录，文档导航目录，菜单自定义等多个问题。这就有了重构 idoc 的想法。通过这些年，一系列的工具、经验积攒下，让我重构 idoc 变得非常简单，于是真的开始动手重构了，主程序开发设计只花费了一两天时间，剩下的是各种小功能的慢慢集成和修补吧 :)。</p>
-<h2 id="应用场景"><a aria-hidden="true" tabindex="-1" href="#应用场景" class="anchor"><span class="icon icon-link"></span></a>应用场景</h2>
-<p>通过 idoc 更好，更方便，更快捷的生成文档网站，可以轻松的根据文档定制自己的主题，管理菜单。未来希望支持博客生成，可能内置一个博客主题，需要在此基础上提供翻页变量，tag 标签，列表索引等。</p>
-
-
-<div class="previous">
-
-<span></span>
-
-
-<a class="next" href="getting-started/installation.html">
-<span>
-安装
-</span>
-<svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-<path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-<path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-</svg>
-</a>
-
-</div>
-
-
-<section class="article-footer">
-<a href="https://github.com/jaywcjlove/idoc/blob/master/docs/introduce/README.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-</svg>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自述 iDoc</title>
+    <meta name="description" content="idoc 是一个快速、简洁且高效的文档生成工具。idoc 使用 Markdown 解析文章，在几秒内，即可利用默认主题生成静态网页。">
+    <meta name="keywords" content="idoc,document,doc">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.19.1">
+    <link rel="icon" href="../logo.png" type="image/x-icon">
+    <script src="../js/copy.js?v=1.19.1"></script>
+    <script src="../js/dark-mode.js?v=1.19.1"></script>
+    <script src="../js/markdown-style.js?v=1.19.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../index.html"><img alt="iDoc logo" src="../logo.png">
+<span class="title">iDoc</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../index.html" target="" class="">Home</a></li>
+            <li><a href="getting-started/installation.html" target="" class="active">Docs</a></li>
+            <li><a href="../markdown/basic-syntax.html" target="" class="">Markdown</a></li>
+            <li><a href="../about.html" target="" class="">About</a></li>
+          </ul><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <a href="index.html" class="active">自述</a>
+            <label>入门</label>
+            <a href="getting-started/installation.html" class="">安装</a>
+            <a href="getting-started/site-preparation.html" class="">网站准备</a>
+            <a href="getting-started/site-creation.html" class="">创建网站</a>
+            <a href="getting-started/site-add.html" class="">添加文档</a>
+            <a href="getting-started/home.html" class="">网站首页</a>
+            <a href="getting-started/publish.html" class="">发布网站</a>
+            <label>API</label>
+            <a href="api/command.html" class="">命令帮助</a>
+            <a href="api/config.html" class="">配置文件</a>
+            <label>主题</label>
+            <a href="theme/theme-defalut.html" class="">定制主题</a>
+            <a href="theme/templates.html" class="">模板使用教程</a>
+            <a href="theme/variables.html" class="">模板变量</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="自述"><a aria-hidden="true" tabindex="-1" href="#自述" class="anchor"><span class="icon icon-link"></span></a>自述</h1>
+        <p><code>idoc</code> 是一个快速、简洁且高效的文档生成工具。<code>idoc</code> 使用 <a href="https://github.github.com/gfm/">Markdown</a> 解析文章，在几秒内，即可利用默认主题生成静态网页。</p><!--idoc:config:
+        tocs: false
+        -->
+        <h2 id="为什么开发-idoc-"><a aria-hidden="true" tabindex="-1" href="#为什么开发-idoc-" class="anchor"><span class="icon icon-link"></span></a>为什么开发 <code>idoc</code> ？</h2>
+        <p>在 2015年有一些自动生成文档的需求，开发了 <code>idoc</code>，由于工作的原因，idoc 停滞到现在。中间尝试使用 react 封装 <a href="https://github.com/jaywcjlove/rdoc">rdoc</a> 工具，开发 <a href="https://github.com/jaywcjlove/markdown-to-html-cli">markdown-to-html-cli</a> 命令工具，帮助小的仓库方便生成单个静态页面，作为文档网站，让它同时支持 GitHub Action CI 中生成页面，即使你不是一个 node 项目，也可以生成简单的文档网站。这些工具在不同的应用场景，有着不同的作用，但是我眼下的一个想法，让我之前的工具并不能满足我眼下的需求，让我有了重构 idoc 的冲动。</p>
+        <p>在过去的积累下，积攒了一些笔记，查看非常不方便，突然想把这些笔记整理到一起，之前的工具又不适合现有的想法，如在生成出 html 的同时很好的在 GitHub 中展示，给文档网站添加章节目录，文档导航目录，菜单自定义等多个问题。这就有了重构 idoc 的想法。通过这些年，一系列的工具、经验积攒下，让我重构 idoc 变得非常简单，于是真的开始动手重构了，主程序开发设计只花费了一两天时间，剩下的是各种小功能的慢慢集成和修补吧 :)。</p>
+        <h2 id="应用场景"><a aria-hidden="true" tabindex="-1" href="#应用场景" class="anchor"><span class="icon icon-link"></span></a>应用场景</h2>
+        <p>通过 idoc 更好，更方便，更快捷的生成文档网站，可以轻松的根据文档定制自己的主题，管理菜单。未来希望支持博客生成，可能内置一个博客主题，需要在此基础上提供翻页变量，tag 标签，列表索引等。</p>
+        <div class="previous"><span></span><a class="next" href="getting-started/installation.html"><span>安装
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/idoc/blob/master/docs/introduce/README.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
 <span>Edit this page on GitHub</span>
-</a>
-
-<span class="atime">2022/04/23</span>
-
-</section>
-
-</markdown-style>
-
-<nav class="tocs">
-<aside class="inner toc">
-<ol class="tocs-list">
-
-<li>
-<a href="#为什么开发-idoc-" class="tocs-link">为什么开发 idoc ？</a>
-
-</li>
-
-<li>
-<a href="#应用场景" class="tocs-link">应用场景</a>
-
-</li>
-
-</ol>
-</aside>
-</nav>
-
-</div>
-<script src="../js/demo-preview.js?v=1.19.1"></script>
-
-<div class="footer warpper">
-Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1
-
-</div>
-
-<script src="../js/tocbot.js?v=1.19.1"></script>
-</body>
+</a><span class="atime">2022/04/23</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#为什么开发-idoc-" class="tocs-link">为什么开发 idoc ？</a></li>
+            <li><a href="#应用场景" class="tocs-link">应用场景</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="../js/demo-preview.js?v=1.19.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1</div>
+    <script src="../js/tocbot.js?v=1.19.1"></script>
+  </body>
 </html>

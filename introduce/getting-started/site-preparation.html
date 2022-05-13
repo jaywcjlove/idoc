@@ -1,155 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>网站准备 iDoc </title>
-
-<meta name="description" content="我们只需要运行 npx idoc init myapp 命令，就会生成一个 myapp 文件夹，已经为您的网站准备好了一个最简单的实例。如果您不是初始化一个工程，那您在创建一个文档网站前，需要做一些准备工作，规划您的网站目录。">
-
-
-<meta name="keywords" content="idoc,config,api">
-
-<link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.19.1">
-
-<link rel="icon" href="../../logo.png" type="image/x-icon">
-
-<script src="../../js/copy.js?v=1.19.1"></script>
-<script src="../../js/dark-mode.js?v=1.19.1"></script>
-<script src="../../js/markdown-style.js?v=1.19.1"></script>
-</head>
-<body id="idoctotop">
-<a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-<article class="inner warpper">
-<a class="logo" href="../../index.html">
-
-<img alt="iDoc logo" src="../../logo.png">
-
-<span class="title">iDoc</span>
-</a>
-<div class="content">
-<ul class="menu">
-
-<li>
-<a href="../../index.html" target="" class=""> Home </a>
-</li>
-
-<li>
-<a href="installation.html" target="" class="active"> Docs </a>
-</li>
-
-<li>
-<a href="../../markdown/basic-syntax.html" target="" class=""> Markdown </a>
-</li>
-
-<li>
-<a href="../../about.html" target="" class=""> About </a>
-</li>
-
-</ul>
-
-<a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-
-<dark-mode permanent></dark-mode>
-</div>
-</article>
-</header>
-<div class="warpper-content warpper sidebar ">
-
-<div class="sidebar-border">
-<aside class="sidebar" role="navigation">
-<div>
-
-
-<a href="../index.html" class="">自述</a>
-
-
-
-<label>入门</label>
-
-
-
-<a href="installation.html" class="">安装</a>
-
-
-
-<a href="site-preparation.html" class="active">网站准备</a>
-
-
-
-<a href="site-creation.html" class="">创建网站</a>
-
-
-
-<a href="site-add.html" class="">添加文档</a>
-
-
-
-<a href="home.html" class="">网站首页</a>
-
-
-
-<a href="publish.html" class="">发布网站</a>
-
-
-
-<label>API</label>
-
-
-
-<a href="../api/command.html" class="">命令帮助</a>
-
-
-
-<a href="../api/config.html" class="">配置文件</a>
-
-
-
-<label>主题</label>
-
-
-
-<a href="../theme/theme-defalut.html" class="">定制主题</a>
-
-
-
-<a href="../theme/templates.html" class="">模板使用教程</a>
-
-
-
-<a href="../theme/variables.html" class="">模板变量</a>
-
-
-</div>
-</aside>
-</div>
-
-<markdown-style>
-
-<h1 id="网站准备"><a aria-hidden="true" tabindex="-1" href="#网站准备" class="anchor"><span class="icon icon-link"></span></a>网站准备</h1>
-<p>我们只需要运行 <code>npx idoc init myapp</code> 命令，就会生成一个 <code>myapp</code> 文件夹，已经为您的网站准备好了一个最简单的实例。如果您不是初始化一个工程，那您在创建一个文档网站前，需要做一些准备工作，规划您的网站目录。</p>
-<h2 id="初始化工程"><a aria-hidden="true" tabindex="-1" href="#初始化工程" class="anchor"><span class="icon icon-link"></span></a>初始化工程</h2>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx idoc init myapp
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站准备 iDoc</title>
+    <meta name="description" content="我们只需要运行 npx idoc init myapp 命令，就会生成一个 myapp 文件夹，已经为您的网站准备好了一个最简单的实例。如果您不是初始化一个工程，那您在创建一个文档网站前，需要做一些准备工作，规划您的网站目录。">
+    <meta name="keywords" content="idoc,config,api">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.19.1">
+    <link rel="icon" href="../../logo.png" type="image/x-icon">
+    <script src="../../js/copy.js?v=1.19.1"></script>
+    <script src="../../js/dark-mode.js?v=1.19.1"></script>
+    <script src="../../js/markdown-style.js?v=1.19.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../../index.html"><img alt="iDoc logo" src="../../logo.png">
+<span class="title">iDoc</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../../index.html" target="" class="">Home</a></li>
+            <li><a href="installation.html" target="" class="active">Docs</a></li>
+            <li><a href="../../markdown/basic-syntax.html" target="" class="">Markdown</a></li>
+            <li><a href="../../about.html" target="" class="">About</a></li>
+          </ul><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <a href="../index.html" class="">自述</a>
+            <label>入门</label>
+            <a href="installation.html" class="">安装</a>
+            <a href="site-preparation.html" class="active">网站准备</a>
+            <a href="site-creation.html" class="">创建网站</a>
+            <a href="site-add.html" class="">添加文档</a>
+            <a href="home.html" class="">网站首页</a>
+            <a href="publish.html" class="">发布网站</a>
+            <label>API</label>
+            <a href="../api/command.html" class="">命令帮助</a>
+            <a href="../api/config.html" class="">配置文件</a>
+            <label>主题</label>
+            <a href="../theme/theme-defalut.html" class="">定制主题</a>
+            <a href="../theme/templates.html" class="">模板使用教程</a>
+            <a href="../theme/variables.html" class="">模板变量</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="网站准备"><a aria-hidden="true" tabindex="-1" href="#网站准备" class="anchor"><span class="icon icon-link"></span></a>网站准备</h1>
+        <p>我们只需要运行 <code>npx idoc init myapp</code> 命令，就会生成一个 <code>myapp</code> 文件夹，已经为您的网站准备好了一个最简单的实例。如果您不是初始化一个工程，那您在创建一个文档网站前，需要做一些准备工作，规划您的网站目录。</p>
+        <h2 id="初始化工程"><a aria-hidden="true" tabindex="-1" href="#初始化工程" class="anchor"><span class="icon icon-link"></span></a>初始化工程</h2>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx idoc init myapp
 </span><span class="code-line line-number" line="2"><span class="token comment"># Or</span>
 </span><span class="code-line line-number" line="3">$ npx idoc@1.4.2 init myapp
 </span></code><input type="hidden" value="$ npx idoc init myapp
 # Or
 $ npx idoc@1.4.2 init myapp
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<h2 id="准备好的目录"><a aria-hidden="true" tabindex="-1" href="#准备好的目录" class="anchor"><span class="icon icon-link"></span></a>准备好的目录</h2>
-<p>从命令行运行 <code>idoc init myapp</code> 生成器将创建一个包含以下元素的目录结构：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs            <span class="token comment"># 👈 默认文档放置目录</span>
+        <h2 id="准备好的目录"><a aria-hidden="true" tabindex="-1" href="#准备好的目录" class="anchor"><span class="icon icon-link"></span></a>准备好的目录</h2>
+        <p>从命令行运行 <code>idoc init myapp</code> 生成器将创建一个包含以下元素的目录结构：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs            <span class="token comment"># 👈 默认文档放置目录</span>
 </span><span class="code-line line-number" line="2">│   ├── README.md
 </span><span class="code-line line-number" line="3">│   └── about.md
 </span><span class="code-line line-number" line="4">├── package.json
@@ -160,8 +81,8 @@ $ npx idoc@1.4.2 init myapp
 ├── package.json
 └── idoc.yml
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>如果您在生成器初始化项目过程中，选择生成默认主题自己修改，那么将创建一个包含 <code>themes</code> 的目录结构：</p>
-<pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
+        <p>如果您在生成器初始化项目过程中，选择生成默认主题自己修改，那么将创建一个包含 <code>themes</code> 的目录结构：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">├── docs
 </span><span class="code-line line-number" line="2">│   ├── README.md
 </span><span class="code-line line-number" line="3">│   └── about.md
 </span><span class="code-line line-number" line="4">├── idoc.yml
@@ -176,79 +97,37 @@ $ npx idoc@1.4.2 init myapp
 └── themes          # 👈 主题目录
     └── default
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-<p>注意，您的配置主题值产生了变化，如下：</p>
-<pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">theme</span><span class="token punctuation">:</span> themes/default
+        <p>注意，您的配置主题值产生了变化，如下：</p>
+        <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">theme</span><span class="token punctuation">:</span> themes/default
 </span></code><input type="hidden" value="theme: themes/default
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-
-
-<div class="previous">
-
-<a class="prev" href="installation.html">
-<svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-<path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
-<path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
-</svg>
-<span>
-安装
-</span>
-</a>
-
-
-<a class="next" href="site-creation.html">
-<span>
-创建网站
-</span>
-<svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-<path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-<path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-</svg>
-</a>
-
-</div>
-
-
-<section class="article-footer">
-<a href="https://github.com/jaywcjlove/idoc/blob/master/docs/introduce/getting-started/site-preparation.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-</svg>
+        <div class="previous"><a class="prev" href="installation.html"><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M842.666667 864c-8.533333 0-14.933333-2.133333-21.333334-8.533333l-341.333333-309.333334c-6.4-6.4-10.666667-14.933333-10.666667-23.466666 0-8.533333 4.266667-17.066667 10.666667-23.466667l341.333333-309.333333c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133333 44.8L548.266667 522.666667l315.733333 285.866666c12.8 10.666667 14.933333 32 2.133333 44.8-6.4 6.4-14.933333 10.666667-23.466666 10.666667z"></path>
+              <path d="M512 864c-8.533333 0-14.933333-2.133333-21.333333-8.533333L149.333333 546.133333c-6.4-6.4-10.666667-14.933333-10.666666-23.466666 0-8.533333 4.266667-17.066667 10.666666-23.466667L490.666667 189.866667c12.8-12.8 34.133333-10.666667 44.8 2.133333 12.8 12.8 10.666667 34.133333-2.133334 44.8L217.6 522.666667 533.333333 808.533333c12.8 12.8 14.933333 32 2.133334 44.8-6.4 6.4-14.933333 10.666667-23.466667 10.666667z"></path>
+            </svg>
+<span>安装
+</span></a><a class="next" href="site-creation.html"><span>创建网站
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/idoc/blob/master/docs/introduce/getting-started/site-preparation.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
 <span>Edit this page on GitHub</span>
-</a>
-
-<span class="atime">2022/04/17</span>
-
-</section>
-
-</markdown-style>
-
-<nav class="tocs">
-<aside class="inner toc">
-<ol class="tocs-list">
-
-<li>
-<a href="#初始化工程" class="tocs-link">初始化工程</a>
-
-</li>
-
-<li>
-<a href="#准备好的目录" class="tocs-link">准备好的目录</a>
-
-</li>
-
-</ol>
-</aside>
-</nav>
-
-</div>
-<script src="../../js/demo-preview.js?v=1.19.1"></script>
-
-<div class="footer warpper">
-Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1
-
-</div>
-
-<script src="../../js/tocbot.js?v=1.19.1"></script>
-</body>
+</a><span class="atime">2022/04/17</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#初始化工程" class="tocs-link">初始化工程</a></li>
+            <li><a href="#准备好的目录" class="tocs-link">准备好的目录</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="../../js/demo-preview.js?v=1.19.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1</div>
+    <script src="../../js/tocbot.js?v=1.19.1"></script>
+  </body>
 </html>

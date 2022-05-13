@@ -1,182 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markdown 语法指南 iDoc </title>
-
-<meta name="description" content="使用 Markdown 解析文章，支持 GFM(GitHub Flavored Markdown)语法，这是目前 GitHub.com 和 GitHub Enterprise 上的用户内容支持的 Markdown 方言，是基于 Common">
-
-
-<meta name="keywords" content="idoc,document,doc">
-
-<link rel="stylesheet" type="text/css" href="../css/main.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/media.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.19.1">
-<link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.19.1">
-
-<link rel="icon" href="../logo.png" type="image/x-icon">
-
-<script src="../js/copy.js?v=1.19.1"></script>
-<script src="../js/dark-mode.js?v=1.19.1"></script>
-<script src="../js/markdown-style.js?v=1.19.1"></script>
-</head>
-<body id="idoctotop">
-<a href="#idoctotop" class="gototop">top</a>
-<header class="header">
-<article class="inner warpper">
-<a class="logo" href="../index.html">
-
-<img alt="iDoc logo" src="../logo.png">
-
-<span class="title">iDoc</span>
-</a>
-<div class="content">
-<ul class="menu">
-
-<li>
-<a href="../index.html" target="" class=""> Home </a>
-</li>
-
-<li>
-<a href="../introduce/getting-started/installation.html" target="" class=""> Docs </a>
-</li>
-
-<li>
-<a href="basic-syntax.html" target="" class="active"> Markdown </a>
-</li>
-
-<li>
-<a href="../about.html" target="" class=""> About </a>
-</li>
-
-</ul>
-
-<a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-</a>
-
-<dark-mode permanent></dark-mode>
-</div>
-</article>
-</header>
-<div class="warpper-content warpper sidebar ">
-
-<div class="sidebar-border">
-<aside class="sidebar" role="navigation">
-<div>
-
-
-<a href="index.html" class="active">语法指南</a>
-
-
-
-<label>基础</label>
-
-
-
-<a href="basic-syntax.html" class="">基本语法</a>
-
-
-
-<a href="insert-img.html" class="">插入图片</a>
-
-
-
-<label>高级技巧</label>
-
-
-
-<a href="line-html.html" class="">HTML 元素</a>
-
-
-
-<a href="extended-syntax.html" class="">扩展语法</a>
-
-
-</div>
-</aside>
-</div>
-
-<markdown-style>
-
-<h1 id="markdown-语法指南"><a aria-hidden="true" tabindex="-1" href="#markdown-语法指南" class="anchor"><span class="icon icon-link"></span></a>Markdown 语法指南</h1>
-<p>使用 <a href="http://spec.commonmark.org/" target="&#x22;__blank&#x22;">Markdown</a><!--rehype:target="__blank"--> 解析文章，支持 <a href="https://github.github.com/gfm/" target="&#x22;__blank&#x22;"><code>GFM</code></a><!--rehype:target="__blank"-->(GitHub Flavored Markdown)语法，这是目前 GitHub.com 和 GitHub Enterprise 上的用户内容支持的 Markdown 方言，是基于 <a href="http://spec.commonmark.org/">CommonMark</a> 规范的正式规范定义了这种方言的语法和语义。</p>
-<p>GFM 是 CommonMark 的严格超集。 因此，GitHub 用户内容中支持的所有功能以及原始 CommonMark 规范中未指定的所有功能都称为扩展，并因此突出显示。</p>
-<p>虽然 GFM 支持广泛的输入，但值得注意的是 idoc 在 GFM 转换为 HTML 后会执行额外的处理，以扩展更多的特殊使用方法。</p>
-<h2 id="什么是-markdown"><a aria-hidden="true" tabindex="-1" href="#什么是-markdown" class="anchor"><span class="icon icon-link"></span></a>什么是 Markdown？</h2>
-<p>Markdown 是一种用于编写结构化文档的纯文本格式，基于在电子邮件和 usenet 帖子中指示格式的约定。 它由 John Gruber（在 Aaron Swartz 的帮助下）开发，并于 2004 年以<a href="https://daringfireball.net/projects/markdown/syntax">语法描述</a>和用于将 Markdown 转换为 HTML 的 Perl 脚本 (<code>Markdown.pl</code>) 的形式发布。 在接下来的十年中，以多种语言开发了数十种实现。 有些人使用脚注、表格和其他文档元素的约定扩展了原始的 Markdown 语法。 有些允许 Markdown 文档以 HTML 以外的格式呈现。 Reddit、StackOverflow 和 GitHub 等网站有数百万人使用 Markdown。 Markdown 开始在网络之外使用，用于创作书籍、文章、幻灯片、信件和演讲笔记。</p>
-<h2 id="参考链接"><a aria-hidden="true" tabindex="-1" href="#参考链接" class="anchor"><span class="icon icon-link"></span></a>参考链接</h2>
-<ul>
-  <li><a href="https://commonmark.org/">https://commonmark.org/</a></li>
-  <li><a href="https://github.github.com/gfm/">https://github.github.com/gfm/</a></li>
-</ul>
-
-
-<div class="previous">
-
-<span></span>
-
-
-<a class="next" href="basic-syntax.html">
-<span>
-基本语法
-</span>
-<svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
-<path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
-<path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
-</svg>
-</a>
-
-</div>
-
-
-<section class="article-footer">
-<a href="https://github.com/jaywcjlove/idoc/blob/master/docs/markdown/README.md" class="edit-button" target="_blank" rel="noopener noreferrer">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-</svg>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown 语法指南 iDoc</title>
+    <meta name="description" content="使用 Markdown 解析文章，支持 GFM(GitHub Flavored Markdown)语法，这是目前 GitHub.com 和 GitHub Enterprise 上的用户内容支持的 Markdown 方言，是基于 Common">
+    <meta name="keywords" content="idoc,document,doc">
+    <link rel="stylesheet" type="text/css" href="../css/main.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/tocbot.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/media.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/copy.css?v=1.19.1">
+    <link rel="stylesheet" type="text/css" href="../css/demo-preview.css?v=1.19.1">
+    <link rel="icon" href="../logo.png" type="image/x-icon">
+    <script src="../js/copy.js?v=1.19.1"></script>
+    <script src="../js/dark-mode.js?v=1.19.1"></script>
+    <script src="../js/markdown-style.js?v=1.19.1"></script>
+  </head>
+  <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
+    <header class="header">
+      <article class="inner warpper"><a class="logo" href="../index.html"><img alt="iDoc logo" src="../logo.png">
+<span class="title">iDoc</span></a>
+        <div class="content">
+          <ul class="menu">
+            <li><a href="../index.html" target="" class="">Home</a></li>
+            <li><a href="../introduce/getting-started/installation.html" target="" class="">Docs</a></li>
+            <li><a href="basic-syntax.html" target="" class="active">Markdown</a></li>
+            <li><a href="../about.html" target="" class="">About</a></li>
+          </ul><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="noopener noreferrer" title="Github" name="Github" class="github"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg></a>
+          <dark-mode permanent=""></dark-mode>
+        </div>
+      </article>
+    </header>
+    <div class="warpper-content warpper sidebar">
+      <div class="sidebar-border">
+        <aside class="sidebar" role="navigation">
+          <div>
+            <a href="index.html" class="active">语法指南</a>
+            <label>基础</label>
+            <a href="basic-syntax.html" class="">基本语法</a>
+            <a href="insert-img.html" class="">插入图片</a>
+            <label>高级技巧</label>
+            <a href="line-html.html" class="">HTML 元素</a>
+            <a href="extended-syntax.html" class="">扩展语法</a>
+          </div>
+        </aside>
+      </div>
+      <markdown-style>
+        <h1 id="markdown-语法指南"><a aria-hidden="true" tabindex="-1" href="#markdown-语法指南" class="anchor"><span class="icon icon-link"></span></a>Markdown 语法指南</h1>
+        <p>使用 <a href="http://spec.commonmark.org/" target="&#x22;__blank&#x22;">Markdown</a><!--rehype:target="__blank"--> 解析文章，支持 <a href="https://github.github.com/gfm/" target="&#x22;__blank&#x22;"><code>GFM</code></a><!--rehype:target="__blank"-->(GitHub Flavored Markdown)语法，这是目前 GitHub.com 和 GitHub Enterprise 上的用户内容支持的 Markdown 方言，是基于 <a href="http://spec.commonmark.org/">CommonMark</a> 规范的正式规范定义了这种方言的语法和语义。</p>
+        <p>GFM 是 CommonMark 的严格超集。 因此，GitHub 用户内容中支持的所有功能以及原始 CommonMark 规范中未指定的所有功能都称为扩展，并因此突出显示。</p>
+        <p>虽然 GFM 支持广泛的输入，但值得注意的是 idoc 在 GFM 转换为 HTML 后会执行额外的处理，以扩展更多的特殊使用方法。</p>
+        <h2 id="什么是-markdown"><a aria-hidden="true" tabindex="-1" href="#什么是-markdown" class="anchor"><span class="icon icon-link"></span></a>什么是 Markdown？</h2>
+        <p>Markdown 是一种用于编写结构化文档的纯文本格式，基于在电子邮件和 usenet 帖子中指示格式的约定。 它由 John Gruber（在 Aaron Swartz 的帮助下）开发，并于 2004 年以<a href="https://daringfireball.net/projects/markdown/syntax">语法描述</a>和用于将 Markdown 转换为 HTML 的 Perl 脚本 (<code>Markdown.pl</code>) 的形式发布。 在接下来的十年中，以多种语言开发了数十种实现。 有些人使用脚注、表格和其他文档元素的约定扩展了原始的 Markdown 语法。 有些允许 Markdown 文档以 HTML 以外的格式呈现。 Reddit、StackOverflow 和 GitHub 等网站有数百万人使用 Markdown。 Markdown 开始在网络之外使用，用于创作书籍、文章、幻灯片、信件和演讲笔记。</p>
+        <h2 id="参考链接"><a aria-hidden="true" tabindex="-1" href="#参考链接" class="anchor"><span class="icon icon-link"></span></a>参考链接</h2>
+        <ul>
+          <li><a href="https://commonmark.org/">https://commonmark.org/</a></li>
+          <li><a href="https://github.github.com/gfm/">https://github.github.com/gfm/</a></li>
+        </ul>
+        <div class="previous"><span></span><a class="next" href="basic-syntax.html"><span>基本语法
+</span><svg viewBox="0 0 1024 1024" width="16" height="16" fill="currentColor">
+              <path d="M544 522.666667c0-8.533333-4.266667-17.066667-10.666667-23.466667L192 189.866667c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733334 285.866667L149.333333 808.533333c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466667 10.666667 8.533333 0 14.933333-2.133333 21.333333-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666z"></path>
+              <path d="M864 499.2l-341.333333-309.333333c-12.8-12.8-34.133333-10.666667-44.8 2.133333-12.8 12.8-10.666667 34.133333 2.133333 44.8l315.733333 285.866667-315.733333 285.866666c-12.8 12.8-14.933333 32-2.133333 44.8 6.4 6.4 14.933333 10.666667 23.466666 10.666667 8.533333 0 14.933333-2.133333 21.333334-8.533333l341.333333-309.333334c6.4-6.4 10.666667-14.933333 10.666667-23.466666 0-8.533333-4.266667-17.066667-10.666667-23.466667z"></path>
+            </svg></a></div>
+        <section class="article-footer"><a href="https://github.com/jaywcjlove/idoc/blob/master/docs/markdown/README.md" class="edit-button" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
 <span>Edit this page on GitHub</span>
-</a>
-
-<span class="atime">2022/05/13</span>
-
-</section>
-
-</markdown-style>
-
-<nav class="tocs">
-<aside class="inner toc">
-<ol class="tocs-list">
-
-<li>
-<a href="#什么是-markdown" class="tocs-link">什么是 Markdown？</a>
-
-</li>
-
-<li>
-<a href="#参考链接" class="tocs-link">参考链接</a>
-
-</li>
-
-</ol>
-</aside>
-</nav>
-
-</div>
-<script src="../js/demo-preview.js?v=1.19.1"></script>
-
-<div class="footer warpper">
-Released under the MIT License. Copyright © 2022 Kenny Wong<br />
-Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1
-
-</div>
-
-<script src="../js/tocbot.js?v=1.19.1"></script>
-</body>
+</a><span class="atime">2022/05/13</span></section>
+      </markdown-style>
+      <nav class="tocs">
+        <aside class="inner toc">
+          <ol class="tocs-list">
+            <li><a href="#什么是-markdown" class="tocs-link">什么是 Markdown？</a></li>
+            <li><a href="#参考链接" class="tocs-link">参考链接</a></li>
+          </ol>
+        </aside>
+      </nav>
+    </div>
+    <script src="../js/demo-preview.js?v=1.19.1"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.1</div>
+    <script src="../js/tocbot.js?v=1.19.1"></script>
+  </body>
 </html>
