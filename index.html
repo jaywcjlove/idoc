@@ -7,16 +7,16 @@
     <title>模板变量 iDoc</title>
     <meta name="description" content="Generate static pages from all Markdown in a folder.">
     <meta name="keywords" content="idoc,config,api">
-    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.19.2">
-    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.19.2">
-    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.19.2">
-    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.19.2">
-    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.19.2">
-    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.19.2">
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.20.0">
+    <link rel="stylesheet" type="text/css" href="css/tocbot.css?v=1.20.0">
+    <link rel="stylesheet" type="text/css" href="css/media.css?v=1.20.0">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css?v=1.20.0">
+    <link rel="stylesheet" type="text/css" href="css/copy.css?v=1.20.0">
+    <link rel="stylesheet" type="text/css" href="css/demo-preview.css?v=1.20.0">
     <link rel="icon" href="logo.png" type="image/x-icon">
-    <script src="js/copy.js?v=1.19.2"></script>
-    <script src="js/dark-mode.js?v=1.19.2"></script>
-    <script src="js/markdown-style.js?v=1.19.2"></script>
+    <script src="js/copy.js?v=1.20.0"></script>
+    <script src="js/dark-mode.js?v=1.20.0"></script>
+    <script src="js/markdown-style.js?v=1.20.0"></script>
   </head>
   <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
     <header class="header">
@@ -98,16 +98,17 @@ $ idoc init myapp
 </span><span class="code-line line-number" line="9">  -o, --output <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Output directory. defalut<span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
 </span><span class="code-line line-number" line="10">  -w, --watch, Watch and compile Markdown files.
 </span><span class="code-line line-number" line="11">  -t, --theme, Customize theme settings. defalut<span class="token punctuation">(</span>defalut<span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="12">
-</span><span class="code-line line-number" line="13">Example:
-</span><span class="code-line line-number" line="14">
-</span><span class="code-line line-number" line="15">  <span class="token function">npm</span> idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
-</span><span class="code-line line-number" line="16">  <span class="token function">npm</span> idoc new introduce/README.md
-</span><span class="code-line line-number" line="17">  <span class="token function">npm</span> idoc new introduce/README.md <span class="token string">"Hello World"</span> -f
-</span><span class="code-line line-number" line="18">  <span class="token function">npm</span> idoc --theme<span class="token operator">=</span><span class="token string">"defalut"</span>
-</span><span class="code-line line-number" line="19">  <span class="token function">npm</span> idoc --dir<span class="token operator">=</span><span class="token string">"docs"</span>
-</span><span class="code-line line-number" line="20">  <span class="token function">npm</span> idoc --output<span class="token operator">=</span><span class="token string">"dist"</span>
-</span><span class="code-line line-number" line="21">  <span class="token function">npm</span> idoc --watch --output<span class="token operator">=</span><span class="token string">"www"</span>
+</span><span class="code-line line-number" line="12">  -m, --minify, minify HTML
+</span><span class="code-line line-number" line="13">
+</span><span class="code-line line-number" line="14">Example:
+</span><span class="code-line line-number" line="15">
+</span><span class="code-line line-number" line="16">  <span class="token function">npm</span> idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
+</span><span class="code-line line-number" line="17">  <span class="token function">npm</span> idoc new introduce/README.md
+</span><span class="code-line line-number" line="18">  <span class="token function">npm</span> idoc new introduce/README.md <span class="token string">"Hello World"</span> -f
+</span><span class="code-line line-number" line="19">  <span class="token function">npm</span> idoc --theme<span class="token operator">=</span><span class="token string">"defalut"</span>
+</span><span class="code-line line-number" line="20">  <span class="token function">npm</span> idoc --dir<span class="token operator">=</span><span class="token string">"docs"</span>
+</span><span class="code-line line-number" line="21">  <span class="token function">npm</span> idoc --output<span class="token operator">=</span><span class="token string">"dist"</span>
+</span><span class="code-line line-number" line="22">  <span class="token function">npm</span> idoc --watch --output<span class="token operator">=</span><span class="token string">"www"</span>
 </span></code><input type="hidden" value="Usage: idoc [init|new][options] [--help|h] [--version|v]
 
 Options:
@@ -119,6 +120,7 @@ Options:
   -o, --output <dir-path>, Output directory. defalut(dist)
   -w, --watch, Watch and compile Markdown files.
   -t, --theme, Customize theme settings. defalut(defalut)
+  -m, --minify, minify HTML
 
 Example:
 
@@ -235,8 +237,8 @@ Example:
         </aside>
       </nav>
     </div>
-    <script src="js/demo-preview.js?v=1.19.2"></script>
-    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.19.2</div>
-    <script src="js/tocbot.js?v=1.19.2"></script>
+    <script src="js/demo-preview.js?v=1.20.0"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2022 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.20.0</div>
+    <script src="js/tocbot.js?v=1.20.0"></script>
   </body>
 </html>
