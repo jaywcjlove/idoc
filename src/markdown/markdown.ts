@@ -19,6 +19,7 @@ import { codePreview, codePreviewWarpperStyle } from './codePreview.js';
 import { getPrevOrNextPage } from './utils.js';
 import * as log from '../utils/log.js';
 import { getTocsTree } from './tocsTree.js';
+import { cacheFile } from '../utils/cacheFileStat.js';
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   layout?: string;
@@ -179,11 +180,13 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
 
   // File Stat
   data.fileStat = config.data.asset.find((item) => item.path === fromPath) || {};
-  data.fileStat = { ...data.fileStat, ...page.fileStat };
+  const cacheFileStat = cacheFile.get(data.fileStat.path);
+  data.fileStat = { ...data.fileStat, ...cacheFileStat, ...page.fileStat };
   const getKeys = <T>(obj: T) => Object.keys(obj) as Array<keyof T>;
   for (const key of getKeys(data.fileStat)) {
     if ((key === 'atime' || key === 'ctime' || key === 'mtime') && data.fileStat[key]) {
-      data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', data.fileStat[key]) as any } };
+      const date = data.fileStat[key] instanceof Date ? data.fileStat[key] : new Date(data.fileStat[key]);
+      data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', date) } };
     }
   }
   const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };

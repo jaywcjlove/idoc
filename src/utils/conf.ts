@@ -9,6 +9,7 @@ import { logo } from './logo.js';
 import { PageConfig, Toc } from '../markdown/markdown.js';
 import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
 import * as log from '../utils/log.js';
+import { cacheFile } from './cacheFileStat.js';
 
 export type LogoOrFavicon = {
   href?: string;
@@ -71,6 +72,10 @@ export interface Config extends SiteGlobalConfig {
   version?: string;
   /** idoc version */
   idocVersion?: string;
+  /**
+   * https://github.com/jaywcjlove/idoc/issues/58
+   */
+  cacheFileStat?: boolean;
   copyAssets?: string | string[];
   global?: IdocConfig;
   page?: PageConfig;
@@ -183,7 +188,8 @@ export class Conf {
         this.data.output = defaultOutputPath;
       }
     }
-
+    await cacheFile.init(this.data.cacheFileStat);
+    await cacheFile.load();
     if (this.data.theme === 'default' || !this.data.theme) {
       this.data.theme = fileURLToPath(new URL('../../themes/default', import.meta.url));
     }
@@ -210,8 +216,12 @@ export class Conf {
     if (fs.existsSync(this.data.dir)) {
       files = await readdirFiles(this.data.dir, {
         ignored: /\/(node_modules|\.git)/,
-        filter: (filepath) =>
-          /.(md|markdown)$/.test(filepath.path) || (copyAssets && micromatch.isMatch(filepath.path, copyAssets)),
+        filter: (filestat) => {
+          if (/.(md|markdown)$/.test(filestat.path)) {
+            cacheFile.add(filestat);
+          }
+          return /.(md|markdown)$/.test(filestat.path) || (copyAssets && micromatch.isMatch(filestat.path, copyAssets));
+        },
       });
     }
     this.data.asset = files;

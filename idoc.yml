@@ -16,6 +16,9 @@ output: dist
 site: iDoc
 
 
+cacheFileStat: true
+
+
 ## Customize theme settings.
 ## defalut: `default`
 # -----------------------

@@ -4,6 +4,7 @@ import fs from 'fs-extra';
 import { compilation, compilationAll, copyThemeAsset, getOutput, copyThemeFileAsset } from './build.js';
 import * as log from '../utils/log.js';
 import { config, cacheCopyiedFiles } from '../utils/conf.js';
+import { cacheFile } from '../utils/cacheFileStat.js';
 
 export function watch() {
   const watchPaths = [
@@ -44,6 +45,8 @@ export function watch() {
     } else if (isTheme) {
       copyThemeFileAsset(filepath);
     } else if (/\.(md|markdown)/i.test(filepath)) {
+      await cacheFile.update(filepath);
+      cacheFile.save();
       compilation(filepath);
     } else {
       const assetPath = getOutput(filepath);
