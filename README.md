@@ -92,6 +92,7 @@ Example:
 | [GitHub Actions](https://github.com/jaywcjlove/github-actions) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/github-actions.svg)](https://github.com/jaywcjlove/github-actions/stargazers) | [Preview Website](https://jaywcjlove.github.io/github-actions) |
 | [HTML Tutorial](https://github.com/jaywcjlove/html-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/html-tutorial.svg)](https://github.com/jaywcjlove/html-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/html-tutorial) |
 | [C Tutorial](https://github.com/jaywcjlove/c-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/c-tutorial.svg)](https://github.com/jaywcjlove/c-tutorial/stargazers) | [Preview Website](https://jaywcjlove.github.io/c-tutorial) |
+<!--rehype:style=width: 100%; display: inline-table;-->
 
 ## Contributors
 

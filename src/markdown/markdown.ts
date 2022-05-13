@@ -7,6 +7,7 @@ import formatter from '@uiw/formatter';
 import { IFileDirStat } from 'recursive-readdir-files';
 import autolinkHeadings from 'rehype-autolink-headings';
 import ignore from 'rehype-ignore';
+import rehypeFormat from 'rehype-format';
 import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
 import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
@@ -66,6 +67,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     ],
     [slug],
     [autolinkHeadings],
+    [rehypeFormat],
   ];
 
   const tocs: Toc[] = [];
@@ -207,6 +209,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     const tmpStr = await fs.readFile(tempPath);
     return render(tmpStr.toString(), varData, {
       filename: tempPath,
+      rmWhitespace: true,
     });
   } catch (error) {
     console.log(
