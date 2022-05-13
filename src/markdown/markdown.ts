@@ -5,7 +5,10 @@ import { parse } from 'yaml';
 import markdownToHTML, { Options } from '@wcj/markdown-to-html';
 import formatter from '@uiw/formatter';
 import { IFileDirStat } from 'recursive-readdir-files';
+import { unified } from 'unified';
 import autolinkHeadings from 'rehype-autolink-headings';
+import rehypeParse from 'rehype-parse';
+import rehypeStringify from 'rehype-stringify';
 import ignore from 'rehype-ignore';
 import rehypeFormat from 'rehype-format';
 import { getCodeString } from 'rehype-rewrite';
@@ -21,6 +24,11 @@ import { getPrevOrNextPage } from './utils.js';
 import * as log from '../utils/log.js';
 import { getTocsTree } from './tocsTree.js';
 import { cacheFile } from '../utils/cacheFileStat.js';
+
+export async function formatHTML(html: string = '') {
+  const file = await unified().use(rehypeParse).use(rehypeFormat).use(rehypeStringify).process(html);
+  return String(file);
+}
 
 export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
   layout?: string;
@@ -67,7 +75,6 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     ],
     [slug],
     [autolinkHeadings],
-    [rehypeFormat],
   ];
 
   const tocs: Toc[] = [];
@@ -207,10 +214,11 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   }
   try {
     const tmpStr = await fs.readFile(tempPath);
-    return render(tmpStr.toString(), varData, {
+    const htmlStr = render(tmpStr.toString(), varData, {
       filename: tempPath,
       rmWhitespace: true,
     });
+    return formatHTML(htmlStr);
   } catch (error) {
     console.log(
       `    ╰┈\x1b[31;1m FAIL\x1b[0m ->`,
