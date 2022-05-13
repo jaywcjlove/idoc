@@ -20,6 +20,7 @@ function outputHelp() {
   console.log('   -o, --output <dir-path>,', 'Output directory. defalut(dist)');
   console.log('   -w, --watch,', 'Watch and compile Markdown files.');
   console.log('   -t, --theme,', 'Customize theme settings. defalut(defalut)');
+  console.log('   -m, --minify,', 'minify HTML');
   console.log('');
   console.log(' Example:');
   console.log('');
@@ -64,6 +65,7 @@ if (argvs.h || argvs.help) {
     argvs.watch = argvs.w = argvs.watch || argvs.w;
     argvs.theme = argvs.t = argvs.theme || argvs.t;
     argvs.force = argvs.f = argvs.force || argvs.f;
+    argvs.minify = argvs.m = argvs.minify || argvs.m;
 
     if (argvs._[0] === 'init') {
       await init(argvs._[1] || './');
@@ -76,6 +78,7 @@ if (argvs.h || argvs.help) {
     if (argvs.dir) config.data.dir = path.resolve(process.cwd(), argvs.dir);
     if (argvs.output) config.data.output = path.resolve(process.cwd(), argvs.output);
     if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
+    if (argvs.minify) config.data.minify = argvs.minify;
     await config.initConf();
     await config.getChaptersConf();
     await config.getFiles();

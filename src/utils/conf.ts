@@ -78,6 +78,8 @@ export interface Config extends SiteGlobalConfig {
   cacheFileStat?: boolean;
   copyAssets?: string | string[];
   global?: IdocConfig;
+  /** minify HTML */
+  minify?: boolean;
   page?: PageConfig;
 }
 

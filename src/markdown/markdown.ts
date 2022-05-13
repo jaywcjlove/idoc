@@ -5,9 +5,10 @@ import { parse } from 'yaml';
 import markdownToHTML, { Options } from '@wcj/markdown-to-html';
 import formatter from '@uiw/formatter';
 import { IFileDirStat } from 'recursive-readdir-files';
-import { unified } from 'unified';
+import { unified, PluggableList } from 'unified';
 import autolinkHeadings from 'rehype-autolink-headings';
 import rehypeParse from 'rehype-parse';
+import rehypeMinifyWhitespace from 'rehype-minify-whitespace';
 import rehypeStringify from 'rehype-stringify';
 import ignore from 'rehype-ignore';
 import rehypeFormat from 'rehype-format';
@@ -26,7 +27,13 @@ import { getTocsTree } from './tocsTree.js';
 import { cacheFile } from '../utils/cacheFileStat.js';
 
 export async function formatHTML(html: string = '') {
-  const file = await unified().use(rehypeParse).use(rehypeFormat).use(rehypeStringify).process(html);
+  const plugins: PluggableList = [];
+  if (config.data.minify) {
+    plugins.push(rehypeMinifyWhitespace);
+  } else {
+    plugins.push(rehypeFormat);
+  }
+  const file = await unified().use(rehypeParse).use(plugins).use(rehypeStringify).process(html);
   return String(file);
 }
 

@@ -17,6 +17,7 @@ Options:
   -o, --output <dir-path>, Output directory. defalut(dist)
   -w, --watch, Watch and compile Markdown files.
   -t, --theme, Customize theme settings. defalut(defalut)
+  -m, --minify, minify HTML
 
 Example:
 
