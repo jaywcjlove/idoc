@@ -74,7 +74,7 @@
 </span></code><input type="hidden" value="# yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
 # yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre><!--rehype:style=background: #41ae622b;-->
-        <p>下面是 <code>idoc.yml</code> 完整示例：</p>
+        <p>下面是 <code>idoc.yml</code> 配置示例，更多示例查看下面更多文档：</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema</span>
 </span><span class="code-line line-number" line="2"><span class="token comment"># yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema</span>
 </span><span class="code-line line-number" line="3">
@@ -325,6 +325,17 @@ logo: ./logo.png
 ## defalut: &#x60;data:image/png;base64,iVBOR......&#x60;
 # -----------------------
 favicon: ./logo.png
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <h3 id="homepage"><a aria-hidden="true" tabindex="-1" href="#homepage" class="anchor"><span class="icon icon-link"></span></a><code>homepage</code></h3>
+        <p>主要用于生成 <a href="https://www.sitemaps.org/">sitemap.txt</a> 文件。当前配置也将传递到模版中使用。</p>
+        <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">homepage</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//jaywcjlove.github.io/idoc/
+</span></code><input type="hidden" value="homepage: https://jaywcjlove.github.io/idoc/
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <p>注意 ⚠️：<a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text">Google 文档</a>。</p>
+        <h3 id="minify"><a aria-hidden="true" tabindex="-1" href="#minify" class="anchor"><span class="icon icon-link"></span></a><code>minify</code></h3>
+        <p>压缩生成后的 HTML，默认值为 <code>false</code>。</p>
+        <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">minify</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</span></code><input type="hidden" value="minify: true
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <h3 id="cachefilestat"><a aria-hidden="true" tabindex="-1" href="#cachefilestat" class="anchor"><span class="icon icon-link"></span></a><code>cacheFileStat</code></h3>
         <p>缓存 md 文件统计信息，主要解决时间更新问题（<a href="https://github.com/jaywcjlove/idoc/issues/58">#58</a>）。</p>
@@ -627,7 +638,7 @@ layout: markdown.ejs
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>Edit this page on GitHub</span>
-</a><span class="atime">2022/05/13</span></section>
+</a><span class="atime">2022/05/14</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
@@ -643,6 +654,8 @@ layout: markdown.ejs
                 <li><a href="#tocs" class="tocs-link">tocs</a></li>
                 <li><a href="#logo" class="tocs-link">logo</a></li>
                 <li><a href="#favicon" class="tocs-link">favicon</a></li>
+                <li><a href="#homepage" class="tocs-link">homepage</a></li>
+                <li><a href="#minify" class="tocs-link">minify</a></li>
                 <li><a href="#cachefilestat" class="tocs-link">cacheFileStat</a></li>
                 <li><a href="#copyassets" class="tocs-link">copyAssets</a></li>
                 <li><a href="#theme" class="tocs-link">theme</a></li>

@@ -71,28 +71,30 @@
 </span><span class="code-line line-number" line="7">  keywords<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
 </span><span class="code-line line-number" line="8">  <span class="token comment">/** 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本 **/</span>
 </span><span class="code-line line-number" line="9">  description<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="10">  <span class="token comment">/** 导航上的logo */</span>
-</span><span class="code-line line-number" line="11">  logo<span class="token operator">?</span><span class="token operator">:</span> LogoOrFavicon<span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="12">  <span class="token comment">/** 网站 favicon 设置 */</span>
-</span><span class="code-line line-number" line="13">  favicon<span class="token operator">?</span><span class="token operator">:</span> LogoOrFavicon<span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="14">  editButton<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="15">    label<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="16">    url<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="17">  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="18">  openSource<span class="token operator">?</span><span class="token operator">:</span>
-</span><span class="code-line line-number" line="19">    <span class="token operator">|</span> <span class="token builtin">string</span>
-</span><span class="code-line line-number" line="20">    <span class="token operator">|</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="21">        type<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="22">        url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="23">      <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="24">  footer<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="25">  <span class="token comment">/** 传递到页面上成为页面变量，值发生了变化 */</span>
-</span><span class="code-line line-number" line="26">  menus<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="27">    url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="28">    active<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="29">    target<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="30">  <span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="31"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="10">  <span class="token comment">/** 项目主页的 url **/</span>
+</span><span class="code-line line-number" line="11">  homepage<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="12">  <span class="token comment">/** 导航上的logo */</span>
+</span><span class="code-line line-number" line="13">  logo<span class="token operator">?</span><span class="token operator">:</span> LogoOrFavicon<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="14">  <span class="token comment">/** 网站 favicon 设置 */</span>
+</span><span class="code-line line-number" line="15">  favicon<span class="token operator">?</span><span class="token operator">:</span> LogoOrFavicon<span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="16">  editButton<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="17">    label<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="18">    url<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="19">  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="20">  openSource<span class="token operator">?</span><span class="token operator">:</span>
+</span><span class="code-line line-number" line="21">    <span class="token operator">|</span> <span class="token builtin">string</span>
+</span><span class="code-line line-number" line="22">    <span class="token operator">|</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="23">        type<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="24">        url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="25">      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="26">  footer<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="27">  <span class="token comment">/** 传递到页面上成为页面变量，值发生了变化 */</span>
+</span><span class="code-line line-number" line="28">  menus<span class="token operator">?</span><span class="token operator">:</span> Record<span class="token operator">&#x3C;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="29">    url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="30">    active<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="31">    target<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="32">  <span class="token punctuation">}</span><span class="token operator">></span><span class="token punctuation">;</span>
+</span><span class="code-line line-number" line="33"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="interface SiteGlobalConfig {
   /** 网站名称 */
   site?: string;
@@ -102,6 +104,8 @@
   keywords?: string;
   /** 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本 **/
   description?: string;
+  /** 项目主页的 url **/
+  homepage?: string;
   /** 导航上的logo */
   logo?: LogoOrFavicon;
   /** 网站 favicon 设置 */
@@ -868,7 +872,7 @@ export interface Config extends SiteGlobalConfig {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>Edit this page on GitHub</span>
-</a><span class="atime">2022/04/26</span></section>
+</a><span class="atime">2022/05/14</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
