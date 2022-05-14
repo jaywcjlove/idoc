@@ -46,7 +46,7 @@ export function watch() {
       copyThemeFileAsset(filepath);
     } else if (/\.(md|markdown)/i.test(filepath)) {
       await cacheFile.update(filepath);
-      cacheFile.save();
+      await cacheFile.save();
       compilation(filepath);
     } else {
       const assetPath = getOutput(filepath);

@@ -240,6 +240,9 @@ export class Conf {
           return;
         }
         const stat = await getStat(path.resolve(filename));
+        if (/.(md|markdown)$/.test(stat.path)) {
+          cacheFile.add(stat);
+        }
         this.data.asset.push(stat);
       }),
     );
