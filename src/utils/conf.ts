@@ -25,6 +25,7 @@ export interface SiteGlobalConfig {
   site?: string;
   title?: string;
   keywords?: string;
+  /** The url to the project homepage. */
   homepage?: string;
   description?: string;
   scope?: string[];
@@ -54,6 +55,17 @@ export interface SiteGlobalConfig {
         target: string;
       }
   >;
+  /**
+   * https://github.com/jaywcjlove/idoc/issues/58
+   */
+  cacheFileStat?: boolean;
+  copyAssets?: string | string[];
+  /** minify HTML */
+  minify?: boolean;
+  /** Template Data */
+  data?: Record<string, any>;
+  theme?: string;
+  sideEffectFiles?: Array<string>;
 }
 
 export interface Config extends SiteGlobalConfig {
@@ -63,24 +75,13 @@ export interface Config extends SiteGlobalConfig {
   chapters: Array<Record<string, string>>;
   asset: IFileDirStat[];
   config?: Partial<Record<'conf' | 'chapters', string>>;
-  theme?: string;
   /** `<process.cwd()>/README.md` */
   readme?: string;
-  /** Template Data */
-  data?: Record<string, any>;
-  sideEffectFiles?: Array<string>;
   /** project version */
   version?: string;
   /** idoc version */
   idocVersion?: string;
-  /**
-   * https://github.com/jaywcjlove/idoc/issues/58
-   */
-  cacheFileStat?: boolean;
-  copyAssets?: string | string[];
   global?: IdocConfig;
-  /** minify HTML */
-  minify?: boolean;
   page?: PageConfig;
 }
 
@@ -183,8 +184,8 @@ export class Conf {
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
       this.data.sideEffectFiles = (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath));
-      this.data.homepage = data.homepage || '';
-      this.data.minify = data.minify || false;
+      if (data.minify) this.data.minify = data.minify;
+      if (data.homepage) this.data.homepage = data.homepage;
       this.initScope();
     } else {
       if (!this.data.dir) {

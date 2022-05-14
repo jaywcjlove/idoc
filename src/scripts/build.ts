@@ -5,6 +5,7 @@ import { createHTML } from '../markdown/markdown.js';
 import * as log from '../utils/log.js';
 import { config, isIncludesDocs } from '../utils/conf.js';
 import { cacheFile } from '../utils/cacheFileStat.js';
+import { createSitemap } from '../utils/createSitemap.js';
 
 export function getOutput(filepath: string = '') {
   filepath =
@@ -73,6 +74,7 @@ export async function build() {
     await compilationAll();
     await copyThemeAsset();
     await cacheFile.save();
+    await createSitemap();
     console.log(`\n \x1b[34;1m 🎉 Compliled successfully!\x1b[0m\n`);
   } catch (error) {
     console.log(` \x1b[31midoc:\x1b[0m`, error);

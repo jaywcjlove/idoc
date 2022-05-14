@@ -207,6 +207,16 @@ logo: ./logo.png
 favicon: ./logo.png
 ```
 
+### `homepage`
+
+主要用于生成 [sitemap.txt](https://www.sitemaps.org/) 文件。当前配置也将传递到模版中使用。
+
+```yml
+homepage: https://jaywcjlove.github.io/idoc/
+```
+
+注意 ⚠️：[Google 文档](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text)。
+
 ### `minify`
 
 压缩生成后的 HTML，默认值为 `false`。

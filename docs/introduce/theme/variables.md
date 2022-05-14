@@ -17,6 +17,8 @@ interface SiteGlobalConfig {
   keywords?: string;
   /** 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本 **/
   description?: string;
+  /** 项目主页的 url **/
+  homepage?: string;
   /** 导航上的logo */
   logo?: LogoOrFavicon;
   /** 网站 favicon 设置 */

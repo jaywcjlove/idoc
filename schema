@@ -19,6 +19,10 @@
                   "type": "string",
                   "description": "Website name"
               },
+              "homepage": {
+                  "type": "string",
+                  "description": "Mainly used to generate [sitemap.txt] files"
+              },
               "tocs": {
                   "type": "boolean",
                   "description": "page table of contents hidden"
