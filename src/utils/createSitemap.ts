@@ -16,12 +16,15 @@ export async function createSitemap() {
   const outputTxt = path.resolve(output, 'sitemap.txt');
   let sitemap: string[] = [];
   if (homepage) {
-    sitemap = asset.map(({ path: rawPath }) => {
-      const myURL = new URL(homepage);
-      const outputRaw = path.relative(output, getOutput(rawPath));
-      myURL.pathname = path.resolve(myURL.pathname, outputRaw);
-      return myURL.href;
-    });
+    sitemap = asset
+      .map(({ path: rawPath }) => {
+        if (!/\.(md|markdown)/.test(rawPath)) return;
+        const myURL = new URL(homepage);
+        const outputRaw = path.relative(output, getOutput(rawPath));
+        myURL.pathname = path.resolve(myURL.pathname, outputRaw);
+        return myURL.href;
+      })
+      .filter(Boolean);
   }
   await fs.writeFile(outputTxt, sitemap.join('\n'), { encoding: 'utf8' });
 }
