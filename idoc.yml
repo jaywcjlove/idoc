@@ -18,6 +18,7 @@ site: iDoc
 
 cacheFileStat: true
 
+homepage: https://wangchujiang.com/idoc/
 
 ## Customize theme settings.
 ## defalut: `default`
