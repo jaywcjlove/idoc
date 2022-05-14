@@ -21,7 +21,7 @@
 ```
 <!--rehype:style=background: #41ae622b;-->
 
-下面是 `idoc.yml` 完整示例：
+下面是 `idoc.yml` 配置示例，更多示例查看下面更多文档：
 
 ```yml
 # yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
@@ -205,6 +205,14 @@ logo: ./logo.png
 ## defalut: `data:image/png;base64,iVBOR......`
 # -----------------------
 favicon: ./logo.png
+```
+
+### `minify`
+
+压缩生成后的 HTML，默认值为 `false`。
+
+```yml
+minify: true
 ```
 
 ### `cacheFileStat`

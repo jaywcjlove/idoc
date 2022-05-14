@@ -25,6 +25,7 @@ export interface SiteGlobalConfig {
   site?: string;
   title?: string;
   keywords?: string;
+  homepage?: string;
   description?: string;
   scope?: string[];
   scopePrivate?: string[];
@@ -164,6 +165,7 @@ export class Conf {
         pkg.repository.url = pkg.repository.url.replace(/^git\+/, '');
       }
       this.data.openSource = pkg.repository || '';
+      this.data.homepage = pkg.homepage || '';
     }
     const confPath = path.resolve(this.data.root, 'idoc.yml');
     const defaultDocsPath = path.resolve(process.cwd(), 'docs');
@@ -181,6 +183,8 @@ export class Conf {
       this.logo = (data.logo || logo) as string;
       this.favicon = (data.favicon || logo) as string;
       this.data.sideEffectFiles = (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath));
+      this.data.homepage = data.homepage || '';
+      this.data.minify = data.minify || false;
       this.initScope();
     } else {
       if (!this.data.dir) {

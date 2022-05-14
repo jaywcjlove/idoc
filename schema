@@ -27,6 +27,10 @@
                   "type": "boolean",
                   "description": "cache md file stat"
               },
+              "minify": {
+                  "type": "boolean",
+                  "description": "Compressed HTML"
+              },
               "scope": {
                 "description": "chapters scopes",
                 "type": "array",
