@@ -10,6 +10,8 @@ import autolinkHeadings from 'rehype-autolink-headings';
 import rehypeParse from 'rehype-parse';
 import rehypeMinifyWhitespace from 'rehype-minify-whitespace';
 import rehypeStringify from 'rehype-stringify';
+import rehypeTitle from './rehype-title.js';
+import rehypeRaw from 'rehype-raw';
 import ignore from 'rehype-ignore';
 import rehypeFormat from 'rehype-format';
 import { getCodeString } from 'rehype-rewrite';
@@ -18,7 +20,6 @@ import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapter } from '../utils/chapters.js';
 import { addCopyButton } from './copyButton.js';
-import { getTitle, getDescription } from './utils.js';
 import { copyAsset } from './copyAsset.js';
 import { codePreview, codePreviewWarpperStyle } from './codePreview.js';
 import { getPrevOrNextPage } from './utils.js';
@@ -91,6 +92,14 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   let description = '';
   mdOptions.filterPlugins = (type, plugins) => {
     if (type === 'rehype') {
+      plugins.unshift([
+        rehypeTitle,
+        (title: string = '', dis: string = '') => {
+          pagetitle = title;
+          description = dis;
+        },
+      ]);
+      plugins.unshift([rehypeRaw, {}]);
       plugins.unshift([codePreview, {}]);
     }
     return plugins;
@@ -100,10 +109,6 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     rehypeUrls(node, fromPath);
     copyAsset(node, fromPath);
     addCopyButton(node);
-    if (node.type === 'root') {
-      pagetitle = getTitle(node) || pagetitle;
-      description = getDescription(node) || pagetitle;
-    }
     if (
       node.type == 'element' &&
       /h(1|2|3|4|5|6)/.test(node.tagName) &&
