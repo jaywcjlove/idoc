@@ -396,6 +396,11 @@ data:
 - introduce/api: API
 - introduce/api/command.md: 命令
 - introduce/api/config.md: 配置文件说明
+
+# 单页面中没有 scope 配置，网址 `https://....` 将起作用
+- reference/: 参考网站
+- https://jaywcjlove.github.io/idoc/: 官网
+- https://google.com: Google
 ```
 
 ## 注释配置
