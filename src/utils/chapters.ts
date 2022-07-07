@@ -26,8 +26,8 @@ export function getFormatChapter(chapter: Record<string, string>, current?: stri
     obj.label = chapter[key];
     obj.isFolder = !obj.to.endsWith('.html') && !/^https?:\/\//.test(obj.to);
     obj.active = current === obj.to;
-    if (/^https?:\/\//.test(current)) {
-      obj.href = current;
+    if (/^https?:\/\//.test(key)) {
+      obj.href = key;
     } else {
       obj.href = path
         .relative(path.dirname(current), obj.to)
