@@ -26,11 +26,15 @@ export function getFormatChapter(chapter: Record<string, string>, current?: stri
     obj.label = chapter[key];
     obj.isFolder = !obj.to.endsWith('.html') && !/^https?:\/\//.test(obj.to);
     obj.active = current === obj.to;
-    obj.href = path
-      .relative(path.dirname(current), obj.to)
-      .split(path.sep)
-      .join('/')
-      .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
+    if (/^https?:\/\//.test(current)) {
+      obj.href = current;
+    } else {
+      obj.href = path
+        .relative(path.dirname(current), obj.to)
+        .split(path.sep)
+        .join('/')
+        .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
+    }
   });
   return obj;
 }
