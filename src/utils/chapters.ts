@@ -24,7 +24,7 @@ export function getFormatChapter(chapter: Record<string, string>, current?: stri
       .replace(/\/(README).html$/i, '/index.html');
     obj.raw = key.replace(new RegExp(`(\/|\)$`, 'g'), '');
     obj.label = chapter[key];
-    obj.isFolder = !obj.to.endsWith('.html') && !/^https?:\/\//.test(obj.to);
+    obj.isFolder = !obj.to.endsWith('.html') && !/^https?:\/\//.test(key);
     obj.active = current === obj.to;
     if (/^https?:\/\//.test(key)) {
       obj.href = key;
