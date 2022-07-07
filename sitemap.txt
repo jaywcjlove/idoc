@@ -13,8 +13,8 @@ https://wangchujiang.com/idoc/introduce/getting-started/home.html
 https://wangchujiang.com/idoc/introduce/getting-started/installation.html
 https://wangchujiang.com/idoc/introduce/getting-started/publish.html
 https://wangchujiang.com/idoc/introduce/getting-started/site-add.html
-https://wangchujiang.com/idoc/introduce/getting-started/site-preparation.html
 https://wangchujiang.com/idoc/introduce/getting-started/site-creation.html
+https://wangchujiang.com/idoc/introduce/getting-started/site-preparation.html
 https://wangchujiang.com/idoc/introduce/theme/templates.html
 https://wangchujiang.com/idoc/introduce/theme/theme-defalut.html
 https://wangchujiang.com/idoc/introduce/theme/variables.html
