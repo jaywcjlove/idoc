@@ -30,6 +30,8 @@
   .header,
   nav.tocs,
   section.article-footer,
+  .sidebar-border,
+  .previous,
   .footer,
   a.gototop {
     display: none;
