@@ -87,7 +87,7 @@
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <h2 id="实时编译"><a aria-hidden="true" tabindex="-1" href="#实时编译" class="anchor"><span class="icon icon-link"></span></a>实时编译</h2>
         <p>我们需要监听 Markdown 文件，实时生成 HTML 文件，您需要运行下面命令：</p>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ idoc --watch
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ idoc <span class="token parameter variable">--watch</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3">✔ copy: themes/default/css/main.css -<span class="token operator">></span> css/main.css
 </span><span class="code-line line-number" line="4">✔ copy: themes/default/js/dark-mode.js -<span class="token operator">></span> js/dark-mode.js
@@ -110,7 +110,7 @@
         <p>默认使用 <code>idoc</code> 命令，将 <code>Markdown</code> 文件生成到默认的 <code>dist</code> 目录中，直接在 <code>浏览器</code> 里面打开 <code>index.html</code> 文件即可。</p>
         <h2 id="静态服务预览"><a aria-hidden="true" tabindex="-1" href="#静态服务预览" class="anchor"><span class="icon icon-link"></span></a>静态服务预览</h2>
         <p>如果你想编辑 <code>Markdown</code> 文件生成的静态页面，在浏览器中自动在浏览器中刷新，可以使用类似 <a href="https://www.npmjs.com/package/sgo"><code>sgo</code></a> 工具预览你的静态网站。</p>
-        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx sgo --port <span class="token number">5858</span>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">$ npx sgo <span class="token parameter variable">--port</span> <span class="token number">5858</span>
 </span><span class="code-line line-number" line="2">
 </span><span class="code-line line-number" line="3">🗂  Serving files from ./ on  http://localhost:5858
 </span><span class="code-line line-number" line="4">📡 Exposed to the network on  http://192.168.31.179:5858
