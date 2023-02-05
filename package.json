@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@types/ejs": "^3.1.0",
-    "@types/fs-extra": "~9.0.13",
+    "@types/fs-extra": "~11.0.0",
     "@types/inquirer": "^9.0.0",
     "@types/micromatch": "^4.0.2",
     "@types/minimist": "~1.2.2",
@@ -54,7 +54,7 @@
     "@wcj/markdown-to-html": "^2.0.9",
     "chokidar": "^3.5.3",
     "ejs": "^3.1.6",
-    "fs-extra": "~10.1.0",
+    "fs-extra": "~11.1.0",
     "image2uri": "^2.0.0",
     "inquirer": "^9.0.0",
     "micromatch": "^4.0.5",
