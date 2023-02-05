@@ -8,22 +8,23 @@ jobs:
   Windows:
     runs-on: windows-2019
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
       - run: npm run build
       - run: npm run doc -- --output www
 
   Build_Deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - run: npm install
       - run: npm run build
@@ -39,13 +40,13 @@ jobs:
 
       - name: Create Tag
         id: create_tag
-        uses: jaywcjlove/create-tag-action@v1.3.6
+        uses: jaywcjlove/create-tag-action@main
         with:
           package-path: ./package.json
 
       - name: get tag version
         id: tag_version
-        uses: jaywcjlove/changelog-generator@v1.5.3
+        uses: jaywcjlove/changelog-generator@main
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3
@@ -58,7 +59,7 @@ jobs:
 
       - name: Generate Changelog
         id: changelog
-        uses: jaywcjlove/changelog-generator@v1.5.3
+        uses: jaywcjlove/changelog-generator@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
@@ -83,7 +84,8 @@ jobs:
 
             ${{ steps.changelog.outputs.changelog }}
       
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./package.json
+      - name: 📦 idoc publish to NPM
+        run: npm publish
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
