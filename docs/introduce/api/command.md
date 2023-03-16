@@ -21,13 +21,13 @@ Options:
 
 Example:
 
-  npm idoc init <folder>
-  npm idoc new introduce/README.md
-  npm idoc new introduce/README.md "Hello World" -f
-  npm idoc --theme="defalut"
-  npm idoc --dir="docs"
-  npm idoc --output="dist"
-  npm idoc --watch --output="www"
+  $ idoc init <folder>
+  $ idoc new introduce/README.md
+  $ idoc new introduce/README.md "Hello World" -f
+  $ idoc --theme="defalut"
+  $ idoc --dir="docs"
+  $ idoc --output="dist"
+  $ idoc --watch --output="www"
 
 ------------------------------------
   ,,        ,,
