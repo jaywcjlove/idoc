@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>命令帮助 iDoc &#x3C;sup>1.24.1&#x3C;/sup></title>
+    <title>命令帮助 iDoc 1.24.1</title>
     <meta name="description" content="idoc 是主要命令，用于构建你的 idoc 文档网站站点。">
     <meta name="keywords" content="idoc,document,doc">
     <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.24.1">
@@ -66,46 +66,48 @@
 </span><span class="code-line line-number" line="3">Options:
 </span><span class="code-line line-number" line="4">
 </span><span class="code-line line-number" line="5">  -v, --version, Show version number
-</span><span class="code-line line-number" line="6">  -h, --help, Displays <span class="token builtin class-name">help</span> information.
-</span><span class="code-line line-number" line="7">  -f, --force, Force <span class="token function">file</span> regeneration.
-</span><span class="code-line line-number" line="8">  -d, <span class="token parameter variable">--dir</span> <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Markdown <span class="token function">file</span> directory. defalut<span class="token punctuation">(</span>docs<span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="9">  -o, <span class="token parameter variable">--output</span> <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Output directory. defalut<span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="10">  -w, --watch, Watch and compile Markdown files.
-</span><span class="code-line line-number" line="11">  -t, --theme, Customize theme settings. defalut<span class="token punctuation">(</span>defalut<span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="12">  -m, --minify, minify HTML
-</span><span class="code-line line-number" line="13">
-</span><span class="code-line line-number" line="14">Example:
-</span><span class="code-line line-number" line="15">
-</span><span class="code-line line-number" line="16">  $ idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
-</span><span class="code-line line-number" line="17">  $ idoc new introduce/README.md
-</span><span class="code-line line-number" line="18">  $ idoc new introduce/README.md <span class="token string">"Hello World"</span> <span class="token parameter variable">-f</span>
-</span><span class="code-line line-number" line="19">  $ idoc <span class="token parameter variable">--theme</span><span class="token operator">=</span><span class="token string">"defalut"</span>
-</span><span class="code-line line-number" line="20">  $ idoc <span class="token parameter variable">--dir</span><span class="token operator">=</span><span class="token string">"docs"</span>
-</span><span class="code-line line-number" line="21">  $ idoc <span class="token parameter variable">--output</span><span class="token operator">=</span><span class="token string">"dist"</span>
-</span><span class="code-line line-number" line="22">  $ idoc <span class="token parameter variable">--watch</span> <span class="token parameter variable">--output</span><span class="token operator">=</span><span class="token string">"www"</span>
-</span><span class="code-line line-number" line="23">
-</span><span class="code-line line-number" line="24">------------------------------------
-</span><span class="code-line line-number" line="25">  ,,        ,,
-</span><span class="code-line line-number" line="26">  db      <span class="token variable"><span class="token variable">`</span>7MM
-</span></span><span class="code-line line-number" line="27"><span class="token variable">            MM
-</span></span><span class="code-line line-number" line="28"><span class="token variable"><span class="token variable">`</span></span>7MM   ,M<span class="token string">""</span>bMM  ,pW<span class="token string">"Wq.   ,p6"</span>bo
-</span><span class="code-line line-number" line="29">  MM ,AP    MM 6W<span class="token string">'   `Wb 6M'</span>  OO
-</span><span class="code-line line-number" line="30">  MM 8MI    MM 8M     M8 8M
-</span><span class="code-line line-number" line="31">  MM <span class="token variable"><span class="token variable">`</span>Mb    MM YA.   ,A9 YM.    ,
-</span></span><span class="code-line line-number" line="32"><span class="token variable">.JMML.<span class="token variable">`</span></span>Wbmd"MML.`Ybmd9<span class="token string">'   YMbmd'</span>
-</span><span class="code-line line-number" line="33">------------------------------------
+</span><span class="code-line line-number" line="6">  -h, --help,    Displays <span class="token builtin class-name">help</span> information.
+</span><span class="code-line line-number" line="7">  -f, --force,   Force <span class="token function">file</span> regeneration.
+</span><span class="code-line line-number" line="8">  -s, --site,    Set website name.
+</span><span class="code-line line-number" line="9">  -d, <span class="token parameter variable">--dir</span> <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Markdown <span class="token function">file</span> directory. defalut<span class="token punctuation">(</span>docs<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="10">  -o, <span class="token parameter variable">--output</span> <span class="token operator">&#x3C;</span>dir-path<span class="token operator">></span>, Output directory. defalut<span class="token punctuation">(</span>dist<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="11">  -w, --watch,   Watch and compile Markdown files.
+</span><span class="code-line line-number" line="12">  -t, --theme,   Customize theme settings. defalut<span class="token punctuation">(</span>defalut<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="13">  -m, --minify,  minify HTML
+</span><span class="code-line line-number" line="14">
+</span><span class="code-line line-number" line="15">Example:
+</span><span class="code-line line-number" line="16">
+</span><span class="code-line line-number" line="17">  $ idoc init <span class="token operator">&#x3C;</span>folder<span class="token operator">></span>
+</span><span class="code-line line-number" line="18">  $ idoc new introduce/README.md
+</span><span class="code-line line-number" line="19">  $ idoc new introduce/README.md <span class="token string">"Hello World"</span> <span class="token parameter variable">-f</span>
+</span><span class="code-line line-number" line="20">  $ idoc <span class="token parameter variable">--theme</span><span class="token operator">=</span><span class="token string">"defalut"</span>
+</span><span class="code-line line-number" line="21">  $ idoc <span class="token parameter variable">--dir</span><span class="token operator">=</span><span class="token string">"docs"</span>
+</span><span class="code-line line-number" line="22">  $ idoc <span class="token parameter variable">--output</span><span class="token operator">=</span><span class="token string">"dist"</span>
+</span><span class="code-line line-number" line="23">  $ idoc <span class="token parameter variable">--watch</span> <span class="token parameter variable">--output</span><span class="token operator">=</span><span class="token string">"www"</span>
+</span><span class="code-line line-number" line="24">
+</span><span class="code-line line-number" line="25">------------------------------------
+</span><span class="code-line line-number" line="26">  ,,        ,,
+</span><span class="code-line line-number" line="27">  db      <span class="token variable"><span class="token variable">`</span>7MM
+</span></span><span class="code-line line-number" line="28"><span class="token variable">            MM
+</span></span><span class="code-line line-number" line="29"><span class="token variable"><span class="token variable">`</span></span>7MM   ,M<span class="token string">""</span>bMM  ,pW<span class="token string">"Wq.   ,p6"</span>bo
+</span><span class="code-line line-number" line="30">  MM ,AP    MM 6W<span class="token string">'   `Wb 6M'</span>  OO
+</span><span class="code-line line-number" line="31">  MM 8MI    MM 8M     M8 8M
+</span><span class="code-line line-number" line="32">  MM <span class="token variable"><span class="token variable">`</span>Mb    MM YA.   ,A9 YM.    ,
+</span></span><span class="code-line line-number" line="33"><span class="token variable">.JMML.<span class="token variable">`</span></span>Wbmd"MML.`Ybmd9<span class="token string">'   YMbmd'</span>
+</span><span class="code-line line-number" line="34">------------------------------------
 </span></code><input type="hidden" value="Usage: idoc [init|new][options] [--help|h] [--version|v]
 
 Options:
 
   -v, --version, Show version number
-  -h, --help, Displays help information.
-  -f, --force, Force file regeneration.
+  -h, --help,    Displays help information.
+  -f, --force,   Force file regeneration.
+  -s, --site,    Set website name.
   -d, --dir <dir-path>, Markdown file directory. defalut(docs)
   -o, --output <dir-path>, Output directory. defalut(dist)
-  -w, --watch, Watch and compile Markdown files.
-  -t, --theme, Customize theme settings. defalut(defalut)
-  -m, --minify, minify HTML
+  -w, --watch,   Watch and compile Markdown files.
+  -t, --theme,   Customize theme settings. defalut(defalut)
+  -m, --minify,  minify HTML
 
 Example:
 
@@ -156,7 +158,7 @@ Example:
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>Edit this page on GitHub</span>
-</a><span class="atime">2022/04/17</span></section>
+</a><span class="atime">2023/03/18</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
