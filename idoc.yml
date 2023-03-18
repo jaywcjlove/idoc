@@ -13,7 +13,7 @@ output: dist
 
 ## site name
 # -----------------------
-site: iDoc
+site: iDoc {{version}}
 
 
 cacheFileStat: true

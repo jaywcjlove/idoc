@@ -132,6 +132,12 @@ site: iDoc
 }
 ```
 
+使用 `{{version}}` 模版标记，支持在标题上显示版本号信息：
+
+```yml
+site: iDoc {{version}}
+```
+
 ### `description`
 
 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本。

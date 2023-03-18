@@ -200,6 +200,7 @@ export class Conf {
         this.data.output = defaultOutputPath;
       }
     }
+    this.data.site = this.data.site.replace('{{version}}', `<sup>${this.data.version}<sup>`);
     await cacheFile.init(this.data.cacheFileStat);
     await cacheFile.load();
     if (this.data.theme === 'default' || !this.data.theme) {
