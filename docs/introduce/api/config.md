@@ -138,6 +138,8 @@ site: iDoc
 site: iDoc {{version}}
 ```
 
+可以使用 `idoc --site "iDoc {{version}}"` 命令参数配置网站名称，他们的权重 `idoc.yml` -> `package.json` -> `idoc -s`
+
 ### `description`
 
 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本。

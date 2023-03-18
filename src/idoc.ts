@@ -14,14 +14,15 @@ const helpStr = `
 
  Options:
 
-   -v, --version,', 'Show version number
-   -h, --help,', 'Displays help information.
-   -f, --force,', 'Force file regeneration.
-   -d, --dir <dir-path>,', 'Markdown file directory. defalut(docs)
-   -o, --output <dir-path>,', 'Output directory. defalut(dist)
-   -w, --watch,', 'Watch and compile Markdown files.
-   -t, --theme,', 'Customize theme settings. defalut(defalut)
-   -m, --minify,', 'minify HTML
+   -v, --version, Show version number
+   -h, --help,    Displays help information.
+   -f, --force,   Force file regeneration.
+   -s, --site,    Set website name.
+   -d, --dir <dir-path>, Markdown file directory. defalut(docs)
+   -o, --output <dir-path>, Output directory. defalut(dist)
+   -w, --watch,   Watch and compile Markdown files.
+   -t, --theme,   Customize theme settings. defalut(defalut)
+   -m, --minify,  minify HTML
 
  Example:
 
@@ -70,6 +71,7 @@ if (argvs.h || argvs.help) {
     argvs.watch = argvs.w = argvs.watch || argvs.w;
     argvs.theme = argvs.t = argvs.theme || argvs.t;
     argvs.force = argvs.f = argvs.force || argvs.f;
+    argvs.site = argvs.s = argvs.site || argvs.s;
     argvs.minify = argvs.m = argvs.minify || argvs.m;
 
     if (argvs._[0] === 'init') {
@@ -84,7 +86,7 @@ if (argvs.h || argvs.help) {
     if (argvs.output) config.data.output = path.resolve(process.cwd(), argvs.output);
     if (argvs.theme) config.data.theme = path.resolve(process.cwd(), argvs.theme);
     if (argvs.minify) config.data.minify = argvs.minify;
-    await config.initConf();
+    await config.initConf({ site: argvs.site });
     await config.getChaptersConf();
     await config.getFiles();
     await config.getReadme();

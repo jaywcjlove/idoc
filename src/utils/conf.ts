@@ -106,7 +106,7 @@ const footerStr = `Released under the MIT License. Copyright © {{idocYear}} Ken
 
 export class Conf {
   constructor() {
-    this.initConf();
+    // this.initConf();
   }
   data: Config = {
     root: process.cwd(),
@@ -160,12 +160,12 @@ export class Conf {
       }
     });
   }
-  async initConf() {
+  async initConf(options: { site?: string } = {}) {
     const pkgpath = path.resolve(this.data.root, 'package.json');
     if (fs.existsSync(pkgpath)) {
       const pkg = await fs.readJSON(pkgpath);
       this.data.version = pkg.version;
-      this.data.site = pkg.title || pkg.name || '';
+      this.data.site = options.site || pkg.title || pkg.name || '';
       this.data.keywords = pkg.keywords && Array.isArray(pkg.keywords) ? pkg.keywords.join(',') : '';
       if (pkg.repository && pkg.repository.url) {
         pkg.repository.url = pkg.repository.url.replace(/^git\+/, '');
@@ -181,6 +181,7 @@ export class Conf {
       const conf = await fs.readFile(confPath, 'utf8');
       const data: IdocConfig = parse(conf);
       config.data.global = { ...data };
+      data.site = options.site || config.data.global.site;
       data.dir = this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : defaultDocsPath);
       data.output = this.data.output || (data.output ? path.resolve(process.cwd(), data.output) : defaultOutputPath);
       // console.log('config.data.data', data, this.data)

@@ -11,13 +11,14 @@ Usage: idoc [init|new][options] [--help|h] [--version|v]
 Options:
 
   -v, --version, Show version number
-  -h, --help, Displays help information.
-  -f, --force, Force file regeneration.
+  -h, --help,    Displays help information.
+  -f, --force,   Force file regeneration.
+  -s, --site,    Set website name.
   -d, --dir <dir-path>, Markdown file directory. defalut(docs)
   -o, --output <dir-path>, Output directory. defalut(dist)
-  -w, --watch, Watch and compile Markdown files.
-  -t, --theme, Customize theme settings. defalut(defalut)
-  -m, --minify, minify HTML
+  -w, --watch,   Watch and compile Markdown files.
+  -t, --theme,   Customize theme settings. defalut(defalut)
+  -m, --minify,  minify HTML
 
 Example:
 
