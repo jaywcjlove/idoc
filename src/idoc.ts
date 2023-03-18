@@ -9,40 +9,45 @@ import { config } from './utils/conf.js';
 import { init } from './scripts/init.js';
 import { newDoc } from './scripts/new-doc.js';
 
+const helpStr = `
+ Usage: idoc [init|new][options] [--help|h] [--version|v]
+
+ Options:
+
+   -v, --version,', 'Show version number
+   -h, --help,', 'Displays help information.
+   -f, --force,', 'Force file regeneration.
+   -d, --dir <dir-path>,', 'Markdown file directory. defalut(docs)
+   -o, --output <dir-path>,', 'Output directory. defalut(dist)
+   -w, --watch,', 'Watch and compile Markdown files.
+   -t, --theme,', 'Customize theme settings. defalut(defalut)
+   -m, --minify,', 'minify HTML
+
+ Example:
+
+   \x1b[35m$\x1b[0m idoc \x1b[33minit\x1b[0m \x1b[34;1m<folder>\x1b[0m
+   \x1b[35m$\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md
+   \x1b[35m$\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md "Hello World" -f
+   \x1b[35m$\x1b[0m idoc \x1b[33m--theme\x1b[0m="defalut"
+   \x1b[35m$\x1b[0m idoc \x1b[33m--dir\x1b[0m="docs"
+   \x1b[35m$\x1b[0m idoc \x1b[33m--output\x1b[0m="dist"
+   \x1b[35m$\x1b[0m idoc \x1b[33m--watch\x1b[0m \x1b[33m--output\x1b[0m="www"
+
+ ------------------------------------
+    ,,        ,,                    
+    db      \`7MM                    
+              MM                    
+  \`7MM   ,M""bMM  ,pW"Wq.   ,p6"bo  
+    MM ,AP    MM 6W'   \`Wb 6M'  OO  
+    MM 8MI    MM 8M     M8 8M       
+    MM \`Mb    MM YA.   ,A9 YM.    , 
+  .JMML.\`Wbmd\"MML.\`Ybmd9'   YMbmd'  
+ ------------------------------------
+
+`;
+
 function outputHelp() {
-  console.log(' Usage: idoc [init|new][options] [--help|h] [--version|v]');
-  console.log('\n Options:');
-  console.log('');
-  console.log('   -v, --version,', 'Show version number');
-  console.log('   -h, --help,', 'Displays help information.');
-  console.log('   -f, --force,', 'Force file regeneration.');
-  console.log('   -d, --dir <dir-path>,', 'Markdown file directory. defalut(docs)');
-  console.log('   -o, --output <dir-path>,', 'Output directory. defalut(dist)');
-  console.log('   -w, --watch,', 'Watch and compile Markdown files.');
-  console.log('   -t, --theme,', 'Customize theme settings. defalut(defalut)');
-  console.log('   -m, --minify,', 'minify HTML');
-  console.log('');
-  console.log(' Example:');
-  console.log('');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33minit\x1b[0m \x1b[34;1m<folder>\x1b[0m');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33mnew\x1b[0m introduce/README.md "Hello World" -f');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33m--theme\x1b[0m="defalut"');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33m--dir\x1b[0m="docs"');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33m--output\x1b[0m="dist"');
-  console.log('   \x1b[35m$\x1b[0m idoc \x1b[33m--watch\x1b[0m \x1b[33m--output\x1b[0m="www"');
-  console.log('');
-  console.log(' ------------------------------------');
-  console.log('    ,,        ,,                    ');
-  console.log('    db      `7MM                    ');
-  console.log('              MM                    ');
-  console.log('  `7MM   ,M""bMM  ,pW"Wq.   ,p6"bo  ');
-  console.log("    MM ,AP    MM 6W'   `Wb 6M'  OO  ");
-  console.log('    MM 8MI    MM 8M     M8 8M       ');
-  console.log('    MM `Mb    MM YA.   ,A9 YM.    , ');
-  console.log("  .JMML.`Wbmd\"MML.`Ybmd9'   YMbmd'  ");
-  console.log(' ------------------------------------');
-  console.log('');
+  console.log(helpStr);
 }
 
 const argvs = minimist(process.argv.slice(2));
