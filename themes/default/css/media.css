@@ -6,13 +6,8 @@
 }
 
 @media screen and (max-width: 900px) {
-  .warpper-content {
-    grid-template-columns: minmax(0, 3.5fr);
-    grid-template-areas: 'main';
-  }
-  .warpper-content.sidebar {
-    grid-template-areas: 'sidebar main';
-    grid-template-columns: 180px minmax(0, 41rem);
+  .warpper-content{
+    display: block !important;
   }
   nav.tocs {
     display: none;
