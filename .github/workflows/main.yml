@@ -1,4 +1,4 @@
-name: CI
+name: Website & Publishing
 on:
   push:
     branches:
