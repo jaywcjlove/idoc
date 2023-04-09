@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Windows:
+    name: Windows Node.js ${{ matrix.node-version }}
+    # Containers must run in Linux based operating systems
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 18
+          - 16
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+
+      - run: npm install
+      - run: npm run build
+      - run: npm run doc -- --output www
+
+  Ubuntu:
+    name: Ubuntu Node.js ${{ matrix.node-version }}
+    # Containers must run in Linux based operating systems
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version:
+          - 18
+          - 16
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
