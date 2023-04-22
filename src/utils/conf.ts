@@ -181,7 +181,7 @@ export class Conf {
       const conf = await fs.readFile(confPath, 'utf8');
       const data: IdocConfig = parse(conf);
       config.data.global = { ...data };
-      data.site = options.site || config.data.global.site;
+      data.site = options.site || config.data.global.site || '';
       data.dir = this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : defaultDocsPath);
       data.output = this.data.output || (data.output ? path.resolve(process.cwd(), data.output) : defaultOutputPath);
       // console.log('config.data.data', data, this.data)
