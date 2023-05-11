@@ -125,7 +125,9 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
           item.type === 'element' &&
           item.tagName === 'a' &&
           item.children[0] &&
-          item.children[0].type === 'element'
+          item.children[0].type === 'element' &&
+          item.children[0].properties &&
+          item.children[0].properties.className
         ) {
           if (item.children[0].properties.className.toString().indexOf('icon-link') > -1) {
             item.properties.class = 'anchor';
