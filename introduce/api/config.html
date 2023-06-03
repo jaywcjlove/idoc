@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>配置文件 iDoc 1.25.3</title>
+    <title>配置文件 idoc</title>
     <meta name="description" content="配置文件可以添加设置网站内容和主题等。">
     <meta name="keywords" content="idoc,config,api">
-    <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.25.3">
-    <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.25.3">
-    <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.25.3">
-    <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.25.3">
-    <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.25.3">
-    <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.25.3">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css?v=1.26.0">
+    <link rel="stylesheet" type="text/css" href="../../css/tocbot.css?v=1.26.0">
+    <link rel="stylesheet" type="text/css" href="../../css/media.css?v=1.26.0">
+    <link rel="stylesheet" type="text/css" href="../../css/sidebar.css?v=1.26.0">
+    <link rel="stylesheet" type="text/css" href="../../css/copy.css?v=1.26.0">
+    <link rel="stylesheet" type="text/css" href="../../css/demo-preview.css?v=1.26.0">
     <link rel="icon" href="../../logo.png" type="image/x-icon">
-    <script src="../../js/copy.js?v=1.25.3"></script>
-    <script src="../../js/dark-mode.js?v=1.25.3"></script>
-    <script src="../../js/markdown-style.js?v=1.25.3"></script>
+    <script src="../../js/copy.js?v=1.26.0"></script>
+    <script src="../../js/dark-mode.js?v=1.26.0"></script>
+    <script src="../../js/markdown-style.js?v=1.26.0"></script>
   </head>
   <body id="idoctotop"><a href="#idoctotop" class="gototop">top</a>
     <header class="header">
-      <article class="inner warpper"><a class="logo" href="../../index.html"><img alt="iDoc <sup>1.25.3</sup> logo" src="../../logo.png">
-<span class="title">iDoc <sup>1.25.3</sup></span></a>
+      <article class="inner warpper"><a class="logo" href="../../index.html"><img alt="idoc logo" src="../../logo.png">
+<span class="title">idoc</span></a>
         <div class="content">
           <ul class="menu">
             <li><a href="../../index.html" target="" class="">Home</a></li>
@@ -68,7 +68,52 @@
           <li class="task-list-item"><input type="checkbox" checked disabled> <code>注释配置</code> 在 markdown 文档中添加的配置（可选配置）。</li>
         </ul>
         <h2 id="idocyml"><a aria-hidden="true" tabindex="-1" href="#idocyml" class="anchor"><span class="icon icon-link"></span></a><code>idoc.yml</code></h2>
-        <p>在你的配置最顶端添加配置 <a href="https://www.schemastore.org/">schema</a>，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 需要按照 <a href="https://github.com/redhat-developer/vscode-yaml.git">YAML</a> 插件支持这一特性。</p>
+        <p>在你的配置最顶端添加配置 <a href="https://www.schemastore.org/">schema</a>，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 需要按照 <a href="https://github.com/redhat-developer/vscode-yaml.git">YAML</a> 插件支持这一特性。<code>v1.26+</code> 支持添加如下更多类型的配置文件：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">idoc.yml                   .idoc.yml
+</span><span class="code-line line-number" line="2">.idocrc                    .idocrc.json
+</span><span class="code-line line-number" line="3">.idocrc.json5              .idocrc.jsonc
+</span><span class="code-line line-number" line="4">.idocrc.yaml               .idocrc.yml
+</span><span class="code-line line-number" line="5">.idocrc.toml               .idocrc.ini
+</span><span class="code-line line-number" line="6">.idocrc.js                 .idocrc.ts
+</span><span class="code-line line-number" line="7">.idocrc.cjs                .idocrc.mjs
+</span><span class="code-line line-number" line="8">.config/idocrc             .config/idocrc.json
+</span><span class="code-line line-number" line="9">.config/idocrc.json5       .config/idocrc.jsonc
+</span><span class="code-line line-number" line="10">.config/idocrc.yaml        .config/idocrc.yml
+</span><span class="code-line line-number" line="11">.config/idocrc.toml        .config/idocrc.ini
+</span><span class="code-line line-number" line="12">.config/idocrc.js          .config/idocrc.ts
+</span><span class="code-line line-number" line="13">.config/idocrc.cjs         .config/idocrc.mjs
+</span><span class="code-line line-number" line="14">idoc.config.js             idoc.config.ts
+</span><span class="code-line line-number" line="15">idoc.config.cjs            idoc.config.mjs
+</span></code><input type="hidden" value="idoc.yml                   .idoc.yml
+.idocrc                    .idocrc.json
+.idocrc.json5              .idocrc.jsonc
+.idocrc.yaml               .idocrc.yml
+.idocrc.toml               .idocrc.ini
+.idocrc.js                 .idocrc.ts
+.idocrc.cjs                .idocrc.mjs
+.config/idocrc             .config/idocrc.json
+.config/idocrc.json5       .config/idocrc.jsonc
+.config/idocrc.yaml        .config/idocrc.yml
+.config/idocrc.toml        .config/idocrc.ini
+.config/idocrc.js          .config/idocrc.ts
+.config/idocrc.cjs         .config/idocrc.mjs
+idoc.config.js             idoc.config.ts
+idoc.config.cjs            idoc.config.mjs
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <p>也支持在 <code>pacakge.json</code> 的 <code>{ idoc: {} }</code> 上面配置</p>
+        <pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="2">  <span class="token string-property property">"idoc"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="3">    <span class="token string-property property">"dir"</span><span class="token operator">:</span> <span class="token string">"docs"</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="4">    <span class="token string-property property">"site"</span><span class="token operator">:</span> <span class="token string">"Project Name"</span>
+</span><span class="code-line line-number" line="5">  <span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="6"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="{
+  &#x22;idoc&#x22;: {
+    &#x22;dir&#x22;: &#x22;docs&#x22;,
+    &#x22;site&#x22;: &#x22;Project Name&#x22;
+  }
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <pre class="language-yml" style="background: #41ae622b;"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token comment"># yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema</span>
 </span><span class="code-line line-number" line="2"><span class="token comment"># yaml-language-server: $schema=https://jaywcjlove.gitee.io/idoc/schema</span>
 </span></code><input type="hidden" value="# yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
@@ -516,6 +561,44 @@ theme: themes/default
 - https://jaywcjlove.github.io/idoc/: 官网
 - https://google.com: Google
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <p>支持添加如下配置文件：</p>
+        <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">idoc.chapters.yml                 .config/idoc.chaptersrc
+</span><span class="code-line line-number" line="2">.idoc.chapters.yml                .config/idoc.chaptersrc.json
+</span><span class="code-line line-number" line="3">.idoc.chaptersrc                  .config/idoc.chaptersrc.json5
+</span><span class="code-line line-number" line="4">.idoc.chaptersrc.json             .config/idoc.chaptersrc.jsonc
+</span><span class="code-line line-number" line="5">.idoc.chaptersrc.json5            .config/idoc.chaptersrc.yaml
+</span><span class="code-line line-number" line="6">.idoc.chaptersrc.jsonc            .config/idoc.chaptersrc.yml
+</span><span class="code-line line-number" line="7">.idoc.chaptersrc.yaml             .config/idoc.chaptersrc.toml
+</span><span class="code-line line-number" line="8">.idoc.chaptersrc.yml              .config/idoc.chaptersrc.ini
+</span><span class="code-line line-number" line="9">.idoc.chaptersrc.toml             .config/idoc.chaptersrc.js
+</span><span class="code-line line-number" line="10">.idoc.chaptersrc.ini              .config/idoc.chaptersrc.ts
+</span><span class="code-line line-number" line="11">.idoc.chaptersrc.js               .config/idoc.chaptersrc.cjs
+</span><span class="code-line line-number" line="12">.idoc.chaptersrc.ts               .config/idoc.chaptersrc.mjs          
+</span><span class="code-line line-number" line="13">.idoc.chaptersrc.cjs               
+</span><span class="code-line line-number" line="14">.idoc.chaptersrc.mjs
+</span><span class="code-line line-number" line="15">idoc.chapters.config.js
+</span><span class="code-line line-number" line="16">idoc.chapters.config.ts
+</span><span class="code-line line-number" line="17">idoc.chapters.config.cjs
+</span><span class="code-line line-number" line="18">idoc.chapters.config.mjs
+</span></code><input type="hidden" value="idoc.chapters.yml                 .config/idoc.chaptersrc
+.idoc.chapters.yml                .config/idoc.chaptersrc.json
+.idoc.chaptersrc                  .config/idoc.chaptersrc.json5
+.idoc.chaptersrc.json             .config/idoc.chaptersrc.jsonc
+.idoc.chaptersrc.json5            .config/idoc.chaptersrc.yaml
+.idoc.chaptersrc.jsonc            .config/idoc.chaptersrc.yml
+.idoc.chaptersrc.yaml             .config/idoc.chaptersrc.toml
+.idoc.chaptersrc.yml              .config/idoc.chaptersrc.ini
+.idoc.chaptersrc.toml             .config/idoc.chaptersrc.js
+.idoc.chaptersrc.ini              .config/idoc.chaptersrc.ts
+.idoc.chaptersrc.js               .config/idoc.chaptersrc.cjs
+.idoc.chaptersrc.ts               .config/idoc.chaptersrc.mjs          
+.idoc.chaptersrc.cjs               
+.idoc.chaptersrc.mjs
+idoc.chapters.config.js
+idoc.chapters.config.ts
+idoc.chapters.config.cjs
+idoc.chapters.config.mjs
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
         <h2 id="注释配置"><a aria-hidden="true" tabindex="-1" href="#注释配置" class="anchor"><span class="icon icon-link"></span></a>注释配置</h2>
         <p>这种配置是指在 <code>markdown</code> 文档中添加的配置，主要用于控制类似于 <code>tocs</code> 页面导航是否显示，页面标题展示，翻页等功能。在 <code>markdown</code> 注释配置所在的页面起作用。</p>
         <h3 id="配置方法"><a aria-hidden="true" tabindex="-1" href="#配置方法" class="anchor"><span class="icon icon-link"></span></a>配置方法</h3>
@@ -653,7 +736,7 @@ layout: markdown.ejs
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>Edit this page on GitHub</span>
-</a><span class="atime">2023/03/18</span></section>
+</a><span class="atime">2023/06/03</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
@@ -697,8 +780,8 @@ layout: markdown.ejs
         </aside>
       </nav>
     </div>
-    <script src="../../js/demo-preview.js?v=1.25.3"></script>
-    <div class="footer warpper">Released under the MIT License. Copyright © 2023 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.25.3</div>
-    <script src="../../js/tocbot.js?v=1.25.3"></script>
+    <script src="../../js/demo-preview.js?v=1.26.0"></script>
+    <div class="footer warpper">Released under the MIT License. Copyright © 2023 Kenny Wong<br>Generated by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a> v1.26.0</div>
+    <script src="../../js/tocbot.js?v=1.26.0"></script>
   </body>
 </html>
