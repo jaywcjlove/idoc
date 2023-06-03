@@ -188,7 +188,7 @@ export class Conf {
       dir: data.dir ? path.resolve(this.data.root, data.dir) : this.data.dir || defaultDocsPath,
       output: data.output ? path.resolve(this.data.root, data.output) : this.data.output || defaultOutputPath,
       tocs: data.tocs === false ? data.tocs : data.tocs || this.data.tocs,
-      site: options.site || this.data.site || '',
+      site: options.site || data.site || this.data.site || '',
       sideEffectFiles: (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath)),
       idocVersion: idocPkg.version,
       global: data,
