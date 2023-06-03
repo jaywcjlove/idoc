@@ -13,7 +13,36 @@
 
 ## `idoc.yml`
 
-在你的配置最顶端添加配置 [schema](https://www.schemastore.org/)，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 [Visual Studio Code](https://code.visualstudio.com/) 需要按照 [YAML](https://github.com/redhat-developer/vscode-yaml.git) 插件支持这一特性。
+在你的配置最顶端添加配置 [schema](https://www.schemastore.org/)，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 [Visual Studio Code](https://code.visualstudio.com/) 需要按照 [YAML](https://github.com/redhat-developer/vscode-yaml.git) 插件支持这一特性。`v1.26+` 支持添加如下更多类型的配置文件：
+
+```bash
+idoc.yml                   .idoc.yml
+.idocrc                    .idocrc.json
+.idocrc.json5              .idocrc.jsonc
+.idocrc.yaml               .idocrc.yml
+.idocrc.toml               .idocrc.ini
+.idocrc.js                 .idocrc.ts
+.idocrc.cjs                .idocrc.mjs
+.config/idocrc             .config/idocrc.json
+.config/idocrc.json5       .config/idocrc.jsonc
+.config/idocrc.yaml        .config/idocrc.yml
+.config/idocrc.toml        .config/idocrc.ini
+.config/idocrc.js          .config/idocrc.ts
+.config/idocrc.cjs         .config/idocrc.mjs
+idoc.config.js             idoc.config.ts
+idoc.config.cjs            idoc.config.mjs
+```
+
+也支持在 `pacakge.json` 的 `{ idoc: {} }` 上面配置
+
+```js
+{
+  "idoc": {
+    "dir": "docs",
+    "site": "Project Name"
+  }
+}
+```
 
 ```yml
 # yaml-language-server: $schema=https://jaywcjlove.github.io/idoc/schema
@@ -409,6 +438,29 @@ data:
 - reference/: 参考网站
 - https://jaywcjlove.github.io/idoc/: 官网
 - https://google.com: Google
+```
+
+支持添加如下配置文件：
+
+```bash
+idoc.chapters.yml                 .config/idoc.chaptersrc
+.idoc.chapters.yml                .config/idoc.chaptersrc.json
+.idoc.chaptersrc                  .config/idoc.chaptersrc.json5
+.idoc.chaptersrc.json             .config/idoc.chaptersrc.jsonc
+.idoc.chaptersrc.json5            .config/idoc.chaptersrc.yaml
+.idoc.chaptersrc.jsonc            .config/idoc.chaptersrc.yml
+.idoc.chaptersrc.yaml             .config/idoc.chaptersrc.toml
+.idoc.chaptersrc.yml              .config/idoc.chaptersrc.ini
+.idoc.chaptersrc.toml             .config/idoc.chaptersrc.js
+.idoc.chaptersrc.ini              .config/idoc.chaptersrc.ts
+.idoc.chaptersrc.js               .config/idoc.chaptersrc.cjs
+.idoc.chaptersrc.ts               .config/idoc.chaptersrc.mjs          
+.idoc.chaptersrc.cjs               
+.idoc.chaptersrc.mjs
+idoc.chapters.config.js
+idoc.chapters.config.ts
+idoc.chapters.config.cjs
+idoc.chapters.config.mjs
 ```
 
 ## 注释配置

@@ -1,15 +1,18 @@
-import { parse } from 'yaml';
 import fs from 'fs-extra';
 import path from 'path';
 import micromatch from 'micromatch';
 import { fileURLToPath } from 'url';
 import image2uri from 'image2uri';
 import readdirFiles, { IFileDirStat, getStat } from 'recursive-readdir-files';
+import { autoConf, merge, getConfigPath } from 'auto-config-loader';
+import { createRequire } from 'node:module';
 import { logo } from './logo.js';
 import { PageConfig, Toc } from '../markdown/markdown.js';
 import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
 import * as log from '../utils/log.js';
 import { cacheFile } from './cacheFileStat.js';
+
+const require = createRequire(import.meta.url);
 
 export type LogoOrFavicon = {
   href?: string;
@@ -170,59 +173,61 @@ export class Conf {
       if (pkg.repository && pkg.repository.url) {
         pkg.repository.url = pkg.repository.url.replace(/^git\+/, '');
       }
-      this.data.openSource = pkg.repository || '';
-      this.data.homepage = pkg.homepage || '';
+      this.data.openSource = pkg.repository || this.data.openSource;
+      this.data.homepage = pkg.homepage || this.data.homepage;
     }
-    const confPath = path.resolve(this.data.root, 'idoc.yml');
+    const data = autoConf<Config>('idoc', {
+      searchPlaces: ['idoc.yml', '.idoc.yml'],
+    });
     const defaultDocsPath = path.resolve(process.cwd(), 'docs');
     const defaultOutputPath = path.resolve(process.cwd(), 'dist');
-    if (fs.existsSync(confPath)) {
-      this.data.config.conf = confPath;
-      const conf = await fs.readFile(confPath, 'utf8');
-      const data: IdocConfig = parse(conf);
-      config.data.global = { ...data };
-      data.site = options.site || config.data.global.site || '';
-      data.dir = this.data.dir || (data.dir ? path.resolve(process.cwd(), data.dir) : defaultDocsPath);
-      data.output = this.data.output || (data.output ? path.resolve(process.cwd(), data.output) : defaultOutputPath);
-      // console.log('config.data.data', data, this.data)
-      this.data.tocs = data.tocs === false ? data.tocs : undefined;
-      this.data = Object.assign(this.data, data);
-      this.logo = (data.logo || logo) as string;
-      this.favicon = (data.favicon || logo) as string;
-      this.data.sideEffectFiles = (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath));
-      if (data.minify) this.data.minify = data.minify;
-      if (data.homepage) this.data.homepage = data.homepage;
+    const idocPkgPath = fileURLToPath(new URL('../../package.json', import.meta.url));
+    const idocPkg = require(idocPkgPath);
+
+    this.data = merge(this.data, data || {}, {
+      dir: data.dir ? path.resolve(this.data.root, data.dir) : this.data.dir || defaultDocsPath,
+      output: data.output ? path.resolve(this.data.root, data.output) : this.data.output || defaultOutputPath,
+      tocs: data.tocs === false ? data.tocs : data.tocs || this.data.tocs,
+      site: options.site || this.data.site || '',
+      sideEffectFiles: (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath)),
+      idocVersion: idocPkg.version,
+      global: data,
+      config: {
+        conf: getConfigPath(),
+      },
+    });
+    this.logo = (data.logo || logo) as string;
+    this.favicon = (data.favicon || logo) as string;
+
+    if (data) {
       this.initScope();
-    } else {
-      if (!this.data.dir) {
-        this.data.dir = defaultDocsPath;
-      }
-      if (!this.data.output) {
-        this.data.output = defaultOutputPath;
-      }
     }
     this.data.site = this.data.site.replace('{{version}}', `<sup>${this.data.version}</sup>`);
+
     await cacheFile.init(this.data.cacheFileStat);
     await cacheFile.load();
     if (this.data.theme === 'default' || !this.data.theme) {
       this.data.theme = fileURLToPath(new URL('../../themes/default', import.meta.url));
     }
 
-    const pkgIdoc = await fs.readJSON(fileURLToPath(new URL('../../package.json', import.meta.url)));
-    this.data.idocVersion = pkgIdoc.version;
     if (this.data.footer) {
       this.footer = this.data.footer;
     }
     return this.data;
   }
   async getChaptersConf() {
-    const chaptersPath = path.resolve(this.data.root, 'idoc.chapters.yml');
-    if (fs.existsSync(chaptersPath)) {
-      const chapters = await fs.promises.readFile(chaptersPath, 'utf8');
-      this.data.config.chapters = chaptersPath;
-      this.data.chapters = parse(chapters) || [];
-      config.data.global.chapters = [...this.data.chapters];
-    }
+    const data = autoConf<Config['chapters']>('idoc.chapters', {
+      cwd: this.data.root,
+      searchPlaces: ['idoc.chapters.yml', '.idoc.chapters.yml'],
+    });
+    this.data = merge<Config, Partial<Config>>(this.data, {
+      chapters: data,
+      config: {
+        chapters: getConfigPath(),
+      },
+    });
+
+    config.data.global.chapters = [...this.data.chapters];
   }
   async getFiles() {
     const { copyAssets = '' } = this.data;
