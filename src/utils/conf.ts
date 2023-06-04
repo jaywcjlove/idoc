@@ -178,6 +178,7 @@ export class Conf {
     }
     const data = autoConf<Config>('idoc', {
       searchPlaces: ['idoc.yml', '.idoc.yml'],
+      ignoreLog: true,
     });
     const defaultDocsPath = path.resolve(process.cwd(), 'docs');
     const defaultOutputPath = path.resolve(process.cwd(), 'dist');
@@ -185,11 +186,11 @@ export class Conf {
     const idocPkg = require(idocPkgPath);
 
     this.data = merge(this.data, data || {}, {
-      dir: data.dir ? path.resolve(this.data.root, data.dir) : this.data.dir || defaultDocsPath,
-      output: data.output ? path.resolve(this.data.root, data.output) : this.data.output || defaultOutputPath,
-      tocs: data.tocs === false ? data.tocs : data.tocs || this.data.tocs,
-      site: options.site || data.site || this.data.site || '',
-      sideEffectFiles: (data.sideEffectFiles || []).map((filepath) => path.resolve(filepath)),
+      dir: data?.dir ? path.resolve(this.data.root, data.dir) : this.data.dir || defaultDocsPath,
+      output: data?.output ? path.resolve(this.data.root, data.output) : this.data.output || defaultOutputPath,
+      tocs: data?.tocs === false ? data.tocs : undefined,
+      site: options.site || data?.site || this.data.site || '',
+      sideEffectFiles: (data?.sideEffectFiles || []).map((filepath) => path.resolve(filepath)),
       idocVersion: idocPkg.version,
       global: data,
       config: {
@@ -219,6 +220,7 @@ export class Conf {
     const data = autoConf<Config['chapters']>('idoc.chapters', {
       cwd: this.data.root,
       searchPlaces: ['idoc.chapters.yml', '.idoc.chapters.yml'],
+      ignoreLog: true,
     });
     this.data = merge<Config, Partial<Config>>(this.data, {
       chapters: data,
