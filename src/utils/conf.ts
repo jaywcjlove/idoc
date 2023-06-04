@@ -197,8 +197,8 @@ export class Conf {
         conf: getConfigPath(),
       },
     });
-    this.logo = (data.logo || logo) as string;
-    this.favicon = (data.favicon || logo) as string;
+    this.logo = (data?.logo || logo) as string;
+    this.favicon = (data?.favicon || logo) as string;
 
     if (data) {
       this.initScope();
