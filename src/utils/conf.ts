@@ -192,7 +192,7 @@ export class Conf {
       site: options.site || data?.site || this.data.site || '',
       sideEffectFiles: (data?.sideEffectFiles || []).map((filepath) => path.resolve(filepath)),
       idocVersion: idocPkg.version,
-      global: data,
+      global: data || {},
       config: {
         conf: getConfigPath(),
       },
@@ -223,12 +223,11 @@ export class Conf {
       ignoreLog: true,
     });
     this.data = merge<Config, Partial<Config>>(this.data, {
-      chapters: data,
+      chapters: data || [],
       config: {
         chapters: getConfigPath(),
       },
     });
-
     config.data.global.chapters = [...this.data.chapters];
   }
   async getFiles() {
