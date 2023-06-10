@@ -32,8 +32,8 @@
   "scripts": {
     "start": "node lib/idoc.js -w",
     "doc": "node lib/idoc.js",
-    "watch": "tsbb watch --disable-babel --no-esm -f src/idoc.ts",
-    "build": "tsbb build --disable-babel --no-esm -f src/idoc.ts",
+    "watch": "tsbb watch",
+    "build": "tsbb build",
     "prettier": "prettier --write --ignore-unknown \"**/*.{js,ts,css,json}\"",
     "type-check": "tsc --noEmit",
     "prepare": "husky install"
