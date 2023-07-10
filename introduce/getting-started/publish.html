@@ -74,7 +74,7 @@
 </span><span class="code-line line-number" line="6">
 </span><span class="code-line line-number" line="7"><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
 </span><span class="code-line line-number" line="8">  <span class="token key atrule">Build_Deploy</span><span class="token punctuation">:</span>
-</span><span class="code-line line-number" line="9">    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span><span class="token number">18.04</span>
+</span><span class="code-line line-number" line="9">    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
 </span><span class="code-line line-number" line="10">    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
 </span><span class="code-line line-number" line="11">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
 </span><span class="code-line line-number" line="12">      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v2
@@ -99,7 +99,7 @@ on:
 
 jobs:
   Build_Deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
