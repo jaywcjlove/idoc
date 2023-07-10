@@ -24,7 +24,7 @@ on:
 
 jobs:
   Build_Deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
