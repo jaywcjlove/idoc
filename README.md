@@ -48,6 +48,21 @@ Running the `idoc init myapp` generator from the command line will create a dire
 └── idoc.yml
 ```
 
+Or use in github actions
+
+```yml
+- name: Create idoc config.
+  run: |
+    cat > idoc.yml << EOF
+    site: "Rehype Rewrite {{version}}"
+    menus:
+      Home: index.html
+    EOF
+
+- run: npm install idoc@1.26.6 -g
+- run: idoc --output="www"
+```
+
 ## Command Help
 
 ```bash
@@ -74,7 +89,6 @@ Example:
   $ idoc --dir="docs"
   $ idoc --output="dist"
   $ idoc --watch --output="www"
-
 ```
 
 ## Compiled with idoc
@@ -99,6 +113,12 @@ Example:
 | [C Tutorial](https://github.com/jaywcjlove/c-tutorial) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/c-tutorial.svg)](https://github.com/jaywcjlove/c-tutorial/stargazers) | [![GitHub last commit](https://img.shields.io/github/last-commit/jaywcjlove/c-tutorial?style=flat&label=last)](https://github.com/jaywcjlove/c-tutorial/commits) | [Preview Website](https://jaywcjlove.github.io/c-tutorial) |
 | [React Native](https://github.com/jaywcjlove/react-native) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/react-native.svg)](https://github.com/jaywcjlove/react-native/stargazers) | [![GitHub last commit](https://img.shields.io/github/last-commit/jaywcjlove/react-native?style=flat&label=last)](https://github.com/jaywcjlove/react-native/commits) | [Preview Website](https://jaywcjlove.github.io/react-native) |
 | [TypeNexus](https://github.com/jaywcjlove/typenexus) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/typenexus.svg)](https://github.com/jaywcjlove/typenexus/stargazers) | [![GitHub last commit](https://img.shields.io/github/last-commit/jaywcjlove/typenexus?style=flat&label=last)](https://github.com/jaywcjlove/typenexus/commits) | [Preview Website](https://jaywcjlove.github.io/typenexus) |
+| [Awesome ChatGPT](https://github.com/jaywcjlove/awesome-chatgpt) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/awesome-chatgpt.svg)](https://github.com/jaywcjlove/awesome-chatgpt/stargazers) | [![GitHub last commit](https://img.shields.io/github/last-commit/jaywcjlove/awesome-chatgpt?style=flat&label=last)](https://github.com/jaywcjlove/awesome-chatgpt/commits) | [Preview Website](https://jaywcjlove.github.io/awesome-chatgpt) |
+| [React Components Awesome](https://github.com/jaywcjlove/react-components-awesome) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/react-components-awesome.svg)](https://github.com/jaywcjlove/react-components-awesome/stargazers) | [![GitHub last commit](https://img.shields.io/github/last-commit/jaywcjlove/react-components-awesome?style=flat&label=last)](https://github.com/jaywcjlove/react-components-awesome/commits) | [Preview Website](https://jaywcjlove.github.io/react-components-awesome) |
+| Repo | Starred | Downloads | Website |
+| [rehype-rewrite](https://github.com/jaywcjlove/rehype-rewrite) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/rehype-rewrite.svg)](https://github.com/jaywcjlove/rehype-rewrite/stargazers) | [![NPM Downloads](https://img.shields.io/npm/dm/rehype-rewrite.svg?label=&logo=npm&style=flat&labelColor=ffacab&color=dd4e4c)](https://www.npmjs.com/package/rehype-rewrite) | [Preview Website](https://jaywcjlove.github.io/rehype-rewrite) |
+| [rehype-attr](https://github.com/jaywcjlove/rehype-attr) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/rehype-attr.svg)](https://github.com/jaywcjlove/rehype-attr/stargazers) | [![NPM Downloads](https://img.shields.io/npm/dm/rehype-attr.svg?label=&logo=npm&style=flat&labelColor=ffacab&color=dd4e4c)](https://www.npmjs.com/package/rehype-attr) | [Preview Website](https://jaywcjlove.github.io/rehype-attr) |
+| [image2uri](https://github.com/jaywcjlove/image2uri) | [![Github Stars](https://img.shields.io/github/stars/jaywcjlove/image2uri.svg)](https://github.com/jaywcjlove/image2uri/stargazers) | [![NPM Downloads](https://img.shields.io/npm/dm/image2uri.svg?label=&logo=npm&style=flat&labelColor=ffacab&color=dd4e4c)](https://www.npmjs.com/package/image2uri) | [Preview Website](https://jaywcjlove.github.io/image2uri) |
 <!--rehype:style=width: 100%; display: inline-table;-->
 
 ## Contributors
