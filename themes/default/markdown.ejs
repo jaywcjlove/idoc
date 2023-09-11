@@ -5,11 +5,11 @@
   <%- include('partial/chapters'); %>
   <markdown-style>
     <%- html %>
+    <%- giscusScript %>
     <%- include('partial/article-footer'); %>
   </markdown-style>
   <%- include('partial/tocs'); %>
 </div>
-
 <script src="<%= RELATIVE_PATH %>js/demo-preview.js?v=<%=idocVersion%>"></script>
 
 <%- include('partial/footer'); %>

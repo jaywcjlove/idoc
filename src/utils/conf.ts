@@ -74,6 +74,7 @@ export interface SiteGlobalConfig {
 export interface Config extends SiteGlobalConfig {
   root: string;
   dir: string;
+  giscus?: Record<string, string>;
   output: string;
   chapters: Array<Record<string, string>>;
   asset: IFileDirStat[];

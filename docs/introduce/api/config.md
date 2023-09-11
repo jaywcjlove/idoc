@@ -134,6 +134,25 @@ copyAssets: '**/assets/*.{mp3,ogm}'
 # -----------------------
 data: 
   good: test
+
+## Add giscus comment
+# -----------------------
+giscus: 
+  src: https://giscus.app/client.js
+  data-repo: jaywcjlove/idoc
+  data-repo-id: MDEwOlJlcG9zaXRvcnk0MjM4MTA2Nw==
+  data-category: Q&A
+  data-category-id: DIC_kwDOAoavC84CZOtP
+  data-mapping: pathname
+  data-strict: 0
+  data-reactions-enabled: 1
+  data-emit-metadata: 0
+  data-input-position: top
+  data-theme: dark
+  data-lang: zh-CN
+  data-loading: lazy
+  crossorigin: anonymous
+  async: true
 ```
 
 ### `dir`
@@ -419,6 +438,56 @@ data:
 ```
 
 目前保留这个配置作用是，如果配置使用了 `schema`，传递的变量放到 `data` 配置(**idoc.yml**)不会报错 :)，还有避免覆盖内置变量。
+
+### `giscus`
+
+添加 [`giscus`](https://giscus.app/) 评论，在 [`giscus`](https://giscus.app/) 官网上配置，生成如下 HTML 代码转换为配置即可：
+
+```html
+<script src="https://giscus.app/client.js"
+  data-repo="jaywcjlove/idoc"
+  data-repo-id="MDEwOlJlcG9zaXRvcnk0MjM4MTA2Nw=="
+  data-category="Q&A"
+  data-category-id="DIC_kwDOAoavC84CZOtP"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+```
+
+将生成的上面 HTML 代码装为配置
+
+```yml
+giscus: 
+  src: https://giscus.app/client.js
+  data-repo: jaywcjlove/idoc
+  data-repo-id: MDEwOlJlcG9zaXRvcnk0MjM4MTA2Nw==
+  data-category: Q&A
+  data-category-id: DIC_kwDOAoavC84CZOtP
+  data-mapping: pathname
+  data-strict: 0
+  data-reactions-enabled: 1
+  data-emit-metadata: 0
+  data-input-position: top
+  data-theme: dark
+  data-lang: zh-CN
+  data-loading: lazy
+  crossorigin: anonymous
+  async: true
+```
+
+🚧 请注意，必须满足下面 3 点配置才能起作用：
+
+1. 该仓库是[公开的](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public)，否则访客将无法查看 discussion。
+2. [giscus app](https://github.com/apps/giscus) 已安装，否则访客将无法评论和回应。
+3. Discussions 功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
 
 ## `idoc.chapters.yml`
 

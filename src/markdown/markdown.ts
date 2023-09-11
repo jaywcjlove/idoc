@@ -69,7 +69,9 @@ export type Toc = {
   class?: string;
 };
 
-interface ConfigData extends TemplateData, PageConfig {}
+interface ConfigData extends TemplateData, PageConfig {
+  giscusScript?: string;
+}
 
 export async function createHTML(mdStr: string = '', fromPath: string, toPath: string) {
   const mdOptions: Options = {};
@@ -212,7 +214,19 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
       data.fileStat = { ...data.fileStat, ...{ [`${key}Str`]: formatter('YYYY/MM/DD', date) } };
     }
   }
-  const varData: ConfigData = { ...config.all, ...data, menus: data.menus, page, markdown: mdStr, html: mdHtml };
+  const varData: ConfigData = {
+    ...config.all,
+    ...data,
+    giscusScript: '',
+    menus: data.menus,
+    page,
+    markdown: mdStr,
+    html: mdHtml,
+  };
+  if (config.data.giscus) {
+    const resultGiscus = Object.keys(config.data.giscus).map((key) => `${key}="${config.data.giscus[key]}"`);
+    varData.giscusScript = `<script ${resultGiscus.join(' ')}></script><div class=".giscus"></div>`;
+  }
   let tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   if (page.layout) {
     tempPath = path.resolve(config.data.root, page.layout);
