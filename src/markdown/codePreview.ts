@@ -61,8 +61,8 @@ export const codePreview: Plugin<[CodePreviewOptions?], Root> = (options = {}) =
           children: [],
         });
       }
-      if (node.type === 'element' && node.tagName === 'code' && node.data && node.data.meta) {
-        const metaRaw = node.data.meta as string;
+      const metaRaw = (node.data as any)?.meta as string;
+      if (node.type === 'element' && node.tagName === 'code' && metaRaw) {
         const metaData = getCodeMeta(metaRaw);
         node.properties['data-meta'] = Object.keys(metaData)
           .filter((key: keyof typeof metaData) => metaData[key])
