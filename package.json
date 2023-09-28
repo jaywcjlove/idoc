@@ -51,7 +51,7 @@
     "@types/micromatch": "^4.0.2",
     "@types/minimist": "~1.2.2",
     "@uiw/formatter": "~2.0.0",
-    "@wcj/markdown-to-html": "^2.0.9",
+    "@wcj/markdown-to-html": "^3.0.0",
     "auto-config-loader": "^1.7.4",
     "chokidar": "^3.5.3",
     "ejs": "^3.1.6",
