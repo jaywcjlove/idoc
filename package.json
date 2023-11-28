@@ -75,7 +75,7 @@
     "auto-config-loader": "^1.7.4",
     "chokidar": "^3.5.3",
     "ejs": "^3.1.6",
-    "fs-extra": "~11.1.0",
+    "fs-extra": "~11.2.0",
     "image2uri": "^2.0.0",
     "inquirer": "^9.0.0",
     "micromatch": "^4.0.5",
