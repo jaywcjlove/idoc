@@ -263,12 +263,12 @@ logo: ./logo.png
 favicon: ./logo.png
 ```
 
-### `elment`
+### `element`
 
 模板中的某些节点 props 设置部位样式，例如设置 `wrapper` 定义网页最外层最大宽度：
 
 ```yml
-elment: 
+element: 
   # 用于定义最外层宽度样式
   wrapper: style=max-width:690px;
 ```
