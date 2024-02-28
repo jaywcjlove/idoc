@@ -1,7 +1,7 @@
 <%- include('partial/header'); %>
 <%- include('partial/navigation'); %>
 
-<div class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocsTree && tocsTree.length > 0 ? '' : 'notocs'%>">
+<div <%= elment.wrapper %> class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocsTree && tocsTree.length > 0 ? '' : 'notocs'%>">
   <%- include('partial/chapters'); %>
   <markdown-style>
     <%- html %>

@@ -63,6 +63,11 @@ export interface SiteGlobalConfig {
    */
   cacheFileStat?: boolean;
   copyAssets?: string | string[];
+  /** 模板中的某些部位样式 */
+  elment?: {
+    /** 用于定义最外层宽度样式 */
+    wrapper?: string;
+  };
   /** minify HTML */
   minify?: boolean;
   /** Template Data */
@@ -134,6 +139,7 @@ export class Conf {
     keywords: '',
     footer: footerStr,
     global: {} as Config,
+    elment: { wrapper: '' },
     page: {},
   };
   get all() {

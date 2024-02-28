@@ -263,6 +263,17 @@ logo: ./logo.png
 favicon: ./logo.png
 ```
 
+### `elment`
+
+模板中的某些节点 props 设置部位样式，例如设置 `wrapper` 定义网页最外层最大宽度：
+
+```yml
+elment: 
+  # 用于定义最外层宽度样式
+  wrapper: style=max-width:690px;
+```
+注意 ⚠️：目前只扩展了一个 `wrapper`
+
 ### `homepage`
 
 主要用于生成 [sitemap.txt](https://www.sitemaps.org/) 文件。当前配置也将传递到模版中使用。
