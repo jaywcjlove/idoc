@@ -3,7 +3,7 @@
 
 <div <%= element.wrapper %> class="warpper-content warpper <%= chapters && chapters.length > 0 ? 'sidebar' : ''%> <%= tocsTree && tocsTree.length > 0 ? '' : 'notocs'%>">
   <%- include('partial/chapters'); %>
-  <markdown-style>
+  <markdown-style theme-auto-switch-disabled>
     <%- html %>
     <%- giscusScript %>
     <%- include('partial/article-footer'); %>
