@@ -16,6 +16,7 @@ import ignore from 'rehype-ignore';
 import rehypeFormat from 'rehype-format';
 import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
+import { remarkAlert } from 'remark-github-blockquote-alert';
 import { config, MenuData, Config, SiteGlobalConfig } from '../utils/conf.js';
 import rehypeUrls from './rehype-urls.js';
 import { formatChapters, Chapter } from '../utils/chapters.js';
@@ -75,6 +76,7 @@ interface ConfigData extends TemplateData, PageConfig {
 
 export async function createHTML(mdStr: string = '', fromPath: string, toPath: string) {
   const mdOptions: Options = {};
+  mdOptions.remarkPlugins = [remarkAlert];
   mdOptions.rehypePlugins = [
     [
       ignore,
