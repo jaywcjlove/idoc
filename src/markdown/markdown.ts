@@ -76,7 +76,7 @@ interface ConfigData extends TemplateData, PageConfig {
 
 export async function createHTML(mdStr: string = '', fromPath: string, toPath: string) {
   const mdOptions: Options = {};
-  mdOptions.remarkPlugins = [remarkAlert];
+  mdOptions.remarkPlugins = [[remarkAlert, { legacyTitle: true }]];
   mdOptions.rehypePlugins = [
     [
       ignore,
