@@ -236,7 +236,9 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
 
   if (config.data.giscus) {
     const resultGiscus = Object.keys(config.data.giscus).map((key) => `${key}="${config.data.giscus[key]}"`);
-    varData.giscusScript = `<script ${resultGiscus.join(' ')}></script><div class=".giscus"></div>`;
+    varData.giscusScript = `<script ${resultGiscus.join(
+      ' ',
+    )} data-script-id="giscus"></script><div class=".giscus"></div>`;
   }
   let tempPath = path.resolve(config.data.theme, page.layout || 'markdown.ejs');
   if (page.layout) {
