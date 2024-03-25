@@ -1,11 +1,11 @@
 ;(() => {
   const targetElement = document.documentElement;
-  const defaultTheme = targetElement.getAttribute("data-color-mode").toLocaleLowerCase();
+  const defaultTheme = targetElement.getAttribute("data-color-mode");
   changeGiscusTheme(defaultTheme)
   const observer = new MutationObserver((mutationsList, observer) => {
     for(const mutation of mutationsList) {
       if (mutation.type === 'attributes') {
-        const value = targetElement.getAttribute("data-color-mode").toLocaleLowerCase();
+        const value = targetElement.getAttribute("data-color-mode");
         changeGiscusTheme(value)
       }
     }
@@ -16,12 +16,17 @@
     attributeOldValue: true
   });
   
-  function changeGiscusTheme(theme) {
+  function changeGiscusTheme(theme = "light") {
       const iframe = document.querySelector('.giscus-frame');
       if (iframe) {
-          iframe.contentWindow.postMessage({
-              giscus: { theme }
-          }, 'https://giscus.app');
+        const config = {
+          giscus: {
+            setConfig: {
+              theme: theme.toLocaleLowerCase(),
+            },
+          }
+        };
+          iframe.contentWindow.postMessage(config, 'https://giscus.app');
       }
   }
 })();
