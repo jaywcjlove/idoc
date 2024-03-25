@@ -26,7 +26,9 @@
             },
           }
         };
-          iframe.contentWindow.postMessage(config, 'https://giscus.app');
+        iframe.contentWindow.postMessage(config, 'https://giscus.app');
+        const script = document.querySelector("script[data-script-id=\"giscus\"]")
+        script.setAttribute("data-theme", theme)
       }
   }
 })();
