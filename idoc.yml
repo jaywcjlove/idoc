@@ -56,6 +56,35 @@ scope:
   - introduce
   - markdown
 
+## Template Data
+# -----------------------
+data: 
+  # 向 meta 配置模板中添加模板数据
+  site_name: idoc
+
+meta:
+  - <meta name="author" content="Kenny Wong">
+  - <meta property="og:site_name" content="<%= data.site_name %>">
+  - <meta property="og:url" content="<%=homepage%><%=RESOLVE_PATH%>">
+  - <meta property="og:image" content="<%=homepage%>logo.png">
+  - <meta property="og:type" content="website">
+  - <meta property="og:title" content="<%= title %> - idoc">
+  - <meta property="og:description" content="<%= description%>">
+  - <meta property="twitter:image:src" content="<%=homepage%>assets/banner.png">
+  - <meta property="twitter:site" content="@jaywcjlove">
+  - <meta property="twitter:creator" content="jaywcjlove">
+  - <meta property="twitter:card" content="summary_large_image">
+  - <meta property="twitter:title" content="<%= title %>">
+  - <meta property="twitter:description" content="<%= description%>">
+
+## Copy Assets
+# -----------------------
+# https://github.com/micromatch/micromatch
+# 
+# copyAssets: '**/assets/*.{mp3,ogm}'
+copyAssets: 
+  - '*/assets/*.(png|jpg)'
+
 ## Navigation Menu.
 # -----------------------
 menus:
@@ -68,11 +97,6 @@ menus:
   #   url: https://github.com/jaywcjlove/idoc
   #   target: __blank
 
-## Copy Assets
-# -----------------------
-# https://github.com/micromatch/micromatch
-# 
-# copyAssets: '**/assets/*.{mp3,ogm}'
 
 footer: |
   Released under the MIT License. Copyright © {{idocYear}} Kenny Wong<br />
@@ -83,10 +107,6 @@ footer: |
 # sideEffectFiles:
 #   - README.zh.md
 
-## Template Data
-# -----------------------
-data: 
-  good: test
 
 giscus: 
   src: https://giscus.app/client.js

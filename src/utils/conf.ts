@@ -24,20 +24,25 @@ export type LogoOrFavicon = {
 };
 
 export interface SiteGlobalConfig {
-  /** site name */
+  /** 网站名称 */
   site?: string;
+  /** 网站标题 */
   title?: string;
+  /** 搜索引擎能搜索到的关键词 */
   keywords?: string;
-  /** The url to the project homepage. */
-  homepage?: string;
+  /** meta 标记描述 HTML 文档中的元数据 */
+  meta?: string[];
+  /** 对网页的一个简单概述，默认获取当前 Markdown 页面第一段文本 **/
   description?: string;
+  /** 项目主页的 url **/
+  homepage?: string;
+  /** 导航上的logo */
+  logo?: LogoOrFavicon;
+  /** 网站 favicon 设置 */
+  favicon?: LogoOrFavicon;
   scope?: string[];
   scopePrivate?: string[];
   tocs?: Toc[] | boolean;
-  /** website logo icon */
-  logo?: LogoOrFavicon;
-  /** website favicon icon */
-  favicon?: LogoOrFavicon;
   editButton?: {
     label?: string;
     url?: string;
@@ -247,7 +252,9 @@ export class Conf {
           if (/.(md|markdown)$/.test(filestat.path)) {
             cacheFile.add(filestat);
           }
-          return /.(md|markdown)$/.test(filestat.path) || (copyAssets && micromatch.isMatch(filestat.path, copyAssets));
+          return (
+            /.(md|markdown)$/.test(filestat.path) || (copyAssets && micromatch.contains(filestat.path, copyAssets))
+          );
         },
       });
     }

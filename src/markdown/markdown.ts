@@ -51,7 +51,10 @@ export interface PageConfig extends Omit<SiteGlobalConfig, 'menus'> {
 }
 
 export interface TemplateData extends Omit<Config, 'menus' | 'chapters'> {
+  /** 相对路径 `../../` */
   RELATIVE_PATH?: string;
+  /** 输出完整目录 `markdown/basic-syntax.html` */
+  RESOLVE_PATH?: string;
   markdown?: string;
   html?: string;
   menus?: MenuData[];
@@ -161,6 +164,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
   data.version = config.data.version;
   data.idocVersion = config.data.idocVersion;
   data.RELATIVE_PATH = config.getRelativePath(toPath);
+  data.RESOLVE_PATH = path.relative(config.data.output, toPath).split(path.sep).join('/');
   const { global, ...other } = config.data;
   config.data.global = { ...other };
   data.chapters = formatChapters(config.data.chapters, toPath);
@@ -217,6 +221,7 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     }
   }
   const varData: ConfigData = {
+    meta: [],
     ...config.all,
     ...data,
     giscusScript: '',
@@ -225,6 +230,10 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     markdown: mdStr,
     html: mdHtml,
   };
+  if (varData.meta && Array.isArray(varData.meta)) {
+    varData.meta = varData.meta.map((item) => render(item || '', { ...varData }, {}));
+  }
+
   if (config.data.giscus) {
     const resultGiscus = Object.keys(config.data.giscus).map((key) => `${key}="${config.data.giscus[key]}"`);
     varData.giscusScript = `<script ${resultGiscus.join(' ')}></script><div class=".giscus"></div>`;

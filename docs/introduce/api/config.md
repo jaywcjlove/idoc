@@ -263,6 +263,52 @@ logo: ./logo.png
 favicon: ./logo.png
 ```
 
+### `meta`
+
+meta 标记描述 HTML 文档中的元数据，值支持模板变量
+
+```yml
+data: 
+  site_name: idoc # 向 meta 配置模板中添加模板数据
+meta:
+  - <meta name="author" content="Kenny Wong">
+  - <meta property="og:site_name" content="<%= data.site_name %>">
+  - <meta property="og:url" content="">
+  - <meta property="og:image" content="<%=homepage%>logo.png">
+  - <meta property="og:type" content="website">
+  - <meta property="og:title" content="<%= title %>">
+  - <meta property="og:description" content="<%= description%>">
+```
+
+头信息中生成 `HTML` 如下：
+
+```html
+<meta name="author" content="Kenny Wong">
+<meta property="og:site_name" content="idoc">
+<meta property="og:url" content="">
+<meta property="og:image" content="https://wangchujiang.com/idoc/logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="配置文件">
+<meta property="og:description" content="配置文件可以添加设置网站内容和主题等。">
+```
+
+配置 Twitter 卡片
+
+```yml
+data: 
+  site_name: idoc # 向 meta 配置模板中添加模板数据
+
+copyAssets: 
+  - '*/assets/*.(png|jpg)' # 存放在 `docs` 目录中匹配的资源
+meta:
+  - <meta property="twitter:image:src" content="<%=homepage%>assets/banner.png">
+  - <meta property="twitter:site" content="@jaywcjlove">
+  - <meta property="twitter:creator" content="jaywcjlove">
+  - <meta property="twitter:card" content="summary_large_image">
+  - <meta property="twitter:title" content="<%= title %>">
+  - <meta property="twitter:description" content="<%= description%>">
+```
+
 ### `element`
 
 模板中的某些节点 props 设置部位样式，例如设置 `wrapper` 定义网页最外层最大宽度：
@@ -307,7 +353,7 @@ cacheFileStat: true
 ```yml
 ## Copy Assets
 # -----------------------
-copyAssets: '**/assets/*.{mp3,ogm}'
+copyAssets: '**/assets/*.(mp3,ogm)'
 
 copyAssets: 
   - '**/assets/*.mp3'

@@ -11,6 +11,9 @@
   <% if (keywords) { %>
   <meta name="keywords" content="<%= keywords %>">
   <% }%>
+  <% (meta || []).forEach((val) => { %>
+  <%- val %>
+  <% }) %>
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/main.css?v=<%=idocVersion%>">
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/tocbot.css?v=<%=idocVersion%>">
   <link rel="stylesheet" type="text/css" href="<%= RELATIVE_PATH %>css/media.css?v=<%=idocVersion%>">
