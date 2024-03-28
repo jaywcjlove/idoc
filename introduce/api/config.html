@@ -798,12 +798,20 @@ theme: themes/default
         <h3 id="rewrite"><a aria-hidden="true" tabindex="-1" href="#rewrite" class="anchor"><span class="icon icon-link"></span></a><code>rewrite</code></h3>
         <p>这是利用 rehype 插件 <a href="https://github.com/jaywcjlove/rehype-rewrite">rehype-rewrite</a> 对 HTML 元素进行重写，可帮助您修改页面上的任何 HTML 元素和文档内容。以下配置仅在 JS 配置中生效：</p>
         <pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// .idocrc.mjs</span>
-</span><span class="code-line line-number" line="2"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="3">  <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> index<span class="token punctuation">,</span> parent</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="4">    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
-</span><span class="code-line line-number" line="5">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-</span><span class="code-line line-number" line="6"><span class="token punctuation">}</span>
+</span><span class="code-line line-number" line="2"><span class="token doc-comment comment">/**
+</span></span><span class="code-line line-number" line="3"><span class="token doc-comment comment"> * <span class="token keyword">@typedef</span> <span class="token class-name"><span class="token punctuation">{</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">"idoc"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Config<span class="token punctuation">}</span></span> <span class="token class-name">Config</span>
+</span></span><span class="code-line line-number" line="4"><span class="token doc-comment comment"> * <span class="token keyword">@type</span> <span class="token class-name"><span class="token punctuation">{</span>Config<span class="token punctuation">}</span></span> 
+</span></span><span class="code-line line-number" line="5"><span class="token doc-comment comment"> */</span>
+</span><span class="code-line line-number" line="6"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="7">  <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> index<span class="token punctuation">,</span> parent</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="8">    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="9">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="10"><span class="token punctuation">}</span>
 </span></code><input type="hidden" value="// .idocrc.mjs
+/**
+ * @typedef {import(&#x22;idoc&#x22;).Config} Config
+ * @type {Config} 
+ */
 export default {
   rewrite: (node, index, parent) => {
     console.log(index)
