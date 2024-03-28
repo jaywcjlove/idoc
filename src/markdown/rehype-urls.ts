@@ -1,5 +1,5 @@
 import path from 'path';
-import { Root, RootContent } from 'hast';
+import type { Root, RootContent } from 'hast';
 import { isAbsoluteURL, isOutReadme } from './utils.js';
 import { config } from '../utils/conf.js';
 import { getOutput } from '../scripts/build.js';

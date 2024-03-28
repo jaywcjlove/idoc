@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { ParsedArgs } from 'minimist';
+import type { ParsedArgs } from 'minimist';
 import { config } from '../utils/conf.js';
 
 interface Options extends Partial<ParsedArgs> {

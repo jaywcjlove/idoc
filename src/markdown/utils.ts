@@ -2,7 +2,7 @@ import path from 'path';
 import { getCodeString } from 'rehype-rewrite';
 import { Root } from 'hast';
 import { config } from '../utils/conf.js';
-import { Chapter, getFormatChapter } from '../utils/chapters.js';
+import { type Chapter, getFormatChapter } from '../utils/chapters.js';
 
 export function getTitle(node: Root) {
   const h1Elm = node.children.find((item) => item.type === 'element' && item.tagName === 'h1');

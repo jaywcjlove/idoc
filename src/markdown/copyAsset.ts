@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { Root, RootContent } from 'hast';
+import type { Root, RootContent } from 'hast';
 import { isAbsoluteURL } from './utils.js';
 import { getOutput } from '../scripts/build.js';
 import * as log from '../utils/log.js';

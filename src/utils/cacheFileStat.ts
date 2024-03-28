@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { IFileDirStat, getStat } from 'recursive-readdir-files';
+import { type IFileDirStat, getStat } from 'recursive-readdir-files';
 
 export type CacheFileOptions = {
   folder?: string;

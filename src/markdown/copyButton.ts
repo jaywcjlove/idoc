@@ -1,5 +1,5 @@
-import { Element } from 'hast';
-import { Root, RootContent } from 'hast';
+import type { Element } from 'hast';
+import type { Root, RootContent } from 'hast';
 
 export const addCopyButton = (node: Root | RootContent) => {
   const className =

@@ -1,4 +1,4 @@
-import { Toc, TocTree } from './markdown.js';
+import type { Toc, TocTree } from './markdown.js';
 
 export function getTocsTree(arr: Toc[], result: Toc[] = []) {
   let n = 0;
