@@ -148,6 +148,9 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
     if (node.type === 'comment' && /^idoc:config:/i.test(node.value.trimStart())) {
       configMarkdownStr = node.value.replace(/^idoc:config:/i, '');
     }
+    if (config.data.rewrite && typeof config.data.rewrite === 'function') {
+      config.data.rewrite(node, index, parent);
+    }
   };
   const mdHtml = (await markdownToHTML(mdStr, mdOptions)) as string;
   const tocsArr = tocs.map((item) => ({

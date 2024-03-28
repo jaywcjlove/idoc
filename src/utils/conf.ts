@@ -6,6 +6,7 @@ import image2uri from 'image2uri';
 import readdirFiles, { IFileDirStat, getStat } from 'recursive-readdir-files';
 import { autoConf, merge, getConfigPath } from 'auto-config-loader';
 import { createRequire } from 'node:module';
+import { Options } from '@wcj/markdown-to-html';
 import { logo } from './logo.js';
 import { PageConfig, Toc } from '../markdown/markdown.js';
 import { isAbsoluteURL, isOutReadme } from '../markdown/utils.js';
@@ -79,6 +80,8 @@ export interface SiteGlobalConfig {
   data?: Record<string, any>;
   theme?: string;
   sideEffectFiles?: Array<string>;
+  /** Rewrite Element. [rehype-rewrite](https://github.com/jaywcjlove/rehype-rewrite#rewritenode-index-parent-void) */
+  rewrite?: Options['rewrite'];
 }
 
 export interface Config extends SiteGlobalConfig {

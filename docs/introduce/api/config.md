@@ -13,7 +13,10 @@
 
 ## `idoc.yml`
 
-在你的配置最顶端添加配置 [schema](https://www.schemastore.org/)，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 [Visual Studio Code](https://code.visualstudio.com/) 需要按照 [YAML](https://github.com/redhat-developer/vscode-yaml.git) 插件支持这一特性。`v1.26+` 支持添加如下更多类型的配置文件：
+在你的配置顶部添加 [schema](https://www.schemastore.org/)，进行数据有效性验证，有助于解决配置错误问题。如果你使用 [Visual Studio Code](https://code.visualstudio.com/)，需要安装 [YAML](https://github.com/redhat-developer/vscode-yaml.git) 插件来支持此功能。从 `v1.26` 版本开始，支持更多类型的配置文件：
+
+> [!NOTE/注意]
+> 由 [Auto Config Loader](https://github.com/jaywcjlove/auto-config-loader) 提供动力支持多种格式的配置。
 
 ```bash
 idoc.yml                   .idoc.yml
@@ -318,7 +321,9 @@ element:
   # 用于定义最外层宽度样式
   wrapper: style=max-width:690px;
 ```
-注意 ⚠️：目前只扩展了一个 `wrapper`
+
+> [!WARNING]
+> 目前只扩展了一个 `wrapper`
 
 ### `homepage`
 
@@ -328,7 +333,8 @@ element:
 homepage: https://jaywcjlove.github.io/idoc/
 ```
 
-注意 ⚠️：[Google 文档](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text)。
+> [!TIP]
+> 提示请查看 [Google 文档](https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text)。
 
 ### `minify`
 
@@ -360,7 +366,8 @@ copyAssets:
   - '**/assets/*.ogm'
 ```
 
-注意 ⚠️：在 `markdown` 中引入图片等资源会自动拷贝，不需要配置 `copyAssets`。
+> [!TIP]
+> 在 `markdown` 中引入图片等资源会自动拷贝，不需要配置 `copyAssets`。
 
 ### `theme`
 
@@ -419,23 +426,24 @@ menus:
   Markdown: markdown/basic-syntax.html markdown
 ```
 
-⚠️ 注意：
-
-- 范围 `scope` 配置，在匹配到的页面，展示匹配中的章节(SiderBar)菜单。
-- 范围 `scope` 没有配置，所有页面展示章节(SiderBar)菜单。
-- 范围是匹配文件路径，配置使用 `/` idoc 工具帮助转换兼容 Windows。
-- 范围 `scope` 配置，是过滤 `idoc.chapters.yml` 中的数据。
+> [!TIP]
+> 
+> - 范围 `scope` 配置，在匹配到的页面，展示匹配中的章节(SiderBar)菜单。
+> - 范围 `scope` 没有配置，所有页面展示章节(SiderBar)菜单。
+> - 范围是匹配文件路径，配置使用 `/` idoc 工具帮助转换兼容 Windows。
+> - 范围 `scope` 配置，是过滤 `idoc.chapters.yml` 中的数据。
 
 ### `scopePrivate`
 
 某一些页面展示指定范围的的章节(SiderBar)菜单，其它页面展示剩余范围的的章节(SiderBar)菜单。
 
-> ⚠️ 注意：需要删除 ~~`scope`~~ 配置选项，上面需求才能实现。
-
 ```yml
 scopePrivate: 
   - tutorial
 ```
+
+> [!TIP]
+>  注意：需要删除 ~~`scope`~~ 配置选项，上面需求才能实现。
 
 ### `sideEffectFiles`
 
@@ -446,7 +454,8 @@ sideEffectFiles:
   - README.zh.md
 ```
 
-⚠️ 注意：如果你在实时编译文档，修改此配置将需要重启监听服务。
+> [!TIP]
+>  注意：如果你在实时编译文档，修改此配置将需要重启监听服务。
 
 ### `menus`
 
@@ -471,7 +480,8 @@ menus:
   Docs: introduce/getting-started/installation.html introduce
 ```
 
-🚧  注意：这个 `scope` 范围，如果没有任何菜单定义 `scope` 范围，将在所有页面展示一样的 `SiderBar` 左侧边菜单栏。如果你定义了 `scope`，根据你定义的范围(`scope`) 在匹配页面路由，将在侧边栏展示不同的 `SiderBar`。`SiderBar` 需要在 `idoc.chapters.yml` 中定义，并且需要在 `idoc.yml` 中定义 `menus`。
+> [!TIP]
+>  注意：这个 `scope` 范围，如果没有任何菜单定义 `scope` 范围，将在所有页面展示一样的 `SiderBar` 左侧边菜单栏。如果你定义了 `scope`，根据你定义的范围(`scope`) 在匹配页面路由，将在侧边栏展示不同的 `SiderBar`。`SiderBar` 需要在 `idoc.chapters.yml` 中定义，并且需要在 `idoc.yml` 中定义 `menus`。
 
 ### `footer`
 
@@ -540,11 +550,27 @@ giscus:
   async: true
 ```
 
-🚧 请注意，必须满足下面 3 点配置才能起作用：
+> [!TIP]
+>  请注意，必须满足下面 3 点配置才能起作用：
+>
+> 1. 该仓库是[公开的](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public)，否则访客将无法查看 discussion。
+> 2. [giscus app](https://github.com/apps/giscus) 已安装，否则访客将无法评论和回应。
+> 3. Discussions 功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
 
-1. 该仓库是[公开的](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public)，否则访客将无法查看 discussion。
-2. [giscus app](https://github.com/apps/giscus) 已安装，否则访客将无法评论和回应。
-3. Discussions 功能已[在你的仓库中启用](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository)。
+### `rewrite`
+
+这是利用 rehype 插件 [rehype-rewrite](https://github.com/jaywcjlove/rehype-rewrite) 对 HTML 元素进行重写，可帮助您修改页面上的任何 HTML 元素和文档内容。以下配置仅在 JS 配置中生效：
+
+```js
+// .idocrc.mjs
+export default {
+  rewrite: (node, index, parent) => {
+    console.log(index)
+  },
+}
+```
+
+应用示例 [RegExp Example](https://github.com/jaywcjlove/regexp-example)，这个示例是一个正则表达式搜集备忘清单，我们将在这个示例生成 HTML 的同时，给示例添加验证功能等自定义特性。
 
 ## `idoc.chapters.yml`
 
