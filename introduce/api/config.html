@@ -81,7 +81,15 @@
           <li class="task-list-item"><input type="checkbox" checked disabled> <code>注释配置</code> 在 markdown 文档中添加的配置（可选配置）。</li>
         </ul>
         <h2 id="idocyml"><a aria-hidden="true" tabindex="-1" href="#idocyml" class="anchor"><span class="icon icon-link"></span></a><code>idoc.yml</code></h2>
-        <p>在你的配置最顶端添加配置 <a href="https://www.schemastore.org/">schema</a>，进行数据有效性的验证，方便排出您的配置错误问题，如果你是 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 需要按照 <a href="https://github.com/redhat-developer/vscode-yaml.git">YAML</a> 插件支持这一特性。<code>v1.26+</code> 支持添加如下更多类型的配置文件：</p>
+        <p>在你的配置顶部添加 <a href="https://www.schemastore.org/">schema</a>，进行数据有效性验证，有助于解决配置错误问题。如果你使用 <a href="https://code.visualstudio.com/">Visual Studio Code</a>，需要安装 <a href="https://github.com/redhat-developer/vscode-yaml.git">YAML</a> 插件来支持此功能。从 <code>v1.26</code> 版本开始，支持更多类型的配置文件：</p>
+        <div class="markdown-alert markdown-alert-note" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+            </svg>注意
+          </p>
+          <p>由 <a href="https://github.com/jaywcjlove/auto-config-loader">Auto Config Loader</a> 提供动力支持多种格式的配置。</p>
+        </div>
         <pre class="language-bash"><code class="language-bash code-highlight"><span class="code-line line-number" line="1">idoc.yml                   .idoc.yml
 </span><span class="code-line line-number" line="2">.idocrc                    .idocrc.json
 </span><span class="code-line line-number" line="3">.idocrc.json5              .idocrc.jsonc
@@ -501,13 +509,27 @@ meta:
   # 用于定义最外层宽度样式
   wrapper: style=max-width:690px;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>注意 ⚠️：目前只扩展了一个 <code>wrapper</code></p>
+        <div class="markdown-alert markdown-alert-warning" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+            </svg>WARNING
+          </p>
+          <p>目前只扩展了一个 <code>wrapper</code></p>
+        </div>
         <h3 id="homepage"><a aria-hidden="true" tabindex="-1" href="#homepage" class="anchor"><span class="icon icon-link"></span></a><code>homepage</code></h3>
         <p>主要用于生成 <a href="https://www.sitemaps.org/">sitemap.txt</a> 文件。当前配置也将传递到模版中使用。</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">homepage</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//jaywcjlove.github.io/idoc/
 </span></code><input type="hidden" value="homepage: https://jaywcjlove.github.io/idoc/
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>注意 ⚠️：<a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text">Google 文档</a>。</p>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>提示请查看 <a href="https://developers.google.com/search/docs/advanced/sitemaps/build-sitemap?hl=zh-cn#text">Google 文档</a>。</p>
+        </div>
         <h3 id="minify"><a aria-hidden="true" tabindex="-1" href="#minify" class="anchor"><span class="icon icon-link"></span></a><code>minify</code></h3>
         <p>压缩生成后的 HTML，默认值为 <code>false</code>。</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">minify</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
@@ -535,7 +557,14 @@ copyAssets:
   - &#x27;**/assets/*.mp3&#x27;
   - &#x27;**/assets/*.ogm&#x27;
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>注意 ⚠️：在 <code>markdown</code> 中引入图片等资源会自动拷贝，不需要配置 <code>copyAssets</code>。</p>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>在 <code>markdown</code> 中引入图片等资源会自动拷贝，不需要配置 <code>copyAssets</code>。</p>
+        </div>
         <h3 id="theme"><a aria-hidden="true" tabindex="-1" href="#theme" class="anchor"><span class="icon icon-link"></span></a><code>theme</code></h3>
         <p>主题定制，默认值为 <code>default</code>，你也可以自定义主题，可以使用 <code>idoc init myapp</code> 生成项目工程的时候，选择暴露模版文件，主题将被生成到 <code>themes/default</code> 目录中</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token comment">## Customize theme settings.</span>
@@ -587,23 +616,35 @@ theme: themes/default
   Docs: introduce/getting-started/installation.html 
   Markdown: markdown/basic-syntax.html markdown
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>⚠️ 注意：</p>
-        <ul>
-          <li>范围 <code>scope</code> 配置，在匹配到的页面，展示匹配中的章节(SiderBar)菜单。</li>
-          <li>范围 <code>scope</code> 没有配置，所有页面展示章节(SiderBar)菜单。</li>
-          <li>范围是匹配文件路径，配置使用 <code>/</code> idoc 工具帮助转换兼容 Windows。</li>
-          <li>范围 <code>scope</code> 配置，是过滤 <code>idoc.chapters.yml</code> 中的数据。</li>
-        </ul>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p></p>
+          <ul>
+            <li>范围 <code>scope</code> 配置，在匹配到的页面，展示匹配中的章节(SiderBar)菜单。</li>
+            <li>范围 <code>scope</code> 没有配置，所有页面展示章节(SiderBar)菜单。</li>
+            <li>范围是匹配文件路径，配置使用 <code>/</code> idoc 工具帮助转换兼容 Windows。</li>
+            <li>范围 <code>scope</code> 配置，是过滤 <code>idoc.chapters.yml</code> 中的数据。</li>
+          </ul>
+        </div>
         <h3 id="scopeprivate"><a aria-hidden="true" tabindex="-1" href="#scopeprivate" class="anchor"><span class="icon icon-link"></span></a><code>scopePrivate</code></h3>
         <p>某一些页面展示指定范围的的章节(SiderBar)菜单，其它页面展示剩余范围的的章节(SiderBar)菜单。</p>
-        <blockquote>
-          <p>⚠️ 注意：需要删除 <del><code>scope</code></del> 配置选项，上面需求才能实现。</p>
-        </blockquote>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">scopePrivate</span><span class="token punctuation">:</span> 
 </span><span class="code-line line-number" line="2">  <span class="token punctuation">-</span> tutorial
 </span></code><input type="hidden" value="scopePrivate: 
   - tutorial
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>注意：需要删除 <del><code>scope</code></del> 配置选项，上面需求才能实现。</p>
+        </div>
         <h3 id="sideeffectfiles"><a aria-hidden="true" tabindex="-1" href="#sideeffectfiles" class="anchor"><span class="icon icon-link"></span></a><code>sideEffectFiles</code></h3>
         <p>添加副作用 <code>Markdown</code> 文件，如果你有一些文件不在指定文档目录（默认 <code>docs</code>），这些文件不会编译输出 <code>html</code>，也不会监听，通过 <code>sideEffectFiles</code> 配置，将实现在指定文档目录之外的 <code>Markdown</code> 文档也能编译。</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">sideEffectFiles</span><span class="token punctuation">:</span>
@@ -611,7 +652,14 @@ theme: themes/default
 </span></code><input type="hidden" value="sideEffectFiles:
   - README.zh.md
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>⚠️ 注意：如果你在实时编译文档，修改此配置将需要重启监听服务。</p>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>注意：如果你在实时编译文档，修改此配置将需要重启监听服务。</p>
+        </div>
         <h3 id="menus"><a aria-hidden="true" tabindex="-1" href="#menus" class="anchor"><span class="icon icon-link"></span></a><code>menus</code></h3>
         <p>默认主题顶部导航菜单定义</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">menus</span><span class="token punctuation">:</span>
@@ -639,7 +687,14 @@ theme: themes/default
   # Label: <URL> [scope]
   Docs: introduce/getting-started/installation.html introduce
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>🚧 注意：这个 <code>scope</code> 范围，如果没有任何菜单定义 <code>scope</code> 范围，将在所有页面展示一样的 <code>SiderBar</code> 左侧边菜单栏。如果你定义了 <code>scope</code>，根据你定义的范围(<code>scope</code>) 在匹配页面路由，将在侧边栏展示不同的 <code>SiderBar</code>。<code>SiderBar</code> 需要在 <code>idoc.chapters.yml</code> 中定义，并且需要在 <code>idoc.yml</code> 中定义 <code>menus</code>。</p>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>注意：这个 <code>scope</code> 范围，如果没有任何菜单定义 <code>scope</code> 范围，将在所有页面展示一样的 <code>SiderBar</code> 左侧边菜单栏。如果你定义了 <code>scope</code>，根据你定义的范围(<code>scope</code>) 在匹配页面路由，将在侧边栏展示不同的 <code>SiderBar</code>。<code>SiderBar</code> 需要在 <code>idoc.chapters.yml</code> 中定义，并且需要在 <code>idoc.yml</code> 中定义 <code>menus</code>。</p>
+        </div>
         <h3 id="footer"><a aria-hidden="true" tabindex="-1" href="#footer" class="anchor"><span class="icon icon-link"></span></a><code>footer</code></h3>
         <p>页脚自定义。</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token key atrule">footer</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
@@ -727,12 +782,35 @@ theme: themes/default
   crossorigin: anonymous
   async: true
 "><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
-        <p>🚧 请注意，必须满足下面 3 点配置才能起作用：</p>
-        <ol>
-          <li>该仓库是<a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public">公开的</a>，否则访客将无法查看 discussion。</li>
-          <li><a href="https://github.com/apps/giscus">giscus app</a> 已安装，否则访客将无法评论和回应。</li>
-          <li>Discussions 功能已<a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">在你的仓库中启用</a>。</li>
-        </ol>
+        <div class="markdown-alert markdown-alert-tip" dir="auto">
+          <p class="markdown-alert-title" dir="auto">
+            <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+              <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path>
+            </svg>TIP
+          </p>
+          <p>请注意，必须满足下面 3 点配置才能起作用：</p>
+          <ol>
+            <li>该仓库是<a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/setting-repository-visibility#making-a-repository-public">公开的</a>，否则访客将无法查看 discussion。</li>
+            <li><a href="https://github.com/apps/giscus">giscus app</a> 已安装，否则访客将无法评论和回应。</li>
+            <li>Discussions 功能已<a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">在你的仓库中启用</a>。</li>
+          </ol>
+        </div>
+        <h3 id="rewrite"><a aria-hidden="true" tabindex="-1" href="#rewrite" class="anchor"><span class="icon icon-link"></span></a><code>rewrite</code></h3>
+        <p>这是利用 rehype 插件 <a href="https://github.com/jaywcjlove/rehype-rewrite">rehype-rewrite</a> 对 HTML 元素进行重写，可帮助您修改页面上的任何 HTML 元素和文档内容。以下配置仅在 JS 配置中生效：</p>
+        <pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number" line="1"><span class="token comment">// .idocrc.mjs</span>
+</span><span class="code-line line-number" line="2"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="3">  <span class="token function-variable function">rewrite</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">node<span class="token punctuation">,</span> index<span class="token punctuation">,</span> parent</span><span class="token punctuation">)</span> <span class="token arrow operator">=></span> <span class="token punctuation">{</span>
+</span><span class="code-line line-number" line="4">    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
+</span><span class="code-line line-number" line="5">  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</span><span class="code-line line-number" line="6"><span class="token punctuation">}</span>
+</span></code><input type="hidden" value="// .idocrc.mjs
+export default {
+  rewrite: (node, index, parent) => {
+    console.log(index)
+  },
+}
+"><div onclick="copied(this)" class="copied"><svg class="octicon-copy" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path></svg><svg class="octicon-check" aria-hidden="true" viewBox="0 0 16 16" fill="currentColor" height="12" width="12"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path></svg></div></pre>
+        <p>应用示例 <a href="https://github.com/jaywcjlove/regexp-example">RegExp Example</a>，这个示例是一个正则表达式搜集备忘清单，我们将在这个示例生成 HTML 的同时，给示例添加验证功能等自定义特性。</p>
         <h2 id="idocchaptersyml"><a aria-hidden="true" tabindex="-1" href="#idocchaptersyml" class="anchor"><span class="icon icon-link"></span></a><code>idoc.chapters.yml</code></h2>
         <p>定义左侧边栏(SiderBar)菜单，同时可以控制顺序，可以在 <code>idoc.yml</code> 配置中定义 <code>scope</code>，顶部一级导航根据匹配 <code>scope</code> 来展示不同的 (SiderBar)菜单。</p>
         <pre class="language-yml"><code class="language-yml code-highlight"><span class="code-line line-number" line="1"><span class="token punctuation">-</span> <span class="token key atrule">introduce/getting-started</span><span class="token punctuation">:</span> 入门
@@ -940,7 +1018,7 @@ layout: markdown.ejs
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
             </svg>
 <span>Edit this page on GitHub</span>
-</a><span class="atime">2024/03/25</span></section>
+</a><span class="atime">2024/03/28</span></section>
       </markdown-style>
       <nav class="tocs">
         <aside class="inner toc">
@@ -972,6 +1050,7 @@ layout: markdown.ejs
                 <li><a href="#footer" class="tocs-link">footer</a></li>
                 <li><a href="#data" class="tocs-link">data</a></li>
                 <li><a href="#giscus" class="tocs-link">giscus</a></li>
+                <li><a href="#rewrite" class="tocs-link">rewrite</a></li>
               </ol>
             </li>
             <li><a href="#idocchaptersyml" class="tocs-link">idoc.chapters.yml</a></li>
