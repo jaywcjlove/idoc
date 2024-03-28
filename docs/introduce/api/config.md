@@ -563,6 +563,10 @@ giscus:
 
 ```js
 // .idocrc.mjs
+/**
+ * @typedef {import("idoc").Config} Config
+ * @type {Config} 
+ */
 export default {
   rewrite: (node, index, parent) => {
     console.log(index)
