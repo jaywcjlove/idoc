@@ -96,10 +96,11 @@ Example:
 My macOS app's official website is also built with it:
 
 <div style="display: inline_block">
-  <a target="_blank" href="https://wangchujiang.com/regex-mate/" title="RegexMate for macOS"><img align="center" alt="RegexMate for macOS" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/aabe5aa9-9a96-4390-8bed-c3e4023d0dea"></a>
-  <a target="_blank" href="https://wangchujiang.com/time-passage/" title="Time Passage for macOS/iOS"><img align="center" alt="Time Passage for macOS/iOS" height="40" width="40" src="https://github.com/jaywcjlove/time-passage/assets/1680273/70bf83db-c1b0-4187-ad9c-dee7a99ab1ca"></a>
+  <a target="_blank" href="https://wangchujiang.com/regex-mate/" title="RegexMate for macOS/iOS"><img align="center" alt="RegexMate" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/aabe5aa9-9a96-4390-8bed-c3e4023d0dea"></a>
+  <a target="_blank" href="https://wangchujiang.com/time-passage/" title="Time Passage for macOS/iOS"><img align="center" alt="Time Passage" height="40" width="40" src="https://github.com/jaywcjlove/time-passage/assets/1680273/6f30e429-e6f3-4dbe-9921-a5effe2a05e9"></a>
   <a target="_blank" href="https://wangchujiang.com/IconizeFolder/" title="IconizeFolder for macOS"><img align="center" alt="Iconize Folder" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/fa9d8b9c-1e51-4ded-877c-fa5b21c47220"></a>
   <a target="_blank" href="https://wangchujiang.com/TextSoundSaver/" title="Textsound Saver for macOS"><img align="center" alt="Textsound Saver" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/0595e842-980b-4574-8891-a8ba853a08be"></a>
+  <a target="_blank" href="https://wangchujiang.com/create-custom-symbols/" title="Create Custom Symbols for macOS"><img align="center" alt="Create Custom Symbols" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/8cd022ce-a3f1-4e89-b7c6-6fbd0d4db77c"></a>
   <a target="_blank" href="https://wangchujiang.com/DevHub/" title="DevHub for macOS"><img align="center" alt="DevHub" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/a17d8424-9163-4cbb-bbee-a9b85c9d5b5e"></a>
   <a target="_blank" href="https://wangchujiang.com/ResumeRevise/" title="Resume Revise for macOS"><img align="center" alt="Resume Revise" height="40" width="40" src="https://github.com/jaywcjlove/jaywcjlove/assets/1680273/c9954a20-1905-48de-bdf8-d71837974aa2"></a>
 </div>
