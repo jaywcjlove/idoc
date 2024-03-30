@@ -7,6 +7,8 @@ https://wangchujiang.com/idoc/markdown/extended-syntax.html
 https://wangchujiang.com/idoc/markdown/insert-img.html
 https://wangchujiang.com/idoc/markdown/line-html.html
 https://wangchujiang.com/idoc/introduce/index.html
+https://wangchujiang.com/idoc/introduce/api/command.html
+https://wangchujiang.com/idoc/introduce/api/config.html
 https://wangchujiang.com/idoc/introduce/getting-started/home.html
 https://wangchujiang.com/idoc/introduce/getting-started/installation.html
 https://wangchujiang.com/idoc/introduce/getting-started/publish.html
@@ -16,6 +18,4 @@ https://wangchujiang.com/idoc/introduce/getting-started/site-preparation.html
 https://wangchujiang.com/idoc/introduce/theme/templates.html
 https://wangchujiang.com/idoc/introduce/theme/theme-defalut.html
 https://wangchujiang.com/idoc/introduce/theme/variables.html
-https://wangchujiang.com/idoc/introduce/api/command.html
-https://wangchujiang.com/idoc/introduce/api/config.html
 https://wangchujiang.com/idoc/index.html
