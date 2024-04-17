@@ -55,6 +55,18 @@ HTML 元素
 
 下标：包含 <sub>下标</sub>
 
+## 明暗图片
+
+用于明暗主题切换图片实用
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/cheatsheets-foreach-1.dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/cheatsheets-foreach-1.png">
+  <img src="assets/cheatsheets-foreach-1.png" width="466px" />
+</picture>
+```
+
 ## 折叠面板
 
 可以折叠/展开的内容区域。
@@ -78,7 +90,6 @@ HTML 元素
 ```
 
 </details>
-
 
 ## 分组
 
