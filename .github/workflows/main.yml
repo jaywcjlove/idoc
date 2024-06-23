@@ -61,6 +61,7 @@ jobs:
         if: steps.create_tag.outputs.successful
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
           name: ${{ steps.create_tag.outputs.version }}
           tag: ${{ steps.create_tag.outputs.version }}
           body: |
