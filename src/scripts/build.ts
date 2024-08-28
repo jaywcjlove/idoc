@@ -8,10 +8,11 @@ import { cacheFile } from '../utils/cacheFileStat.js';
 import { createSitemap } from '../utils/createSitemap.js';
 
 export function getOutput(filepath: string = '') {
-  filepath =
-    path.basename(filepath).toLocaleLowerCase() === 'readme.md'
-      ? path.resolve(path.dirname(filepath), 'index.html')
-      : filepath;
+  filepath = /(README)\.?(\w+)?\.(md|markdown)$/i.test(path.basename(filepath).toLocaleLowerCase())
+    ? path.resolve(filepath).replace(/(README)\.?(\w+)?\.(md|markdown)$/i, (match, p1, p2) => {
+        return `index${p2 ? '.' + p2 : ''}.html`;
+      })
+    : filepath;
   filepath = filepath.replace(/\.(md|markdown)$/, '.html');
   let relativePath = '';
   if (isIncludesDocs(filepath)) {

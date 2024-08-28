@@ -21,7 +21,10 @@ export function getFormatChapter(chapter: Record<string, string>, current?: stri
       .replace(/\.(md|markdown)/i, '.html')
       .split(path.sep)
       .join('/')
-      .replace(/\/(README).html$/i, '/index.html');
+      // .replace(/\/(README).html$/i, '/index.html')
+      .replace(/\/(README)\.?(\w+)?\.html$/i, (match, p1, p2) => {
+        return `/index${p2 ? '.' + p2 : ''}.html`;
+      });
     obj.raw = key.replace(new RegExp(`(\/|\)$`, 'g'), '');
     obj.label = chapter[key];
     obj.isFolder = !obj.to.endsWith('.html') && !/^https?:\/\//.test(key);
@@ -33,7 +36,10 @@ export function getFormatChapter(chapter: Record<string, string>, current?: stri
         .relative(path.dirname(current), obj.to)
         .split(path.sep)
         .join('/')
-        .replace(/\/(README).(html|md|markdown)$/i, '/index.html');
+        // .replace(/\/(README).(html|md|markdown)$/i, '/index.html')
+        .replace(/\/(README)\.?(\w+)?\.(html|md|markdown)$/i, (match, p1, p2) => {
+          return `/index${p2 ? '.' + p2 : ''}.html`;
+        });
     }
   });
   return obj;
