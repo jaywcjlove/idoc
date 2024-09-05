@@ -104,8 +104,8 @@ footer: |
 
 ## Add Markdown files that are not in the specified directory.
 # -----------------------
-# sideEffectFiles:
-#   - README.zh.md
+sideEffectFiles:
+  - README.zh.md
 
 
 giscus: 

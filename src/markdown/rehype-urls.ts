@@ -17,11 +17,11 @@ export default function rehypeUrls(node: Root | RootContent, fromPath: string) {
           .join('/')
           .replace(/([^\.\/\\]+)\.(md|markdown)/gi, '$1.html');
       }
-      if (/\/(README)\.?(\w+)?\.(md|markdown)$/i.test(href)) {
+      if (/(README)\.?(\w+)?\.(md|markdown)$/i.test(href)) {
         node.properties.href = href
           .toLocaleLowerCase()
-          .replace(/\/(README)\.?(\w+)?\.(md|markdown)$/i, (match, p1, p2) => {
-            return `/index${p2 ? '.' + p2 : ''}.html`;
+          .replace(/(README)\.?(\w+)?\.(md|markdown)$/i, (match, p1, p2) => {
+            return `index${p2 ? '.' + p2 : ''}.html`;
           });
       } else {
         node.properties.href = href.replace(/([^\.\/\\]+)\.(md|markdown)/gi, '$1.html');
