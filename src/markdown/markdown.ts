@@ -12,6 +12,7 @@ import rehypeMinifyWhitespace from 'rehype-minify-whitespace';
 import rehypeStringify from 'rehype-stringify';
 import rehypeRaw from 'rehype-raw';
 import ignore from 'rehype-ignore';
+import rehypeVideo from 'rehype-video';
 import rehypeFormat from 'rehype-format';
 import { getCodeString } from 'rehype-rewrite';
 import slug from 'rehype-slug';
@@ -86,6 +87,17 @@ export async function createHTML(mdStr: string = '', fromPath: string, toPath: s
       {
         openDelimiter: 'idoc:ignore:start',
         closeDelimiter: 'idoc:ignore:end',
+      },
+    ],
+    [
+      rehypeVideo,
+      {
+        test: (url: string) => {
+          return (
+            /\/(.*)(.mp4|.mov)$/i.test(url.replace(/(\?|!|\#|$).+/g, '').toLocaleLowerCase()) ||
+            (/\.(mp4|mov)|[?&]rehype=video/i.test(url) && /https:\/\/github.com\//.test(url))
+          );
+        },
       },
     ],
     [slug],

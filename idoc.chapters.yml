@@ -18,6 +18,7 @@
 - markdown/: 基础
 - markdown/basic-syntax.md: 基本语法
 - markdown/insert-img.md: 插入图片
+- markdown/insert-video.md: 插入视频
 - markdown/: 高级技巧
 - markdown/line-html.md: HTML 元素
 - markdown/extended-syntax.md: 扩展语法
