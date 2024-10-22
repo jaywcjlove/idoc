@@ -24,6 +24,7 @@ jobs:
 
       - run: npm install
       - run: npm run build
+      - run: npm run type-check
       - run: npm install
       - run: npm run build:doc
 
@@ -45,5 +46,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build
+      - run: npm run type-check
       - run: npm install
       - run: npm run build:doc
