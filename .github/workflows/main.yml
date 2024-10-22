@@ -17,7 +17,7 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      - run: npm install
+      - run: yarn install
       - run: npm run build
 
       - name: build document
