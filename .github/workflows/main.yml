@@ -22,11 +22,8 @@ jobs:
       - run: npm install
       - run: npm run build:doc
 
-      - name: build document
-        working-directory: examples/document
-        run: |
-          ls -al
-          cp schema dist
+      - working-directory: examples/document
+        run: cp schema dist
 
       - name: Generate Contributors Images
         uses: jaywcjlove/github-action-contributors@main
@@ -39,7 +36,7 @@ jobs:
         id: create_tag
         uses: jaywcjlove/create-tag-action@main
         with:
-          package-path: ./core/package.json
+          package-path: ./packages/core/package.json
 
       - name: get tag version
         id: tag_version
