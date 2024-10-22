@@ -19,10 +19,11 @@ jobs:
 
       - run: npm install
       - run: npm run build
-      - run: npm run build:doc
-      - run: cp schema dist
+
+      - name: build document
         working-directory: examples/document
-      
+        run: npm run build && cp schema dist
+
       - name: Generate Contributors Images
         uses: jaywcjlove/github-action-contributors@main
         with:
