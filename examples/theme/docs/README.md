@@ -6,3 +6,7 @@ Create a [idoc](https://github.com/jaywcjlove/idoc) site using the beautiful the
 npx idoc init my-app
 npx idoc
 ```
+
+<!--idoc:config:
+layout: home.ejs
+-->
