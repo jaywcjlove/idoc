@@ -22,7 +22,10 @@ jobs:
 
       - name: build document
         working-directory: examples/document
-        run: npm run build && cp schema dist
+        run: |
+          ls -al
+          npm run build
+          cp schema dist
 
       - name: Generate Contributors Images
         uses: jaywcjlove/github-action-contributors@main
