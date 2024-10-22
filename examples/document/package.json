@@ -27,6 +27,6 @@
     "node": ">=16.0.0"
   },
   "devDependencies": {
-    "idoc": "^1.33.2"
+    "idoc": "1.33.2"
   }
 }
