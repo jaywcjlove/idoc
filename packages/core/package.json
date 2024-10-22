@@ -70,7 +70,7 @@
     "ejs": "^3.1.6",
     "fs-extra": "~11.2.0",
     "image2uri": "^2.0.0",
-    "inquirer": "^9.0.0",
+    "inquirer": "^12.0.0",
     "micromatch": "^4.0.5",
     "minimist": "~1.2.6",
     "recursive-readdir-files": "^2.3.0",
