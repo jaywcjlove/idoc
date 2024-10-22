@@ -7,7 +7,7 @@
     "start": "idoc -w",
     "build": "idoc"
   },
-  "devDependencies": {
+  "dependencies": {
     "idoc": "1.33.2"
   }
 }
