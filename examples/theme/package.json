@@ -1,6 +1,6 @@
 {
   "name": "theme",
-  "version": "0.0.1",
+  "version": "1.33.3",
   "description": "template document.",
   "license": "MIT",
   "scripts": {
@@ -8,6 +8,6 @@
     "build": "idoc"
   },
   "dependencies": {
-    "idoc": "1.33.2"
+    "idoc": "1.33.3"
   }
 }
