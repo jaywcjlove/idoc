@@ -19,6 +19,9 @@ jobs:
 
       - run: npm install
       - run: npm run build
+        working-directory: core
+      - run: npm run doc
+        working-directory: examples/document
       - run: cp schema dist
         working-directory: examples/document
       
