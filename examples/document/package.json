@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "private": true,
+  "name": "document",
+  "version": "1.33.2",
+  "description": "Simple document generation tool. Dependence Node.js run.",
+  "homepage": "https://jaywcjlove.github.io/idoc/",
+  "author": "kenny wang <wowohoo@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/idoc.git"
+  },
+  "keywords": [
+    "idoc",
+    "markdown",
+    "api",
+    "document",
+    "tool"
+  ],
+  "scripts": {
+    "start": "idoc -w",
+    "doc": "idoc",
+    "build": "idoc"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "idoc": "^1.33.2"
+  }
+}

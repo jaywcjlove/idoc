@@ -9,6 +9,8 @@ lerna-debug.log
 yarn-error.log
 package-lock.json
 
+.idoc
+
 .DS_Store
 .cache
 .vscode
