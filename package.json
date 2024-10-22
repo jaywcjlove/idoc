@@ -16,8 +16,8 @@
     "tool"
   ],
   "scripts": {
-    "build": "lerna exec --scope idoc -- npm run build",
-    "build:doc": "lerna exec --scope document -- npm run build",
+    "build": "npm --workspace=idoc run build",
+    "build:doc": "npm --workspace=document run build",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "prettier": "prettier --write --ignore-unknown \"**/*.{js,ts,css,json}\"",
     "type-check": "tsc --noEmit",

@@ -19,12 +19,12 @@ jobs:
 
       - run: npm install
       - run: npm run build
+      - run: npm run build:doc
 
       - name: build document
         working-directory: examples/document
         run: |
           ls -al
-          npm run build
           cp schema dist
 
       - name: Generate Contributors Images
