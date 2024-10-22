@@ -33,6 +33,7 @@
     "examples/*"
   ],
   "devDependencies": {
+    "idoc": "^1.33.2",
     "lerna": "^8.1.8",
     "husky": "^9.0.11",
     "lint-staged": "^15.0.0",
