@@ -24,6 +24,7 @@ jobs:
 
       - run: npm install
       - run: npm run build
+      - run: npm run build:doc
 
   Ubuntu:
     name: Ubuntu Node.js ${{ matrix.node-version }}
@@ -43,3 +44,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build
+      - run: npm run build:doc
