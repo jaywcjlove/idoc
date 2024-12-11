@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
   "name": "document",
-  "version": "1.33.3",
+  "version": "1.33.4",
   "description": "Simple document generation tool. Dependence Node.js run.",
   "homepage": "https://jaywcjlove.github.io/idoc/",
   "author": "kenny wang <wowohoo@qq.com>",
@@ -27,6 +27,6 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "idoc": "1.33.3"
+    "idoc": "1.33.4"
   }
 }
