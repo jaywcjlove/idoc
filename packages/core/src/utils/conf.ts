@@ -191,7 +191,7 @@ export class Conf {
       this.data.openSource = pkg.repository || this.data.openSource;
       this.data.homepage = pkg.homepage || this.data.homepage;
     }
-    const data = autoConf<Config>('idoc', {
+    const data = await autoConf<Config>('idoc', {
       searchPlaces: ['idoc.yml', '.idoc.yml'],
       ignoreLog: true,
     });
@@ -232,7 +232,7 @@ export class Conf {
     return this.data;
   }
   async getChaptersConf() {
-    const data = autoConf<Config['chapters']>('idoc.chapters', {
+    const data = await autoConf<Config['chapters']>('idoc.chapters', {
       cwd: this.data.root,
       searchPlaces: ['idoc.chapters.yml', '.idoc.chapters.yml'],
       ignoreLog: true,

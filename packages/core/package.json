@@ -65,7 +65,7 @@
     "@types/minimist": "~1.2.2",
     "@uiw/formatter": "~2.0.0",
     "@wcj/markdown-to-html": "^3.0.0",
-    "auto-config-loader": "^1.7.4",
+    "auto-config-loader": "^2.0.0",
     "chokidar": "^4.0.0",
     "ejs": "^3.1.6",
     "fs-extra": "~11.2.0",
