@@ -218,7 +218,9 @@ export class Conf {
     if (data) {
       this.initScope();
     }
-    this.data.site = this.data.site?.replace('{{version}}', `<sup>${this.data.version}</sup>`);
+    this.data.site = this.data.site
+      ?.replace('{{version}}', `<sup>${this.data.version}</sup>`)
+      .replace(/{{version:(.*?)}}/g, `<sup>$1</sup>`);
 
     await cacheFile.init(this.data.cacheFileStat);
     await cacheFile.load();

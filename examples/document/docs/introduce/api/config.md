@@ -187,6 +187,7 @@ site: iDoc
 
 ```yml
 site: iDoc {{version}}
+site: iDoc {{version:v1.2.3}}
 ```
 
 可以使用 `idoc --site "iDoc {{version}}"` 命令参数配置网站名称，他们的权重 `idoc.yml` -> `package.json` -> `idoc -s`
