@@ -83,6 +83,6 @@ jobs:
       - name: 📦 idoc publish to NPM
         run: npm publish --access public --provenance
         continue-on-error: true
-        working-directory: core
+        working-directory: packages/core
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
