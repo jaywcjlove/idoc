@@ -58,11 +58,6 @@
     ]
   },
   "dependencies": {
-    "@types/ejs": "^3.1.0",
-    "@types/fs-extra": "~11.0.0",
-    "@types/inquirer": "^9.0.0",
-    "@types/micromatch": "^4.0.2",
-    "@types/minimist": "~1.2.2",
     "@uiw/formatter": "~2.0.0",
     "@wcj/markdown-to-html": "^3.0.0",
     "auto-config-loader": "^2.0.0",
@@ -83,5 +78,12 @@
     "rehype-video": "^2.3.0",
     "remark-github-blockquote-alert": "^1.1.0",
     "yaml": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.0",
+    "@types/fs-extra": "~11.0.0",
+    "@types/inquirer": "^9.0.0",
+    "@types/micromatch": "^4.0.2",
+    "@types/minimist": "~1.2.2"
   }
 }

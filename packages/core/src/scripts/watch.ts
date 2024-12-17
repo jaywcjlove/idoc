@@ -22,6 +22,10 @@ export function watch() {
   });
 
   watcher.on('change', async (filepath, stats) => {
+    if (filepath instanceof Error) {
+      log.log('\x1b[31midoc:watch:\x1b[0m')(filepath.message);
+      return;
+    }
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
     // Modify Theme files
     if (config.data.config.conf === filepath) {
@@ -57,12 +61,20 @@ export function watch() {
   });
 
   watcher.on('add', async (filepath) => {
+    if (filepath instanceof Error) {
+      log.log('\x1b[31midoc:watch:\x1b[0m')(filepath.message);
+      return;
+    }
     watcher.add(filepath);
     if (/\.(md|markdown)/i.test(filepath)) {
       await compilation(filepath);
     }
   });
   watcher.on('unlink', async (filepath) => {
+    if (filepath instanceof Error) {
+      log.log('\x1b[31midoc:watch:\x1b[0m')(filepath.message);
+      return;
+    }
     watcher.unwatch(filepath);
     const isTheme = new RegExp(`^${config.data.theme}`).test(filepath);
     if (/\.(md|markdown)$/i.test(filepath)) {
