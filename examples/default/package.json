@@ -1,6 +1,6 @@
 {
   "name": "dev",
-  "version": "1.34.0",
+  "version": "1.34.1",
   "description": "dev document.",
   "license": "MIT",
   "scripts": {
@@ -8,6 +8,6 @@
     "build": "idoc"
   },
   "dependencies": {
-    "idoc": "1.34.0"
+    "idoc": "1.34.1"
   }
 }
