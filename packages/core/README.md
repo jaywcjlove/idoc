@@ -10,8 +10,6 @@ idoc
 [![npm Downloads](https://img.shields.io/npm/dm/idoc?style=flat)](https://www.npmjs.com/package/idoc)
 [![npm Downloads](https://img.shields.io/npm/dy/idoc?style=flat)](https://www.npmjs.com/package/idoc)
 
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
-
 Generate static pages from all Markdown in a folder.
 
 ```bash
