@@ -30,14 +30,14 @@ export async function init(folder: string) {
       name: 'dir',
       default: 'docs',
       message: 'Modify the specified document directory location',
-      filter: (input) => path.resolve(initFolder, input || 'docs'),
+      filter: (input: string) => path.resolve(initFolder, input || 'docs'),
     },
     {
       type: 'input',
       name: 'output',
       default: 'dist',
       message: 'Modify the specified output static page directory location',
-      filter: (input) => path.resolve(initFolder, input || 'dist'),
+      filter: (input: string) => path.resolve(initFolder, input || 'dist'),
     },
   ]);
 
