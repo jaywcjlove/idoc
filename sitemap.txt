@@ -3,8 +3,8 @@ https://wangchujiang.com/idoc/awesome.html
 https://wangchujiang.com/idoc/markdown.html
 https://wangchujiang.com/idoc/markdown/index.html
 https://wangchujiang.com/idoc/markdown/basic-syntax.html
-https://wangchujiang.com/idoc/markdown/insert-img.html
 https://wangchujiang.com/idoc/markdown/extended-syntax.html
+https://wangchujiang.com/idoc/markdown/insert-img.html
 https://wangchujiang.com/idoc/markdown/insert-video.html
 https://wangchujiang.com/idoc/markdown/line-html.html
 https://wangchujiang.com/idoc/introduce/index.html
@@ -15,8 +15,8 @@ https://wangchujiang.com/idoc/introduce/getting-started/home.html
 https://wangchujiang.com/idoc/introduce/getting-started/installation.html
 https://wangchujiang.com/idoc/introduce/getting-started/publish.html
 https://wangchujiang.com/idoc/introduce/getting-started/site-add.html
-https://wangchujiang.com/idoc/introduce/getting-started/site-preparation.html
 https://wangchujiang.com/idoc/introduce/getting-started/site-creation.html
+https://wangchujiang.com/idoc/introduce/getting-started/site-preparation.html
 https://wangchujiang.com/idoc/introduce/theme/templates.html
 https://wangchujiang.com/idoc/introduce/theme/theme-defalut.html
 https://wangchujiang.com/idoc/introduce/theme/variables.html
