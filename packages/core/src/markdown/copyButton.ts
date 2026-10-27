@@ -22,14 +22,14 @@ export function copyButton(): Element {
     tagName: 'div',
     properties: {
       onclick: 'copied(this)',
-      className: 'copied',
+      className: ['copied'],
     },
     children: [
       {
         type: 'element',
         tagName: 'svg',
         properties: {
-          className: 'octicon-copy',
+          className: ['octicon-copy'],
           ariaHidden: 'true',
           viewBox: '0 0 16 16',
           fill: 'currentColor',
@@ -61,7 +61,7 @@ export function copyButton(): Element {
         type: 'element',
         tagName: 'svg',
         properties: {
-          className: 'octicon-check',
+          className: ['octicon-check'],
           ariaHidden: 'true',
           viewBox: '0 0 16 16',
           fill: 'currentColor',
